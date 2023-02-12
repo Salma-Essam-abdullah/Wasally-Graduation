@@ -1,38 +1,234 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body{
+    font-family: 'Merriweather', serif;
+ 
+     background-color: #042931;
+     color: #fff !important;
+ 
+ }
+ 
+ .contactLink{
+     text-decoration: none;
+     
+ }
+ .contactLink:hover{
+     color: rgba(255,255,255,.75);
+ }
+ .contactLink img{
+     width: 13px;
+   
+     margin-left: 10px;
+ }
+ 
+ .green{
+     color: #A6C903;
+ }
+ 
+ .navBar .bg-dark{
+     background-color: #042931 !important;
+ }
+ 
+ 
+ .navBar .navbar-expand-lg .navbar-nav .nav-link{
+     padding-right: 2.3rem;
+ }
+ 
+ .main{
+     margin-top: 25px;
+ }
+ .main img{
+     width: 100%;
+     height: 80%;
+     border-radius: 15%;
+ }
+ .main a{
+     text-decoration: none;
+     color: #fff;
+     
+ }
+ 
+  .right img{
+     width: 27px;
+     height: 36px;
+     margin-left: 10px;
+     margin-bottom: 5px;
+  
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+ 
+  .right:hover{
+     color: rgba(255,255,255,.75);
+ 
   }
-  to {
-    transform: rotate(360deg);
+ 
+  .main .shortNote{
+     line-height: 35px;
   }
-}
+ 
+  .navBar p{
+     font-size: 13px;
+     font-weight: 600;
+  }
+ 
+  .whiteBox{
+     background-color: #fff;
+     color: #042931;
+     padding: 50px;
+  }
+  .blackBox{
+     padding: 50px;
+  }
+  .reasons{
+     width: 75%;
+     margin: auto;
+  }
+ 
+  .reasons img{
+     width: 25%;
+    margin-bottom: 20px;
+  }
+ 
+  .brand img{
+     width: 90%;
+  }
+ 
+  .faq{
+     margin-top: 90px;
+     line-height: 3rem;
+  }
+  .faq a{
+     text-decoration: none;
+     color: #fff;
+  }
+ 
+  .faq img{
+     width: 70%;
+     margin-top: 30px;
+  }
+  @media screen and (max-width: 500px) {
+     .faq imge{
+        display: none;
+      }
+      /* .formContact{
+         display: none;
+      } */
+  }
+ 
+ 
+ 
+ 
+  .faq hr{
+     border: 1px solid #A6C903;
+     opacity: 1;
+  }
+ 
+ .faq button{
+     background-color: #A6C903;
+     color: #fff;
+     border: none;
+     border-radius: 5px;
+     margin-top: 20px;
+     font-weight: 500;
+     width: auto;
+ }
+ 
+ 
+ .contact{
+     margin-top: 90px;
+     background-color: #A6C903;
+     color: #042931;
+     padding: 50px;
+ 
+ }
+ 
+ .contact img{
+     width: 30px; 
+ }
+ 
+ .contact h4{
+     display: inline;
+     margin-left: 15px;
+  
+ }
+ .contact span{
+     margin-bottom: 20px;
+ }
+ 
+ .contact p{
+     margin-top: 15px;
+     margin-bottom: 20px;
+ }
+ 
+ 
+ 
+ .contact .formContact {
+ 
+     padding: 30px;
+     background-color: #fff;
+     color: #042931;
+     text-align: center;
+     
+ 
+ }
+ 
+ 
+ .contact .formContact input{
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 20px;
+     border: none;
+     border-bottom: 1px solid #A6C903;
+     outline: none;
+     
+ }
+ 
+ 
+ 
+ .contact .formContact button{
+     background-color: #A6C903;
+     color: #fff;
+     border: none;
+     padding: 5px 20px;
+     border-radius: 5px;
+     margin-top: 20px;
+     font-weight: 600;
+   
+ }
+ 
+ .footer{
+     margin-top: 70px;
+     padding: 70px 40px 70px 40px;
+ }
+ 
+ .footer li{
+     list-style: none;
+   
+ }
+ 
+ .footer ul{
+     margin-bottom: 30px;
+ }
+ .footer a{
+     text-decoration: none;
+     color: #fff;
+ }
+ .footer p{
+        margin-bottom: 0px;
+ }
+ 
+ footer {
+     background-color: #A6C903;
+     color: #042931;
+     padding: 20px;
+     text-align: center;
+     padding-bottom: 0;
+     
+ }
+ 
+ footer li{
+     list-style: none;
+     display: inline;
+     margin-right: 20px;
+ }
+ 
+ footer img{
+     width: 20px;
+ }

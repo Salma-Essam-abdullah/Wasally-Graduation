@@ -121,15 +121,23 @@ body{
   }
  
  .faq button{
-     background-color: #A6C903;
-     color: #fff;
-     border: none;
-     border-radius: 5px;
-     margin-top: 20px;
-     font-weight: 500;
-     width: auto;
+    background-color: #A6C903;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    width: auto;
+    padding: 10px 20px;
+   transition: all 1s;
+
  }
  
+    .faq button:hover{
+        background-color: #fff;
+        color: #042931;
+    }
  
  .contact{
      margin-top: 90px;
@@ -183,16 +191,27 @@ body{
  
  
  .contact .formContact button{
-     background-color: #A6C903;
-     color: #fff;
-     border: none;
-     padding: 5px 20px;
-     border-radius: 5px;
-     margin-top: 20px;
-     font-weight: 600;
-   
+    background-color: #A6C903;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    width: auto;
+    padding: 10px 20px;
+   transition: all 1s;
  }
  
+
+.contact .formContact button:hover{
+background-color: #fff;
+color: #042931;
+
+
+}
+
+
  .footer{
      margin-top: 70px;
      padding: 70px 40px 70px 40px;
@@ -232,3 +251,65 @@ body{
  footer img{
      width: 20px;
  }
+
+
+ .userForm{
+        padding:50px;  
+ }
+
+ .userForm form{
+    margin-top: 50px; 
+ }
+
+    .userForm label{
+          
+      font-size: 20px;
+    }
+
+    .userForm input:focus {
+        background-color: #042931;
+        color: #fff;
+      }
+ .userForm input{
+      
+        border-radius: 20px;
+        background-color: #08485580;
+        border: solid 1px #86868680;
+        display: inline-block;
+ }
+
+    .userForm   input,
+input::placeholder {
+    font: 18px sans-serif;
+    color: #fff !important;
+    opacity: 0.8;
+
+   
+}
+
+.userForm .group{
+    margin-bottom: 30px;
+
+}
+
+.userForm button{
+        background-color: #A6C903;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: 500;
+        width: auto;
+        padding: 10px 20px;
+         transition: all 1s;
+     
+        
+}
+
+
+.userForm button:hover{
+    background-color: #fff;
+    color: #042931;
+    
+}

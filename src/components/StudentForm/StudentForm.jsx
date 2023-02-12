@@ -7,7 +7,6 @@ export default class StudentForm extends Component {
     return (
       <>
       <Navbar/>
-    
     <section className="userForm">
     <div className="container">
     <h3 className='text-center'><span className='green'>S</span>TUDENT</h3>
@@ -64,7 +63,6 @@ export default class StudentForm extends Component {
   <input type="text"  className="form-control" placeholder='Governate Id' name='governateId'/>
 </div> 
 </div>
-
 
 
 <div className="row g-3 align-items-center group">

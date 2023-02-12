@@ -266,10 +266,17 @@ color: #042931;
       font-size: 20px;
     }
 
-    .userForm input:focus {
+    .userForm input,select:focus {
         background-color: #042931;
         color: #fff;
       }
+
+      .userForm textarea:focus {
+        background-color: #042931;
+        color: #fff;
+      }
+
+      
  .userForm input{
       
         border-radius: 20px;
@@ -278,7 +285,18 @@ color: #042931;
         display: inline-block;
  }
 
-    .userForm   input,
+
+ .userForm textarea{
+      
+    border-radius: 20px;
+    background-color: #08485580;
+    border: solid 1px #86868680;
+    display: inline-block;
+}
+
+
+
+    .userForm   input
 input::placeholder {
     font: 18px sans-serif;
     color: #fff !important;
@@ -287,9 +305,47 @@ input::placeholder {
    
 }
 
+    .userForm textarea
+textarea::placeholder {
+    font: 18px sans-serif;
+    color: #fff !important;
+    opacity: 0.8;
+ 
+}
+
+
+
+    
+
+
+.userForm   select
+select::placeholder {
+    font: 18px sans-serif;
+    color: #fff !important;
+    opacity: 0.8;
+
+   
+}
+
+
+
+
+
 .userForm .group{
     margin-bottom: 30px;
 
+}
+
+.userForm select{
+    width: 100%;
+    padding: 10px;
+
+    
+    outline: none;
+    background-color: #08485580;
+    color: #fff;
+  
+    border-radius: 20px;
 }
 
 .userForm button{
@@ -307,9 +363,37 @@ input::placeholder {
         
 }
 
+.userForm select option{
+    background-color: #084855;
+    color: #fff;
+  
+}
+
 
 .userForm button:hover{
     background-color: #fff;
     color: #042931;
     
+}
+
+.userForm textarea{
+    color: #fff;
+}
+
+
+.userForm .border{
+    border:1px solid #666666 !important;
+    padding-bottom:0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    
+}
+
+
+.shippmentDetails{
+    margin-top: 20px;
+  
 }

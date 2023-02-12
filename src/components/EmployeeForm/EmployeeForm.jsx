@@ -12,70 +12,70 @@ export default class EmployeeForm extends Component {
     <h3 className='text-center'><span className='green'>E</span>MPLOYEE</h3>
     <h4>Add Your Information</h4>
     <form action="">
-    <div class="row g-3 align-items-center group">
-<div class="col-lg-2">
-  <label for="nationalId" class="col-form-label">National ID : </label>
+    <div className="row g-3 align-items-center group">
+<div className="col-lg-2">
+  <label htmlFor="nationalId" className="col-form-label">National ID : </label>
 </div>
-<div class="col-lg-10">
-  <input type="text" i class="form-control " name='nationalId' placeholder='National ID' />
-</div>
-
+<div className="col-lg-10">
+  <input type="text"  className="form-control " name='nationalId' placeholder='National ID' />
 </div>
 
-<div class="row g-3 align-items-center group">
-<div class="col-lg-2">
-  <label for="dateOfBirth" class="col-form-label">Date Of Birth : </label>
 </div>
-<div class="col-lg-10">
-  <input type="date" i class="form-control" name="dateOfBirth" placeholder='Day' />
+
+<div className="row g-3 align-items-center group">
+<div className="col-lg-2">
+  <label htmlFor="dateOfBirth" className="col-form-label">Date Of Birth : </label>
+</div>
+<div className="col-lg-10">
+  <input type="date" className="form-control" name="dateOfBirth" placeholder='Day' />
 </div>
 </div>
 
-<div class="row g-3 align-items-center group">
-<div class="col-lg-2">
-  <label for="phoneNumber" class="col-form-label">Phone Number : </label>
+<div className="row g-3 align-items-center group">
+<div className="col-lg-2">
+  <label htmlFor="phoneNumber" className="col-form-label">Phone Number : </label>
 </div>
-<div class="col-lg-10">
-  <input type="number" i class="form-control" placeholder='Phone Number' name='phoneNumber' />
+<div className="col-lg-10">
+  <input type="number"  className="form-control" placeholder='Phone Number' name='phoneNumber' />
 </div> 
 </div>
 
-<div class="row g-3 align-items-center group">
-<div class="col-lg-2">
-  <label for="city" class="col-form-label">City : </label>
+<div className="row g-3 align-items-center group">
+<div className="col-lg-2">
+  <label htmlFor="city" className="col-form-label">City : </label>
 </div>
-<div class="col-lg-5">
-  <input type="text" i class="form-control" placeholder='City Name' name='cityName' />
+<div className="col-lg-5">
+  <input type="text"  className="form-control" placeholder='City Name' name='cityName' />
 </div> 
-<div class="col-lg-5">
-  <input type="text" i class="form-control" placeholder='City Id' name='cityId'/>
-</div> 
-</div>
-
-<div class="row g-3 align-items-center group">
-<div class="col-lg-2">
-  <label for="governate" class="col-form-label">Governate : </label>
-</div>
-<div class="col-lg-5">
-  <input type="text" i class="form-control" placeholder='Governate Name' name='governateame' />
-</div> 
-<div class="col-lg-5">
-  <input type="text" i class="form-control" placeholder='Governate Id' name='governateId'/>
+<div className="col-lg-5">
+  <input type="text"  className="form-control" placeholder='City Id' name='cityId'/>
 </div> 
 </div>
 
-
-
-<div class="row g-3 align-items-center group">
-<div class="col-lg-2">
-  <label for="employeeCompanyId" class="col-form-label"> Employee Company ID: </label>
+<div className="row g-3 align-items-center group">
+<div className="col-lg-2">
+  <label htmlFor="governate" className="col-form-label">Governate : </label>
 </div>
-<div class="col-lg-10">
-  <input type="file" i class="form-control"  name='employeeCompanyId' />
+<div className="col-lg-5">
+  <input type="text"  className="form-control" placeholder='Governate Name' name='governateame' />
+</div> 
+<div className="col-lg-5">
+  <input type="text"  className="form-control" placeholder='Governate Id' name='governateId'/>
 </div> 
 </div>
 
-<button type="submit" class="btn">SAVE</button>
+
+
+<div className="row g-3 align-items-center group">
+<div className="col-lg-2">
+  <label htmlFor="employeeCompanyId" className="col-form-label"> Employee Company ID: </label>
+</div>
+<div className="col-lg-10">
+  <input type="file"  className="form-control"  name='employeeCompanyId' />
+</div> 
+</div>
+
+<button type="submit" className="btn">SAVE</button>
      </form>
      </div>
       </section>

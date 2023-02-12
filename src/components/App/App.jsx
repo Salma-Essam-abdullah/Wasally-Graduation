@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Routes, Route } from "react-router-dom";
-import UserForm from '../../UserForm/UserForm';
+import UserForm from '../UserForm/UserForm';
 import EmployeeForm from '../EmployeeForm/EmployeeForm';
 import Home from "../Home/Home";
 import Navbar from '../Navbar/Navbar';

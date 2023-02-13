@@ -266,7 +266,7 @@ color: #042931;
       font-size: 20px;
     }
 
-    .userForm input,select:focus {
+    .userForm input:focus {
         background-color: #042931;
         color: #fff;
       }
@@ -283,6 +283,7 @@ color: #042931;
         background-color: #08485580;
         border: solid 1px #86868680;
         display: inline-block;
+        color: #fff;
  }
 
 
@@ -348,6 +349,7 @@ select::placeholder {
     border-radius: 20px;
 }
 
+
 .userForm button{
         background-color: #A6C903;
         color: #fff;
@@ -362,6 +364,21 @@ select::placeholder {
      
         
 }
+
+.shippmentDetails button{
+    background-color: #A6C903;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: 500;
+        width: auto;
+        padding: 10px 20px;
+         transition: all 1s;
+     
+}
+
 
 .userForm select option{
     background-color: #084855;

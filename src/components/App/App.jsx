@@ -6,6 +6,7 @@ import Home from "../Home/Home";
 import Navbar from '../Navbar/Navbar';
 import StudentForm from '../StudentForm/StudentForm';
 import DetailsOfShippmentUser from '../DetailsOfShippmentUser/DetailsOfShippmentUser';
+import DetailsOfShipmentOfUser1 from '../DetailsOfShipmentOfUser1/DetailsOfShipmentOfUser1';
 export default class App extends Component {
   render() {
     return (
@@ -18,6 +19,8 @@ export default class App extends Component {
               <Route path="/studentform" element={<StudentForm />} />
               <Route path="/employeeform" element={<EmployeeForm />} />
               <Route path="/detailspfshippmentuser" element={<DetailsOfShippmentUser />} />
+              <Route path="/detailspfshippmentuser1" element={<DetailsOfShipmentOfUser1 />} />
+
 
               </Routes>
         

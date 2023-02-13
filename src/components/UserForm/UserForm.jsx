@@ -65,8 +65,10 @@ export default class UserForm extends Component {
     <input type="text"  className="form-control" placeholder='Governate Id' name='governateId'/>
   </div> 
 </div>
-
+<div className="col-lg-12 text-center">
 <button type="submit" className="btn">SAVE</button>
+      </div>
+
 
        </form>
        </div>

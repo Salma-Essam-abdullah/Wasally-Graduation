@@ -85,8 +85,9 @@ export default class StudentForm extends Component {
 </div>
 
 
+<div className="col-lg-12 text-center">
 <button type="submit" className="btn">SAVE</button>
-
+      </div>
      </form>
      </div>
       </section>

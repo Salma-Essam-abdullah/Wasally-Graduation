@@ -75,7 +75,9 @@ export default class EmployeeForm extends Component {
 </div> 
 </div>
 
+<div className="col-lg-12 text-center">
 <button type="submit" className="btn">SAVE</button>
+      </div>
      </form>
      </div>
       </section>

@@ -8,6 +8,7 @@ import StudentForm from '../StudentForm/StudentForm';
 import DetailsOfShippmentUser from '../DetailsOfShippmentUser/DetailsOfShippmentUser';
 import DetailsOfShipmentOfUser1 from '../DetailsOfShipmentOfUser1/DetailsOfShipmentOfUser1';
 import DetailsOfShippmentUser2 from '../DetailsOfShippmentUser2/DetailsOfShippmentUser2';
+import DetailsOfShipmentOfUser3 from '../DetailsOfShipmentOfUser3/DetailsOfShipmentOfUser3';
 export default class App extends Component {
   render() {
     return (
@@ -22,6 +23,7 @@ export default class App extends Component {
               <Route path="/detailspfshippmentuser" element={<DetailsOfShippmentUser />} />
               <Route path="/detailspfshippmentuser1" element={<DetailsOfShipmentOfUser1 />} />
               <Route path="/detailspfshippmentuser2" element={<DetailsOfShippmentUser2 />} />
+              <Route path="/detailspfshippmentuser3" element={<DetailsOfShipmentOfUser3 />} />
 
 
               </Routes>

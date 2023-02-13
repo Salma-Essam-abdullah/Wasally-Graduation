@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
 
-export default class DetailsOfShipmentOfUser1 extends Component {
+export default class DetailsOfShippmentUser2 extends Component {
   render() {
     return (
       <>
@@ -145,13 +145,13 @@ export default class DetailsOfShipmentOfUser1 extends Component {
      </form>
   
       </section>
-    
+     
+      
       </div>
       <div className="col-lg-12 text-center">
-      <button type='button' >BACK</button>
+      <button type='button' >ACCEPT SHIPMENT</button>
 
       </div>
-      
       </div>
       
       </div>

@@ -379,6 +379,12 @@ select::placeholder {
      
 }
 
+.shippmentDetails button:hover{
+   
+        background-color: #fff;
+        color: #042931;
+   
+}
 
 .userForm select option{
     background-color: #084855;

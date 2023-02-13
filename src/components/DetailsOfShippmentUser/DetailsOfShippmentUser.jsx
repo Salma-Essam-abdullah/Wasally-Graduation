@@ -42,7 +42,7 @@ export default class DetailsOfShippmentUser extends Component {
    <label htmlFor="date" className="col-form-label">Date : </label>
  </div>
  <div className="col-lg-8">
-   <input type="date"  className="form-control" placeholder='Date' name='date'/>
+   <input type="date"  className="form-control" placeholder='Date' name='date' defaultValue='2023-02-05'/>
  </div> 
 </div>
 

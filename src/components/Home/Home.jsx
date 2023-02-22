@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
-import Navbar from '../Navbar/Navbar'
+// import Navbar from '../Navbar/Navbar'
 
 export default class Home extends Component {
   render() {
     return (
       <>
-      <Navbar/>
+      {/* <Navbar/> */}
 
         <div>
   <section className="main">
@@ -21,14 +21,14 @@ export default class Home extends Component {
       </div>
       <div className="row">
         <div className="offset-md-1 col-sm-12 col-md-5 ">
-          <img className="mt-3 p-3" src={require('../../assets/images/main.png')}alt="delivery" />
+          <img className="mt-3 p-3" src={require('../../assets/images/homeimg.png')}alt="delivery" />
         </div>
         <div className=" text-center offset-md-1 col-sm-12 col-md-4">
           <p className=" mt-5 shortNote">W<span className="green">ASALLY</span> is a social network that 
             connects Shoppers with Travellers. 
             Shoppers can buy all their needs from all around the world and ship with a Traveller already heading 
             their way. Shoppers save money shipping &amp; Travellers make money travelling.</p>
-          <a className="right mt-5" href> <h2 className="mt-4"><span className="green">GET</span> STARTED  <img src={require('../../assets/images/right-arrow.png')}alt=""get started /></h2></a>
+          <a className="right mt-5" href='./Register'> <h2 className="mt-4"><span className="green">GET</span> STARTED  <img src={require('../../assets/images/right-arrow.png')}alt=""get started /></h2></a>
         </div>
       </div>
     </div>
@@ -109,7 +109,7 @@ export default class Home extends Component {
           <button>HAVE MORE QUESTIONS ?</button>
         </div>
         <div className="col-3">
-          <img src={require('../../assets/images/customer-service.png')} alt="customer service" />
+          <img src={require('../../assets/images/commentator.png')} alt="customer service" />
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ export default class Navbar extends Component {
             <section className="navBar " >
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
     <div className="container-fluid ">
-      <Link  to="/" className="navbar-brand" ><span className="green">W</span>ASALLY <span><p className="green">Ship with a Fellow Traveller</p></span></Link>  
+      <Link  to="/" className="navbar-brand ms-4" ><span className="green ms-4">W</span>ASALLY <span><p className="green">Ship with a Fellow Traveller</p></span></Link>  
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon" />
       </button>

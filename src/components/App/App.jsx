@@ -13,14 +13,19 @@ import UserDetails1 from '../UserDetails1/UserDetails1';
 import DetailsOfShippmentUser4 from '../DetailsOfShipmentOfUser4/DetailsOfShipmentOfUser4';
 import UserDetails2 from '../UserDetails2/UserDetails2';
 import TripDetails from '../TripDetails/TripDetails';
+import Register from '../Register/Register';
+import Login from '../Login/Login';
 export default class App extends Component {
   render() {
     return (
       <>
+      <Navbar/>
           
               <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Navbar />} />
+              <Route path='/Register'  element={<Register />} />
               <Route path="/userform" element={<UserForm />} />
               <Route path="/studentform" element={<StudentForm />} />
               <Route path="/employeeform" element={<EmployeeForm />} />
@@ -29,10 +34,12 @@ export default class App extends Component {
               <Route path="/detailspfshippmentuser2" element={<DetailsOfShippmentUser2 />} />
               <Route path="/detailspfshippmentuser3" element={<DetailsOfShipmentOfUser3 />} />
               <Route path="/detailspfshippmentuser4" element={<DetailsOfShippmentUser4 />} />
-
               <Route path="/userdetails1" element={<UserDetails1 />} />
               <Route path="/userdetails2" element={<UserDetails2 />} />
               <Route path="/tripdetails" element={<TripDetails />} />
+              <Route path="/Login" element={<Login />} />
+
+
 
 
 

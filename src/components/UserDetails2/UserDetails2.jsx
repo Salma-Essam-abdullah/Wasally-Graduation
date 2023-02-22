@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
-import Navbar from '../Navbar/Navbar'
+// import Navbar from '../Navbar/Navbar'
 
 export default class UserDetails2 extends Component {
   render() {
     return (
 
         <>
-      <Navbar/>
+      {/* <Navbar/> */}
       <section className="shippmentDetails">
       <div className="container">
       <div className="row">

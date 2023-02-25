@@ -445,3 +445,18 @@ select::placeholder {
     border-radius: 20px;
     padding: 20px;
 }
+
+
+.userForm input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 0.8; /* Firefox */
+  }
+
+
+  .userForm textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 0.8; /* Firefox */
+  }
+  
+
+    

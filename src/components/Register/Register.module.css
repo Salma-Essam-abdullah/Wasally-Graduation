@@ -13,7 +13,9 @@
     -webkit-user-select: none;
     touch-action: manipulation;
   }
-  
+  h1{
+    margin-bottom: 40px;
+  }
   .test:before {
     content: "";
     background: linear-gradient(
@@ -68,10 +70,28 @@
   .userRegister input{
     border-radius: 20px;
     background-color: #08485580;
+    color: #fff;
     border: solid 1px #86868680;
 
     
 }
+.userRegister input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 0.8; /* Firefox */
+}
+
+.userRegister input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+.userRegister input::-ms-input-placeholder { /* Microsoft Edge */
+  color: #fff;
+}
+.userRegister input:focus {
+  background-color: #042931;
+  color: #fff;
+}
+
 ::-webkit-input-placeholder {
   text-align: center;
 }

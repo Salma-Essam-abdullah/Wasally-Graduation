@@ -73,6 +73,30 @@
     /* width: 500px;
     margin-left: 175px; */
 }
+
+
+.userLogin input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 0.8; /* Firefox */
+}
+
+.userLogin input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+.userLogin input::-ms-input-placeholder { /* Microsoft Edge */
+  color: #fff;
+}
+.userLogin input:focus {
+  background-color: #042931;
+  color: #fff;
+}
+h1{
+  margin-bottom: 40px;
+}
+
+
+
 ::-webkit-input-placeholder {
     text-align: center;
   }

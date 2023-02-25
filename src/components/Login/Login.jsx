@@ -54,7 +54,7 @@ export default function Login  ()  {
 
               <div className='col-lg-6 offset-lg-3'>
               {/* <label htmlFor="email" className='mb-3' >Email</label> */}
-              <input onChange={getUser} type="email" className='form-control  mb-4'placeholder="Enter your Valied Email"  name='email' />
+              <input onChange={getUser} type="email" className='form-control  mb-4'placeholder="Enter your Valid Email"  name='email' />
               </div>
 
               <div className='col-lg-6 offset-lg-3'>

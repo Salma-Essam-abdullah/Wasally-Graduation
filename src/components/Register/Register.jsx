@@ -3,58 +3,78 @@ import Joi from 'joi';
 import React, { useState } from 'react'
 import style from "./Register.module.css"
 // import Footer from '../Footer/Footer'
-
+import { useNavigate } from 'react-router';
 
 export default function Register() {
 
-    let [errorList , seterrorList]=useState([]);
-    // let[err,setError]=useState('');
-    let[Loading,setLoading] =useState(false)
-    
-    let [user , setUser]=useState({
-        name:'',email:'',password:'',confirm_password:''});
+  let navigate = useNavigate();
+  let [errorList , setErrorList] = useState([])
+  let [error,setError] = useState('');
+  let [loading,setLoading] = useState(false)
+  let [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword:''
 
-
-    function getUser(e)
-    {
-        let myUser = {...user};
-        myUser[e.target.name]=e.target.value;
-        setUser(myUser);
-        console.log(myUser)
+  });
+  function getUser(e){
+    let myUser = {...user};
+    myUser[e.target.name] = e.target.value;
+    setUser(myUser);
+   
+  }
+  async function formSubmit(e){
+    e.preventDefault();
+    let validationResponse = validationRegisterForm();
+    console.log(validationResponse);
+    if(validationResponse.error){ 
+      setLoading(false)
+      setErrorList(validationResponse.error.details)
+      return;
     }
 
-    async function formSubmit(e){
-      e.preventDefault();
-      setLoading(true);
-      let validationResponse= validateRegisterForm();
-      if(validationResponse.error){
-        seterrorList(validationResponse.error.details)
-        console.log(validationResponse)
+    setLoading(true);
+    await axios.post(`http://localhost:3000/v1/auth/register`,user).then(
+      res => {
+       
         setLoading(false);
-        //validation error
-      }
-      else{
-      let {data} = await axios.post(``,user);
-      if(data.message==='success'){
+        setError('');
+        setErrorList([]);
+ 
+        navigate('/login')
         
-      }
-      else{
-        setLoading(false);
-        // setError(data.message)
-      }
-          }
-    }
+      })
+    .catch(err => {
+      setLoading(false);
+      let errorMessage = err.response.data.message;
+     let errMsg =  errorMessage.replace(/['"]/g, '');
+         setError (errMsg);
+  }
+  );
+}
 
-      function validateRegisterForm(){
-        let scheme = Joi.object({
-          name:Joi.string().min(3).max(10).required(),
-          email:Joi.string().email ({tlds: { allow: ['com', 'net'] } }).required(),
-          password:Joi.string().pattern(new RegExp('^[A-Z][a-z]{2,8}$')),
-          confirm_password:Joi.string().required().valid(Joi.ref('password')),
+const password = (value, helpers) => {
+  if (value.length < 8) {
+    return helpers.message('password must be at least 8 characters');
+  }
+  if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
+    return helpers.message('password must contain at least 1 letter and 1 number');
+  }
+  return value;
+};
 
-        });
-        return scheme.validate(user , {abortEarly:false});
-      }
+
+
+function validationRegisterForm(){
+  let scheme = Joi.object({
+    name: Joi.string().required(),
+    email: Joi.string().email({ tlds: { allow: ['com', 'net'] } }).required(),
+    password: Joi.string().required().custom(password),
+    confirmPassword : Joi.string().required().valid(Joi.ref('password')).messages({'any.only': 'confirm password must be same as password'})
+  });
+ return scheme.validate(user,{abortEarly:false});
+}
 
   return (
     
@@ -63,10 +83,24 @@ export default function Register() {
     <div className='row'>     
          <div className=' w-75 mx-auto py-4'>
          <h1 className='text-center  '><span style={{ color: "#D3FF00" }}>CREATE</span>  A NEW ACCOUNT</h1>
+         {
+        error &&
+        <div className="alert alert-danger">
+          {error}
+        </div>
+        }
+
+{
+  errorList.map((err)=>{
+    return <div className="alert alert-danger">
+    {err.message}
+  </div>
+  }
+  )
+}
          <form onSubmit={formSubmit} className={style.userRegister}>
 
-          {errorList.map((error,index)=>index===(3&&4)?<div className='alert alert-danger p-1'>"confirm_password" is not allowed"</div>:<div className='alert alert-danger'>{error.message}</div>) }
-
+       
 
             <div className='my-2 col-lg-6 offset-lg-3 '>
             {/* <label htmlFor="name" > Name</label> */}
@@ -76,7 +110,7 @@ export default function Register() {
 
             <div className='my-2 col-lg-6 offset-lg-3'>
             {/* <label htmlFor="email">Email</label> */}
-            <input onChange={getUser} type="email" className='form-control mb-4'placeholder="Enter Your Valied Email"  name='email' />
+            <input onChange={getUser} type="email" className='form-control mb-4'placeholder="Enter Your Valid Email"  name='email' />
             </div>
 
             <div className='my-2 col-lg-6 offset-lg-3'>
@@ -86,10 +120,10 @@ export default function Register() {
 
             <div className='my-2 col-lg-6 offset-lg-3'>
             {/* <label htmlFor="confirm_password">Confirm Password</label> */}
-            <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Confirm Password"  name='confirm_password' />
+            <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Confirm Password"  name='confirmPassword' />
             </div>
             <div   className='mt-3 d-flex justify-content-center align-items-center flex-column'>
-            <button type="submit" className={style.test}>{Loading ?<i className='fas fa-spinner '></i>:'Register'} </button>
+            <button type="submit" className={style.test}>{loading ?<i className='fas fa-spinner fa-spin'></i>:'Register'} </button>
             <br />
             <span className="login ">
                 <a  className='text-light' href="login" title="login" id="link-reset">Already have account  </a>

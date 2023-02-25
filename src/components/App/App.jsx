@@ -15,6 +15,8 @@ import UserDetails2 from '../UserDetails2/UserDetails2';
 import TripDetails from '../TripDetails/TripDetails';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import Chat from '../Chat/Chat';
+import Slider from '../Slider/Slider';
 export default class App extends Component {
   render() {
     return (
@@ -38,6 +40,10 @@ export default class App extends Component {
               <Route path="/userdetails2" element={<UserDetails2 />} />
               <Route path="/tripdetails" element={<TripDetails />} />
               <Route path="/Login" element={<Login />} />
+              <Route path="/Chat" element={<Chat />} />
+              <Route path="/Slider" element={<Slider />} />
+
+
 
 
 

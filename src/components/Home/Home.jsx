@@ -28,7 +28,7 @@ export default class Home extends Component {
             connects Shoppers with Travellers. 
             Shoppers can buy all their needs from all around the world and ship with a Traveller already heading 
             their way. Shoppers save money shipping &amp; Travellers make money travelling.</p>
-          <a className="right mt-5" href='./Register'> <h2 className="mt-4"><span className="green">GET</span> STARTED  <img src={require('../../assets/images/right-arrow.png')}alt=""get started /></h2></a>
+          <a className="right mt-5" href='./Register'> <h2 className="mt-4"><span className="green">GET</span> STARTED  <i class="fa-solid fa-angles-right"></i>  </h2></a>
         </div>
       </div>
     </div>
@@ -127,8 +127,7 @@ export default class Home extends Component {
           <div className="row">
             <div className="col-md-6 col-sm-12">
               <span><img src={require('../../assets/images/location.png')} alt="location" /><h4>LOCATION</h4></span>
-              <p>121 Rock Sreet, 21 Avenue, New York, NY 92103-9000
-              </p>
+              <p> Alexandria | Egypt   .Smouha </p>
             </div>
           </div>
           <div className="row">

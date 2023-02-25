@@ -2,6 +2,8 @@ import axios from 'axios';
 import Joi from 'joi';
 import React, { useState } from 'react'
 import style from "./Register.module.css"
+// import Footer from '../Footer/Footer'
+
 
 export default function Register() {
 
@@ -57,31 +59,32 @@ export default function Register() {
   return (
     
     <>
-    <div className=' container'>        
+    <div className=' container'> 
+    <div className='row'>     
          <div className=' w-75 mx-auto py-4'>
-         <h1 className='text-center'><span style={{ color: "#D3FF00" }}>CREATE</span>  A NEW ACCOUNT</h1>
+         <h1 className='text-center  '><span style={{ color: "#D3FF00" }}>CREATE</span>  A NEW ACCOUNT</h1>
          <form onSubmit={formSubmit} className={style.userRegister}>
 
           {errorList.map((error,index)=>index===(3&&4)?<div className='alert alert-danger p-1'>"confirm_password" is not allowed"</div>:<div className='alert alert-danger'>{error.message}</div>) }
 
 
-            <div className='my-2'>
+            <div className='my-2 col-lg-6 offset-lg-3 '>
             {/* <label htmlFor="name" > Name</label> */}
-            <input onChange={getUser} type="text" className='form-control mb-4 'placeholder="Enter your Fname"  name='name' />
+            <input onChange={getUser} type="text" className='form-control mb-4'placeholder="Enter Your Name"  name='name' />
             </div>
 
 
-            <div className='my-2'>
+            <div className='my-2 col-lg-6 offset-lg-3'>
             {/* <label htmlFor="email">Email</label> */}
-            <input onChange={getUser} type="email" className='form-control mb-4'placeholder="Enter your Valied Email"  name='email' />
+            <input onChange={getUser} type="email" className='form-control mb-4'placeholder="Enter Your Valied Email"  name='email' />
             </div>
 
-            <div className='my-2'>
+            <div className='my-2 col-lg-6 offset-lg-3'>
             {/* <label htmlFor="password">Password</label> */}
             <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Enter Password"  name='password' />
             </div>
 
-            <div className='my-2'>
+            <div className='my-2 col-lg-6 offset-lg-3'>
             {/* <label htmlFor="confirm_password">Confirm Password</label> */}
             <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Confirm Password"  name='confirm_password' />
             </div>
@@ -95,9 +98,10 @@ export default function Register() {
 
          </form>
         </div>
+      </div>  
         </div>
 
-
+        {/* <Footer/> */}
     </>
   )
 }

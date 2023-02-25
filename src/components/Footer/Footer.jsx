@@ -10,13 +10,13 @@ export default class Footer extends Component {
   <section className="footer">
     <div className="container">
       <div className="row">
-        <div className="col-md-4">
+        <div className=" col-lg-4  text-lg-start">
           <h4>Shipped</h4>
-          <p>Our global logistics expertise, advanced
-            supply chain technology &amp; customized
-            logistics solutions will help you</p>
+          <p>Our global logistics expertise,<br />advanced
+            supply chain technology &
+             customized <br /> logistics solutions will help you</p>
         </div>
-        <div className="col-md-2">
+        <div className="col-lg-2 text-center">
           <ul>
             <li><h4>Company</h4></li>
             <li><a href="#">About Us</a></li>
@@ -25,7 +25,7 @@ export default class Footer extends Component {
             <li><a href="#">Our Blog</a></li>
             <li><a href="#">Contact Us</a></li>
           </ul></div>
-        <div className="col-md-2">
+        <div className="col-lg-2 text-center">
           <ul>
             <li><h4>Support</h4></li>
             <li><a href="#">FAQ</a></li>
@@ -34,7 +34,7 @@ export default class Footer extends Component {
             <li><a href="#">Shipping Policy</a></li>
           </ul>
         </div>
-        <div className="col-md-2">
+        <div className="col-lg-2 text-center">
           <ul>
             <li> <h4>Contact Us</h4></li>
             <li><a href="#">Website</a></li>
@@ -42,7 +42,7 @@ export default class Footer extends Component {
             <li><a href="#">Whatsapp</a></li>
           </ul>
         </div>
-        <div className="col-md-2">
+        <div className="col-lg-2 text-center">
           <ul>
             <li> <h4>Office</h4></li>
             <li><p>Smouha - Alexandria </p></li>
@@ -56,10 +56,10 @@ export default class Footer extends Component {
   <footer>
     <div className="container">
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-lg-6">
           <p>© 2023 Wasally inc. All Rights Reserved.</p>
         </div>
-        <div className="col-md-6">
+        <div className="col-lg-6">
           <ul>
             <li><a href="https://www.facebook.com/" target={'_blank'}><img src={require('../../assets/images/facebook.png')} alt="facebook" /></a></li>
             <li><a href="https://www.instagram.com/" target={'_blank'}><img src={require('../../assets/images/instagram.png')} alt="instagram" /></a></li>

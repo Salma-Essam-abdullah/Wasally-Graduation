@@ -70,8 +70,8 @@
     border-radius: 20px;
     background-color: #08485580;
     border: solid 1px #86868680;
-    width: 500px;
-    margin-left: 175px;
+    /* width: 500px;
+    margin-left: 175px; */
 }
 ::-webkit-input-placeholder {
     text-align: center;

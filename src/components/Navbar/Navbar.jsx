@@ -31,7 +31,7 @@ export default class Navbar extends Component {
           </li>
         </ul>
         <ul className="navbar-nav ">
-          <Link to="/home" className="nav-link contactLink">CONTACT US <img src={require('../../assets/images/up-right-arrow.png')} alt="contact us" /></Link> 
+          <Link to="/home" className="nav-link contactLink">CONTACT US <i class="fa-solid fa-arrow-trend-up"></i></Link> 
         </ul>
       </div>
     </div>

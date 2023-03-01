@@ -24,7 +24,7 @@ export default class Navbar extends Component {
             <Link to="/home" className="nav-link" >TRIPS</Link>
           </li>
           <li className="nav-item">
-            <Link to="/home" className="nav-link">PROFILE</Link>
+            <Link to="/profile" className="nav-link">PROFILE</Link>
           </li>
           <li className="nav-item">
             <Link to="/home" className="nav-link">MEDIA</Link>

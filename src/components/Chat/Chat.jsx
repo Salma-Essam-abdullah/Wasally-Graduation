@@ -15,11 +15,6 @@ const Chat = () => {
                         <h1 className='bg-primary'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptates hic nostrum aliquam numquam ratione ab neque, repudiandae laudantium pariatur sed deleniti a eaque, odit magnam esse soluta dolorum. Doloremque!</h1>
                     </div>
                 </div>                
-                <div className='col-lg-4' >
-                    <div>
-                        <h1 className='bg-primary'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptates hic nostrum aliquam numquam ratione ab neque, repudiandae laudantium pariatur sed deleniti a eaque, odit magnam esse soluta dolorum. Doloremque!</h1>
-                    </div>
-                </div>
 
             </div>
         </div>

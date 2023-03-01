@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
+import { Link } from 'react-router-dom'
 // import Navbar from '../Navbar/Navbar'
 
 export default class Home extends Component {
@@ -28,7 +29,7 @@ export default class Home extends Component {
             connects Shoppers with Travellers. 
             Shoppers can buy all their needs from all around the world and ship with a Traveller already heading 
             their way. Shoppers save money shipping &amp; Travellers make money travelling.</p>
-          <a className="right mt-5" href='./Register'> <h2 className="mt-4"><span className="green">GET</span> STARTED  <i class="fa-solid fa-angles-right"></i>  </h2></a>
+            <Link to="/register"> <h2 className="mt-4"><span className="green">GET</span> STARTED  <i class="fa-solid fa-angles-right"></i>  </h2> </Link>
         </div>
       </div>
     </div>

@@ -1,43 +1,71 @@
+import axios from 'axios';
 import Joi from 'joi';
 import React, { useState } from 'react'
 import style from "./Login.module.css"
-export default function Login  ()  {
-    let [errorList , seterrorList]=useState([]);
+import { useNavigate } from 'react-router';
 
+export default function Login  ()  {
+    let navigate = useNavigate();
+    let [errorList , seterrorList]=useState([]);
+    let [error,setError] = useState('');
+    let [loading,setLoading] = useState(false)
     let [user , setUser]=useState({email:'',password:''});
 
 
-    function getUser(e)
+     function getUser(e)
     {
         let myUser = {...user};
         myUser[e.target.name]=e.target.value;
         setUser(myUser);
     }
 
-    function formSubmit(e){
-        e.preventDefault();
-        let validationResponse= validateRegisterForm();
-        if(validationResponse.error){
-  
-          seterrorList(validationResponse.error.details)
-  
-          console.log(validationResponse)
-          //validation error
-        }
-        else{
-          // but api register data
-        }
-
-        function validateRegisterForm(){
-            let scheme = Joi.object({
-              email:Joi.string().email ({tlds: { allow: ['com', 'net'] } }).required(),
-              password:Joi.string().pattern(new RegExp('^[A-Z][a-z]{2,8}$')),
-    
-            });
-            return scheme.validate(user , {abortEarly:false});
-          }
-        
+    async function formSubmit(e){
+      e.preventDefault();
+      let validationResponse = validationRegisterForm();
+      console.log(validationResponse);
+      if(validationResponse.error){ 
+        setLoading(false)
+        seterrorList(validationResponse.error.details)
+        return;
       }
+  
+      setLoading(true);
+      await axios.post(`http://localhost:3000/v1/auth/login`,user).then(
+        res => {
+         
+          setLoading(false);
+          setError('');
+          seterrorList([]);
+   
+          navigate('/request')
+          
+        })
+      .catch(err => {
+        setLoading(false);
+        let errorMessage = err.response.data.message;
+       let errMsg =  errorMessage.replace(/['"]/g, '');
+           setError (errMsg);
+    }
+    );
+  }
+
+  const password = (value, helpers) => {
+    if (value.length < 8) {
+      return helpers.message('password must be at least 8 characters');
+    }
+    if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
+      return helpers.message('password must contain at least 1 letter and 1 number');
+    }
+    return value;
+  };
+
+  function validationRegisterForm(){
+    let scheme = Joi.object({
+      email: Joi.string().email({ tlds: { allow: ['com', 'net'] } }).required(),
+      password: Joi.string().required().custom(password),
+    });
+   return scheme.validate(user,{abortEarly:false});
+  }
 
     return (
         <>
@@ -45,12 +73,24 @@ export default function Login  ()  {
       <div className="row">      
           <div className=' w-75 mx-auto py-4'>
           <h1 className='text-center mb-4'><span style={{ color: "#D3FF00" }}>LOGIN</span>  NOW</h1>
+          {
+        error &&
+        <div className="alert alert-danger">
+          {error}
+        </div>
+        }
 
+{
+  errorList.map((err)=>{
+    return <div className="alert alert-danger">
+    {err.message}
+  </div>
+  }
+  )
+}
+          
           <section className={style.userLogin}>
           <form onSubmit={formSubmit}>
-
-            {errorList.map((error,index)=>  index===4&&5?<div className='alert alert-danger p-1'>"confirm_password" is not allowed"</div>:
-            <div className='alert alert-danger'>{error.message}</div>)}
 
               <div className='col-lg-6 offset-lg-3'>
               {/* <label htmlFor="email" className='mb-3' >Email</label> */}
@@ -64,7 +104,7 @@ export default function Login  ()  {
 
               <div className=' d-flex justify-content-center align-items-center flex-column  '>
               
-              <button type="submit" className={style.test}>Log in</button>
+              <button type="submit" className={style.test}>{loading ?<i className='fas fa-spinner fa-spin'></i>:'Login'} </button>
               <br />
               <span className="register ">
                   <p> Don't have an account yet ?</p>

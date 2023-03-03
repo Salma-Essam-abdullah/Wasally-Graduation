@@ -64,11 +64,6 @@ export default function Profile2() {
                 <br />
                 <br />
 
-                
-
-
-
-
 
                 </div>
             </div>                

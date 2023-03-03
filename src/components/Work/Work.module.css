@@ -19,24 +19,21 @@
   .traingle1:hover {
     transform: scale(1.04);
   }
-  
-   /* .traingle1 h5 {
-    
-    font-size: 30px;
+  .text1 h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-0%, -200%);
+    rotate: 270deg;
     color: white;
-    text-decoration: none;
-    padding: 10px 30px;
-    border-radius: 20px;
-    text-transform: uppercase;
-  } */
 
+  } 
+  
 /* ///////traingle 2////// */
   .traingle2 body {
     display: grid;
     place-items: center;
     height: 100vh;
-    /* transform: rotate(90deg); */
-    
   }
   
   .traingle2  {
@@ -56,21 +53,16 @@
     transform: scale(1.04);
   }
   
-   /* .traingle2 h5 {
-    
-    font-size: 30px;
-    color: white;
-    text-decoration: none;
-    padding: 10px 30px;
-    border-radius: 20px;
-    text-transform: uppercase;
-  } */
-
   .work h3{
     margin-top: 115%;
     color: #D3FF00;
   }
 
-  .ayhaga h5{
-    z-index: 3;
+  .text2 h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, 200%);
+    rotate: 90deg;
+    color: white;
   } 

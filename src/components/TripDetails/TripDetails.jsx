@@ -11,7 +11,7 @@ export default class TripDetails extends Component {
         <div className="container">
         <div className="row">
         <div className="col-md-6 col-sm-12">
-            <img src={require('../../assets/images/car.png')} alt="" />
+            <img src={require('../../assets/images/addtrip.jpg')} alt="" />
         </div>
    
   

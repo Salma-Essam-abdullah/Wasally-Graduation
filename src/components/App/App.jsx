@@ -19,6 +19,7 @@ import Chat from '../Chat/Chat';
 import Slider from '../Slider/Slider';
 import Request from '../Request/Request'
 import Profile from '../Profile/Profile';
+import Profile2 from '../Profile2/Profile2';
 import Work from '../Work/Work';
 export default class App extends Component {
   render() {
@@ -47,6 +48,7 @@ export default class App extends Component {
               <Route path="/Slider" element={<Slider />} />
               <Route path="/request" element={<Request />} />
               <Route path="/Profile" element={<Profile />} />
+              <Route path="/Profile2" element={<Profile2 />} />
               <Route path="/Work" element={<Work/>} />
 
 

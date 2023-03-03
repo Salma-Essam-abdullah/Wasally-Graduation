@@ -52,8 +52,10 @@ export default class Footer extends Component {
         </div>
       </div>
     </div>
+
   </section>
   <footer>
+    
     <div className="container">
       <div className="row">
         <div className="col-lg-6">

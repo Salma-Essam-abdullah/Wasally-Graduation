@@ -1,10 +1,10 @@
 import React from 'react'
 import profileImg from '../../assets/images/profile.png'
-import style from './Profile.module.css'
+import style from './Profile2.module.css'
 import { Link } from 'react-router-dom'
 
 
-export default function Profile() {
+export default function Profile2() {
 
 
   return (
@@ -16,6 +16,13 @@ export default function Profile() {
                 <div>
                     <img className='img-thumbnail p-lg-0 border-0' src={profileImg} alt="profile img" />
                     <div className={style} >
+                        
+                        <div >
+                        <Link to="/"> <button  className=" btn btn-light  mt-4 w-100">Requests</button></Link>
+                        </div>
+                        <div >
+                        <Link to="/tripdetails"> <button  className=" btn btn-light  mt-4 w-100">Add Trip</button></Link>
+                        </div>
                         <div >
                         <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy Something</button></Link>
                         </div>
@@ -55,9 +62,11 @@ export default function Profile() {
                         <h5  className='col-lg-6'>CITY : <span className='ms-5 '> Name:Cairo  <span className='ms-5'> ID:38978</span> </span> </h5>
                     </div>
                 <br />
-               <div >
-               <Link to="/work"> <button className=' className= btn btn-light offset-lg-4 mb-4  w-25 '>Do You Want To Work With Us ?</button></Link>
-               </div>
+                <br />
+                <h5  className='col-lg-6'>Student Id/Work Id : <span className='ms-5 '> id_file.pdf</span> </h5>
+
+                
+
 
 
 

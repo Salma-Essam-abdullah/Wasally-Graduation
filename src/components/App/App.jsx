@@ -17,7 +17,8 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Chat from '../Chat/Chat';
 import Slider from '../Slider/Slider';
-import Request from '../Request/Request'
+import Request from '../Requests/Request'
+import Request2 from '../Requests/Request2'
 import Profile from '../Profile/Profile';
 import Profile2 from '../Profile2/Profile2';
 import Work from '../Work/Work';
@@ -46,12 +47,12 @@ export default class App extends Component {
               <Route path="/Login" element={<Login />} />
               <Route path="/Chat" element={<Chat />} />
               <Route path="/Slider" element={<Slider />} />
-              <Route path="/request" element={<Request />} />
+        
               <Route path="/Profile" element={<Profile />} />
               <Route path="/Profile2" element={<Profile2 />} />
               <Route path="/Work" element={<Work/>} />
-
-
+              <Route path="/request" element={<Request />} />
+              <Route path="/request2" element={<Request2 />} />
 
 
 

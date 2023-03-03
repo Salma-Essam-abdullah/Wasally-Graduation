@@ -63,7 +63,6 @@ export default function Profile2() {
                     </div>
                 <br />
                 <br />
-                <h5  className='col-lg-6'>Student Id/Work Id : <span className='ms-5 '> id_file.pdf</span> </h5>
 
                 
 

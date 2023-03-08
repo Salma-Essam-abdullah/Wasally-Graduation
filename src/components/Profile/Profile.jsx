@@ -1,18 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import profileImg from '../../assets/images/profile.png'
 import style from './Profile.module.css'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios'
+import jwtDecode from 'jwt-decode';
 
 export default function Profile() {
+    const [profileData , setProfileDate] = useState([]);
+    let encodedToken = localStorage.getItem('userToken');
+    let userData =  jwtDecode(encodedToken);
 
+let userId = userData.sub;
+
+
+async function getProfile(){
+    axios.get(`http://localhost:3000/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+        (response)=>{
+            console.log(response.data)
+            setProfileDate(response.data)
+
+        }
+    ).catch(
+        (error)=>{
+            console.log(error)
+
+        }
+    )
+}
+useEffect(()=>{
+    getProfile();
+    
+    },[]);
 
   return (
     <>
     <section className={style.profile}>
     <div className="container">
         <div className='row g-3'>
-            <div className='col-lg-2 ' >
+            <div className='col-lg-2 '>
                 <div>
                     <img className='img-thumbnail p-lg-0 border-0' src={profileImg} alt="profile img" />
                     <div className={style} >
@@ -20,16 +45,15 @@ export default function Profile() {
                         <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy Something</button></Link>
                         </div>
                         <div >
-                        <Link to="/userdetails1"> <button className=' className=" btn btn-light  mt-4 w-100'>Deliver Something</button></Link>
+                        <Link to="/userdetails1"> <button className= "btn btn-light  mt-4 w-100">Deliver Something</button></Link>
                         </div>
 
                     </div>
                 </div>
             </div>
-           
             <div className='col-lg-9 offset-lg-1 ' >
                 <div className='col-lg-8 '>
-                    <h3  className=''>YOUSSIEF <span  style={{fontSize:15}}><i class="fa-solid fa-location-dot offset-lg-4"></i>  Cairo - Egypt</span> </h3>
+                    <h3  className=''> {profileData.name} <span  style={{fontSize:15}}><i class="fa-solid fa-location-dot offset-lg-4"></i>  Cairo - Egypt</span> </h3>
                     <h4>National ID : 30102515866255975</h4>
                 </div>
                 <hr />
@@ -42,7 +66,7 @@ export default function Profile() {
                 <br />
                 <h5  className='col-lg-6'>Address : <span className='ms-5'> Cairo-Egypt </span> </h5>
                 <br />
-                <h5  className='col-lg-6'>Email : <span className='ms-5'> Youssief@gmail.com </span> </h5>
+                <h5  className='col-lg-6'>Email : <span className='ms-5'>  {profileData.email} </span> </h5>
                 <br />
                 <br />
                 <h5 className='fw-bold text-decoration-underline'>Basic Information</h5>
@@ -58,10 +82,6 @@ export default function Profile() {
                <div >
                <Link to="/work"> <button className=' className= btn btn-light offset-lg-4 mb-4  w-25 '>Do You Want To Work With Us ?</button></Link>
                </div>
-
-
-
-
                 </div>
             </div>                
 

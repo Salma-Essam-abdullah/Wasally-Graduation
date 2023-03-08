@@ -1,22 +1,21 @@
 import axios from 'axios';
 import Joi from 'joi';
 import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom';
 import style from "./Register.module.css"
-import { Link } from 'react-router-dom'
 // import Footer from '../Footer/Footer'
-import { useNavigate } from 'react-router';
 
-export default function Register() {
-
-  let navigate = useNavigate();
+export default function Register(props) {
+  let history = useHistory();
   let [errorList , setErrorList] = useState([])
   let [error,setError] = useState('');
   let [loading,setLoading] = useState(false)
   let [user, setUser] = useState({
     name: '',
     email: '',
-    password: '',
-    confirmPassword:''
+    password: ''
+    // ,
+    // confirmPassword:''
 
   });
   function getUser(e){
@@ -36,14 +35,14 @@ export default function Register() {
     }
 
     setLoading(true);
-    await axios.post(`http://localhost:3000/v1/auth/register`,user).then(
+     await axios.post(`http://localhost:3000/v1/auth/register`,user).then(
       res => {
        
         setLoading(false);
         setError('');
         setErrorList([]);
- 
-        navigate('/login')
+
+       history.push('/login')
         
       })
     .catch(err => {
@@ -72,7 +71,7 @@ function validationRegisterForm(){
     name: Joi.string().required(),
     email: Joi.string().email({ tlds: { allow: ['com', 'net'] } }).required(),
     password: Joi.string().required().custom(password),
-    confirmPassword : Joi.string().required().valid(Joi.ref('password')).messages({'any.only': 'confirm password must be same as password'})
+    //confirmPassword : Joi.string().required().valid(Joi.ref('password')).messages({'any.only': 'confirm password must be same as password'})
   });
  return scheme.validate(user,{abortEarly:false});
 }
@@ -104,32 +103,30 @@ function validationRegisterForm(){
        
 
             <div className='my-2 col-lg-6 offset-lg-3 '>
-            {/* <label htmlFor="name" > Name</label> */}
+         
             <input onChange={getUser} type="text" className='form-control mb-4'placeholder="Enter Your Name"  name='name' />
             </div>
 
 
             <div className='my-2 col-lg-6 offset-lg-3'>
-            {/* <label htmlFor="email">Email</label> */}
+          
             <input onChange={getUser} type="email" className='form-control mb-4'placeholder="Enter Your Valid Email"  name='email' />
             </div>
 
             <div className='my-2 col-lg-6 offset-lg-3'>
-            {/* <label htmlFor="password">Password</label> */}
+          
             <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Enter Password"  name='password' />
             </div>
-
+{/* 
             <div className='my-2 col-lg-6 offset-lg-3'>
-            {/* <label htmlFor="confirm_password">Confirm Password</label> */}
+            
             <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Confirm Password"  name='confirmPassword' />
-            </div>
+            </div> */}
             <div   className='mt-3 d-flex justify-content-center align-items-center flex-column'>
             <button type="submit" className={style.test}>{loading ?<i className='fas fa-spinner fa-spin'></i>:'Register'} </button>
             <br />
             <span className="login ">
-              <Link to="/login">
-              <a  className='text-light' href="login" title="login" id="link-reset">Already have account  </a>
-              </Link>
+                <Link  className='text-light' to="login" title="login" id="link-reset">Already have account  </Link>
              </span>
             </div>
 

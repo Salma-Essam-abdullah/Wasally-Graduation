@@ -1,14 +1,12 @@
 import axios from 'axios';
 import Joi from 'joi';
 import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom';
 import style from "./Login.module.css"
-import { useNavigate } from 'react-router';
-import { Link } from 'react-router-dom'
 
-
-
-export default function Login  ()  {
-    let navigate = useNavigate();
+export default function Login  (props)  {
+ 
+     let history = useHistory();
     let [errorList , seterrorList]=useState([]);
     let [error,setError] = useState('');
     let [loading,setLoading] = useState(false)
@@ -39,8 +37,11 @@ export default function Login  ()  {
           setLoading(false);
           setError('');
           seterrorList([]);
-   
-          navigate('/request')
+          localStorage.setItem('userToken',res.data.tokens.access.token)
+          props.getUserInfo();
+          // navigate('/request')
+          // props.history.push('/request')
+          history.push('/request')
           
         })
       .catch(err => {
@@ -111,14 +112,10 @@ export default function Login  ()  {
               <br />
               <span className="register ">
                   <p> Don't have an account yet ?</p>
-                  <Link to="/Register">
-                  <a  className='text-light' href="Register" title="register" id="link-reset">CREATE AN ACCOUNT </a>
-                  </Link>
+                  <Link className='text-light' to="Register" title="register" id="link-reset">CREATE AN ACCOUNT </Link>
               </span>
               <span className="forgot-password ">
-                <Link to="/fotgotPass">
-                <a  className='text-light' href="no-javascript1.html" title="Forgot Password" id="link-reset">Forgot Password?</a>
-                </Link>
+                  <a  className='text-light' href="no-javascript1.html" title="Forgot Password" id="link-reset">Forgot Password?</a>
               </span>
 
               <hr style={{width: '50%', textAlign: 'center', marginLeft: 0}} />

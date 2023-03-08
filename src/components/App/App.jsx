@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { Route ,Switch, useHistory} from "react-router-dom";
+
 import UserForm from '../UserForm/UserForm';
 import EmployeeForm from '../EmployeeForm/EmployeeForm';
 import Home from "../Home/Home";
@@ -22,48 +23,67 @@ import Request2 from '../Requests/Request2'
 import Profile from '../Profile/Profile';
 import Profile2 from '../Profile2/Profile2';
 import Work from '../Work/Work';
-export default class App extends Component {
-  render() {
+import jwtDecode from 'jwt-decode';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+
+
+
+export default function App() {
+  let history = useHistory();
+  let [loginUser , setLoginUser] = useState(null);
+
+  function getUserInfo(){
+    let encodedToken = localStorage.getItem('userToken');
+   let userData =  jwtDecode(encodedToken);
+   setLoginUser(userData);
+  }
+
+
+  useEffect(()=>{
+    if(localStorage.getItem('userToken')){
+      getUserInfo();
+    }
+  },[])
+
+
+function logOut(){
+  localStorage.removeItem('userToken');
+  setLoginUser(null);
+  history.push('/login');
+
+}
+
     return (
       <>
-      <Navbar/>
-          
-              <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/" element={<Navbar />} />
-              <Route path='/Register'  element={<Register />} />
-              <Route path="/Login" element={<Login />} />
-              <Route path="/userform" element={<UserForm />} />
-              <Route path="/studentform" element={<StudentForm />} />
-              <Route path="/employeeform" element={<EmployeeForm />} />
-              <Route path="/detailspfshippmentuser" element={<DetailsOfShippmentUser />} />
-              <Route path="/detailspfshippmentuser1" element={<DetailsOfShipmentOfUser1 />} />
-              <Route path="/detailspfshippmentuser2" element={<DetailsOfShippmentUser2 />} />
-              <Route path="/detailspfshippmentuser3" element={<DetailsOfShipmentOfUser3 />} />
-              <Route path="/detailspfshippmentuser4" element={<DetailsOfShippmentUser4 />} />
-              <Route path="/userdetails1" element={<UserDetails1 />} />
-              <Route path="/userdetails2" element={<UserDetails2 />} />
-              <Route path="/tripdetails" element={<TripDetails />} />
-              <Route path="/Chat" element={<Chat />} />
-              <Route path="/Slider" element={<Slider />} />
-              <Route path="/Profile" element={<Profile />} />
-              <Route path="/Profile2" element={<Profile2 />} />
-              <Route path="/Work" element={<Work/>} />
-              <Route path="/request" element={<Request />} />
-              <Route path="/request2" element={<Request2 />} />
-
-
-
-
-
-
-
-
-
-              </Routes>
+      <Navbar loginUser={loginUser} logOut={logOut}/>
+    
+   
+              <Switch>
+              <ProtectedRoute path='/userform' component={UserForm}/>
+              <ProtectedRoute path='/employeeform' component={EmployeeForm}/>
+              <ProtectedRoute path='/studentform' component={StudentForm}/>
+              <ProtectedRoute path='/detailspfshippmentuser' component={DetailsOfShippmentUser}/>
+              <ProtectedRoute path='/detailspfshippmentuser1' component={DetailsOfShipmentOfUser1}/>
+              <ProtectedRoute path='/detailspfshippmentuser2' component={DetailsOfShippmentUser2}/>
+              <ProtectedRoute path='/detailspfshippmentuser3' component={DetailsOfShipmentOfUser3}/>
+              <ProtectedRoute path='/detailspfshippmentuser4' component={DetailsOfShippmentUser4}/>
+              <ProtectedRoute path='/userdetails1' component={UserDetails1}/>
+              <ProtectedRoute path='/userdetails2' component={UserDetails2}/>
+              <ProtectedRoute path='/tripdetails' component={TripDetails}/>
+              <ProtectedRoute path='/chat' component={Chat}/>
+              <ProtectedRoute path='/slider' component={Slider}/>
+              <ProtectedRoute path='/request' component={Request}/>
+              <ProtectedRoute path='/request2' component={Request2}/>
+              <ProtectedRoute path='/profile' component={Profile}/>
+              <ProtectedRoute path='/profile2' component={Profile2}/>
+              <ProtectedRoute path='/work' component={Work}/>
+              <Route path="/home" ><Home/> </Route>
+              <Route path="/Register" render={(props)=> <Register{...props}/>}  />
+              <Route path="/login"  render={(props)=><Login{...props} getUserInfo={getUserInfo}/>}/>
+              <Route path="/" ><Home/> </Route>
+              </Switch>
         
       </>
     )
   }
-}
+ 

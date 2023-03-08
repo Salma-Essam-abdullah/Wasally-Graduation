@@ -1,25 +1,64 @@
-import React from 'react';
+import React from 'react'
+// import Footer from '../Footer/Footer'
+import style from './Chat.module.css'
 
-const Chat = () => {
-    return (
-        <>
-        <div className='container'>
-            <div className='row justify-content-center'>
-                <div className='col-lg-4' >
-                    <div>
-                        <h1 className='bg-primary'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptates hic nostrum aliquam numquam ratione ab neque, repudiandae laudantium pariatur sed deleniti a eaque, odit magnam esse soluta dolorum. Doloremque!</h1>
-                    </div>
-                </div>
-                <div className='col-lg-4' >
-                    <div>
-                        <h1 className='bg-primary'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptates hic nostrum aliquam numquam ratione ab neque, repudiandae laudantium pariatur sed deleniti a eaque, odit magnam esse soluta dolorum. Doloremque!</h1>
-                    </div>
-                </div>                
 
-            </div>
+
+
+export default function Chat() {
+  return (
+    <>
+
+
+    
+
+    
+    <section className={style.section1}>
+    <div className='container'>
+        <div className='row justify-content-center'>
+        <div className='col-lg-9 m-0 p-0 w-100 h-100'>
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, incidunt!</h1>
+
+
         </div>
-        </>
-    );
-}
+        <div className='col-2 offset-lg-1'>
+            <h1>Lorem ipsum dolor sit amet.</h1>
+        </div>
 
-export default Chat;
+
+        </div>
+    </div>
+    </section>
+
+
+
+    <section>
+    <div className='container'>
+        <div className='row justify-content-center'>
+        <div className='col-lg-9 m-0 p-0 w-100 h-100'>
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, incidunt!</h1>
+            <h1>kbnnb</h1>
+            <h5>dfbdjkbgfnk</h5>
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, incidunt!</h1>
+            <h1>kbnnb</h1>
+            <h5>dfbdjkbgfnk</h5>
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, incidunt!</h1>
+            <h1>kbnnb</h1>
+            <h5>dfbdjkbgfnk</h5>
+
+        </div>
+        <div className='col-2 offset-lg-1'>
+            <h1>Lorem ipsum dolor sit amet.</h1>
+        </div>
+
+
+        </div>
+    </div>
+    </section>
+
+    
+    {/* <Footer/> */}
+</>
+    
+  )
+}

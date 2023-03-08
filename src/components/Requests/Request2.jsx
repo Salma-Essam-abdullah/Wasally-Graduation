@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 import Footer from '../Footer/Footer'
-import personImage from '../../assets/images/per.jpg'
-import personImage1 from '../../assets/images/per1.jpg'
-import personImage2 from '../../assets/images/per2.jpg'
-import personImage3 from '../../assets/images/per3.jpg'
+import personImage from '../../assets/images/pic6.png'
+import personImage1 from '../../assets/images/pic7.png'
+import personImage2 from '../../assets/images/pic8.png'
+import personImage3 from '../../assets/images/pic9.png'
 import { Link } from 'react-router-dom'
 
 
@@ -57,10 +57,10 @@ export default function Request2() {
             <img src={personImage}  alt="person" />
           </div>
           <div className="preview-card__content">
-            <h2 className="preview-card__code">Yehia Hamza</h2>
+            <h2 className="preview-card__code"> Farah Abdelshafy</h2>
    
-            <div className="preview-card__title">Shipment | Shoes</div>
-            <h5 className="previewcardh5 "> <i class="fa-solid fa-train-subway"></i>  From | Northern coast   <span className='space'>  To | Cairo</span></h5>
+            <div className="preview-card__title">Shipment | Dress</div>
+            <h5 className="previewcardh5 "> <i class="fa-solid fa-train-subway"></i>  From |  Cairo   <span className='space'>  To | Suez</span></h5>
             
             <h5 className="previewcardh5">
             <i class="fa-solid fa-coins"></i>
@@ -90,13 +90,13 @@ export default function Request2() {
             <img src={personImage1}  alt="person" />
           </div>
           <div className="preview-card__content">
-            <h2 className="preview-card__code">Yehia Hamza</h2>
-            <div className="preview-card__title">Shipment | Shoes</div>
-            <h5 className="previewcardh5 "> <i class="fa-solid fa-train-subway"></i>  From | Northern coast   <span className='space'>  To | Cairo</span></h5>
+            <h2 className="preview-card__code">Aya Aqil Hamza</h2>
+            <div className="preview-card__title">Shipment | Coat</div>
+            <h5 className="previewcardh5 "> <i class="fa-solid fa-train-subway"></i>  From | Alexandria   <span className='space'>  To | Cairo</span></h5>
             
             <h5 className="previewcardh5">
             <i class="fa-solid fa-coins"></i>
-              Reward Starts from 300 L.E.
+              Reward Starts from 140 L.E.
             </h5>
            
               
@@ -121,12 +121,12 @@ export default function Request2() {
           </div>
           <div className="preview-card__content">
             <h2 className="preview-card__code">Yehia Hamza</h2>
-            <div className="preview-card__title">Shipment | Shoes</div>
-            <h5 className="previewcardh5 "> <i class="fa-solid fa-train-subway"></i>  From | Northern coast   <span className='space'>  To | Cairo</span></h5>
+            <div className="preview-card__title">Shipment | Suit</div>
+            <h5 className="previewcardh5 "> <i class="fa-solid fa-train-subway"></i>  From |  Cairo   <span className='space'>  To | Gouna</span></h5>
             
             <h5 className="previewcardh5">
             <i class="fa-solid fa-coins"></i>
-              Reward Starts from 300 L.E.
+              Reward Starts from 600 L.E.
             </h5>
            
               
@@ -134,7 +134,7 @@ export default function Request2() {
               
               <i class="fa-solid fa-weight-hanging"></i> 
               
-              0.7 KG</h5>
+              1.5 KG</h5>
               
            
           </div>
@@ -151,13 +151,13 @@ export default function Request2() {
             <img src={personImage3}  alt="person" />
           </div>
           <div className="preview-card__content">
-            <h2 className="preview-card__code">Yehia Hamza</h2>
-            <div className="preview-card__title">Shipment | Shoes</div>
-            <h5 className="previewcardh5 "> <i class="fa-solid fa-train-subway"></i>  From | Northern coast   <span className='space'>  To | Cairo</span></h5>
+            <h2 className="preview-card__code">Mohamed Amin</h2>
+            <div className="preview-card__title">Shipment | Bag</div>
+            <h5 className="previewcardh5 "> <i class="fa-solid fa-train-subway"></i>  From | Siwa   <span className='space'>  To | Cairo</span></h5>
             
             <h5 className="previewcardh5">
             <i class="fa-solid fa-coins"></i>
-              Reward Starts from 300 L.E.
+              Reward Starts from 320 L.E.
             </h5>
            
               
@@ -165,7 +165,7 @@ export default function Request2() {
               
               <i class="fa-solid fa-weight-hanging"></i> 
               
-              0.7 KG</h5>
+              5KG</h5>
               
            
           </div>

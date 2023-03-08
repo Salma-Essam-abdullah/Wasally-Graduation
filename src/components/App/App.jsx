@@ -33,6 +33,7 @@ export default class App extends Component {
               <Route path="/home" element={<Home />} />
               <Route path="/" element={<Navbar />} />
               <Route path='/Register'  element={<Register />} />
+              <Route path="/Login" element={<Login />} />
               <Route path="/userform" element={<UserForm />} />
               <Route path="/studentform" element={<StudentForm />} />
               <Route path="/employeeform" element={<EmployeeForm />} />
@@ -44,10 +45,8 @@ export default class App extends Component {
               <Route path="/userdetails1" element={<UserDetails1 />} />
               <Route path="/userdetails2" element={<UserDetails2 />} />
               <Route path="/tripdetails" element={<TripDetails />} />
-              <Route path="/Login" element={<Login />} />
               <Route path="/Chat" element={<Chat />} />
               <Route path="/Slider" element={<Slider />} />
-        
               <Route path="/Profile" element={<Profile />} />
               <Route path="/Profile2" element={<Profile2 />} />
               <Route path="/Work" element={<Work/>} />

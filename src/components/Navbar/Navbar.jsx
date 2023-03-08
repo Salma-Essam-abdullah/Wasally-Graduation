@@ -18,10 +18,10 @@ export default class Navbar extends Component {
             <Link to="/home" className="nav-link active" aria-current="page" >HOME</Link>
           </li>
           <li className="nav-item">
-            <Link to="/home" className="nav-link" >SHIPMENTS</Link>
+            <Link to="/request" className="nav-link" >SHIPMENTS</Link>
           </li>
           <li className="nav-item">
-            <Link to="/home" className="nav-link" >TRIPS</Link>
+            <Link to="/request2" className="nav-link" >TRIPS</Link>
           </li>
           <li className="nav-item">
             <Link to="/profile" className="nav-link">PROFILE</Link>

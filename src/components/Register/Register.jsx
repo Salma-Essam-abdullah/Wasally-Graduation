@@ -2,6 +2,7 @@ import axios from 'axios';
 import Joi from 'joi';
 import React, { useState } from 'react'
 import style from "./Register.module.css"
+import { Link } from 'react-router-dom'
 // import Footer from '../Footer/Footer'
 import { useNavigate } from 'react-router';
 
@@ -126,7 +127,9 @@ function validationRegisterForm(){
             <button type="submit" className={style.test}>{loading ?<i className='fas fa-spinner fa-spin'></i>:'Register'} </button>
             <br />
             <span className="login ">
-                <a  className='text-light' href="login" title="login" id="link-reset">Already have account  </a>
+              <Link to="/login">
+              <a  className='text-light' href="login" title="login" id="link-reset">Already have account  </a>
+              </Link>
              </span>
             </div>
 

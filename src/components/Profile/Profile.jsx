@@ -20,7 +20,7 @@ export default function Profile() {
                         <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy Something</button></Link>
                         </div>
                         <div >
-                        <Link to="/userdetails1"> <button className= "btn btn-light  mt-4 w-100">Deliver Something</button></Link>
+                        <Link to="/userdetails1"> <button className=' className=" btn btn-light  mt-4 w-100'>Deliver Something</button></Link>
                         </div>
 
                     </div>

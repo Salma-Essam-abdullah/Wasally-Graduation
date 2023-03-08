@@ -3,6 +3,9 @@ import Joi from 'joi';
 import React, { useState } from 'react'
 import style from "./Login.module.css"
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom'
+
+
 
 export default function Login  ()  {
     let navigate = useNavigate();
@@ -108,10 +111,14 @@ export default function Login  ()  {
               <br />
               <span className="register ">
                   <p> Don't have an account yet ?</p>
+                  <Link to="/Register">
                   <a  className='text-light' href="Register" title="register" id="link-reset">CREATE AN ACCOUNT </a>
+                  </Link>
               </span>
               <span className="forgot-password ">
-                  <a  className='text-light' href="no-javascript1.html" title="Forgot Password" id="link-reset">Forgot Password?</a>
+                <Link to="/fotgotPass">
+                <a  className='text-light' href="no-javascript1.html" title="Forgot Password" id="link-reset">Forgot Password?</a>
+                </Link>
               </span>
 
               <hr style={{width: '50%', textAlign: 'center', marginLeft: 0}} />

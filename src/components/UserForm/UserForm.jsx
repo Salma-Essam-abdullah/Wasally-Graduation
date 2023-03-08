@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import Footer from '../../components/Footer/Footer'
-// import Navbar from '../../components/Navbar/Navbar'
 
 
 export default class UserForm extends Component {
   render() {
     return (
       <>
-      {/* <Navbar/> */}
     
       <section className="userForm">
       <div className="container">

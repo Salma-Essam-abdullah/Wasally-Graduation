@@ -2,9 +2,9 @@ body{
     font-family: 'Merriweather', serif;
      background-color: rgb(4, 41, 49);
      color: #fff !important;
+
  
  }
- 
  
  .contactLink{
      text-decoration: none;
@@ -529,6 +529,7 @@ select::placeholder {
     background-color: #A6C903;
         color: #fff;
         border: none;
+        border-color: #A6C903;
         border-radius: 5px;
         margin-top: 20px;
         font-size: 20px;
@@ -773,21 +774,19 @@ select::placeholder {
     margin-bottom: 30px;
     line-height: 1.5em;
   }
-  .preview-card__button {
-    display: inline-flex;
+  .lin {
+    display: flex;
     padding: 15px 35px;
     margin-bottom: 30px;
     border-radius: 50px;
     color: #fff;
     background-color: #A6C903;
-    box-shadow: 0px 0px 1px 1px #A6C903;
     margin-left: 150px;
-    text-decoration: none;
-    font-weight: 500;
-    justify-content: center;
-    text-align: center;
-    transition: all 0.5s;
-    letter-spacing: 1px;
+    
+  }
+  .lin :hover{
+    background-color: #fff;
+
   }
   @media screen and (max-width: 768px) {
     .preview-card__button {

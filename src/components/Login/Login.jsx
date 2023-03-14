@@ -5,8 +5,16 @@ import { Link, useHistory } from 'react-router-dom';
 import style from "./Login.module.css"
 
 export default function Login  (props)  {
+
+    // const googleAuth =()=>{
+    //   window.open(
+    //      axios.get(`http://localhost:3000/v1/auth/callback`)
+    //   )
+    // };
+    // console.log(googleAuth)
+
  
-     let history = useHistory();
+    let history = useHistory();
     let [errorList , seterrorList]=useState([]);
     let [error,setError] = useState('');
     let [loading,setLoading] = useState(false)
@@ -120,7 +128,7 @@ export default function Login  (props)  {
 
               <hr style={{width: '50%', textAlign: 'center', marginLeft: 0}} />
 
-              <button type="button" className="btn btn-danger "><i class="fab fa-google"></i>      Login with google</button>
+              <button   type="button" className="btn btn-danger "><i className="fab fa-google"></i> Login with google</button>
           </div>
           </form>
           </section>

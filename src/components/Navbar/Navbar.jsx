@@ -23,10 +23,10 @@ export default function Navbar(props) {
             <NavLink to="/home" className="nav-link active" aria-current="page" >HOME</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/home" className="nav-link" >SHIPMENTS</NavLink>
+            <NavLink to="/request" className="nav-link" >SHIPMENTS</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/home" className="nav-link" >TRIPS</NavLink>
+            <NavLink to="/request2" className="nav-link" >TRIPS</NavLink>
           </li>
           <li className="nav-item">
             <NavLink to="/profile" className="nav-link">PROFILE</NavLink>
@@ -39,11 +39,11 @@ export default function Navbar(props) {
          
         </ul>
         <ul className="navbar-nav ">
-          <NavLink to="/home" className="nav-link contactLink">CONTACT US <i className="fa-solid fa-arrow-trend-up"></i></NavLink> 
+          {/* <NavLink to="/home" className="nav-link contactLink">CONTACT US <i className="fa-solid fa-arrow-trend-up"></i></NavLink>  */}
           {
             props.loginUser?
             <>
-             <li onClick={props.logOut} className=" btn btn-danger logout">LOG OUT</li>
+             <li onClick={props.logOut} className=" btn btn-close-white logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> LOG OUT</li>
             </>:''
           }
          

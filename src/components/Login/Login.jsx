@@ -45,7 +45,7 @@ export default function Login  (props)  {
           setLoading(false);
           setError('');
           seterrorList([]);
-          localStorage.setItem('userToken',res.data.tokens.access.token)
+          localStorage.setItem('userToken',res.data.token)
           props.getUserInfo();
           // navigate('/request')
           // props.history.push('/request')

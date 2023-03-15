@@ -5,9 +5,13 @@ import personImage from '../../assets/images/pic1.png'
 import { Link } from 'react-router-dom'
 
 export default function Request() {
-  const [requestData,setRequestData]=useState([])
+  
+  const [requestData,setRequestData]=useState([]);
+  const [activeButton, setActiveButton] = useState('first')
+  let [userData , setUserData] = useState([])
   let encodedToken = localStorage.getItem('userToken');
-  async function getProfile(){
+
+  async function getRequest(){
     axios.get(`http://localhost:3000/v1/requests/viewAllRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log(response.data)
@@ -21,14 +25,32 @@ export default function Request() {
         }
     )
 }
+
+async function getUserData(){
+
+
+  axios.get(`http://localhost:3000/v1/users/allusers`).then(
+      (response)=>{
+          console.log('use',response.data)
+          setUserData(response.data)
+       
+
+
+      }
+  ).catch(
+      (error)=>{
+          console.log(error)
+
+      }
+  )
+}
 useEffect(()=>{
-    getProfile();
+  getRequest();
+  getUserData();
     
     },[]);
   
-  const [activeButton, setActiveButton] = useState('first');
 
- 
   const clickedButtonHandler = (e) => {
     console.log(e.target);
     const { name } = e.target;
@@ -64,15 +86,25 @@ useEffect(()=>{
  </div>
   </div>
   {requestData.map((request,index)=>
+
+request.buyOrdeliver ==='buy' ? 
+
   <div key={index} className="row mt-3">
+    
     <div className="preview-card ">
       <div className="preview-card__wrp ">
         <div className="preview-card__item">
           <div className="preview-card__img">
-            <img src={personImage}  alt="person" />
+           {
+           userData.map((user)=>user.id===request.userId ? 
+            <img src={user.ProfileImage}  alt="person" /> 
+            :null)
+            }
+        
           </div>
           <div className="preview-card__content">
-            <h2 className="preview-card__code   ">youssief harron {request.name} </h2>
+         
+            <h2 className="preview-card__code">{userData.map((user)=>user.id ===request.userId ? user.name : '')} </h2>
             <div className="preview-card__title ">Shipment | {request.item}</div>
             <h5 className="previewcardh5 "><i className="fa-solid fa-bars"></i>Category | {request.category}</h5> 
             <h5 className="previewcardh5 "> <i className="fa-solid fa-train-subway"></i>  From | {request.from}   <span className='space'>  To | {request.to}</span></h5>
@@ -87,6 +119,7 @@ useEffect(()=>{
       </div>
     </div>
   </div>
+   :null
   )}
 
  

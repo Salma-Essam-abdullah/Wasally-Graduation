@@ -10,7 +10,7 @@ export default function Profile() {
     let encodedToken = localStorage.getItem('userToken');
     let userData =  jwtDecode(encodedToken);
 
-let userId = userData.sub;
+let userId = userData.id;
 
 
 async function getProfile(){
@@ -27,6 +27,12 @@ async function getProfile(){
         }
     )
 }
+
+
+
+
+
+
 useEffect(()=>{
     getProfile();
     
@@ -39,7 +45,7 @@ useEffect(()=>{
         <div className='row g-3'>
             <div className='col-lg-2 '>
                 <div>
-                    <img className='img-thumbnail p-lg-0 border-0' src={profileImg} alt="profile img" />
+                    <img className='img-thumbnail p-lg-0 border-0' src={profileData.ProfileImage} alt="profile img" />
                     <div className={style} >
                         <div >
                         <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy Something</button></Link>
@@ -53,18 +59,18 @@ useEffect(()=>{
             </div>
             <div className='col-lg-9 offset-lg-1 ' >
                 <div className='col-lg-8 '>
-                    <h3  className=''> {profileData.name} <span  style={{fontSize:15}}><i class="fa-solid fa-location-dot offset-lg-4"></i>  Cairo - Egypt</span> </h3>
-                    <h4>National ID : 30102515866255975</h4>
+                    <h3  className=''> {profileData.name} <span  style={{fontSize:15}}><i class="fa-solid fa-location-dot offset-lg-4"></i>  {profileData.city ? profileData.city:''} - Egypt</span> </h3>
+                 
                 </div>
                 <hr />
                 <div id='about'>
-                <h3  className='m4'><i class="fa-regular fa-user "></i> About<button className='btn btn-light   offset-lg-9  ' >  Edit</button> </h3>
+                <h3  className='m4'><i class="fa-regular fa-user "></i> About<Link to='/userForm'><button className='btn btn-light   offset-lg-9  ' >  Edit</button></Link> </h3>
                 <br />
                 <h5 className='fw-bold text-decoration-underline'>Contact Information</h5>
                 <br />
-                <h5  className='col-lg-6 '>Phone : <span className='ms-5'>+2 0113314226 </span> </h5>
+                <h5  className='col-lg-6 '>Phone : <span className='ms-5'>{profileData.phoneNumber ? profileData.phoneNumber :''} </span> </h5>
                 <br />
-                <h5  className='col-lg-6'>Address : <span className='ms-5'> Cairo-Egypt </span> </h5>
+                <h5  className='col-lg-6'>Address : <span className='ms-5'> {profileData.address?profileData.address:''} </span> </h5>
                 <br />
                 <h5  className='col-lg-6'>Email : <span className='ms-5'>  {profileData.email} </span> </h5>
                 <br />
@@ -72,11 +78,11 @@ useEffect(()=>{
                 <h5 className='fw-bold text-decoration-underline'>Basic Information</h5>
                 <br />
                     <div className='text-start'>
-                        <h5  className='col-lg-6  '>B-day : <span className='ms-5 '> june 5, 1992 </span> </h5>
+                        <h5  className='col-lg-6  '>Birth Date : <span className='ms-5 '>{profileData.birthDate ? profileData.birthDate.split('T')[0] : "" }  </span> </h5>
                         <br />
-                        <h5  className='col-lg-6'>Gove : <span className='ms-5 '>Name:Egypt  <span className='ms-5'> ID:24523</span> </span> </h5>
+                        <h5  className='col-lg-6'>Gov : <span className='ms-5 '>{profileData.governorate ? profileData.governorate :""}  </span></h5>
                         <br />
-                        <h5  className='col-lg-6'>CITY : <span className='ms-5 '> Name:Cairo  <span className='ms-5'> ID:38978</span> </span> </h5>
+                        <h5  className='col-lg-6'>City : <span className='ms-5 '> {profileData.city ? profileData.city : ""}</span> </h5>
                     </div>
                 <br />
                <div >

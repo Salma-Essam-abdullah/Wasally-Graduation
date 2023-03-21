@@ -2,25 +2,31 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import React, {useEffect, useState } from 'react'
 import Footer from '../../components/Footer/Footer'
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Joi from 'joi';
 
 export default function UserForm()  {
  
+
+
+
+
+  
   let history = useHistory();
   let [errorList , setErrorList] = useState([])
   let [error,setError] = useState('');
   let [loading,setLoading] = useState(false)
   const [profileData , setProfileDate] = useState([]);
+
   
   const [user, setUser] = useState({
     name: profileData.name,
     address:profileData.address,
-    birthDate:'',
+    birthDate:profileData.birthDate,
     phoneNumber:profileData.phoneNumber,
     city:profileData.city,
-    governorate:profileData.governorate
-
+    governorate:profileData.governorate,
+    ProfileImage: profileData.ProfileImage
 
   });
 
@@ -29,6 +35,13 @@ export default function UserForm()  {
     myUser[e.target.name] = e.target.value;
     setUser(myUser);
   };
+
+  const handleImageChange = (e)=>{
+    let myUser = {...user};
+    myUser[e.target.name] = e.target.files[0];
+    setUser(myUser);
+  }
+
   let encodedToken = localStorage.getItem('userToken');
     let userData =  jwtDecode(encodedToken);
 
@@ -43,9 +56,10 @@ let userId = userData.id;
       setErrorList(validationResponse.error.details)
       return;
     }
-
+    
+    
     setLoading(true);
-    axios.patch(`http://localhost:3000/v1/users/`+userId ,user,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
+    axios.patch(`http://localhost:3000/v1/users/`+userId ,user,{ headers: {"Authorization" : `Bearer ${encodedToken}`,"content-type": "multipart/form-data" } })
     .then(
       res => {
        
@@ -86,13 +100,15 @@ function validationUserForm(){
       city: Joi.string().optional().allow(''),
       governorate: Joi.string().optional().allow(''),
       address:Joi.string().optional().allow(''),
+      ProfileImage: Joi.object().optional().allow('')
   });
  return scheme.validate(user,{abortEarly:false});
 
 }
 
+
   async function getProfile(){
-    axios.get(`http://localhost:3000/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`http://localhost:3000/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
         (response)=>{
             console.log(response.data)
             setProfileDate(response.data)
@@ -116,8 +132,7 @@ useEffect(() => {
       <div className="container">
       <h3 className='text-center'>UPDATE <span className='green'>U</span>SER INFO</h3>
       <h4>Update Your Personal Information</h4>
-      <h1 className='text-center  '><span style={{ color: "#D3FF00" }}>CREATE</span>  A NEW ACCOUNT</h1>
-         {
+       {
         error &&
         <div className="alert alert-danger">
           {error}
@@ -133,6 +148,15 @@ useEffect(() => {
   )
 }
       <form onSubmit={submitForm}>
+      <div className="row g-3 align-items-center group">
+  <div className="col-lg-2">
+    <label htmlFor="ProfileImage" className="col-form-label">Profile Image: </label>
+  </div>
+  <div className="col-lg-10">
+    <input  onChange={handleImageChange} type="file" className="form-control " name='ProfileImage'   placeholder='Profile Image'/>
+  </div>
+  
+</div>
       <div className="row g-3 align-items-center group">
   <div className="col-lg-2">
     <label htmlFor="name" className="col-form-label">Name : </label>
@@ -157,7 +181,7 @@ useEffect(() => {
     <label htmlFor="birthDate" className="col-form-label">Date Of Birth : </label>
   </div>
   <div className="col-lg-10">
-    <input type="text"  className="form-control" name="birthDate" placeholder='Year-Month-Day'  onChange={handleChange}/>
+    <input type="text"  className="form-control" name="birthDate" placeholder='Year-Month-Day' defaultValue={profileData.birthDate}  onChange={handleChange}/>
   </div>
 </div>
 

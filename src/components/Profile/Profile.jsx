@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import profileImg from '../../assets/images/profile.png'
 import style from './Profile.module.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import jwtDecode from 'jwt-decode';
+import noImage from '../../assets/images/noImage.jpg'
 
 export default function Profile() {
     const [profileData , setProfileDate] = useState([]);
@@ -11,7 +11,6 @@ export default function Profile() {
     let userData =  jwtDecode(encodedToken);
 
 let userId = userData.id;
-
 
 async function getProfile(){
     axios.get(`http://localhost:3000/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
@@ -27,12 +26,6 @@ async function getProfile(){
         }
     )
 }
-
-
-
-
-
-
 useEffect(()=>{
     getProfile();
     
@@ -45,7 +38,8 @@ useEffect(()=>{
         <div className='row g-3'>
             <div className='col-lg-2 '>
                 <div>
-                    <img className='img-thumbnail p-lg-0 border-0' src={profileData.ProfileImage} alt="profile img" />
+                    
+                    <img className='img-thumbnail p-lg-0 border-0' src={profileData.ProfileImage ? profileData.ProfileImage :noImage } alt="profile img" />
                     <div className={style} >
                         <div >
                         <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy Something</button></Link>
@@ -59,12 +53,12 @@ useEffect(()=>{
             </div>
             <div className='col-lg-9 offset-lg-1 ' >
                 <div className='col-lg-8 '>
-                    <h3  className=''> {profileData.name} <span  style={{fontSize:15}}><i class="fa-solid fa-location-dot offset-lg-4"></i>  {profileData.city ? profileData.city:''} - Egypt</span> </h3>
+                    <h3  className=''> {profileData.name} <span  style={{fontSize:15}}><i className="fa-solid fa-location-dot offset-lg-4"></i>  {profileData.city ? profileData.city:''} - Egypt</span> </h3>
                  
                 </div>
                 <hr />
                 <div id='about'>
-                <h3  className='m4'><i class="fa-regular fa-user "></i> About<Link to='/userForm'><button className='btn btn-light   offset-lg-9  ' >  Edit</button></Link> </h3>
+                <h3  className='m4'><i className="fa-regular fa-user "></i> About<Link to='/userForm'><button className='btn btn-light   offset-lg-9  ' >  Edit</button></Link> </h3>
                 <br />
                 <h5 className='fw-bold text-decoration-underline'>Contact Information</h5>
                 <br />
@@ -90,10 +84,7 @@ useEffect(()=>{
                </div>
                 </div>
             </div>                
-
-            
         </div>
-
     </div>
     </section>
 

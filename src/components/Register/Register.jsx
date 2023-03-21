@@ -13,9 +13,8 @@ export default function Register(props) {
   let [user, setUser] = useState({
     name: '',
     email: '',
-    password: ''
-    // ,
-    // confirmPassword:''
+    password: '',
+    confirmpassword:''
 
   });
   function getUser(e){
@@ -71,7 +70,7 @@ function validationRegisterForm(){
     name: Joi.string().required(),
     email: Joi.string().email({ tlds: { allow: ['com', 'net'] } }).required(),
     password: Joi.string().required().custom(password),
-    //confirmPassword : Joi.string().required().valid(Joi.ref('password')).messages({'any.only': 'confirm password must be same as password'})
+    confirmpassword : Joi.string().required().valid(Joi.ref('password')).messages({'any.only': 'confirm password must be same as password'})
   });
  return scheme.validate(user,{abortEarly:false});
 }
@@ -117,11 +116,14 @@ function validationRegisterForm(){
           
             <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Enter Password"  name='password' />
             </div>
-{/* 
+
+
+
             <div className='my-2 col-lg-6 offset-lg-3'>
             
-            <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Confirm Password"  name='confirmPassword' />
-            </div> */}
+            <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Confirm Password"  name='confirmpassword' />
+            </div>
+
             <div   className='mt-3 d-flex justify-content-center align-items-center flex-column'>
             <button type="submit" className={style.test}>{loading ?<i className='fas fa-spinner fa-spin'></i>:'Register'} </button>
             <br />

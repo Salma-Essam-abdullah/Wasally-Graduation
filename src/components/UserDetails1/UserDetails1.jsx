@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
-// import Navbar from '../Navbar/Navbar'
+import React, { useState } from "react";
 
-export default class UserDetails1 extends Component {
-  render() {
+export default function UserDetails1 () {
+  
+  
     return (
     
      <>
-        {/* <Navbar/> */}
         <section className="shippmentDetails">
         <div className="container">
         <div className="row">
@@ -133,4 +132,4 @@ export default class UserDetails1 extends Component {
      </>
     )
   }
-}
+

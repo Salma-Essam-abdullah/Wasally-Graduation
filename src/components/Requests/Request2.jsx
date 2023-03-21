@@ -74,7 +74,7 @@ useEffect(()=>{
           Buy Something
           </button>
     </Link>
-<Link to="">
+<Link to="/request2">
     <button name="first"
           className={activeButton === "first" ? `${activeButton}` : ""}
           onClick={clickedButtonHandler}>
@@ -102,15 +102,21 @@ useEffect(()=>{
             :null)
             }
           </div>
+
           <div className="preview-card__content">
-          <h2 className="preview-card__code   ">{userData.map((user)=>user.id ===request.userId ? user.name : '')} </h2>
-          <div className="preview-card__title ">Shipment | {request.item}</div>
-            <h5 className="previewcardh5 "><i className="fa-solid fa-bars"></i>Category | {request.category}</h5> 
-            <h5 className="previewcardh5 "> <i className="fa-solid fa-train-subway"></i>  From | {request.from}   <span className='space'>  To | {request.to}</span></h5>
-            <h5 className="previewcardh5 "> <i className="fa-solid fa-location-dot"></i>  Location | {request.location}   <span className='space'>  Target location | {request.targetLocation}</span></h5>
-            <h5 className="previewcardh5 "><i className="fa-solid fa-coins"></i>Reward Starts from 230 L.E</h5> 
-            <h5 className="preview-card__text "><i className="fa-solid fa-weight-hanging"></i>  {request.weight} KG </h5>
+         
+            <h2 className="preview-card__code">{userData.map((user)=>user.id ===request.userId ? user.name : '')} </h2>
+            <div className="preview-card__title ">Shipment | {request.item}</div>
+            <h5 className="previewcardh5 fw-bold"> <i className="fa-solid fa-train-subway"></i>  From <span className='green'>|</span>  {request.from}   <span className='space'>  To <span className='green'>|</span>  {request.to}</span></h5>
+            <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-bars"></i>Category <span className='green'>|</span> {request.category}</h5> 
+            <h5 className="previewcardh5 fw-bold"><i className="fa-solid fa-weight-hanging"></i>Weight <span className='green'>|</span>  {request.weight} KG </h5>
+            <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-sack-dollar"></i>Reward <span className='green'>|</span> {request.reward} L.E</h5>
+            <h5 className="previewcardh5 fw-bold "> <i className="fa-solid fa-location-dot"></i>Your Location <span className='green'>|</span> {request.to} : {request.location}</h5>
+            <h5  className="previewcardh5 fw-bold "><i className="fa-solid fa-location-dot"></i>Target Location <span className='green'>|</span>  {request.targetLocation}</h5> 
+            <h5  className="previewcardh5 fw-bold "><i className="fa-solid fa-phone-volume"></i>Phone Number <span className='green'>|</span>  {request.anotherPhone}</h5> 
           </div>
+
+          
           
           <Link to="/home" className="lin btn btn-info  ">VIEW DETAILS</Link>        
           

@@ -7,11 +7,6 @@ import Joi from 'joi';
 
 export default function UserForm()  {
  
-
-
-
-
-  
   let history = useHistory();
   let [errorList , setErrorList] = useState([])
   let [error,setError] = useState('');
@@ -25,8 +20,7 @@ export default function UserForm()  {
     birthDate:profileData.birthDate,
     phoneNumber:profileData.phoneNumber,
     city:profileData.city,
-    governorate:profileData.governorate,
-    ProfileImage: profileData.ProfileImage
+    governorate:profileData.governorate
 
   });
 
@@ -36,11 +30,7 @@ export default function UserForm()  {
     setUser(myUser);
   };
 
-  const handleImageChange = (e)=>{
-    let myUser = {...user};
-    myUser[e.target.name] = e.target.files[0];
-    setUser(myUser);
-  }
+
 
   let encodedToken = localStorage.getItem('userToken');
     let userData =  jwtDecode(encodedToken);
@@ -59,7 +49,7 @@ let userId = userData.id;
     
     
     setLoading(true);
-    axios.patch(`http://localhost:3000/v1/users/`+userId ,user,{ headers: {"Authorization" : `Bearer ${encodedToken}`,"content-type": "multipart/form-data" } })
+    axios.patch(`http://localhost:3000/v1/users/`+userId ,user,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
     .then(
       res => {
        
@@ -99,8 +89,7 @@ function validationUserForm(){
         }).optional().allow(''),
       city: Joi.string().optional().allow(''),
       governorate: Joi.string().optional().allow(''),
-      address:Joi.string().optional().allow(''),
-      ProfileImage: Joi.object().optional().allow('')
+      address:Joi.string().optional().allow('')
   });
  return scheme.validate(user,{abortEarly:false});
 
@@ -108,7 +97,7 @@ function validationUserForm(){
 
 
   async function getProfile(){
-    axios.get(`http://localhost:3000/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
+    axios.get(`http://localhost:3000/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}` } }).then(
         (response)=>{
             console.log(response.data)
             setProfileDate(response.data)
@@ -131,7 +120,7 @@ useEffect(() => {
       <section className="userForm">
       <div className="container">
       <h3 className='text-center'>UPDATE <span className='green'>U</span>SER INFO</h3>
-      <h4>Update Your Personal Information</h4>
+
        {
         error &&
         <div className="alert alert-danger">
@@ -148,15 +137,7 @@ useEffect(() => {
   )
 }
       <form onSubmit={submitForm}>
-      <div className="row g-3 align-items-center group">
-  <div className="col-lg-2">
-    <label htmlFor="ProfileImage" className="col-form-label">Profile Image: </label>
-  </div>
-  <div className="col-lg-10">
-    <input  onChange={handleImageChange} type="file" className="form-control " name='ProfileImage'   placeholder='Profile Image'/>
-  </div>
-  
-</div>
+     
       <div className="row g-3 align-items-center group">
   <div className="col-lg-2">
     <label htmlFor="name" className="col-form-label">Name : </label>

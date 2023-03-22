@@ -42,11 +42,9 @@ useEffect(()=>{
                     <img className='img-thumbnail p-lg-0 border-0' src={profileData.ProfileImage ? profileData.ProfileImage :noImage } alt="profile img" />
                     <div className={style} >
                         <div >
-                        <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy Something</button></Link>
+                        <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy/Deliver Something</button></Link>
                         </div>
-                        <div >
-                        <Link to="/userdetails1"> <button className= "btn btn-light  mt-4 w-100">Deliver Something</button></Link>
-                        </div>
+
 
                     </div>
                 </div>

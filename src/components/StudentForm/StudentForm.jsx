@@ -1,42 +1,116 @@
-import React, { Component } from 'react'
+import React, {useState} from 'react'
 import Footer from '../Footer/Footer'
-// import Navbar from '../Navbar/Navbar'
+import {useHistory } from 'react-router-dom';
+import Joi from 'joi';
+import axios from 'axios';
+export default function StudentForm (){
+  let encodedToken = localStorage.getItem('userToken');
+  let history = useHistory();
+  let [errorList , setErrorList] = useState([])
+  let [error,setError] = useState('');
+  let [loading,setLoading] = useState(false);
+  let [student, setStudent] = useState({
+    NationalId: '',
+    city: '',
+    government:'',
+    StudentUniversityId:'',
+    CollegeEnrollmentStatement:'',
+    NationalIdCard:''
 
-export default class StudentForm extends Component {
-  render() {
+
+  });
+  const handleChange = (e) => {
+    let myStudent = {...student};
+    myStudent[e.target.name] = e.target.value;
+    setStudent(myStudent);
+  };
+
+  const handleImageChange = (e)=>{
+    let myStudent = {...student};
+    myStudent[e.target.name] = e.target.files[0];
+    setStudent(myStudent);
+  }
+  async function formSubmit(e){
+    e.preventDefault();
+    let validationResponse = validationForm();
+    console.log(validationResponse);
+    if(validationResponse.error){ 
+      setLoading(false)
+      setErrorList(validationResponse.error.details)
+      return;
+    }
+
+    setLoading(true);
+     await axios.patch(`http://localhost:3000/v1/travelers/create`,student,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
+      res => {
+       
+        setLoading(false);
+        setError('');
+        setErrorList([]);
+
+       history.push('/profile2')
+        
+      })
+    .catch(err => {
+      setLoading(false);
+      setError(err.response.data.message);
+      console.log(err)
+  }
+  );
+}
+
+function validationForm(){
+  let scheme = Joi.object({
+    NationalId: Joi.string().regex(/^[1-3](19|20)\d{2}[7-8]\d{7}[0-9]\d{2}$/).messages({
+      'string.pattern.base': `National Id must have 16 digits.`
+    }).required(),
+    city: Joi.string().required().max(20),
+    government: Joi.string().required().max(20),
+    StudentUniversityId: Joi.object(),
+    CollegeEnrollmentStatement:Joi.object(),
+    NationalIdCard: Joi.object().required().messages({
+      'string.empty': `National Id Card is required.`
+    })
+  });
+ return scheme.validate(student,{abortEarly:false});
+}
+
     return (
       <>
-      {/* <Navbar/> */}
     <section className="userForm">
     <div className="container">
     <h3 className='text-center'><span className='green'>S</span>TUDENT</h3>
-    <h4>Add Your Information</h4>
-    <form action="">
+    {
+        error &&
+        <div className="alert alert-danger">
+          {error}
+        </div>
+        }
+
+{
+  errorList.map((err)=>{
+    return <div className="alert alert-danger">
+    {err.message}
+  </div>
+  }
+  )
+}
+    <form onSubmit={formSubmit}>
     <div className="row g-3 align-items-center group">
 <div className="col-lg-2">
-  <label htmlFor="nationalId" className="col-form-label">National ID : </label>
+  <label htmlFor="NationalId" className="col-form-label">National ID : </label>
 </div>
 <div className="col-lg-10">
-  <input type="text"  className="form-control " name='nationalId' placeholder='National ID' />
+  <input onChange={handleChange} type="text"  className="form-control " name='NationalId' placeholder='National ID' />
 </div>
 
 </div>
-
 <div className="row g-3 align-items-center group">
 <div className="col-lg-2">
-  <label htmlFor="dateOfBirth" className="col-form-label">Date Of Birth : </label>
+  <label htmlFor="NationalIdCard" className="col-form-label">National ID Card : </label>
 </div>
 <div className="col-lg-10">
-  <input type="date"  className="form-control" name="dateOfBirth" placeholder='Day' />
-</div>
-</div>
-
-<div className="row g-3 align-items-center group">
-<div className="col-lg-2">
-  <label htmlFor="phoneNumber" className="col-form-label">Phone Number : </label>
-</div>
-<div className="col-lg-10">
-  <input type="number"  className="form-control" placeholder='Phone Number' name='phoneNumber' />
+  <input  onChange={handleImageChange} type="file"  className="form-control"  name='NationalIdCard' />
 </div> 
 </div>
 
@@ -44,49 +118,45 @@ export default class StudentForm extends Component {
 <div className="col-lg-2">
   <label htmlFor="city" className="col-form-label">City : </label>
 </div>
-<div className="col-lg-5">
-  <input type="text"  className="form-control" placeholder='City Name' name='cityName' />
+<div className="col-lg-10">
+  <input onChange={handleChange} type="text"  className="form-control" placeholder='City' name='city' />
 </div> 
-<div className="col-lg-5">
-  <input type="text"  className="form-control" placeholder='City Id' name='cityId'/>
-</div> 
+
 </div>
 
 <div className="row g-3 align-items-center group">
 <div className="col-lg-2">
-  <label htmlFor="governate" className="col-form-label">Governate : </label>
-</div>
-<div className="col-lg-5">
-  <input type="text" className="form-control" placeholder='Governate Name' name='governateame' />
-</div> 
-<div className="col-lg-5">
-  <input type="text"  className="form-control" placeholder='Governate Id' name='governateId'/>
-</div> 
-</div>
-
-
-<div className="row g-3 align-items-center group">
-<div className="col-lg-2">
-  <label htmlFor="universityId" className="col-form-label">University ID : </label>
+  <label htmlFor="government" className="col-form-label">Governorate : </label>
 </div>
 <div className="col-lg-10">
-  <input type="file"  className="form-control"  name='universityId' />
+  <input  onChange={handleChange} type="text" className="form-control" placeholder='Governorate' name='government' />
+</div> 
+
+</div>
+
+
+<div className="row g-3 align-items-center group">
+<div className="col-lg-2">
+  <label htmlFor="StudentUniversityId" className="col-form-label">University ID : </label>
+</div>
+<div className="col-lg-10">
+  <input onChange={handleImageChange} type="file"  className="form-control"  name='StudentUniversityId' />
 </div> 
 </div>
 
 
 <div className="row g-3 align-items-center group">
 <div className="col-lg-2">
-  <label for="collegeEnrollmentStatement" className="col-form-label">College enrollment Statement : </label>
+  <label for="CollegeEnrollmentStatement" className="col-form-label">College enrollment Statement : </label>
 </div>
 <div className="col-lg-10">
-  <input type="file"  className="form-control"  name='collegeEnrollmentStatement' />
+  <input onChange={handleImageChange} type="file"  className="form-control"  name='CollegeEnrollmentStatement' />
 </div> 
 </div>
 
 
 <div className="col-lg-12 text-center">
-<button type="submit" className="btn">SAVE</button>
+<button type="submit" className="btn">{loading ?<i className='fas fa-spinner fa-spin'></i>:'SAVE'}</button>
       </div>
      </form>
      </div>
@@ -94,5 +164,4 @@ export default class StudentForm extends Component {
     <Footer/>
       </>
     )
-  }
 }

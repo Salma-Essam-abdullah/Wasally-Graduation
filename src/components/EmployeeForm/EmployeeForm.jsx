@@ -6,7 +6,6 @@ export default class EmployeeForm extends Component {
   render() {
     return (
       <>
-      {/* <Navbar/> */}
       <section className="userForm">
     <div className="container">
     <h3 className='text-center'><span className='green'>E</span>MPLOYEE</h3>

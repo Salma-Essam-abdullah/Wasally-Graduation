@@ -38,7 +38,7 @@ export default function Chat() {
                     </div>
                 </div>
                 <div className="chatBoxBottom">
-                        <textarea className='chatMessageInput' placeholder='Write Something'></textarea>
+                        <textarea style={{color:'white' , resize:'none'}} className='chatMessageInput' placeholder='Write Something'></textarea>
                         <button className='chatSubmitButton'> Send</button>
                 </div>
             </div>

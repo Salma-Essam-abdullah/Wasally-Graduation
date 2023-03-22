@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import jwtDecode from 'jwt-decode';
 import noImage from '../../assets/images/noImage.jpg'
+import Joi from 'joi';
 
 export default function Profile() {
     const [profileData , setProfileDate] = useState([]);
@@ -12,12 +13,64 @@ export default function Profile() {
 
 let userId = userData.id;
 
+
+  let [errorList , setErrorList] = useState([])
+  let [error,setError] = useState('');
+  let [loading,setLoading] = useState(false);
+  let [image, setImage] = useState({ProfileImage: ''});
+ 
+
+  const handleImageChange = (e)=>{
+    let myStudent = {...image};
+    myStudent[e.target.name] = e.target.files[0];
+    setImage(myStudent);
+  }
+  async function formSubmit(e){
+    e.preventDefault();
+    let validationResponse = validationForm();
+    console.log(validationResponse);
+    if(validationResponse.error){ 
+      setLoading(false)
+      setErrorList(validationResponse.error.details)
+      return;
+    }
+
+    setLoading(true);
+     await axios.patch(`http://localhost:3000/v1/users/profileImage`,image,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
+      res => {
+       
+        setLoading(false);
+        setError('');
+        setErrorList([]);
+        console.log("s",image)
+        
+      })
+    .catch(err => {
+      setLoading(false);
+      setError(err.response.data.message);
+      console.log(err)
+  }
+  );
+}
+
+function validationForm(){
+    let scheme = Joi.object({
+        ProfileImage: Joi.object(),
+    });
+   return scheme.validate(image,{abortEarly:false});
+  }
+  
+
+
+
 async function getProfile(){
+
     axios.get(`http://localhost:3000/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log(response.data)
             setProfileDate(response.data)
 
+      
         }
     ).catch(
         (error)=>{
@@ -37,15 +90,42 @@ useEffect(()=>{
     <div className="container">
         <div className='row g-3'>
             <div className='col-lg-2 '>
+                
                 <div>
-                    
-                    <img className='img-thumbnail p-lg-0 border-0' src={profileData.ProfileImage ? profileData.ProfileImage :noImage } alt="profile img" />
+                {
+        error &&
+        <div className="alert alert-danger">
+          {error}
+        </div>
+        }
+
+{
+  errorList.map((err)=>{
+    return <div className="alert alert-danger">
+    {err.message}
+  </div>
+  }
+  )
+}
+                    <form onSubmit={formSubmit}>
+                    <div className="contain">
+                    <label for="file-upload">
+ 
+                    <img className='img-thumbnail p-lg-0 border-0 image' src={profileData.ProfileImage ? profileData.ProfileImage : noImage } alt="profile img" />
+                    <div class="middle">
+                <div class="text">Upload Image</div>
+                   </div>
+                   </label>
+                   </div>
+
+                        <input type="file" onChange={handleImageChange} name="ProfileImage"  id="file-upload"  style={{display:'none'}}/> 
+
+                    <button  className='btn btn-light  mt-4 w-100' type='submit' >{loading ?<i className='fas fa-spinner fa-spin'></i>:'Update Image'}</button>
+                    </form>
                     <div className={style} >
                         <div >
-                        <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy/Deliver Something</button></Link>
+                        <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy / Deliver Something</button></Link>
                         </div>
-
-
                     </div>
                 </div>
             </div>

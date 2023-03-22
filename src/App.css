@@ -1077,16 +1077,22 @@ select::placeholder {
 .contact .php-email-form input[type=email],
 .contact .php-email-form textarea {
   padding: 12px 15px;
+  color: #fff;
+
 }
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--color-primary);
+  color: #fff;
+
 }
 
 .contact .php-email-form textarea {
   padding: 10px 12px;
+  color: #fff;
+  resize: none;
 }
 
 .contact .php-email-form button[type=submit] {
@@ -1110,6 +1116,40 @@ select::placeholder {
   100% {
     transform: rotate(360deg);
   }
+}
+.contain{
+  position: relative;
+  width: 100%;
+}
+
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.contain:hover .image {
+  opacity: 0.3;
+}
+
+.contain:hover .middle {
+  opacity: 1;
 }
 
 

@@ -122,6 +122,7 @@ useEffect(()=>{
 
                     <button  className='btn btn-light  mt-4 w-100' type='submit' >{loading ?<i className='fas fa-spinner fa-spin'></i>:'Update Image'}</button>
                     </form>
+                    
                     <div className={style} >
                         <div >
                         <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy / Deliver Something</button></Link>

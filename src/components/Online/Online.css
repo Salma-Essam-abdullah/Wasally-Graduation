@@ -5,6 +5,13 @@
     cursor: pointer;
     margin-top: 10px;
 }
+.chatOnline h6{
+    color: #A6C903;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;  
+
+}
 .chatOnlineImgContainer{
 position: relative;
 margin-right: 10px;
@@ -22,8 +29,8 @@ margin-right: 10px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: lightgreen;
+    background-color: rgb(31, 193, 31);
     position: absolute;
-    top: 2px;
-    right: 2px;
+    bottom:1px;
+    right: 6px;
 }

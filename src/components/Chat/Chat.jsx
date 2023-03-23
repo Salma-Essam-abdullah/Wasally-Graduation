@@ -1,4 +1,4 @@
-import { auto } from '@popperjs/core'
+// import { auto } from '@popperjs/core'
 import React from 'react'
 import Conversations from '../Conversations/Conversations'
 import Message from '../Message/Message'
@@ -15,9 +15,7 @@ export default function Chat() {
                 <div className="chatMenuWrapper">
                     <input placeholder="Search for friends"className="chatMenuInput" />
                     <Conversations/>
-                    <Conversations/>
-                    <Conversations/>
-                    <Conversations/>
+
      
                 </div>
             </div>
@@ -38,16 +36,15 @@ export default function Chat() {
                     </div>
                 </div>
                 <div className="chatBoxBottom">
-                        <textarea style={{color:'white' , resize:'none'}} className='chatMessageInput' placeholder='Write Something'></textarea>
-                        <button className='chatSubmitButton'> Send</button>
+                        <textarea style={{color:'white' , resize:'none' ,textAlign:'center'}} className='chatMessageInput' placeholder='Write a message'></textarea>
+                        <button className='chatSubmitButton'> Send  </button>
                 </div>
             </div>
 
             <div className="chatOnline">
                 <div className="chatOnlineWrapper">
                     <Online/>
-                    <Online/>
-                    <Online/>
+
 
                 </div>
             </div>

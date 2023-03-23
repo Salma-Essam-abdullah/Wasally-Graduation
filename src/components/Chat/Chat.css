@@ -3,6 +3,13 @@
    display: flex;
 
 }
+.chatMenuWrapper input{
+    margin-bottom: 10px;
+    background-color: #042931;
+    color: #fff;
+    border-color: #A6C903;
+}
+
 
 .chatMenu{
     flex: 3.5;
@@ -67,6 +74,7 @@
 .chatOnline{
     flex: 3;
 }
+
 .chatMenuWrapper,.chatBoxWrapper,.chatOnlineWrapper{
 padding: 10px;
 }

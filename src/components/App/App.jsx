@@ -25,6 +25,8 @@ import Profile2 from '../Profile2/Profile2';
 import Work from '../Work/Work';
 import jwtDecode from 'jwt-decode';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import TravelerForm from '../TravelerForm/TravelerForm';
+import Trip from '../Trip/Trip';
 
 
 
@@ -77,6 +79,8 @@ function logOut(){
               <ProtectedRoute path='/profile' component={Profile}/>
               <ProtectedRoute path='/profile2' component={Profile2}/>
               <ProtectedRoute path='/work' component={Work}/>
+              <ProtectedRoute path='/travelerForm' component={TravelerForm}/>
+              <ProtectedRoute path='/trip' component={Trip}/>
               <Route path="/home" ><Home/> </Route>
               <Route path="/Register" render={(props)=> <Register{...props}/>}  />
               <Route path="/login"  render={(props)=><Login{...props} getUserInfo={getUserInfo}/>}/>

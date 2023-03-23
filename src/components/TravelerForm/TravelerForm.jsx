@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer'
 import { useHistory } from 'react-router-dom';
 import Joi from 'joi';
 
-export default function UserForm()  {
+export default function TravelerForm()  {
  
   let history = useHistory();
   let [errorList , setErrorList] = useState([])
@@ -56,7 +56,7 @@ let userId = userData.id;
         setError('');
         setErrorList([]);
 
-       history.push('/profile')
+       history.push('/profile2')
         
       })
     .catch(err => {
@@ -71,6 +71,7 @@ let userId = userData.id;
 function validationUserForm(){
   let scheme = Joi.object({
   
+   
       name: Joi.string(),
       birthDate: Joi
         .date()
@@ -112,7 +113,7 @@ useEffect(() => {
     
       <section className="userForm">
       <div className="container">
-      <h3 className='text-center'>UPDATE <span className='green'>U</span>SER INFO</h3>
+      <h3 className='text-center'>UPDATE <span className='green'>T</span>RAVELER INFO</h3>
 
        {
         error &&

@@ -14,7 +14,8 @@ export default function Register(props) {
     name: '',
     email: '',
     password: '',
-    confirmpassword:''
+    confirmpassword:'',
+    phoneNumber:''
 
   });
   function getUser(e){
@@ -63,14 +64,20 @@ const password = (value, helpers) => {
   return value;
 };
 
-
+const phoneNumber = (value, helpers) => {
+  if (!value.match(/^(010|011|012|015)[0-9]{8}$/)) {
+    return helpers.message('Invalid PhoneNumber number');
+  }
+  return value;
+};
 
 function validationRegisterForm(){
   let scheme = Joi.object({
     name: Joi.string().required(),
     email: Joi.string().email({ tlds: { allow: ['com', 'net'] } }).required(),
     password: Joi.string().required().custom(password),
-    confirmpassword : Joi.string().required().valid(Joi.ref('password')).messages({'any.only': 'confirm password must be same as password'})
+    confirmpassword : Joi.string().required().valid(Joi.ref('password')).messages({'any.only': 'confirm password must be same as password'}),
+    phoneNumber: Joi.string().custom(phoneNumber).required(),
   });
  return scheme.validate(user,{abortEarly:false});
 }
@@ -122,6 +129,10 @@ function validationRegisterForm(){
             <div className='my-2 col-lg-6 offset-lg-3'>
             
             <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Confirm Password"  name='confirmpassword' />
+            </div>
+            <div className='my-2 col-lg-6 offset-lg-3 '>
+         
+            <input onChange={getUser} type="text" className='form-control mb-4'placeholder="Enter Your Phone Number"  name='phoneNumber' />
             </div>
 
             <div   className='mt-3 d-flex justify-content-center align-items-center flex-column'>

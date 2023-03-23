@@ -12,8 +12,6 @@ export default function EmployeeForm() {
   let [loading,setLoading] = useState(false);
   let [employee, setEmployee] = useState({
     NationalId: '',
-    city: '',
-    government:'',
     EmployeeCompanyId:'',
     NationalIdCard:''
 
@@ -64,8 +62,6 @@ function validationForm(){
     NationalId: Joi.string().regex(/^([1-9]{1})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})[0-9]{3}([0-9]{1})[0-9]{1}$/).messages({
       'string.pattern.base': `National Id must have 14 digits.`
     }).required(),
-    city: Joi.string().required().max(20),
-    government: Joi.string().required().max(20),
     EmployeeCompanyId: Joi.object(),
     NationalIdCard: Joi.object().required().messages({
       'string.empty': `National Id Card is required.`
@@ -78,7 +74,7 @@ function validationForm(){
       <>
     <section className="userForm">
     <div className="container">
-    <h3 className='text-center'><span className='green'>S</span>TUDENT</h3>
+    <h3 className='text-center'><span className='green'>E</span>MPLOYEE</h3>
     {
         error &&
         <div className="alert alert-danger">
@@ -105,7 +101,7 @@ function validationForm(){
 
 </div>
 <div className="row g-3 align-items-center group">
-<div className="col-lg-2">
+<div className="col-lg-2">3 
   <label htmlFor="NationalIdCard" className="col-form-label">National ID Card : </label>
 </div>
 <div className="col-lg-10">
@@ -113,25 +109,7 @@ function validationForm(){
 </div> 
 </div>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-2">
-  <label htmlFor="city" className="col-form-label">City : </label>
-</div>
-<div className="col-lg-10">
-  <input onChange={handleChange} type="text"  className="form-control" placeholder='City' name='city' />
-</div> 
 
-</div>
-
-<div className="row g-3 align-items-center group">
-<div className="col-lg-2">
-  <label htmlFor="government" className="col-form-label">Governorate : </label>
-</div>
-<div className="col-lg-10">
-  <input  onChange={handleChange} type="text" className="form-control" placeholder='Governorate' name='government' />
-</div> 
-
-</div>
 
 
 

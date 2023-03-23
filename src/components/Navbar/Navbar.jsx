@@ -26,7 +26,7 @@ export default function Navbar(props) {
             <NavLink to="/request" className="nav-link" >SHIPMENTS</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/request2" className="nav-link" >TRIPS</NavLink>
+            <NavLink to="/trip" className="nav-link" >TRIPS</NavLink>
           </li>
           <li className="nav-item">
             <NavLink to="/profile" className="nav-link">PROFILE</NavLink>

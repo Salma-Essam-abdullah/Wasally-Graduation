@@ -10,8 +10,7 @@ export default function Profile2() {
     const [profileData , setProfileDate] = useState([]);
     const [userDataa,setUserDataa]=useState([])
     let encodedToken = localStorage.getItem('userToken');
-    // let userData =  jwtDecode(encodedToken);
-    // let email = userData.user.email;
+
 
 
 
@@ -115,7 +114,7 @@ useEffect(()=>{
                 <div className="contain">
                     <label for="file-upload">
  
-                        <img className='img-thumbnail p-lg-0 border-0 image' src={profileData.ProfileImage ? profileData.ProfileImage : noImage } alt="profile img" />
+                        <img className='img-thumbnail p-lg-0 border-0 image' src={userDataa.ProfileImage ? userDataa.ProfileImage : noImage } alt="profile img" />
                             <div class="middle">
                                 <div class="text">Upload Image</div>
                             </div>
@@ -147,19 +146,19 @@ useEffect(()=>{
            
             <div className='col-lg-9 offset-lg-1 ' >
                 <div className='col-lg-8 '>
-                    <h3  >{userDataa.name} <span  style={{fontSize:15}}><i class="fa-solid fa-location-dot offset-lg-4"></i>  {profileData.city ?profileData.city:'' } - Egypt</span> </h3>
+                    <h3  >{userDataa.name} <span  style={{fontSize:15}}><i class="fa-solid fa-location-dot offset-lg-4"></i>  {userDataa.city ?userDataa.city:'' } - Egypt</span> </h3>
                     <h5>National ID : {profileData.NationalId} </h5>
                     <h5>Type : {profileData.isStudent === false ? 'Employee' : 'Student'}</h5>
                 </div>
                 <hr />
                 <div id='about'>
-                <h3  className='m4'><i class="fa-regular fa-user "></i> About<button className='btn btn-light   offset-lg-9  ' >  Edit</button> </h3>
+                <h3  className='m4'><i class="fa-regular fa-user "></i> About <Link to="/travelerForm"><button className='btn btn-light   offset-lg-9  ' >  Edit</button></Link> </h3>
                 <br />
                 <h5 className='fw-bold text-decoration-underline'>Contact Information</h5>
                 <br />
                 <h5  className='col-lg-6 '>Phone : <span className='ms-5'>{userDataa.phoneNumber} </span> </h5>
                 <br />
-                <h5  className='col-lg-6'>Address : <span className='ms-5'> {userDataa.city ?userDataa.city:'' } - Egypt </span> </h5>
+                <h5  className='col-lg-6'>Address : <span className='ms-5'> {userDataa.address ?userDataa.address:'' } </span> </h5>
                 <br />
                 <h5  className='col-lg-6'>Email : <span className='ms-5'> {userDataa.email} </span> </h5>
                 <br />
@@ -167,11 +166,11 @@ useEffect(()=>{
                 <h5 className='fw-bold text-decoration-underline'>Basic Information</h5>
                 <br />
                     <div className='text-start'>
-                        <h5  className='col-lg-6  '>B-day : {userDataa.birthDate ? userDataa.birthDate.split('T')[0] : "" }   </h5>
+                        <h5  className='col-lg-6  '>Birth Date : {userDataa.birthDate ? userDataa.birthDate.split('T')[0] : "" }   </h5>
                         <br />
-                        <h5  className='col-lg-6'>Gove : {profileData.government} </h5>
+                        <h5  className='col-lg-6'>Gov : {userDataa.governorate} </h5>
                         <br />
-                        <h5  className='col-lg-6'>CITY : {profileData.city ?profileData.city:'' }  </h5>
+                        <h5  className='col-lg-6'>City : {userDataa.city ?userDataa.city:'' }  </h5>
                     </div>
                 <br />
                 <br />

@@ -11,8 +11,6 @@ export default function StudentForm (){
   let [loading,setLoading] = useState(false);
   let [student, setStudent] = useState({
     NationalId: '',
-    city: '',
-    government:'',
     StudentUniversityId:'',
     CollegeEnrollmentStatement:'',
     NationalIdCard:''
@@ -64,8 +62,6 @@ function validationForm(){
     NationalId: Joi.string().regex(/^([1-9]{1})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})[0-9]{3}([0-9]{1})[0-9]{1}$/).messages({
       'string.pattern.base': `National Id must have 14 digits.`
     }).required(),
-    city: Joi.string().required().max(20),
-    government: Joi.string().required().max(20),
     StudentUniversityId: Joi.object(),
     CollegeEnrollmentStatement:Joi.object(),
     NationalIdCard: Joi.object().required().messages({
@@ -114,25 +110,7 @@ function validationForm(){
 </div> 
 </div>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-2">
-  <label htmlFor="city" className="col-form-label">City : </label>
-</div>
-<div className="col-lg-10">
-  <input onChange={handleChange} type="text"  className="form-control" placeholder='City' name='city' />
-</div> 
 
-</div>
-
-<div className="row g-3 align-items-center group">
-<div className="col-lg-2">
-  <label htmlFor="government" className="col-form-label">Governorate : </label>
-</div>
-<div className="col-lg-10">
-  <input  onChange={handleChange} type="text" className="form-control" placeholder='Governorate' name='government' />
-</div> 
-
-</div>
 
 
 <div className="row g-3 align-items-center group">

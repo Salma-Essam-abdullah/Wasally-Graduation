@@ -50,12 +50,6 @@ useEffect(()=>{
     },[]);
 
 
-
-
-
-
-
-
   return (
     <>
   <section className="request">

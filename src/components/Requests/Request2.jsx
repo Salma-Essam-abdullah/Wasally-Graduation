@@ -118,7 +118,7 @@ useEffect(()=>{
 
           
           
-          <Link to="/home" className="lin btn btn-info  ">VIEW DETAILS</Link>        
+          <Link to={`/detailspfshippmentuser1/${request.id}`}> <button  className="lin btn btn-info  ">VIEW DETAILS</button></Link>
           
         </div>
       </div>

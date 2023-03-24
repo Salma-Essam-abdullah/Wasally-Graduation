@@ -101,7 +101,7 @@ function validationForm(){
 
 </div>
 <div className="row g-3 align-items-center group">
-<div className="col-lg-2">3 
+<div className="col-lg-2">
   <label htmlFor="NationalIdCard" className="col-form-label">National ID Card : </label>
 </div>
 <div className="col-lg-10">

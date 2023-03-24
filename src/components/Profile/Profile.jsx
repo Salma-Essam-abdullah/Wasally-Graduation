@@ -43,7 +43,7 @@ let userId = userData.id;
         setError('');
         setErrorList([]);
         console.log("s",image)
-        
+        getProfile();
       })
     .catch(err => {
       setLoading(false);

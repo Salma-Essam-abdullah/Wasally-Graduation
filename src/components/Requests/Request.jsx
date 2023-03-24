@@ -34,9 +34,6 @@ async function getUserData(){
       (response)=>{
           console.log('use',response.data)
           setUserData(response.data)
-       
-
-
       }
   ).catch(
       (error)=>{
@@ -99,8 +96,8 @@ request.buyOrdeliver ==='buy' ?
         <div className="preview-card__item">
           <div className="preview-card__img">
            {
-           userData.map((user)=>user.id===request.userId ? 
-            <img src={user.ProfileImage}  alt="person" /> 
+           userData.map((user,i)=>user.id===request.userId ? 
+            <img key={i} src={user.ProfileImage}  alt="person" /> 
             :null)
           }
         

@@ -74,25 +74,25 @@ useEffect(()=>{
       <div className="preview-card__wrp ">
         <div className="preview-card__item">
           <div className="preview-card__img">
-           {/* {
-           userData.map((user)=>user.id===request.userId ? 
-            <img src={user.ProfileImage}  alt="person" /> 
+           {
+           userData.map((traveler)=>traveler._id === request.Traveler ? 
+            <img src={traveler.userId.ProfileImage}  alt="person" /> 
             :null)
-            } */}
-        
+            }
           </div>
-
           
           <div className="preview-card__content">
-         
-            <h2 className="preview-card__code">{userData.map((travelers)=>travelers.userId.id ===request.userId ? travelers.userId.name : '')} </h2>
+             
+            <h2 className="preview-card__code">{userData.map((traveler)=>traveler._id === request.Traveler ? traveler.userId.name : '')} </h2>
             <div className="preview-card__title"><h2 className='fw-bold'><span className='green'>T</span>rip <span>Details </span> </h2> </div>
             <h5 className="previewcardh5 fw-bold"> <i className="fa-solid fa-train-subway"></i>  From <span className='green'>|</span>  {request.from}   <span className='space'>  To <span className='green'>|</span>  {request.to}</span></h5>
             <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-clock"></i>Trip Date <span className='green'>|</span> {request.TripDate ? request.TripDate.split('T')[0] : "" } </h5>
             <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-hourglass-half"></i>Trip Time: <span className='green'>|</span> {request.TripTime ? request.TripTime.split('T')[0] : "" } </h5>
             <h5 className="previewcardh5 fw-bold"><i className="fa-solid fa-weight-hanging"></i>Available Weight <span className='green'>|</span>  {request.AvailableWeight} KG </h5>
             <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-ban"></i> Unacceptable Package: <span className='green'>|</span> {request.unAcceptablaPackage} </h5> 
- 
+            <h5 className="previewcardh5 fw-bold ">  
+          
+              </h5>
           </div>
           
           <Link to="/home" className="lin btn btn-info  ">VIEW DETAILS</Link>        

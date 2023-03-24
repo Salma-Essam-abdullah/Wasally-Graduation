@@ -87,6 +87,7 @@ useEffect(()=>{
   </div>
  </div>
   </div>
+  
   {requestData.map((request,index)=>
 
 request.buyOrdeliver ==='buy' ? 
@@ -119,8 +120,8 @@ request.buyOrdeliver ==='buy' ?
             <h5 className="previewcardh5 fw-bold "> <i className="fa-solid fa-location-dot"></i>Your Location <span className='green'>|</span> {request.to} : {request.location}</h5>
             <h5  className="previewcardh5 fw-bold "><i className="fa-solid fa-phone-volume"></i>Phone Number <span className='green'>|</span>  {request.anotherPhone}</h5> 
           </div>
+         <br/>
          
-       
           <Link to={`/detailspfshippmentuser1/${request.id}`}> <button  className="lin btn btn-info  ">VIEW DETAILS</button></Link>
        
         </div>

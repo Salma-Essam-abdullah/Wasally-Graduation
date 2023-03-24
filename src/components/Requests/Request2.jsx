@@ -59,8 +59,6 @@ useEffect(()=>{
   return (
  
     <>
-    
-
   <section className="request">
 
  <div className="container">
@@ -85,9 +83,6 @@ useEffect(()=>{
   
  </div>
   </div>
-
- 
-
 
   {requestData.map((request,index)=>
   request.buyOrdeliver ==='deliver' ? 

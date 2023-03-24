@@ -89,7 +89,7 @@ useEffect(()=>{
               </h5>
           </div>
           
-          <Link to="/home" className="lin btn btn-info  ">VIEW DETAILS</Link>        
+          <Link to={`/detailspfshippmentuser/${request._id}`}> <button  className="lin btn btn-info  ">VIEW DETAILS</button></Link>
           
         </div>
       </div>

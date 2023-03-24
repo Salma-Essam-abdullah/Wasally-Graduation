@@ -1,12 +1,39 @@
-import React, { Component } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 // import Navbar from '../Navbar/Navbar'
 
-export default class DetailsOfShippmentUser extends Component {
-  render() {
+export default function DetailsOfShippmentUser  () {
+
+  let encodedToken = localStorage.getItem('userToken');
+  
+  const { tripId } = useParams();
+  
+  const [request, SetRequest] = useState({});
+  useEffect(() => {
+    const fetch = async () => {
+      axios.get(`http://localhost:3000/v1/trips/viewtrip/`+tripId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+      (response)=>{
+          console.log("sss",response.data)
+          SetRequest(response.data.trip)
+
+      }
+  ).catch(
+      (error)=>{
+          console.log(error)
+
+      }
+  ) 
+    
+      
+    };
+    fetch();
+  }, []);
+
+ 
     return (
         <>
-        {/* <Navbar/> */}
         <section className="shippmentDetails">
         <div className="container">
         <div className="row">
@@ -22,7 +49,7 @@ export default class DetailsOfShippmentUser extends Component {
    <label htmlFor="from" className="col-form-label">From : </label>
  </div>
  <div className="col-lg-8">
-   <input type="text"  className="form-control " name='from' placeholder='From'  defaultValue="Alexandria" />
+   <input type="text"  className="form-control " name='from' placeholder='From'  value={request.from} />
  </div>
  
 </div>
@@ -32,7 +59,7 @@ export default class DetailsOfShippmentUser extends Component {
    <label htmlFor="to" className="col-form-label">To : </label>
  </div>
  <div className="col-lg-8">
-   <input type="text"  className="form-control" name="to" placeholder='To'  defaultValue="Cairo"/>
+   <input type="text"  className="form-control" name="to" placeholder='To'  value={request.to}/>
  </div>
 </div>
 </div>
@@ -42,16 +69,7 @@ export default class DetailsOfShippmentUser extends Component {
    <label htmlFor="date" className="col-form-label">Date : </label>
  </div>
  <div className="col-lg-8">
-   <input type="date"  className="form-control" placeholder='Date' name='date' defaultValue='2023-02-05'/>
- </div> 
-</div>
-
-<div className="row g-3 align-items-center group">
- <div className="col-lg-4">
-   <label htmlFor="notes" className="col-form-label">Notes : </label>
- </div>
- <div className="col-lg-8">
-   <textarea   className="form-control" placeholder='Notes' name='notes' defaultValue="" />
+   <input type="text"  className="form-control" placeholder='Date' name='date' value={request.TripDate ? request.TripDate.split('T')[0] : "" }/>
  </div> 
 </div>
 
@@ -69,61 +87,44 @@ export default class DetailsOfShippmentUser extends Component {
       <form action="">
       <div className="row g-3 align-items-center group">
   <div className="col-lg-4">
-    <label htmlFor="item" className="col-form-label">Item : </label>
+    <label htmlFor="time" className="col-form-label">Trip Time : </label>
   </div>
   <div className="col-lg-8">
-    <input type="text"  className="form-control " name='item' placeholder='Item'  defaultValue="Shirt" />
+    <input type="text"  className="form-control " name='time' placeholder='time'  value={request.TripTime} />
   </div>
   
 </div>
 
 <div className="row g-3 align-items-center group">
   <div className="col-lg-4">
-    <label htmlFor="yourLocation" className="col-form-label">Your Location : </label>
+    <label htmlFor="AvailableWeight" className="col-form-label">Available weight : </label>
   </div>
   <div className="col-lg-8">
-    <input type="text"  className="form-control" name="yourLocation" placeholder='Your Location'  defaultValue="Louran"/>
+    <input type="text"  className="form-control" name="AvailableWeight" placeholder='Available Weight'  value={request.AvailableWeight} />
   </div>
 </div>
+
+
 
 <div className="row g-3 align-items-center group">
   <div className="col-lg-4">
-    <label htmlFor="anotherPhone" className="col-form-label">Another Phone : </label>
+    <label htmlFor="unAcceptablaPackage" className="col-form-label">UnAcceptabla package: </label>
   </div>
   <div className="col-lg-8">
-    <input type="number"  className="form-control" placeholder='Another Phone' name='anotherPhone'  defaultValue="01210594859"/>
+    <input type="text"  className="form-control" name='unAcceptablaPackage' placeholder='unAcceptabla Package'  value={request.unAcceptablaPackage} />
   </div> 
 </div>
 
-<div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="weight" className="col-form-label">Weight : </label>
-  </div>
-  <div className="col-lg-8">
-    <input type="number"  className="form-control" placeholder='Weight in Kilo-Gram' name='weight' defaultValue="0.3" />
-  </div> 
-</div>
 
-<div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="category" className="col-form-label">Category : </label>
-  </div>
-  <div className="col-lg-8">
-   
-    <select name="category" id="category">
-    <option defaultValue="clothes">Clothes</option>
-  <option defaultValue="documents">Documents</option>
-  <option defaultValue="bags">Bags</option>
- 
-
-</select>
-  </div> 
-</div>
 
        </form>
-      
         </section>
         </div>
+
+        <div className="col-lg-12 text-center">
+    <Link to="/trip"><button type='button' >BACK</button></Link>  
+
+      </div>
         </div>
         </div>
         </section>
@@ -131,4 +132,4 @@ export default class DetailsOfShippmentUser extends Component {
         </>
     )
   }
-}
+

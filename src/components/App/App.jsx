@@ -65,7 +65,7 @@ function logOut(){
               <ProtectedRoute path='/employeeform' component={EmployeeForm}/>
               <ProtectedRoute path='/studentform' component={StudentForm}/>
               <ProtectedRoute path='/detailspfshippmentuser' component={DetailsOfShippmentUser}/>
-              <ProtectedRoute path='/detailspfshippmentuser1' component={DetailsOfShipmentOfUser1}/>
+              <ProtectedRoute path='/detailspfshippmentuser1/:requestId' component={DetailsOfShipmentOfUser1}/>
               <ProtectedRoute path='/detailspfshippmentuser2' component={DetailsOfShippmentUser2}/>
               <ProtectedRoute path='/detailspfshippmentuser3' component={DetailsOfShipmentOfUser3}/>
               <ProtectedRoute path='/detailspfshippmentuser4' component={DetailsOfShippmentUser4}/>

@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Footer from '../Footer/Footer'
-import personImage from '../../assets/images/pic1.png'
 import { Link } from 'react-router-dom'
 
 export default function Request() {
-  
+
   const [requestData,setRequestData]=useState([]);
   const [activeButton, setActiveButton] = useState('first')
   let [userData , setUserData] = useState([])
   let encodedToken = localStorage.getItem('userToken');
+
 
   async function getRequest(){
     axios.get(`http://localhost:3000/v1/requests/viewAllRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
@@ -25,6 +25,7 @@ export default function Request() {
         }
     )
 }
+
 
 async function getUserData(){
 
@@ -70,6 +71,7 @@ useEffect(()=>{
     <div className="col-md-12">
   <div className="navL">
     <Link to="/request">
+      
  <button name="first"  className={ activeButton === "first" ? `${activeButton}` : ""}
           onClick={clickedButtonHandler}>
           Buy Something
@@ -99,7 +101,7 @@ request.buyOrdeliver ==='buy' ?
            userData.map((user)=>user.id===request.userId ? 
             <img src={user.ProfileImage}  alt="person" /> 
             :null)
-            }
+          }
         
           </div>
 
@@ -117,9 +119,10 @@ request.buyOrdeliver ==='buy' ?
             <h5 className="previewcardh5 fw-bold "> <i className="fa-solid fa-location-dot"></i>Your Location <span className='green'>|</span> {request.to} : {request.location}</h5>
             <h5  className="previewcardh5 fw-bold "><i className="fa-solid fa-phone-volume"></i>Phone Number <span className='green'>|</span>  {request.anotherPhone}</h5> 
           </div>
-          
-          <Link to="/home" className="lin btn btn-info  ">VIEW DETAILS</Link>        
-          
+         
+       
+          <Link to={`/detailspfshippmentuser1/${request.id}`}> <button  className="lin btn btn-info  ">VIEW DETAILS</button></Link>
+       
         </div>
       </div>
     </div>
@@ -131,6 +134,7 @@ request.buyOrdeliver ==='buy' ?
 
 </div>
 
+
 </section>
 
 
@@ -138,3 +142,4 @@ request.buyOrdeliver ==='buy' ?
     </>
   )
 }
+

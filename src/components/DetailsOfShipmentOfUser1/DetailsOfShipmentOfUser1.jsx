@@ -1,12 +1,37 @@
-import React, { Component } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 // import Navbar from '../Navbar/Navbar'
 
-export default class DetailsOfShipmentOfUser1 extends Component {
-  render() {
+export default function DetailsOfShipmentOfUser1(){
+  let encodedToken = localStorage.getItem('userToken');
+  
+    const { requestId } = useParams();
+    
+    const [request, SetRequest] = useState({});
+    useEffect(() => {
+      const fetch = async () => {
+        axios.get(`http://localhost:3000/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+        (response)=>{
+            console.log("sss",response.data)
+            SetRequest(response.data)
+
+        }
+    ).catch(
+        (error)=>{
+            console.log(error)
+
+        }
+    ) 
+      
+        
+      };
+      fetch();
+    }, []);
+  
     return (
       <>
-      {/* <Navbar/> */}
       <section className="shippmentDetails">
       <div className="container">
       <div className="row">
@@ -22,7 +47,7 @@ export default class DetailsOfShipmentOfUser1 extends Component {
  <label htmlFor="from" className="col-form-label">From : </label>
 </div>
 <div className="col-lg-8">
- <input type="text"  className="form-control " name='from' placeholder='From'  defaultValue="Alexandria" />
+ <input type="text"  className="form-control " name='from' placeholder='From'  defaultValue={request.from} />
 </div>
 
 </div>
@@ -32,28 +57,11 @@ export default class DetailsOfShipmentOfUser1 extends Component {
  <label htmlFor="to" className="col-form-label">To : </label>
 </div>
 <div className="col-lg-8">
- <input type="text"  className="form-control" name="to" placeholder='To'  defaultValue="Cairo"/>
+ <input type="text"  className="form-control" name="to" placeholder='To'  defaultValue={request.to}/>
 </div>
 </div>
 </div>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="date" className="col-form-label">Date : </label>
-</div>
-<div className="col-lg-8">
- <input type="date"  className="form-control" placeholder='Date' name='date' defaultValue='2023-02-05'/>
-</div> 
-</div>
-
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="notes" className="col-form-label">Notes : </label>
-</div>
-<div className="col-lg-8">
- <textarea   className="form-control" placeholder='Notes' name='notes' defaultValue="" />
-</div> 
-</div>
 
     </form>
    
@@ -72,7 +80,7 @@ export default class DetailsOfShipmentOfUser1 extends Component {
   <label htmlFor="item" className="col-form-label">Item : </label>
 </div>
 <div className="col-lg-8">
-  <input type="text"  className="form-control " name='item' placeholder='Item'  defaultValue="Shirt" />
+  <input type="text"  className="form-control " name='item' placeholder='Item'  defaultValue={request.item} />
 </div>
 
 </div>
@@ -148,7 +156,7 @@ export default class DetailsOfShipmentOfUser1 extends Component {
     
       </div>
       <div className="col-lg-12 text-center">
-      <button type='button' >BACK</button>
+    <Link to="/request"><button type='button' >BACK</button></Link>  
 
       </div>
       
@@ -165,4 +173,4 @@ export default class DetailsOfShipmentOfUser1 extends Component {
       </>
     )
   }
-}
+

@@ -174,7 +174,7 @@ useEffect(() => {
 
 <div className="row g-3 align-items-center group">
   <div className="col-lg-2">
-    <label htmlFor="governorate" className="col-form-label">Governate : </label>
+    <label htmlFor="governorate" className="col-form-label">Governorate : </label>
   </div>
   <div className="col-lg-10">
     <input type="text"  className="form-control" placeholder='Governate Name' name='governorate' defaultValue={profileData.governorate} onChange={handleChange} />

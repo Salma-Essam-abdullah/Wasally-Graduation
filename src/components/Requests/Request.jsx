@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Footer from '../Footer/Footer'
-import personImage from '../../assets/images/pic1.png'
+// import personImage from '../../assets/images/pic1.png'
 import { Link } from 'react-router-dom'
 
 export default function Request() {

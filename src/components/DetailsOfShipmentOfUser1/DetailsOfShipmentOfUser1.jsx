@@ -85,23 +85,8 @@ export default function DetailsOfShipmentOfUser1(){
 
 </div>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="yourLocation" className="col-form-label">Your Location : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text"  className="form-control" name="yourLocation" placeholder='Your Location'  defaultValue="Louran"/>
-</div>
-</div>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="anotherPhone" className="col-form-label">Another Phone : </label>
-</div>
-<div className="col-lg-8">
-  <input type="number"  className="form-control" placeholder='Another Phone' name='anotherPhone'  defaultValue="01210594859"/>
-</div> 
-</div>
+
 
 <div className="row g-3 align-items-center group">
 <div className="col-lg-4">

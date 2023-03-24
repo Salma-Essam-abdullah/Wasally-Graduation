@@ -67,7 +67,7 @@ export default class Home extends Component {
               connects Shoppers with Travellers. 
               Shoppers can buy all their needs from all around the world and ship with a Traveller already heading 
               their way. Shoppers save money shipping &amp; Travellers make money travelling.</p>
-              <Link to="/register"> <h2 className="mt-4"><span className="green">GET</span> STARTED  <i class="fa-solid fa-angles-right"></i>  </h2> </Link>
+              <Link to="/register"> <h2 className="mt-4"><span className="green">GET</span> STARTED  <i className="fa-solid fa-angles-right"></i>  </h2> </Link>
           </div>
 
       </div>

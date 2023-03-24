@@ -19,7 +19,7 @@ export default class Footer extends Component {
             supply chain technology & customized
             logistics solutions will help you.</p>
         <div className="social-links d-flex mt-4">
-          <a href="https://twiitter.com/" className="twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://twiitter.com/" className="twitter"><i className="fa-brands fa-twitter"></i></a>
           <a href="https://facebook.com/" className="facebook"><i className="fa-brands fa-facebook-f"/></a>
           <a href="https://instagram.com" className="instagram"><i className="fa-brands fa-instagram"/></a>
           <a href="https://linkedin.com" className="linkedin" > <i className="fa-brands fa-linkedin" /></a>

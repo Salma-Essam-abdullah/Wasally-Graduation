@@ -115,8 +115,8 @@ useEffect(()=>{
                     <label for="file-upload">
  
                         <img className='img-thumbnail p-lg-0 border-0 image' src={userDataa.ProfileImage ? userDataa.ProfileImage : noImage } alt="profile img" />
-                            <div class="middle">
-                                <div class="text">Upload Image</div>
+                            <div className="middle">
+                                <div className="text">Upload Image</div>
                             </div>
                     </label>
                 </div>
@@ -146,13 +146,13 @@ useEffect(()=>{
            
             <div className='col-lg-9 offset-lg-1 ' >
                 <div className='col-lg-8 '>
-                    <h3  >{userDataa.name} <span  style={{fontSize:15}}><i class="fa-solid fa-location-dot offset-lg-4"></i>  {userDataa.city ?userDataa.city:'' } - Egypt</span> </h3>
+                    <h3  >{userDataa.name} <span  style={{fontSize:15}}><i className="fa-solid fa-location-dot offset-lg-4"></i>  {userDataa.city ?userDataa.city:'' } - Egypt</span> </h3>
                     <h5>National ID : {profileData.NationalId} </h5>
                     <h5>Type : {profileData.isStudent === false ? 'Employee' : 'Student'}</h5>
                 </div>
                 <hr />
                 <div id='about'>
-                <h3  className='m4'><i class="fa-regular fa-user "></i> About <Link to="/travelerForm"><button className='btn btn-light   offset-lg-9  ' >  Edit</button></Link> </h3>
+                <h3  className='m4'><i className="fa-regular fa-user "></i> About <Link to="/travelerForm"><button className='btn btn-light   offset-lg-9  ' >  Edit</button></Link> </h3>
                 <br />
                 <h5 className='fw-bold text-decoration-underline'>Contact Information</h5>
                 <br />

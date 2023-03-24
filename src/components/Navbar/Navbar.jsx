@@ -43,7 +43,7 @@ export default function Navbar(props) {
           {
             props.loginUser?
             <>
-             <li onClick={props.logOut} className=" btn btn-close-white logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> LOG OUT</li>
+             <li onClick={props.logOut} className=" btn btn-close-white logout"><i className="fa-solid fa-arrow-right-from-bracket"></i> LOG OUT</li>
             </>:''
           }
          

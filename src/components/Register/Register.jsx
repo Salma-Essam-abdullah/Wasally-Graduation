@@ -35,6 +35,9 @@ export default function Register(props) {
     }
 
     setLoading(true);
+    try{
+
+  
      await axios.post(`http://localhost:3000/v1/auth/register`,user).then(
       res => {
        
@@ -52,6 +55,9 @@ export default function Register(props) {
          setError (errMsg);
   }
   );
+}catch(err){
+  console.log("sorry",err)
+}
 }
 
 const password = (value, helpers) => {

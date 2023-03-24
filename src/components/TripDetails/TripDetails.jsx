@@ -177,7 +177,7 @@ function validationUserForm(){
 </div>
 
 <div className="col-lg-12 text-center">
-        <button type='submit' >ADD TRIP</button>
+        <button type='submit' >{loading ?<i className='fas fa-spinner fa-spin'></i>:'ADD TRIP'}</button>
         </div>
     </form>
    

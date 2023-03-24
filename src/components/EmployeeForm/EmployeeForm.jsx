@@ -83,8 +83,8 @@ function validationForm(){
         }
 
 {
-  errorList.map((err)=>{
-    return <div className="alert alert-danger">
+  errorList.map((err,i)=>{
+    return <div key={i} className="alert alert-danger">
     {err.message}
   </div>
   }

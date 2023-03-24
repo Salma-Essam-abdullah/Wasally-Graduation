@@ -48,7 +48,7 @@ export default function DetailsOfShipmentOfUser1(){
  <label htmlFor="from" className="col-form-label">From : </label>
 </div>
 <div className="col-lg-8">
- <input type="text"  className="form-control " name='from' placeholder='From'  value={request.from} />
+ <input type="text"  className="form-control " name='from' placeholder='From'  defaultValue={request.from} readOnly />
 </div>
 
 </div>
@@ -58,7 +58,7 @@ export default function DetailsOfShipmentOfUser1(){
  <label htmlFor="to" className="col-form-label">To : </label>
 </div>
 <div className="col-lg-8">
- <input type="text"  className="form-control" name="to" placeholder='To' value={request.to}/>
+ <input type="text"  className="form-control" name="to" placeholder='To' defaultValue={request.to} readOnly/>
 </div>
 </div>
 </div>
@@ -68,7 +68,7 @@ export default function DetailsOfShipmentOfUser1(){
  <label htmlFor="reward" className="col-form-label">Reward : </label>
 </div>
 <div className="col-lg-8">
- <input type="text"  className="form-control " name='reward' placeholder='Reward'  value={request.reward} />
+ <input type="text"  className="form-control " name='reward' placeholder='Reward'  defaultValue={request.reward} readOnly/>
 </div>
 
 </div>
@@ -78,7 +78,7 @@ export default function DetailsOfShipmentOfUser1(){
  <label htmlFor="anotherPhone" className="col-form-label">Another Phone : </label>
 </div>
 <div className="col-lg-8">
- <input type="text"  className="form-control " name='reward' placeholder='Another Phone'  value={request.anotherPhone} />
+ <input type="text"  className="form-control " name='reward' placeholder='Another Phone'  defaultValue={request.anotherPhone} readOnly />
 </div>
 
 </div>
@@ -102,7 +102,7 @@ export default function DetailsOfShipmentOfUser1(){
   <label htmlFor="buyOrdeliver" className="col-form-label">Buy or deliver : </label>
 </div>
 <div className="col-lg-8">
-  <input type="text"  className="form-control " name='buyOrdeliver' placeholder='Buy or deliver'  value={request.buyOrdeliver === 'deliver' ? 'deliver' : 'buy'} />
+  <input type="text"  className="form-control " name='buyOrdeliver' placeholder='Buy or deliver'  defaultValue={request.buyOrdeliver === 'deliver' ? 'deliver' : 'buy'} readOnly />
 </div>
 
 </div>
@@ -111,7 +111,7 @@ export default function DetailsOfShipmentOfUser1(){
   <label htmlFor="item" className="col-form-label">Item : </label>
 </div>
 <div className="col-lg-8">
-  <input type="text"  className="form-control " name='item' placeholder='Item'  value={request.item} />
+  <input type="text"  className="form-control " name='item' placeholder='Item'  defaultValue={request.item} readOnly/>
 </div>
 
 </div>
@@ -120,7 +120,7 @@ export default function DetailsOfShipmentOfUser1(){
   <label htmlFor="weight" className="col-form-label">Weight : </label>
 </div>
 <div className="col-lg-8">
-  <input type="text"  className="form-control " name='weight' placeholder='Weight'  value={request.weight} />
+  <input type="text"  className="form-control " name='weight' placeholder='Weight'  defaultValue={request.weight} readOnly/>
 </div>
 
 </div>
@@ -131,7 +131,7 @@ export default function DetailsOfShipmentOfUser1(){
   <label htmlFor="location" className="col-form-label">Location : </label>
 </div>
 <div className="col-lg-8">
-  <input type="text"  className="form-control " name='location' placeholder='Location'  value={request.location} />
+  <input type="text"  className="form-control " name='location' placeholder='Location'  defaultValue={request.location} readOnly/>
 </div>
 
 </div>
@@ -141,7 +141,7 @@ export default function DetailsOfShipmentOfUser1(){
   <label htmlFor="category" className="col-form-label">Category : </label>
 </div>
 <div className="col-lg-8">
-  <input type="text"  className="form-control " name='category' placeholder='Category'  value={request.category} />
+  <input type="text"  className="form-control " name='category' placeholder='Category'  defaultValue={request.category} readOnly/>
 </div>
 
 </div>
@@ -153,7 +153,7 @@ export default function DetailsOfShipmentOfUser1(){
   <label htmlFor="targetLocation" className="col-form-label">Target Location : </label>
 </div>
 <div className="col-lg-8">
-  <input type="text"  className="form-control " name='targetLocation' placeholder='Target Location'  value={request.targetLocation} />
+  <input type="text"  className="form-control " name='targetLocation' placeholder='Target Location'  defaultValue={request.targetLocation} readOnly />
 </div>
 
 </div>
@@ -165,7 +165,7 @@ export default function DetailsOfShipmentOfUser1(){
   <label htmlFor="storeName" className="col-form-label">Store Name: </label>
 </div>
 <div className="col-lg-8">
-  <input type="text"  className="form-control" placeholder='Store Name' name='storeName' value={request.storeName}/>
+  <input type="text"  className="form-control" placeholder='Store Name' name='storeName' defaultValue={request.storeName} readOnly/>
 </div> 
 </div>
 
@@ -174,7 +174,7 @@ export default function DetailsOfShipmentOfUser1(){
   <label htmlFor="storeLocation" className="col-form-label">Store Location: </label>
 </div>
 <div className="col-lg-8">
-  <input type="text"  className="form-control" placeholder='Store Location' name='storeLocation' value={request.storeLocation} />
+  <input type="text"  className="form-control" placeholder='Store Location' name='storeLocation' defaultValue={request.storeLocation} readOnly />
 </div> 
 </div>
 
@@ -184,7 +184,7 @@ export default function DetailsOfShipmentOfUser1(){
   <label htmlFor="price" className="col-form-label">Price : </label>
 </div>
 <div className="col-lg-8">
-  <input type="number"  className="form-control" placeholder='Price' name='price'  value={request.price}/>
+  <input type="number"  className="form-control" placeholder='Price' name='price'  defaultValue={request.price} readOnly/>
 </div> 
 </div>
 </>

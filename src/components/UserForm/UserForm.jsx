@@ -122,8 +122,8 @@ useEffect(() => {
         }
 
 {
-  errorList.map((err)=>{
-    return <div className="alert alert-danger">
+  errorList.map((err,i)=>{
+    return <div key={i} className="alert alert-danger">
     {err.message}
   </div>
   }
@@ -155,7 +155,7 @@ useEffect(() => {
     <label htmlFor="birthDate" className="col-form-label">Date Of Birth : </label>
   </div>
   <div className="col-lg-10">
-    <input type="text"  className="form-control" name="birthDate" placeholder='Year-Month-Day' defaultValue={profileData.birthDate}  onChange={handleChange}/>
+    <input type="text"  className="form-control" name="birthDate" placeholder='Year-Month-Day' defaultValue={profileData.birthDate? profileData.birthDate.split('T')[0]:''}  onChange={handleChange}/>
   </div>
 </div>
 

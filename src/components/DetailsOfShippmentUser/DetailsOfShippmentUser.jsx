@@ -49,7 +49,7 @@ export default function DetailsOfShippmentUser  () {
    <label htmlFor="from" className="col-form-label">From : </label>
  </div>
  <div className="col-lg-8">
-   <input type="text"  className="form-control " name='from' placeholder='From'  value={request.from} />
+   <input type="text"  className="form-control " name='from' placeholder='From'  defaultValue={request.from} readOnly/>
  </div>
  
 </div>
@@ -59,7 +59,7 @@ export default function DetailsOfShippmentUser  () {
    <label htmlFor="to" className="col-form-label">To : </label>
  </div>
  <div className="col-lg-8">
-   <input type="text"  className="form-control" name="to" placeholder='To'  value={request.to}/>
+   <input type="text"  className="form-control" name="to" placeholder='To'  defaultValue={request.to} readOnly/>
  </div>
 </div>
 </div>
@@ -69,7 +69,7 @@ export default function DetailsOfShippmentUser  () {
    <label htmlFor="date" className="col-form-label">Date : </label>
  </div>
  <div className="col-lg-8">
-   <input type="text"  className="form-control" placeholder='Date' name='date' value={request.TripDate ? request.TripDate.split('T')[0] : "" }/>
+   <input type="text"  className="form-control" placeholder='Date' name='date' defaultValue={request.TripDate ? request.TripDate.split('T')[0] : "" } readOnly/>
  </div> 
 </div>
 
@@ -90,7 +90,7 @@ export default function DetailsOfShippmentUser  () {
     <label htmlFor="time" className="col-form-label">Trip Time : </label>
   </div>
   <div className="col-lg-8">
-    <input type="text"  className="form-control " name='time' placeholder='time'  value={request.TripTime} />
+    <input type="text"  className="form-control " name='time' placeholder='time'  defaultValue={request.TripTime} readOnly/>
   </div>
   
 </div>
@@ -100,7 +100,7 @@ export default function DetailsOfShippmentUser  () {
     <label htmlFor="AvailableWeight" className="col-form-label">Available weight : </label>
   </div>
   <div className="col-lg-8">
-    <input type="text"  className="form-control" name="AvailableWeight" placeholder='Available Weight'  value={request.AvailableWeight} />
+    <input type="text"  className="form-control" name="AvailableWeight" placeholder='Available Weight'  defaultValue={request.AvailableWeight} readOnly />
   </div>
 </div>
 
@@ -111,7 +111,7 @@ export default function DetailsOfShippmentUser  () {
     <label htmlFor="unAcceptablaPackage" className="col-form-label">UnAcceptable package: </label>
   </div>
   <div className="col-lg-8">
-    <input type="text"  className="form-control" name='unAcceptablaPackage' placeholder='unAcceptabla Package'  value={request.unAcceptablaPackage} />
+    <input type="text"  className="form-control" name='unAcceptablaPackage' placeholder='unAcceptabla Package'  defaultValue={request.unAcceptablaPackage} readOnly />
   </div> 
 </div>
 

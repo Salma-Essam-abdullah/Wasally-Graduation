@@ -100,8 +100,8 @@ useEffect(()=>{
         }
 
 {
-  errorList.map((err)=>{
-    return <div className="alert alert-danger">
+  errorList.map((err,i)=>{
+    return <div key={i} className="alert alert-danger">
     {err.message}
   </div>
   }
@@ -109,11 +109,11 @@ useEffect(()=>{
 }
                     <form onSubmit={formSubmit}>
                     <div className="contain">
-                    <label for="file-upload">
+                    <label htmlFor="file-upload">
  
                     <img className='img-thumbnail p-lg-0 border-0 image' src={profileData.ProfileImage ? profileData.ProfileImage : noImage } alt="profile img" />
-                    <div class="middle">
-                <div class="text">Upload Image</div>
+                    <div className="middle">
+                <div className="text">Upload Image</div>
                    </div>
                    </label>
                    </div>

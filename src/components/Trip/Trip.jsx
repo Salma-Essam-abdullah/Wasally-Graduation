@@ -69,8 +69,8 @@ useEffect(()=>{
         <div className="preview-card__item">
           <div className="preview-card__img">
            {
-           userData.map((traveler)=>traveler._id === request.Traveler ? 
-            <img src={traveler.userId.ProfileImage}  alt="person" /> 
+           userData.map((traveler,i)=>traveler._id === request.Traveler ? 
+            <img key={i} src={traveler.userId.ProfileImage}  alt="person" /> 
             :null)
             }
           </div>

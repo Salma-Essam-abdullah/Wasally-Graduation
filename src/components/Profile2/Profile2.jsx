@@ -136,6 +136,9 @@ useEffect(()=>{
                         <div >
                         <Link to="/userdetails2"> <button  className=" btn btn-light  mt-4 w-100">Buy Something / Deliver Something</button></Link>
                         </div>
+                        <div >
+                        <Link to="/travelertrips"> <button  className=" btn btn-light  mt-4 w-100">Your Trips</button></Link>
+                        </div>
                         
 
                     </div>

@@ -27,6 +27,7 @@ import jwtDecode from 'jwt-decode';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import TravelerForm from '../TravelerForm/TravelerForm';
 import Trip from '../Trip/Trip';
+import TravelerTrip from '../TravelerTrip/TravelerTrip';
 
 
 
@@ -81,6 +82,7 @@ function logOut(){
               <ProtectedRoute path='/work' component={Work}/>
               <ProtectedRoute path='/travelerForm' component={TravelerForm}/>
               <ProtectedRoute path='/trip' component={Trip}/>
+              <ProtectedRoute path='/travelertrips' component={TravelerTrip}/>
               <Route path="/home" ><Home/> </Route>
               <Route path="/Register" render={(props)=> <Register{...props}/>}  />
               <Route path="/login"  render={(props)=><Login{...props} getUserInfo={getUserInfo}/>}/>

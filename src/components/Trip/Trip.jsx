@@ -84,9 +84,6 @@ useEffect(()=>{
             <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-hourglass-half"></i>Trip Time: <span className='green'>|</span> {request.TripTime ? request.TripTime.split('T')[0] : "" } </h5>
             <h5 className="previewcardh5 fw-bold"><i className="fa-solid fa-weight-hanging"></i>Available Weight <span className='green'>|</span>  {request.AvailableWeight} KG </h5>
             <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-ban"></i> Unacceptable Package: <span className='green'>|</span> {request.unAcceptablaPackage} </h5> 
-            <h5 className="previewcardh5 fw-bold ">  
-          
-              </h5>
           </div>
           
           <Link to={`/detailspfshippmentuser/${request._id}`}> <button  className="lin btn btn-info  ">VIEW DETAILS</button></Link>

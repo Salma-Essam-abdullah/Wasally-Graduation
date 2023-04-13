@@ -102,7 +102,7 @@ export default function DetailsOfShipmentOfUser1(){
   <label htmlFor="buyOrdeliver" className="col-form-label">Buy or deliver : </label>
 </div>
 <div className="col-lg-8">
-  <input type="text"  className="form-control " name='buyOrdeliver' placeholder='Buy or deliver'  defaultValue={request.buyOrdeliver === 'deliver' ? 'deliver' : 'buy'} readOnly />
+  <input type="text"  className="form-control " name='buyOrdeliver' placeholder='Buy or deliver'  defaultValue={request.buyOrdeliver} readOnly />
 </div>
 
 </div>

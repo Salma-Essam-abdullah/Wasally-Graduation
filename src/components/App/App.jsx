@@ -10,7 +10,7 @@ import DetailsOfShippmentUser from '../DetailsOfShippmentUser/DetailsOfShippment
 import DetailsOfShipmentOfUser1 from '../DetailsOfShipmentOfUser1/DetailsOfShipmentOfUser1';
 import DetailsOfShippmentUser2 from '../DetailsOfShippmentUser2/DetailsOfShippmentUser2';
 import DetailsOfShipmentOfUser3 from '../DetailsOfShipmentOfUser3/DetailsOfShipmentOfUser3';
-import UserDetails1 from '../UserDetails1/UserDetails1';
+
 import DetailsOfShippmentUser4 from '../DetailsOfShipmentOfUser4/DetailsOfShipmentOfUser4';
 import UserDetails2 from '../UserDetails2/UserDetails2';
 import TripDetails from '../TripDetails/TripDetails';
@@ -29,7 +29,10 @@ import TravelerForm from '../TravelerForm/TravelerForm';
 import Trip from '../Trip/Trip';
 import TravelerTrip from '../TravelerTrip/TravelerTrip';
 
-
+import userShipment from '../UserShipments/UserShipments'
+import userShipment2 from '../UserShipments2/UserShipments2'
+import UpdateDetailsOfShipments from '../UpdateDetailsOfShipments/UpdateDetailsOfShipments';
+import UpdateDetailsOfTrips from '../UpdateDetailsOfTrips/UpdateDetailsOfTrips';
 
 export default function App() {
   let history = useHistory();
@@ -67,10 +70,13 @@ function logOut(){
               <ProtectedRoute path='/studentform' component={StudentForm}/>
               <ProtectedRoute path='/detailspfshippmentuser/:tripId' component={DetailsOfShippmentUser}/>
               <ProtectedRoute path='/detailspfshippmentuser1/:requestId' component={DetailsOfShipmentOfUser1}/>
+              <ProtectedRoute path='/UpdateDetailsOfShipments/:requestId' component={UpdateDetailsOfShipments}/>
               <ProtectedRoute path='/detailspfshippmentuser2' component={DetailsOfShippmentUser2}/>
               <ProtectedRoute path='/detailspfshippmentuser3' component={DetailsOfShipmentOfUser3}/>
               <ProtectedRoute path='/detailspfshippmentuser4' component={DetailsOfShippmentUser4}/>
-              <ProtectedRoute path='/userdetails1' component={UserDetails1}/>
+              <ProtectedRoute path='/userShipment' component={userShipment}/>
+              <ProtectedRoute path='/userShipment2' component={userShipment2}/>
+              <ProtectedRoute path='/updateDetailsOfTrips/:tripId' component={UpdateDetailsOfTrips}/>
               <ProtectedRoute path='/userdetails2' component={UserDetails2}/>
               <ProtectedRoute path='/tripdetails' component={TripDetails}/>
               <ProtectedRoute path='/chat' component={Chat}/>
@@ -78,7 +84,7 @@ function logOut(){
               <ProtectedRoute path='/request' component={Request}/>
               <ProtectedRoute path='/request2' component={Request2}/>
               <ProtectedRoute path='/profile' component={Profile}/>
-              <ProtectedRoute path='/profile2' component={Profile2}/>
+              <ProtectedRoute path='/profile2'  component={Profile2}/>
               <ProtectedRoute path='/work' component={Work}/>
               <ProtectedRoute path='/travelerForm' component={TravelerForm}/>
               <ProtectedRoute path='/trip' component={Trip}/>

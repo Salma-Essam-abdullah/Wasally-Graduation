@@ -11,9 +11,6 @@ export default function Profile2() {
     const [userDataa,setUserDataa]=useState([])
     let encodedToken = localStorage.getItem('userToken');
 
-
-
-
   let [errorList , setErrorList] = useState([])
   let [error,setError] = useState('');
   let [loading,setLoading] = useState(false);
@@ -128,7 +125,7 @@ useEffect(()=>{
                      <div className={style} >
                         
                         <div >
-                        <Link to="/Request"> <button  className=" btn btn-light  mt-4 w-100">Requests</button></Link>
+                        <Link to="/requestSendBuy"> <button  className=" btn btn-light  mt-4 w-100">Requests</button></Link>
                         </div>
                         <div >
                         <Link to="/tripdetails"> <button  className=" btn btn-light  mt-4 w-100">Add Trip</button></Link>

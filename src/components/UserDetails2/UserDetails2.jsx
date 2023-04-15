@@ -3,15 +3,9 @@ import Joi from 'joi';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Footer from '../Footer/Footer'
-// import Navbar from '../Navbar/Navbar'
 
 export default function UserDetails2  () {
-  // const [buyOrdeliver, setbuyOrdeliver] = useState("deliver");
-  // function SelectedOption(e){
-  //   setbuyOrdeliver(e.target.value)
-  //   console.log(e.target.value)
-  //   console.log("jjj",buyOrdeliver)
-  // }
+
  
   let history = useHistory();
   let [errorList , setErrorList] = useState([])
@@ -311,9 +305,6 @@ function RequestValidation(){
 
 
 
-
-
-
       </section>
       </div>
       <div className="col-lg-12 text-center">
@@ -329,8 +320,6 @@ function RequestValidation(){
     </form>
       </section>
       
-      
-     
       <Footer/>
    </>
    )

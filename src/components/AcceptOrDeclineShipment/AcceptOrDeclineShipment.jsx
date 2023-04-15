@@ -1,17 +1,14 @@
 import axios from 'axios';
-import jwtDecode from 'jwt-decode';
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory, useParams } from 'react-router-dom'
+import {  useHistory, useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 // import Navbar from '../Navbar/Navbar'
 
-export default function DetailsOfShipmentOfUser1(){
+export default function AcceptOrDeclineShipment(){
+  const history = useHistory();
   let encodedToken = localStorage.getItem('userToken');
   const [isAccepted, setIsAccepted] = useState(false);
-  const history = useHistory();
-  let decodedToken = jwtDecode(encodedToken)
-let role = decodedToken.role;
-console.log(role)
+  const [isDeclined , setIsDeclined] = useState(false)
     const { requestId } = useParams();
     
     const [request, SetRequest] = useState({});
@@ -21,6 +18,7 @@ console.log(role)
         (response)=>{
             console.log("sss",response.data)
             SetRequest(response.data)
+            
 
         }
     ).catch(
@@ -34,10 +32,12 @@ console.log(role)
       };
       fetch();
     }, []);
-  
+
+
+
 
     async function AcceptRequest() {
-      axios.post(`http://localhost:3000/v1/requests/TravelerAcceptRequest/${requestId}`,{isAccepted: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+      axios.post(`http://localhost:3000/v1/requests/acceptrequest/${requestId}`,{isAccepted: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
           console.log(response.message);
           setIsAccepted(true)
           history.push('/chat')
@@ -48,6 +48,17 @@ console.log(role)
     }
 
 
+    async function DeclineRequest() {
+      axios.post(`http://localhost:3000/v1/requests/declinerequest/${requestId}`,{isDeclined: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+          console.log(response.message);
+          setIsDeclined(true)
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+  
     return (
       <>
       <section className="shippmentDetails">
@@ -213,17 +224,17 @@ console.log(role)
       </section>
     
       </div>
+      <div className="col-lg-6 text-center" >
+      <button type='button' onClick={AcceptRequest}>ACCEPT REQUEST</button>
+      </div>
+      <div className="col-lg-6 text-center ">
+      <button type='button' onClick={DeclineRequest} className='rejectButton'>Decline REQUEST</button>
+
+      </div>
       <div className="col-lg-12 text-center">
-        {role ==='traveler' ?
-           <button type='button'  onClick={AcceptRequest}>
-           Accept Request
-          </button>
-          
-           :
-          null
-        }
- 
- <br/>
+  
+
+    
       </div>
       
       </div>

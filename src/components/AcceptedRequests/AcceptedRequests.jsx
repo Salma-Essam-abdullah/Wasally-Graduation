@@ -3,7 +3,7 @@ import axios from 'axios'
 import Footer from '../Footer/Footer'
 import { Link } from 'react-router-dom'
 
-export default function Request() {
+export default function AcceptedRequests() {
 
   const [requestData,setRequestData]=useState([]);
   const [activeButton, setActiveButton] = useState('first')
@@ -12,7 +12,7 @@ export default function Request() {
 
 
   async function getRequest(){
-    axios.get(`http://localhost:3000/v1/requests/viewAllRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`http://localhost:3000/v1/requests/ViewAllAcceptedRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log(response.data)
             setRequestData(response.data.requests)
@@ -68,14 +68,14 @@ useEffect(()=>{
   <div className="row">
     <div className="col-md-12">
   <div className="navL">
-    <Link to="/request">
+    <Link to="/acceptedrequests">
       
  <button name="first"  className={ activeButton === "first" ? `${activeButton}` : ""}
           onClick={clickedButtonHandler}>
           Buy Something
           </button>
     </Link>
-    <Link to="/request2">
+    <Link to="/acceptedrequestsDeliver">
     <button name="second"
           className={activeButton === "second" ? `${activeButton}` : ""}
           onClick={clickedButtonHandler}>
@@ -120,7 +120,7 @@ request.buyOrdeliver ==='buy' ?
           </div>
          <br/>
          
-          <Link to={`/detailspfshippmentuser1/${request.id}`}> <button  className="lin btn btn-info  ">VIEW DETAILS</button></Link>
+          <Link to={`/viewRequestAfterAcceptance/${request.id}`}> <button  className="lin btn btn-info  ">VIEW DETAILS</button></Link>
        
         </div>
       </div>

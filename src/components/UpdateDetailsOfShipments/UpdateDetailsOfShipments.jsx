@@ -22,8 +22,6 @@ export default function UpdateDetailsOfShipments(){
         reward:request.reward,
         date:request.date,
         anotherPhone:request.anotherPhone,
-  
-      
       });
     
  

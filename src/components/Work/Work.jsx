@@ -18,7 +18,6 @@ export default function Work() {
         };
       axios.patch(`http://localhost:3000/v1/travelers/employee`,{isUpdated: true} ,config )
         .then(response => {
-        //   setIsUpdated(response.data.success);
           setIsUpdated(true); 
         })
         .catch(error => {
@@ -29,7 +28,6 @@ export default function Work() {
     const handleUpdateStudent = () => {
         axios.put(`http://localhost:3000/v1/travelers/student` ,{isStudentUpdated:true} , { headers: {"Authorization" : `Bearer ${encodedToken}`} })
           .then(response => {
-            // setIsUpdated(response.data.success);
             setIsStudentUpdated(true);
             
           })

@@ -1,15 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 // import Navbar from '../Navbar/Navbar'
 
-export default function DetailsOfShippmentUser  () {
+export default function AcceptOrDeclineTrip  () {
 
   let encodedToken = localStorage.getItem('userToken');
-  
+  const [isAccepted, setIsAccepted] = useState(false);
   const { tripId } = useParams();
-
+  const history = useHistory();
   console.log("id"+ tripId)
   
   const [request, SetRequest] = useState({});
@@ -32,6 +32,18 @@ export default function DetailsOfShippmentUser  () {
     };
     fetch();
   }, []);
+
+
+  async function AcceptRequest() {
+    axios.post(`http://localhost:3000/v1/requests/userAcceptTravelerRequest/${tripId}`,{isAccepted: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+        console.log(response.message);
+        setIsAccepted(true)
+        history.push('/chat')
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
 
     return (
@@ -125,9 +137,7 @@ export default function DetailsOfShippmentUser  () {
 
         <div className="col-lg-12 text-center">
    
-    <Link to={`/shipmentSendTrip/${tripId}`}> <button type='button'>Send Request</button> </Link>
-    
-
+      <button type='button' onClick={AcceptRequest}>ACCEPT REQUEST</button>
       </div>
         </div>
         </div>

@@ -60,7 +60,7 @@ useEffect(()=>{
     <div className="col-md-12">
  </div>
   </div>
-  {requestData.map((request,index)=>
+  {requestData && requestData.map((request,index)=>
 
   <div key={index} className="row mt-3">
     

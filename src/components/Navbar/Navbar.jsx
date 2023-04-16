@@ -1,10 +1,12 @@
+import jwtDecode from 'jwt-decode';
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 
 
 export default function Navbar(props) {
- 
+  const token = localStorage.getItem('userToken');
+ let role  = token ? jwtDecode(token).role : null
   return (
       <>
             <section className="navBar " >
@@ -28,11 +30,18 @@ export default function Navbar(props) {
           <li className="nav-item">
             <NavLink to="/trip" className="nav-link" >TRIPS</NavLink>
           </li>
+
+          {role ==='user' ?
           <li className="nav-item">
             <NavLink to="/profile" className="nav-link">PROFILE</NavLink>
           </li>
+          :
           <li className="nav-item">
-            <NavLink to="/home" className="nav-link">MEDIA</NavLink>
+          <NavLink to="/profile2" className="nav-link">PROFILE</NavLink>
+        </li>
+          }
+          <li className="nav-item">
+            <NavLink to="/work" className="nav-link">WORK</NavLink>
           </li>
           </>:''
           }

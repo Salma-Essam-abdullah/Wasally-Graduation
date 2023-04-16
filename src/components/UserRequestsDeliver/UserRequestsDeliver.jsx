@@ -104,7 +104,8 @@ export default function UserRequestsDeliver() {
 
                           <div className="preview-card__content">
 
-
+                           <h2 className="previewcardh5 fw-bold ">{request.trip.Traveler.userId.name}</h2>
+                           <h2 className="previewcardh5 fw-bold ">{request.trip.Traveler.userId.phoneNumber}</h2>
                           <h2 className="previewcardh5 fw-bold ">Your Shipment Data</h2>
                           <h5 className="previewcardh5 fw-bold"> From <span className='green'>|</span> {shipment.from}</h5>
                           <h5 className="previewcardh5 fw-bold"> To <span className='green'>|</span> {shipment.to}</h5>
@@ -121,6 +122,9 @@ export default function UserRequestsDeliver() {
               
                           <h5 className="previewcardh5 fw-bold"> <i className="fa-solid fa-train-subway"></i>  From <span className='green'>|</span>  {request.trip.from}   <span className='space'>  To <span className='green'>|</span>  {request.trip.to}</span></h5>
                           <h5 className="previewcardh5 fw-bold"> Price <span className='green'>|</span> {request.price}</h5>
+                          <h5 className="previewcardh5 fw-bold"> Trip Date <span className='green'>|</span> {  request.trip.TripDate ? request.trip.TripDate.split('T')[0] : "" }</h5>
+                          <h5 className="previewcardh5 fw-bold"> Trip Time <span className='green'>|</span> {request.trip.TripTime}</h5>
+
                   </div>
                           <br />
 

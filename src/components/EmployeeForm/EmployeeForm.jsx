@@ -28,6 +28,18 @@ export default function EmployeeForm() {
     myStudent[e.target.name] = e.target.files[0];
     setEmployee(myStudent);
   }
+
+
+
+  let [loginUser , setLoginUser] = useState(null);
+  function logOut(){
+    localStorage.removeItem('userToken');
+    setLoginUser(null);
+    history.push('/login');  
+  }
+
+
+
   async function formSubmit(e){
     e.preventDefault();
     let validationResponse = validationForm();
@@ -37,6 +49,7 @@ export default function EmployeeForm() {
       setErrorList(validationResponse.error.details)
       return;
     }
+    
 
     setLoading(true);
      await axios.patch(`http://localhost:3000/v1/travelers/create`,employee,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
@@ -45,8 +58,8 @@ export default function EmployeeForm() {
         setLoading(false);
         setError('');
         setErrorList([]);
-
-       history.push('/profile2')
+        logOut()
+       
         
       })
     .catch(err => {
@@ -108,11 +121,6 @@ function validationForm(){
   <input  onChange={handleImageChange} type="file"  className="form-control"  name='NationalIdCard' />
 </div> 
 </div>
-
-
-
-
-
 
 
 <div className="row g-3 align-items-center group">

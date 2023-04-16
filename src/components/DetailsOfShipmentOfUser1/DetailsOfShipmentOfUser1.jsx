@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Joi from 'joi';
 import jwtDecode from 'jwt-decode';
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
@@ -7,7 +8,7 @@ import Footer from '../Footer/Footer'
 
 export default function DetailsOfShipmentOfUser1(){
   let encodedToken = localStorage.getItem('userToken');
-  const [isAccepted, setIsAccepted] = useState(false);
+  // const [isAccepted, setIsAccepted] = useState(false);
   const history = useHistory();
   let decodedToken = jwtDecode(encodedToken)
 let role = decodedToken.role;
@@ -36,16 +37,67 @@ console.log(role)
     }, []);
   
 
-    async function AcceptRequest() {
-      axios.post(`http://localhost:3000/v1/requests/TravelerAcceptRequest/${requestId}`,{isAccepted: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
-          console.log(response.message);
-          setIsAccepted(true)
-          history.push('/chat')
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    // async function AcceptRequest() {
+    //   axios.post(`http://localhost:3000/v1/requests/TravelerAcceptRequest/${requestId}`,{isAccepted: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    //       console.log(response.message);
+    //       setIsAccepted(true)
+    //       setError('');
+    //     setErrorList([]);
+    //       history.push('/chat')
+          
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // }
+
+
+
+    let [errorList , setErrorList] = useState([])
+  let [error,setError] = useState('');
+    let [price, setPrice] = useState({
+      price: '',
+    });
+    const handleChange = (e) => {
+      let myPrice = {...price};
+      myPrice[e.target.name] = e.target.value;
+      setPrice(myPrice);
+    };
+    function validationForm(){
+      let scheme = Joi.object({
+       
+        price: Joi.number().required(),
+       
+      });
+     return scheme.validate(price,{abortEarly:false});
     }
+  async function formSubmit(e){
+    e.preventDefault();
+    let validationResponse = validationForm();
+    console.log(validationResponse);
+    if(validationResponse.error){ 
+      setErrorList(validationResponse.error.details)
+      return;
+    }
+    axios.post(`http://localhost:3000/v1/requests/TravelerAcceptRequest/${requestId}`,price,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+      console.log(response.message);
+      // setIsAccepted(true)
+      setError('');
+    setErrorList([]);
+      history.push('/chat')
+      
+    })
+    .catch((error) => {
+      console.log(error);
+      setError(error.response.data.message);
+    });
+    
+  }
+
+
+
+
+  
 
 
     return (
@@ -57,8 +109,26 @@ console.log(role)
           <h3 className='text-center'>Details</h3>
           <section className="userForm">
    
-   
-   <form>
+
+{/* add price */}
+{
+        error &&
+        <div className="alert alert-danger">
+          {error}
+        </div>
+        }
+
+{
+  errorList.map((err,i)=>{
+    return <div key={i} className="alert alert-danger">
+    {err.message}
+  </div>
+  }
+  )
+}
+ 
+
+ 
    
       <div className="border">
    <div className="row g-3 align-items-center group">
@@ -102,7 +172,7 @@ console.log(role)
 </div>
 
 
-    </form>
+
    
      </section>
       </div>
@@ -113,7 +183,7 @@ console.log(role)
       <section className="userForm">
    
    
-    <form action="">
+    
   
     <div className="row g-3 align-items-center group">
 <div className="col-lg-4">
@@ -208,23 +278,25 @@ console.log(role)
 </>
 }
 
-     </form>
   
+     {role ==='traveler' ?
+      <>
+      <form onSubmit={formSubmit}>
+   <div className="col-lg-4">
+  <label htmlFor="price" className="col-form-label">Price : </label>
+</div>
+<div className="col-lg-3">
+  <input onChange={handleChange} type="number"  className="form-control" placeholder='Price' name='price' />
+</div> 
+<button type='submit'> Accept Request</button>
+   </form>
+   </>:null
+}
       </section>
     
       </div>
-      <div className="col-lg-12 text-center">
-        {role ==='traveler' ?
-           <button type='button'  onClick={AcceptRequest}>
-           Accept Request
-          </button>
-          
-           :
-          null
-        }
- 
- <br/>
-      </div>
+     
+     
       
       </div>
       

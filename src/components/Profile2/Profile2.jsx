@@ -155,11 +155,11 @@ useEffect(()=>{
                     <h5>National ID : {profileData.NationalId} </h5>
                     <h5>Type : {profileData.isStudent === false ? 'Employee' : 'Student'}</h5>
                 </div>
-                <hr />
+                <hr style={{borderColor:"#fd7402",borderWidth:"3px "}} />
                 <div id='about'>
-                <h3  className='m4'><i className="fa-regular fa-user "></i> About <Link to="/travelerForm"><button className='btn btn-light   offset-lg-9  ' >  Edit</button></Link> </h3>
+                <h3   className='m4'><i style={{color:"#fd7402"}} className="fa-regular fa-user "></i> About <Link to="/travelerForm"><button className='btn btn-light   offset-lg-9  ' >  Edit</button></Link> </h3>
                 <br />
-                <h5 className='fw-bold text-decoration-underline'>Contact Information</h5>
+                <h5 style={{color:"#fd7402"}} className='fw-bold text-decoration-underline'>Contact Information</h5>
                 <br />
                 <h5  className='col-lg-6 '>Phone : <span className='ms-5'>{userDataa.phoneNumber} </span> </h5>
                 <br />
@@ -168,7 +168,7 @@ useEffect(()=>{
                 <h5  className='col-lg-6'>Email : <span className='ms-5'> {userDataa.email} </span> </h5>
                 <br />
                 <br />
-                <h5 className='fw-bold text-decoration-underline'>Basic Information</h5>
+                <h5 style={{color:"#fd7402"}} className='fw-bold text-decoration-underline'>Basic Information</h5>
                 <br />
                     <div className='text-start'>
                         <h5  className='col-lg-6  '>Birth Date : {userDataa.birthDate ? userDataa.birthDate.split('T')[0] : "" }   </h5>

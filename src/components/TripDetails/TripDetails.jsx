@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import Footer from '../Footer/Footer'
+// import Footer from '../Footer/Footer'
 import { useHistory } from 'react-router-dom';
 import Joi from 'joi';
 import axios from 'axios';
+import tripimg from '../../assets/images/tripp.png'
+import style from "./TripDetails.module.css"
+
 
 
 export default function TripDetails() {
@@ -87,16 +90,17 @@ function validationUserForm(){
 
     return (
         <>
+
         <section className="shippmentDetails">
         <div className="container">
         <div className="row">
         <div className="col-md-6 col-sm-12">
-            <img src={require('../../assets/images/addtrip.jpg')} alt="trip" />
+        <img className='img-thumbnail image border-0 w-75 ' src={ tripimg } alt="profile img" />
         </div>
    
   
         <div className="col-md-6 col-sm-12">
-        <h3 className='text-center'>Trip Details</h3>
+        <h3 className='text-center fw-bold'><span style={{color:"#fd7402"}}>Trip</span>Details</h3>
         
        {
         error &&
@@ -117,27 +121,23 @@ function validationUserForm(){
      
         <form onSubmit={submitForm}>
 
-      <div className="border">
-   <div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="from" className="col-form-label">From: </label>
-</div>
-<div className="col-lg-8">
- <input onChange={handleChange} type="text"  className="form-control " name='from' placeholder='From'   />
-</div>
-
-</div>
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="to" className="col-form-label">To: </label>
-</div>
-<div className="col-lg-8">
- <input onChange={handleChange} type="text"  className="form-control " name='to' placeholder='To'   />
-</div>
-
-</div>
-
-
+  <div className={style.sec1}>
+        <div className="row g-3 align-items-center group">
+            <div className="col-lg-4">
+              <label htmlFor="from" className="col-form-label">From: </label>
+            </div>
+            <div className="col-lg-8">
+            <input onChange={handleChange} type="text"  className="form-control " name='from' placeholder='From'   />
+            </div>
+        </div>
+      <div className="row g-3 align-items-center group">
+        <div className="col-lg-4">
+        <label htmlFor="to" className="col-form-label">To: </label>
+        </div>
+        <div className="col-lg-8">
+        <input onChange={handleChange} type="text"  className="form-control " name='to' placeholder='To'   />
+        </div>
+      </div>
 </div>
 
 <div className="row g-3 align-items-center group">
@@ -190,7 +190,7 @@ function validationUserForm(){
         </div>  
         </section>
     
-        <Footer/>
+        {/* <Footer/> */}
         </>
     )
   }

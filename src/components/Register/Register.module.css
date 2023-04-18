@@ -1,95 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+.title{
+  font-family: 'Audiowide', cursive;  font-size: xx-large;
+  font-size: xx-large;
+  text-align: center;
+  font-weight: bold;
 
+}
 .test {
-    padding: 0.6em 2em;
-    border: none;
-    outline: none;
-    color: rgb(255, 255, 255);
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-  h1{
-    margin-bottom: 40px;
-  }
-  .test:before {
-    content: "";
-    background: linear-gradient(
-      45deg,
-      #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
-      #00ffd5,
-      #002bff,
-      #7a00ff,
-      #ff00c8,
-      #ff0000
-    );
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing-button-85 20s linear infinite;
-    transition: opacity 0.3s ease-in-out;
-    border-radius: 10px;
-  }
-  
-  @keyframes glowing-button-85 {
-    0% {
-      background-position: 0 0;
-    }
-    50% {
-      background-position: 400% 0;
-    }
-    100% {
-      background-position: 0 0;
-    }
-  }
-  
-  .test:after {
-    z-index: -1;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #A6C903;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-  }
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #fd7402;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+  background-color:#fd7402;
+}
+
+.test:disabled {
+  pointer-events: none;
+}
+
+.test:hover {
+  color: #fff;
+  background-color: #fd7402;
+  box-shadow: #fd7402 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.test:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
   .userRegister input{
     border-radius: 20px;
-    background-color: #08485580;
-    color: #fff;
-    border: solid 1px #86868680;
-
-    
+    color: #000000;
+    border: solid 2px #fd7402;
+    width: 100%;    
+}
+.userRegister input:hover{
+  border: solid 2px #fd7402;
+  border-radius: 20px;
+  cursor: pointer;
 }
 .userRegister input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #fff;
+  color: #000000;
   opacity: 0.8; /* Firefox */
 }
 
 .userRegister input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #fff;
+  color: #000000;
 }
 
 .userRegister input::-ms-input-placeholder { /* Microsoft Edge */
-  color: #fff;
+  color: #000000;
 }
 .userRegister input:focus {
-  background-color: #042931;
-  color: #fff;
+  color: #000000;
 }
 
 ::-webkit-input-placeholder {
@@ -97,4 +83,7 @@
 }
 :-moz-placeholder {
   text-align: center;
+}
+.Link{
+  text-decoration: none;
 }

@@ -1,10 +1,68 @@
 body{
     font-family: 'Merriweather', serif;
-     background-color: rgb(4, 41, 49);
-     color: #fff !important;
+     color: #080808 !important;
+ }
 
  
- }
+.navbar{
+  width: 100%;
+  background-color: #fff !important;
+  padding: 5px;
+  padding-left: 45px;
+
+
+}
+
+.navbar .nav-link{
+margin-left: 45px;
+color: #000;
+font-weight: 500;
+font-size: 15px;
+transition: 0.2s;
+}
+
+
+.navbar .nav-link:hover{
+  color: #908f8f ;
+
+  }
+
+.navbar .navbar-brand{
+  font-weight: bold;
+  color: #000 ;
+  font-size: 20px;
+  margin-right: 60px;
+}
+
+.navbar #circle {
+  background: #ff9416;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.navbar .btn-outline-success{
+  border-color: #ff9416;
+  color: #ff9416;
+  border-radius: 90px;
+  margin-right: 50px;
+  font-weight: bold;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  transition: 0.5s;
+}
+
+.navbar .btn-outline-success:hover{
+  background-color: #ff9416;
+  color: #fff;
+
+}
+
+.navbar .btn-outline-success:active{
+  background-color: #ff9416;
+  border-color: #ff9416;
+  color: #fff;
+}
  
  .contactLink{
      text-decoration: none;
@@ -21,15 +79,6 @@ body{
  
  .green{
      color: #A6C903;
- }
- 
- .navBar .bg-dark{
-     background-color: rgba(4, 41, 49) !important;
- }
- 
- 
- .navBar .navbar-expand-lg .navbar-nav .nav-link{
-     padding-right: 2.3rem;
  }
  
  .main{
@@ -65,10 +114,7 @@ body{
      line-height: 35px;
   }
  
-  .navBar p{
-     font-size: 13px;
-     font-weight: 600;
-  }
+
  
   .whiteBox{
      background-color: #fff;
@@ -540,12 +586,12 @@ select::placeholder {
      
 }
 
-.shippmentDetails button:hover{
+/* .shippmentDetails button:hover{
    
         background-color: #fff;
         color: #042931;
    
-}
+} */
 
 .userForm select option{
     background-color: #084855;
@@ -595,13 +641,7 @@ select::placeholder {
 }
 
 
-.shippmentDetails img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    padding: 20px;
-}
+
 
 
 .userForm input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

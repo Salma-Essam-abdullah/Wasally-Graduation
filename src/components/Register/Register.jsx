@@ -3,6 +3,9 @@ import Joi from 'joi';
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import style from "./Register.module.css"
+import {  motion as m } from "framer-motion"
+import registimg from '../../assets/images/takeout_boxes.png'
+
 // import Footer from '../Footer/Footer'
 
 export default function Register(props) {
@@ -91,10 +94,26 @@ function validationRegisterForm(){
   return (
     
     <>
+
     <div className=' container'> 
-    <div className='row'>     
-         <div className=' w-75 mx-auto py-4'>
-         <h1 className='text-center  '><span style={{ color: "#D3FF00" }}>CREATE</span>  A NEW ACCOUNT</h1>
+    <div className='row d-flex justify-content-center'> 
+
+        <div className='col-md-6 d-flex justify-content-center align-items-center '>
+                             <m.img
+                        initial={{opacity:0 , x:20}}
+                        whileInView={{opacity:1, x:0 ,type:'spring'}}
+                        transition={{type:'tween',duration:1}}
+                        className='img-thumbnail p-lg-0 border-0 image' src={ registimg } alt="profile img" />
+
+          
+         </div> 
+          
+         <div className='col-md-5 offset-m-1  py-4'>
+         <m.h1
+              initial={{opacity:0 , x:-20}}
+              whileInView={{opacity:1, x:0 ,type:'spring'}}
+              transition={{type:'tween',duration:1}}
+          className={style.title}><span style={{ color: "#fd7402"}}>CREATE</span>  A NEW ACCOUNT</m.h1>
          {
         error &&
         <div className="alert alert-danger">
@@ -114,38 +133,62 @@ function validationRegisterForm(){
 
        
 
-            <div className='my-2 col-lg-6 offset-lg-3 '>
+            <m.div
+              initial={{opacity:0 , x:-5}}
+              whileInView={{opacity:1, x:0 ,type:'spring'}}
+              transition={{type:'tween',duration:1}}
+             className='my-2'>
          
             <input onChange={getUser} type="text" className='form-control mb-4'placeholder="Enter Your Name"  name='name' />
-            </div>
+            </m.div>
 
 
-            <div className='my-2 col-lg-6 offset-lg-3'>
+            <m.div
+              initial={{opacity:0 , x:-10}}
+              whileInView={{opacity:1, x:0 ,type:'spring'}}
+              transition={{type:'tween',duration:1}}
+             className='my-2'>
           
             <input onChange={getUser} type="email" className='form-control mb-4'placeholder="Enter Your Valid Email"  name='email' />
-            </div>
+            </m.div>
 
-            <div className='my-2 col-lg-6 offset-lg-3'>
+            <m.div
+              initial={{opacity:0 , x:-15}}
+              whileInView={{opacity:1, x:0 ,type:'spring'}}
+              transition={{type:'tween',duration:1}}
+             className='my-2'>
           
             <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Enter Password"  name='password' />
-            </div>
+            </m.div>
 
 
 
-            <div className='my-2 col-lg-6 offset-lg-3'>
+            <m.div
+              initial={{opacity:0 , x:-20}}
+              whileInView={{opacity:1, x:0 ,type:'spring'}}
+              transition={{type:'tween',duration:1}}
+             className='my-2'>
             
             <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Confirm Password"  name='confirmpassword' />
-            </div>
-            <div className='my-2 col-lg-6 offset-lg-3 '>
-         
+            </m.div>
+
+            <m.div
+              initial={{opacity:0 , x:-25}}
+              whileInView={{opacity:1, x:0 ,type:'spring'}}
+              transition={{type:'tween',duration:1}}
+            className='my-2'>
             <input onChange={getUser} type="text" className='form-control mb-4'placeholder="Enter Your Phone Number"  name='phoneNumber' />
-            </div>
+            </m.div>
 
             <div   className='mt-3 d-flex justify-content-center align-items-center flex-column'>
-            <button type="submit" className={style.test}>{loading ?<i className='fas fa-spinner fa-spin'></i>:'Register'} </button>
+            <m.button
+              initial={{opacity:0 , x:-30}}
+              whileInView={{opacity:1, x:0 ,type:'spring'}}
+              transition={{type:'tween',duration:1}}
+             type="submit" className={style.test}>{loading ?<i className='fas fa-spinner fa-spin'></i>:'Register'} </m.button>
             <br />
-            <span className="login ">
-                <Link  className='text-light' to="login" title="login" id="link-reset">Already have account  </Link>
+            <span  className="login ">
+                <Link className={style.Link} style={{color:"#fd7402"}} to="login" title="login" id="link-reset"> Already have account ? </Link>
              </span>
             </div>
 

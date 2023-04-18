@@ -3,6 +3,10 @@ import Joi from 'joi';
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import style from "./Login.module.css"
+import {  motion as m } from "framer-motion"
+import logimg from '../../assets/images/undraw_Delivery.png'
+
+
 
 export default function Login  (props)  {
 
@@ -81,10 +85,22 @@ export default function Login  (props)  {
 
     return (
         <>
+
     <div className=' container'> 
-      <div className="row">      
-          <div className=' w-75 mx-auto py-4'>
-          <h1 className='text-center mb-4'><span style={{ color: "#D3FF00" }}>LOGIN</span>  NOW</h1>
+      <div className="row d-flex justify-content-center">      
+          <div className='col-md-5 offset-m-1  py-4'>
+          <m.h1
+            initial={{opacity:0 , x:20}}
+            whileInView={{opacity:1, x:0 ,type:'spring'}}
+            transition={{type:'tween',duration:1}}
+          className={style.title}><span style={{ color: "#fd7402" }}>LOGIN</span>  NOW</m.h1>
+          <br />
+          <div className='d-flex align-items-center flex-column'>
+          <button type="button" class={style.withgoogle} > Sign in with Google</button>
+          </div>
+          <br />
+          <h6 className={style.h6}><span className={style.span}>OR SIGN IN WITH EMAIL</span></h6>
+
           {
         error &&
         <div className="alert alert-danger">
@@ -103,37 +119,56 @@ export default function Login  (props)  {
           
           <section className={style.userLogin}>
           <form onSubmit={formSubmit}>
+              
+              <m.div
+                initial={{opacity:0 , x:-10}}
+                whileInView={{opacity:1, x:0 ,type:'spring'}}
+                transition={{type:'tween',duration:1}}
+               className=''>
+              <label htmlFor="email" className='mb-3 fw-bold ' >Email</label>
+              <input onChange={getUser} type="email"   className='form-control  col-md-3 mb-4'placeholder="Enter your Valid Email"  name='email' />
+              </m.div>
 
-              <div className='col-lg-6 offset-lg-3'>
-              {/* <label htmlFor="email" className='mb-3' >Email</label> */}
-              <input onChange={getUser} type="email" className='form-control  mb-4'placeholder="Enter your Valid Email"  name='email' />
-              </div>
+              <m.div
+                initial={{opacity:0 , x:-20}}
+                whileInView={{opacity:1, x:0 ,type:'spring'}}
+                transition={{type:'tween',duration:1}}
+              className=''>
+              <label htmlFor="password" className='mb-3 fw-bold'>Password</label>
+              <input onChange={getUser} type="password" className='form-control col-md-3 'placeholder="Enter your Password "  name='password' />
+              <Link to="Forgot"title="Forgot" className={style.Link}><p style={{color:"#fd7402"}}   className='pb-5 pt-2 d-flex align-items-end flex-column 'href="no-javascript1.html" title="Forgot Password" id="link-reset">Forgot Password?</p></Link> 
+              </m.div>
 
-              <div className='col-lg-6 offset-lg-3'>
-              {/* <label htmlFor="password" className='mb-3'>Password</label> */}
-              <input onChange={getUser} type="password" className='form-control mb-4'placeholder="Enter your Password "  name='password' />
-              </div>
+              <m.button
+                initial={{opacity:0 , x:-30}}
+                whileInView={{opacity:1, x:0 ,type:'spring'}}
+                transition={{type:'tween',duration:1}}
+               type="submit" className={style.test}>{loading ?<i className='fas fa-spinner fa-spin'></i>:'Login'} </m.button>
 
               <div className=' d-flex justify-content-center align-items-center flex-column  '>
-              
-              <button type="submit" className={style.test}>{loading ?<i className='fas fa-spinner fa-spin'></i>:'Login'} </button>
               <br />
               <span className="register ">
-                  <p> Don't have an account yet ?</p>
-                  <Link className='text-light' to="Register" title="register" id="link-reset">CREATE AN ACCOUNT </Link>
-              </span>
-              <span className="forgot-password ">
-                  <a  className='text-light' href="no-javascript1.html" title="Forgot Password" id="link-reset">Forgot Password?</a>
+                  <m.p style={{color:"#fd7402"}} className='mb-1'
+                    initial={{opacity:0 }}
+                    whileInView={{opacity:1, x:0 ,type:'spring'}}
+                    transition={{type:'tween',duration:1}}
+                  > Don't have an account yet ?</m.p>
+                  <Link style={{color:"#fd7402"}} className={style.Link} to="Register"title="register" id="link-reset">CREATE AN ACCOUNT   </Link>
               </span>
 
-              <hr style={{width: '50%', textAlign: 'center', marginLeft: 0}} />
-
-              <button   type="button" className="btn btn-danger "><i className="fab fa-google"></i> Login with google</button>
+              {/* <button   type="button" className="btn btn-light "><i i className=" fab fa-google"></i> Login with google</button> */}
           </div>
           </form>
           </section>
           </div>
           
+         <m.div
+        initial={{opacity:0 ,x:-40 }}
+        whileInView={{opacity:1, x:0 ,type:'spring'}}
+        transition={{type:'tween',duration:1}}
+          className='col-lg-6 d-flex justify-content-center align-items-center '>
+          <img className='img-thumbnail p-lg-0 border-0 image' src={ logimg } alt="profile img" />
+         </m.div>
           </div>   
         </div>      
         </>

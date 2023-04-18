@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import style from "./Work.module.css"
-import Footer from '../Footer/Footer'
-
+// import Footer from '../Footer/Footer'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import student from '../../assets/images/student.png'
+import employee from '../../assets/images/employee.png'
+
+
 
 
 
@@ -39,41 +42,35 @@ export default function Work() {
 
   return (
     <>
-            <div className='container'>
-            <div className='row'>
-                <div className='col-lg-5 d-flex justify-content-center' >
-                    <div className={style.traingle1} >
-                    {isUpdated ? <p>Successfully updated to true!</p> : null}
-                      <Link to="/employeeform" onClick={handleUpdateEmployee}> 
-                        <div className={style.text1}>
-                            <h1>Employee</h1>
-                        </div>
-                        </Link> 
-                    </div>
-                </div>
+<div className="container">
+<div className={style.spliter}>
+  <div className={style.splitleft}>
+    {isUpdated ? <p>Successfully updated to true!</p> : null}
+    <Link to="/employeeform" onClick={handleUpdateEmployee}>
+    <div className={style.centered}>
+    <img style={{border:"2px solid #fd7402ed"}}  className='mb-2  img-thumbnail' src={ employee } alt="profile img" />
+      <h2 style={{color:"#fd7402ed"}}>Employee</h2>
+      <p style={{color:"#fd7402ed"}}>Join Us</p>
+    </div>
+    </Link>
 
-                <div className='text-lg-center col-lg-2  '>
-                    <div className={style.work}>
-                    <h3 >OR</h3>
-                    </div>
-                </div>
-                <div className='col-lg-5 d-flex justify-content-center' >
-                        <div className={style.traingle2} >
-                        {isStudentUpdated ? <p>Successfully updated to true!</p> : null}
-                        <Link to="/studentform" onClick={handleUpdateStudent}>
-                            <div className={style.text2}>
-                            <h1>STUDENT</h1>
-                          
-                            </div>
-                        </Link>
-                        </div>
-                </div>                
+  </div>
+  
 
-            </div>
-        </div>
-        <br />
-        <br />
-        <Footer/>
+  <div className={style.splitright}>
+    {isStudentUpdated ? <p>Successfully updated to true!</p> : null}  
+    <Link  to="/studentform" onClick={handleUpdateStudent}>
+    <div className={style.centered}>
+    <img style={{border:"5px solid #ffffff"}} className='mb-2  img-thumbnail ' src={ student } alt="profile img" />
+      <h2 style={{color:"white"}} >STUDENT</h2>
+      <p style={{color:"white"}}>Join Us</p>
+    </div>
+    </Link>
+
+  </div>
+</div>
+</div>
+        {/* <Footer/> */}
     </>
   )
 }

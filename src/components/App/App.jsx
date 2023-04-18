@@ -13,14 +13,12 @@ import TripDetails from '../TripDetails/TripDetails';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Chat from '../Chat/Chat';
-
 import Request from '../Requests/Request'
 import Request2 from '../Requests/Request2'
 import Profile from '../Profile/Profile';
 import Profile2 from '../Profile2/Profile2';
 import Work from '../Work/Work';
 import jwtDecode from 'jwt-decode';
-
 import TravelerForm from '../TravelerForm/TravelerForm';
 import Trip from '../Trip/Trip';
 import TravelerTrip from '../TravelerTrip/TravelerTrip';

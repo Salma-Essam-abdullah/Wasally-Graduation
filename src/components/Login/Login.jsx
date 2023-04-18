@@ -96,7 +96,7 @@ export default function Login  (props)  {
           className={style.title}><span style={{ color: "#fd7402" }}>LOGIN</span>  NOW</m.h1>
           <br />
           <div className='d-flex align-items-center flex-column'>
-          <button type="button" class={style.withgoogle} > Sign in with Google</button>
+          <button type="button" className={style.withgoogle} > Sign in with Google</button>
           </div>
           <br />
           <h6 className={style.h6}><span className={style.span}>OR SIGN IN WITH EMAIL</span></h6>

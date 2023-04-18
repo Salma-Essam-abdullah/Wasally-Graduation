@@ -13,7 +13,7 @@ export default function Navbar(props) {
 <section className="navbar">
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div id="circle"></div> &nbsp;
-<NavLink  to="/home" className="navbar-brand" >Wasally</NavLink>
+  <NavLink  to="/home" className="navbar-brand" >Wasally</NavLink>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon" />
   </button>
@@ -51,16 +51,15 @@ export default function Navbar(props) {
   {
             props.loginUser?
             <>
+            
            <button onClick={props.logOut} className="btn btn-outline-success " type="submit">Log out</button>  
             </>:<Link to="/register"><button className="btn btn-outline-success " type="submit">Create Account</button></Link>
           }
-  
-
-
 
 </nav>
 
 </section>
-      </>
-    )
-  }
+      </>
+    )
+  }
+

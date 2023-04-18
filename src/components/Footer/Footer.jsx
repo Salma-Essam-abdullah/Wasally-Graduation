@@ -1,73 +1,66 @@
 
 
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Footer extends Component {
   render() {
     return (
       <>
-      <br />
-      <br />
-<footer id="footer" className="footer">
+<footer>
   <div className="container">
-    <div className="row gy-4">
-      <div className="col-lg-5 col-md-12 footer-info">
-        <p className="logo d-flex align-items-center">
-          <span>Shipped</span>
-        </p>
-        <p>Our global logistics expertise, advanced
-            supply chain technology & customized
-            logistics solutions will help you.</p>
-        <div className="social-links d-flex mt-4">
-          <a href="https://twiitter.com/" className="twitter"><i className="fa-brands fa-twitter"></i></a>
-          <a href="https://facebook.com/" className="facebook"><i className="fa-brands fa-facebook-f"/></a>
-          <a href="https://instagram.com" className="instagram"><i className="fa-brands fa-instagram"/></a>
-          <a href="https://linkedin.com" className="linkedin" > <i className="fa-brands fa-linkedin" /></a>
+    <div className="row upp">
+      <div className="col-lg-6">
+      <h4> <div id="circle" className='d-inline-block'></div> Wasally</h4>
+      <p>Help you to ship your<br/> packages</p>
+       
+      </div>
+      <div className="col-lg-2">
+   
+        <ul>
+          <li className='head'>   <h4>Our Services</h4></li>
+          <li><Link to="">Web Design</Link></li>
+          <li><Link to="">Web Development</Link></li>
+          <li><Link to="">Product Management</Link></li>
+          <li><Link to="">Marketing</Link></li>
+        </ul>
+      </div>
+      <div className="col-lg-2">
+       
+       <ul>
+       <li className='head'>   <h4>Social Media</h4></li>
+         <li><Link to="">Facebook</Link></li>
+         <li><Link to="">Instagram</Link></li>
+         <li><Link to="">LinkedIn</Link></li>
+         <li><Link to="">Whatsapp</Link></li>
+       </ul>
+       </div>
+      <div className="col-lg-2">
+ 
+        <ul>
+        <li className='head'>   <h4>Contact Us</h4></li>
+        <li>  Cleopatra, Alexandria </li>
+        <li>   Egypt </li> 
+        <li>   01210357541 </li> 
+        <li>  Wassally.inc@gmail.com </li> 
+        
+        </ul>
         </div>
-      </div>
-      <div className="col-lg-2 col-6 footer-links">
-        <h4>Useful Links</h4>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Terms of service</a></li>
-          <li><a href="#">Privacy policy</a></li>
-        </ul>
-      </div>
-      <div className="col-lg-2 col-6 footer-links">
-        <h4>Our Services</h4>
-        <ul>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Web Development</a></li>
-          <li><a href="#">Product Management</a></li>
-          <li><a href="#">Marketing</a></li>
-          <li><a href="#">Graphic Design</a></li>
-        </ul>
-      </div>
-      <div className="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-        <h4>Contact Us</h4>
-        <p>
-          A108 Adam Street <br />
-          New York, NY 535022<br />
-          United States <br /><br />
-          <strong>Phone:</strong> +1 5589 55488 55<br />
-          <strong>Email:</strong> info@example.com<br />
-        </p>
-      </div>
+     
     </div>
-  </div>
-  <div className="container mt-4">
-    <div className="copyright">
-      © Copyright <strong><span>Wassally</span></strong>. All Rights Reserved
-    </div>
-    <div className="credits">
-      Designed by <a href="https://Wassaly.com/">Wassally Team</a>
+    <div className="row">
+      <div className="col-lg-4">
+    <p>2023 ©  Wassally Inc. Copyright & All rights reserved</p> 
+      </div>
+      <div className="col-lg-2 offset-lg-4">
+      <p> Terms and conditions</p> 
+      </div>
+      <div className="col-lg-2">
+      <p>  Privacy Policy</p> 
+      </div>
     </div>
   </div>
 </footer>
-
-
       </>
     )
   }

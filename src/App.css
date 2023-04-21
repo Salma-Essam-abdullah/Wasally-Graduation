@@ -86,6 +86,37 @@ font-family: 'Aboreto', 'cursive';
   font-size: 15px;
   line-height: 30px;
 }
+.orangeButton{
+  color: #fff;
+  background-color: #ff9416;
+  border-color: #ff9416;
+  padding-right: 18px;
+  padding-left: 18px;
+  padding: 12px 40px 12px;
+  font-size: 14px;
+  margin-top: 1px;
+}
+.orangeButton:active{
+  color: #fff;
+  background-color: #ff9416;
+  border-color: #ff9416;
+  padding-right: 18px;
+  padding-left: 18px;
+  padding: 12px 40px 12px;
+  font-size: 14px;
+  margin-top: 1px;
+}
+
+.orangeButton:hover{
+  color: #ff9416;
+  background-color: #fff;
+  border-color: #ff9416;
+  padding-right: 18px;
+  padding-left: 18px;
+  padding: 12px 40px 12px;
+  font-size: 14px;
+  margin-top: 1px;
+}
 
 .intro .orangeButton{
   color: #fff;
@@ -418,6 +449,7 @@ color: #fff !important;
   
   .contact .php-email-form textarea {
     padding: 10px 12px;
+    resize: none
   }
   
   .contact .php-email-form button[type=submit] {
@@ -587,3 +619,58 @@ color: #fff !important;
 .faq .faq-list a.collapsed .icon-close {
   display: none;
 }
+
+/* start form style  */
+.dataform{
+  width: 100%;
+  box-shadow: 0 0 24px 0 rgba(179, 178, 178,0.5);
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+
+}
+
+.dataform input{
+  border: 1px solid #ff9416;
+}
+.dataform select{
+  border: 1px solid #ff9416;
+}
+
+.formButton{
+  color: #fff;
+  background-color: #ff9416;
+  border-color: #ff9416;
+  padding-right: 18px;
+  padding-left: 18px;
+  padding: 12px 60px 12px;
+  font-size: 14px;
+  margin-top: 1px;
+  border-radius: 10px;
+}
+
+.formButton:hover{
+
+  color: #ff9416;
+  background-color: #fff;
+  border-color: #ff9416;
+}
+
+/*////////// end form style /////////////  */
+
+.orange{
+  color: #ff9416;
+}
+/* selector in buy/deliver */
+.selector{
+  border-radius:  2px solid #ff9416  ;
+  border: #ff9416;
+  background-color: #ffffff;
+}
+.selector:hover{
+  background-color: #ff9416;
+  color: #fff;
+  
+}
+
+/* selector in buy/deliver */

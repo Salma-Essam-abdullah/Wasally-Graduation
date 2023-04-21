@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import style from "./Work.module.css"
-// import Footer from '../Footer/Footer'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import student from '../../assets/images/student.png'
 import employee from '../../assets/images/employee.png'
-// import Footer from '../Footer/Footer';
 
 
 
@@ -71,7 +69,6 @@ export default function Work() {
   </div>
 </div>
 </div>
-        {/* <Footer/> */}
     </>
   )
 }

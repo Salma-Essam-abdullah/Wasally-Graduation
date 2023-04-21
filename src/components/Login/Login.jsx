@@ -136,7 +136,8 @@ export default function Login  (props)  {
               className=''>
               <label htmlFor="password" className='mb-3 fw-bold'>Password</label>
               <input onChange={getUser} type="password" className='form-control col-md-3 'placeholder="Enter your Password "  name='password' />
-              <Link to="Forgot"title="Forgot" className={style.Link}><p style={{color:"#fd7402"}}   className='pb-5 pt-2 d-flex align-items-end flex-column 'href="no-javascript1.html" title="Forgot Password" id="link-reset">Forgot Password?</p></Link> 
+
+              <Link to="PasswordReset"title="Forgot" className={style.Link}><p style={{color:"#fd7402"}}   className='pb-5 pt-2 d-flex align-items-end flex-column 'href="no-javascript1.html" title="Forgot Password" id="link-reset">Forgot Password?</p></Link> 
               </m.div>
 
               <m.button

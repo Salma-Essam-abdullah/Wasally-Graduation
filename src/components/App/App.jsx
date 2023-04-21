@@ -22,7 +22,7 @@ import jwtDecode from 'jwt-decode';
 import TravelerForm from '../TravelerForm/TravelerForm';
 import Trip from '../Trip/Trip';
 import TravelerTrip from '../TravelerTrip/TravelerTrip';
-
+import Forms from '../Forms/Forms';
 import userShipment from '../UserShipments/UserShipments'
 import userShipment2 from '../UserShipments2/UserShipments2'
 import UpdateDetailsOfShipments from '../UpdateDetailsOfShipments/UpdateDetailsOfShipments';
@@ -31,7 +31,7 @@ import ShipmentSendTrip from '../ShipmentSendTrip/ShipmentSendTrip';
 import RequestSendBuy from '../RequestSendBuy/RequestSendBuy';
 import RequestSendDeliver from '../RequestSendDeliver/RequestSendDeliver';
 import AcceptOrDeclineShipment from '../AcceptOrDeclineShipment/AcceptOrDeclineShipment';
-
+import PasswordReset from '../PasswordReset/PasswordReset';
 import QrCode from '../QrCode/QrCode';
 import QrcodeRedirect from '../qrcodeRedirect/QrcodeRedirect';
 import UserRequests from '../UserRequests/UserRequests';
@@ -77,7 +77,9 @@ function logOut(){
         
         
         <PrivateRoute path="/profile" component={Profile} allowedRoles={['user']} />
-        <PrivateRoute path='/userform' component={UserForm}  allowedRoles={['user']}/>   
+        <PrivateRoute path='/userform' component={UserForm}  allowedRoles={['user']}/> 
+
+        <PrivateRoute path='/forms' component={Forms}  allowedRoles={['traveler']}/>  
 
         <PrivateRoute path="/profile2" component={Profile2} allowedRoles={['traveler']} />
         <PrivateRoute path='/acceptOrDeclineShipment/:requestId' component={AcceptOrDeclineShipment} allowedRoles={['traveler']}/> 
@@ -124,13 +126,15 @@ function logOut(){
               <PrivateRoute path='/userRequestsDeliver' component={UserRequestsDeliver} allowedRoles={['user', 'traveler']}/> 
               <PrivateRoute path='/acceptedrequests' component={AcceptedRequests} allowedRoles={['user', 'traveler']}/> 
               <PrivateRoute path='/acceptedrequestsDeliver' component={AcceptedrequestsDeliver} allowedRoles={['user', 'traveler']}/> 
+              {/* <PrivateRoute path='/PasswordReset' component={PasswordReset} allowedRoles={['user', 'traveler']}/>  */}
               <PrivateRoute path='/viewRequestAfterAcceptance/:requestId' component={ViewRequestAfterAcceptance} allowedRoles={['user', 'traveler']}/>
               <PrivateRoute path='/ViewRequestAfterAcceptanceBuy/:requestId' component={ViewRequestAfterAcceptanceBuy} allowedRoles={['user', 'traveler']}/>
 
-
-              <Route path="/Register" render={(props)=> <Register{...props}/>}  /> 
+        <Route path="/passwordReset" component={PasswordReset} />
+        <Route path="/Register" render={(props)=> <Register{...props}/>}  /> 
         <Route path="/login"  render={(props)=><Login{...props} getUserInfo={getUserInfo}/>}/> 
         <Route path="/" component={Home} />
+
 
       </Switch>
     </Router>

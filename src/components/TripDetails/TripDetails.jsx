@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import Joi from 'joi';
 import axios from 'axios';
-import tripimg from '../../assets/images/tripp.png'
-import style from "./TripDetails.module.css"
 
 
 
@@ -91,15 +89,11 @@ function validationUserForm(){
     return (
         <>
 
-        <section className="shippmentDetails">
+        <section >
+
         <div className="container">
-        <div className="row">
-        <div className="col-md-6 col-sm-12">
-        <img className='img-thumbnail image border-0 w-75 ' src={ tripimg } alt="profile img" />
-        </div>
-   
-  
-        <div className="col-md-6 col-sm-12">
+        <div className="row mt-5 justify-content-center">
+        <div className="col-lg-10">
         <h3 className='text-center fw-bold'><span style={{color:"#fd7402"}}>Trip</span>Details</h3>
         
        {
@@ -117,71 +111,59 @@ function validationUserForm(){
   }
   )
 }
-        <section className="userForm">
-     
-        <form onSubmit={submitForm}>
 
-  <div className={style.sec1}>
-        <div className="row g-3 align-items-center group">
-            <div className="col-lg-4">
-              <label htmlFor="from" className="col-form-label">From: </label>
-            </div>
-            <div className="col-lg-8">
-            <input onChange={handleChange} type="text"  className="form-control " name='from' placeholder='From'   />
-            </div>
-        </div>
-      <div className="row g-3 align-items-center group">
-        <div className="col-lg-4">
-        <label htmlFor="to" className="col-form-label">To: </label>
-        </div>
-        <div className="col-lg-8">
-        <input onChange={handleChange} type="text"  className="form-control " name='to' placeholder='To'   />
-        </div>
-      </div>
-</div>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="TripDate" className="col-form-label">Trip Date: </label>
-</div>
-<div className="col-lg-8">
- <input onChange={handleChange} type="text"  className="form-control" name="TripDate" placeholder='Trip Date'  />
-</div>
-</div>
-    <div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="AvailableWeight" className="col-form-label">Available Weight: </label>
-</div>
-<div className="col-lg-8">
-  <input  onChange={handleChange} type="number"  className="form-control " name='AvailableWeight' placeholder='Available Weight'   />
-</div>
 
-</div>
+    <section>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="unAcceptablaPackage" className="col-form-label">Unacceptable Package: </label>
-</div>
-<div className="col-lg-8">
-  <input  onChange={handleChange} type="text"  className="form-control " name='unAcceptablaPackage' placeholder='Unacceptable Package'   />
-</div>
+<div className="row mt-5 justify-content-center" data-aos="fade-up">
+<div className="col-lg-10">
+<form  className="dataform" onSubmit={submitForm}>
+  <div className="row">
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="from" className='p-1'>From</label>
+        <input onChange={handleChange}  type="text" name="from" className="form-control"  placeholder="From" required />
+    </div>
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="to" className='p-1'>To</label>
+        <input onChange={handleChange}  type="text" className="form-control" name="to"  placeholder="To" required />
+    </div>
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="TripDate" className='p-1'>Trip Date</label>
+        <input onChange={handleChange}  type="text" name="TripDate" className="form-control" placeholder="Trip Date" required />
+    </div>
 
-</div>
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="TripTime" className="col-form-label">Trip Time: </label>
-</div>
-<div className="col-lg-8">
-  <input  onChange={handleChange} type="text"  className="form-control " name='TripTime' placeholder='Trip Time'   />
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="TripTime" className='p-1'>Trip Time</label>
+        <input onChange={handleChange}  type="text" name="TripTime" className="form-control" placeholder="Trip Time" required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group ">
+      <label htmlFor="AvailableWeight"  className='p-1'>Available Weight</label>
+      <input onChange={handleChange}  type="number" className="form-control" name="AvailableWeight"  placeholder="Available Weight" required />
+    </div> 
+
+    <div className="col-md-6 pb-2 form-group">
+    <label htmlFor="unAcceptablaPackage" className='p-1'>unAcceptabla Package</label>
+    <input onChange={handleChange}  type="text" className="form-control" name="unAcceptablaPackage" placeholder="unAcceptabla Package" required />
+    </div>
+
+
+  </div>
+
+  <br />
+  <div>
+  <div className="text-center  ">
+          <button className="formButton" type='submit' >{loading ?<i></i>:'ADD TRIP'}</button>
+  </div>
+  </div>
+
+</form>
 </div>
 </div>
 
-<div className="col-lg-12 text-center">
-        <button type='submit' >{loading ?<i className='fas fa-spinner fa-spin'></i>:'ADD TRIP'}</button>
-        </div>
-    </form>
-   
-        </section>   
+</section>
+
         </div>
        
      

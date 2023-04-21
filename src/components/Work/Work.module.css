@@ -1,71 +1,3 @@
-/* .traingle1 body {
-    display: grid;
-    place-items: center;
-    height: 100vh;    
-  }
-  
-  .traingle1  {
-    height: 500px;
-    width: 500px;
-    background-image: linear-gradient(to top, #042931,#042931, #D3FF00);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    cursor: pointer;
-    transition: all .5s ease-in;
-    border-style: solid;
-    border-color:#D3FF00 ;
-    rotate: 90deg;
-  }
-  
-  .traingle1:hover {
-    transform: scale(1.04);
-  }
-  .text1 h1{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-0%, -200%);
-    rotate: 270deg;
-    color: white;
-
-  } 
-  
-  .traingle2 body {
-    display: grid;
-    place-items: center;
-    height: 100vh;
-  }
-  
-  .traingle2  {
-    height: 500px;
-    width: 500px;
-    background-image: linear-gradient(to top, #042931,#042931, #D3FF00);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    cursor: pointer;
-    transition: all .3s ease-in;
-    border-style: solid;
-    border-color:#D3FF00 ;
-    rotate: 270deg;
-
-  }
-  
-  .traingle2:hover {
-    transform: scale(1.04);
-  }
-  
-  .work h3{
-    margin-top: 115%;
-    color: #D3FF00;
-  }
-
-  .text2 h1{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(0%, 200%);
-    rotate: 90deg;
-    color: white;
-  }  */
-
 
   .spliter {
     font-family: Arial;
@@ -111,7 +43,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    /* color: black; */
+    font-family: 'Aboreto', 'cursive';
+    font-weight: bolder;
+
   }
   
   .centered img {

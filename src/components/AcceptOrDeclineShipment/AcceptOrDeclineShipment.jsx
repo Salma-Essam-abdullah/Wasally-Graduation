@@ -61,188 +61,113 @@ export default function AcceptOrDeclineShipment(){
   
     return (
       <>
-      <section className="shippmentDetails">
-      <div className="container">
-      <div className="row">
-      <div className="col-md-6 col-sm-12">
-          <h3 className='text-center'>Details</h3>
-          <section className="userForm">
-   
-   
-   <form>
-   
-      <div className="border">
-   <div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="from" className="col-form-label">From : </label>
-</div>
-<div className="col-lg-8">
- <input type="text"  className="form-control " name='from' placeholder='From'  defaultValue={request.from} readOnly />
-</div>
+    <section >
+      <div className="row mt-5 justify-content-center" data-aos="fade-up">
+      <div className="col-lg-10">
 
-</div>
+      <div className="dataform">
+        <div className="row">
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="to" className="col-form-label">To : </label>
-</div>
-<div className="col-lg-8">
- <input type="text"  className="form-control" name="to" placeholder='To' defaultValue={request.to} readOnly/>
-</div>
-</div>
-</div>
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="buyOrdeliver" className='p-1'>Buy or deliver :  </label>
+            <input type="text"  className="form-control " name='buyOrdeliver' placeholder='Buy or deliver'  defaultValue={request.buyOrdeliver}   readOnly/>
+        </div>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="reward" className="col-form-label">Reward : </label>
-</div>
-<div className="col-lg-8">
- <input type="text"  className="form-control " name='reward' placeholder='Reward'  defaultValue={request.reward} readOnly/>
-</div>
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="from" className='p-1'>From</label>
+            <input type="text" readOnly className="form-control" name="from" placeholder='To'  defaultValue={request.from}   />
+        </div>
 
-</div>
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="to" className='p-1'>To</label>
+            <input type="text" readOnly className="form-control" name="to" placeholder='To'  defaultValue={request.to}  />
+        </div>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="anotherPhone" className="col-form-label">Another Phone : </label>
-</div>
-<div className="col-lg-8">
- <input type="text"  className="form-control " name='reward' placeholder='Another Phone'  defaultValue={request.anotherPhone} readOnly />
-</div>
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="reward" className='p-1'>Reward :</label>
+            <input readOnly type="text"  className="form-control" placeholder='Reward' name='reward' defaultValue={request.reward } />
+        </div>
 
-</div>
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="anotherPhone" className='p-1'>Another Phone : </label>
+            <input readOnly type="text"  className="form-control" placeholder='anotherPhone' name='anotherPhone' defaultValue={request.anotherPhone }/>
+        </div>
 
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="item" className='p-1'>Item : </label>
+            <input readOnly type="text"  className="form-control" placeholder='Item' name='item' defaultValue={request.item }/>
+        </div>
 
-    </form>
-   
-     </section>
-      </div>
- 
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="weight" className='p-1'>Weight : </label>
+            <input readOnly type="text"  className="form-control" placeholder='weight' name='weight' defaultValue={request.weight }/>
+        </div>
 
-      <div className="col-md-6 col-sm-12">
-      <h3 className='text-center'>Shopping Item</h3>
-      <section className="userForm">
-   
-   
-    <form action="">
-  
-    <div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="buyOrdeliver" className="col-form-label">Buy or deliver : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text"  className="form-control " name='buyOrdeliver' placeholder='Buy or deliver'  defaultValue={request.buyOrdeliver} readOnly />
-</div>
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="location" className='p-1'>Location : </label>
+            <input readOnly type="text"  className="form-control" placeholder='location' name='location' defaultValue={request.location }/>
+        </div>
 
-</div>
-    <div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="item" className="col-form-label">Item : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text"  className="form-control " name='item' placeholder='Item'  defaultValue={request.item} readOnly/>
-</div>
-
-</div>
- <div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="weight" className="col-form-label">Weight : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text"  className="form-control " name='weight' placeholder='Weight'  defaultValue={request.weight} readOnly/>
-</div>
-
-</div>
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="category" className='p-1'>Category : </label>
+            <input readOnly type="text"  className="form-control" placeholder='category' name='location' defaultValue={request.category }/>
+        </div>
 
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="location" className="col-form-label">Location : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text"  className="form-control " name='location' placeholder='Location'  defaultValue={request.location} readOnly/>
-</div>
-
-</div>
-
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="category" className="col-form-label">Category : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text"  className="form-control " name='category' placeholder='Category'  defaultValue={request.category} readOnly/>
-</div>
-
-</div>
 
 
-{request.buyOrdeliver === 'deliver' ? 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="targetLocation" className="col-form-label">Target Location : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text"  className="form-control " name='targetLocation' placeholder='Target Location'  defaultValue={request.targetLocation} readOnly />
-</div>
 
+
+
+        {request.buyOrdeliver === 'deliver' ? 
+
+<div className="col-md-6 pb-2 form-group">
+<label htmlFor="targetLocation" className='p-1'>Target Location :  </label>
+<input readOnly type="text"  className="form-control" placeholder='category' name='targetLocation' defaultValue={request.targetLocation }/>
 </div>
 
 : 
 <>
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="storeName" className="col-form-label">Store Name: </label>
-</div>
-<div className="col-lg-8">
-  <input type="text"  className="form-control" placeholder='Store Name' name='storeName' defaultValue={request.storeName} readOnly/>
-</div> 
+
+<div className="col-md-6 pb-2 form-group">
+<label htmlFor="storeName" className='p-1'>Store Name:   </label>
+<input readOnly type="text"  className="form-control" placeholder='store Name' name='storeName' defaultValue={request.storeName }/>
 </div>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="storeLocation" className="col-form-label">Store Location: </label>
+<div className="col-md-6 pb-2 form-group">
+<label htmlFor="storeLocation" className='p-1'>Store Location: </label>
+<input readOnly type="text"  className="form-control" placeholder='storeLocation' name='storeLocation' defaultValue={request.storeLocation }/>
 </div>
-<div className="col-lg-8">
-  <input type="text"  className="form-control" placeholder='Store Location' name='storeLocation' defaultValue={request.storeLocation} readOnly />
-</div> 
+
+<div className="col-md-6 pb-2 form-group">
+<label htmlFor="price" className='p-1'>Price : </label>
+<input readOnly type="text"  className="form-control" placeholder='price' name='price' defaultValue={request.price }/>
 </div>
 
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="price" className="col-form-label">Price : </label>
-</div>
-<div className="col-lg-8">
-  <input type="number"  className="form-control" placeholder='Price' name='price'  defaultValue={request.price} readOnly/>
-</div> 
-</div>
+
 </>
 }
-
-     </form>
-  
-      </section>
-    
-      </div>
-      <div className="col-lg-6 text-center" >
-      <button type='button' onClick={AcceptRequest}>ACCEPT REQUEST</button>
+<div className="col-lg-6 text-center" >
+      <button type='button' className='formButton' onClick={AcceptRequest}>ACCEPT REQUEST</button>
       </div>
       <div className="col-lg-6 text-center ">
-      <button type='button' onClick={DeclineRequest} className='rejectButton'>Decline REQUEST</button>
+      <button type='button' className=' redButton' onClick={DeclineRequest}>Decline REQUEST</button>
 
       </div>
-      <div className="col-lg-12 text-center">
-  
+
+</div>
+   </div>
 
     
-      </div>
-      
-      </div>
-      
-      </div>
+
+
+
+</div>
 
       
-    
+      </div>
+      
       </section>
       
       

@@ -22,7 +22,7 @@ import jwtDecode from 'jwt-decode';
 import TravelerForm from '../TravelerForm/TravelerForm';
 import Trip from '../Trip/Trip';
 import TravelerTrip from '../TravelerTrip/TravelerTrip';
-import Forms from '../Forms/Forms';
+
 import userShipment from '../UserShipments/UserShipments'
 import userShipment2 from '../UserShipments2/UserShipments2'
 import UpdateDetailsOfShipments from '../UpdateDetailsOfShipments/UpdateDetailsOfShipments';
@@ -78,8 +78,6 @@ function logOut(){
         
         <PrivateRoute path="/profile" component={Profile} allowedRoles={['user']} />
         <PrivateRoute path='/userform' component={UserForm}  allowedRoles={['user']}/> 
-
-        <PrivateRoute path='/forms' component={Forms}  allowedRoles={['traveler']}/>  
 
         <PrivateRoute path="/profile2" component={Profile2} allowedRoles={['traveler']} />
         <PrivateRoute path='/acceptOrDeclineShipment/:requestId' component={AcceptOrDeclineShipment} allowedRoles={['traveler']}/> 

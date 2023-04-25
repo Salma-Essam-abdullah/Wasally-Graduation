@@ -2,15 +2,20 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Footer from '../Footer/Footer'
 import { Link } from 'react-router-dom'
+import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
+import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import ScheduleIcon from '@mui/icons-material/Schedule';
+const BASE_URL = process.env.REACT_APP_API_URI;
 
 export default function Trip() {
-
+ 
     const [requestData,setRequestData]=useState([]);
     let [userData , setUserData] = useState([])
     let encodedToken = localStorage.getItem('userToken');
 
   async function getRequest(){
-    axios.get(`http://localhost:3000/v1/trips/view`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`${BASE_URL}/v1/trips/view`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log("ay 7aga",response.data.trips)
             setRequestData(response.data.trips)
@@ -28,7 +33,7 @@ export default function Trip() {
 async function getUserData(){
 
 
-  axios.get(`http://localhost:3000/v1/travelers/viewAllTravelers`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+  axios.get(`${BASE_URL}/v1/travelers/viewAllTravelers`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
       (response)=>{
           console.log('bl7',response.data.travelers)
           setUserData(response.data.travelers)
@@ -52,53 +57,48 @@ useEffect(()=>{
 
   return (
     <>
-  <section className="request">
-    
+<section id="portfolio" className="portfolio sections-bg">
+  <div className="container" data-aos="fade-up">
+    <div className="section-header">
+      <h2>Trips</h2>
+      </div>
+    <div className="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay={100}>
+      <div  className="row gy-4 portfolio-container">
+      {requestData && requestData.map((request,index)=>
 
- <div className="container">
-  <div className="row">
-    <div className="col-md-12">
- </div>
-  </div>
-  {requestData && requestData.map((request,index)=>
-
-  <div key={index} className="row mt-3">
-    
-    <div className="preview-card ">
-      <div className="preview-card__wrp ">
-        <div className="preview-card__item">
-          <div className="preview-card__img">
-           {
+        <div key={index} className="col-xl-3 col-md-6 portfolio-item filter-app">
+          <div  className="portfolio-wrap">
+          
+          {
            userData.map((traveler,i)=>traveler._id === request.Traveler ? 
             <img key={i} src={traveler.userId.ProfileImage}  alt="person" /> 
             :null)
             }
-          </div>
-          
-          <div className="preview-card__content">
+            <div className="portfolio-info">
+            
+            <h4>{userData.map((traveler)=>traveler._id === request.Traveler ? traveler.userId.name : '')}</h4>
+           
+              <p><DirectionsTransitIcon/> From - {request.from}</p>
+              <p><WhereToVoteIcon/>To - {request.to}</p>
+              <p><CalendarMonthIcon/>Date -{request.TripDate ? request.TripDate.split('T')[0] : ""}</p>
+              <p><ScheduleIcon/>Time -{request.TripTime}</p>
+              
+              <Link to={`/detailspfshippmentuser/${request._id}`}>   <button className=" orangeButton btn btn-success ">View Details</button></Link>
              
-            <h2 className="preview-card__code">{userData.map((traveler)=>traveler._id === request.Traveler ? traveler.userId.name : '')} </h2>
-            <div className="preview-card__title"><h2 className='fw-bold'><span className='green'>T</span>rip <span>Details </span> </h2> </div>
-            <h5 className="previewcardh5 fw-bold"> <i className="fa-solid fa-train-subway"></i>  From <span className='green'>|</span>  {request.from}   <span className='space'>  To <span className='green'>|</span>  {request.to}</span></h5>
-            <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-clock"></i>Trip Date <span className='green'>|</span> {request.TripDate ? request.TripDate.split('T')[0] : "" } </h5>
-            <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-hourglass-half"></i>Trip Time: <span className='green'>|</span> {request.TripTime ? request.TripTime.split('T')[0] : "" } </h5>
-            <h5 className="previewcardh5 fw-bold"><i className="fa-solid fa-weight-hanging"></i>Available Weight <span className='green'>|</span>  {request.AvailableWeight} KG </h5>
-            <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-ban"></i> Unacceptable Package: <span className='green'>|</span> {request.unAcceptablaPackage} </h5> 
+            </div>
           </div>
           
-          <Link to={`/detailspfshippmentuser/${request._id}`}> <button  className="lin btn btn-info  ">VIEW DETAILS</button></Link>
-          
-        </div>
+       
+        </div> 
+      )
+}     
+       
       </div>
+   
     </div>
   </div>
-  )}
-
- 
-
-</div>
-
 </section>
+
 
         <Footer/>
 

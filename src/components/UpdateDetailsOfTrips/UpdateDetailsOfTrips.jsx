@@ -241,30 +241,30 @@ function validationRequestForm(){
   <div className="row">
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="from" className='p-1'>From</label>
-        <input type="text" onChange={handleChange} className="form-control " name='from' placeholder='From'  defaultValue={trip.from} required />
+        <input type="text" onChange={handleChange} className="form-control " name='from' placeholder='From'  defaultValue={trip.from} />
     </div>
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="to" className='p-1'>To</label>
-        <input type="text"   onChange={handleChange} className="form-control" name="to" placeholder='To'  defaultValue={trip.to} required />
+        <input type="text"   onChange={handleChange} className="form-control" name="to" placeholder='To'  defaultValue={trip.to}  />
     </div>
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="TripDate" className='p-1'>Trip Date</label>
-        <input type="text" onChange={handleChange}  className="form-control" placeholder='Date' name='TripDate' defaultValue={trip.TripDate ? trip.TripDate.split('T')[0] : "" } required/>
+        <input type="text" onChange={handleChange}  className="form-control" placeholder='Date' name='TripDate' defaultValue={trip.TripDate ? trip.TripDate.split('T')[0] : "" } />
     </div>
 
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="TripTime" className='p-1'>Trip Time</label>
-        <input onChange={handleChange}  type="text" name="TripTime" className="form-control" placeholder="Trip Time" defaultValue={trip.TripTime} required />
+        <input onChange={handleChange}  type="text" name="TripTime" className="form-control" placeholder="Trip Time" defaultValue={trip.TripTime}  />
     </div>
 
     <div className="col-md-6 pb-2 form-group ">
       <label htmlFor="AvailableWeight"  className='p-1'>Available Weight</label>
-      <input onChange={handleChange}  type="number" className="form-control" name="AvailableWeight"  placeholder="Available Weight" defaultValue={trip.AvailableWeight} required />
+      <input onChange={handleChange}  type="number" className="form-control" name="AvailableWeight"  placeholder="Available Weight" defaultValue={trip.AvailableWeight}  />
     </div> 
 
     <div className="col-md-6 pb-2 form-group">
     <label htmlFor="unAcceptablaPackage" className='p-1'>unAcceptabla Package</label>
-    <input onChange={handleChange}  type="text" className="form-control" name="unAcceptablaPackage" placeholder="unAcceptabla Package" defaultValue={trip.unAcceptablaPackage} required />
+    <input onChange={handleChange}  type="text" className="form-control" name="unAcceptablaPackage" placeholder="unAcceptabla Package" defaultValue={trip.unAcceptablaPackage}  />
     </div>
 
 

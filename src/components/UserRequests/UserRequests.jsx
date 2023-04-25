@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
+import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
+import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
+import PaidIcon from '@mui/icons-material/Paid';
 
 export default function UserRequests() {
   const [requestData, setRequestData] = useState([]);
@@ -55,44 +58,43 @@ export default function UserRequests() {
 
   return (
     <>
-      <section className="request">
-        <div className="container">
-          <div className="row">
-          </div>
-          <div className="navL">
-    <Link to="/userRequests">
-      
- <button name="first"  className={ activeButton === "first" ? `${activeButton}` : ""}
-          onClick={clickedButtonHandler}>
-          Buy Something
-          </button>
-    </Link>
-    <Link to="/userRequestsDeliver">
-    <button name="second"
-          className={activeButton === "second" ? `${activeButton}` : ""}
-          onClick={clickedButtonHandler}>
-            Deliver Something
-          </button>
-      </Link>
-  </div>
+ 
 
-          {requestData && requestData.map((request, ind) => {
+<section id="portfolio" className="portfolio sections-bg">
+  <div className="container" data-aos="fade-up">
+    <div className="section-header">
+      <h2>Your Shipment Request</h2>
+      </div>
+ 
+    <div className="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay={100}>
+      <div>
+        <ul className="portfolio-flters">
+      
+       <Link to="/userRequests">
+       <button name="first"  className={ activeButton === "first" ? `${activeButton}` : ""}
+          onClick={clickedButtonHandler} > 
+        Buy
+       </button>
+        </Link> 
         
-            return (  
-            
-              <div key={ind}>
-                      {shipment.buyOrdeliver === "buy" ? (
-                       <div  >
-                    
-                        <div   className="row mt-3">
-                          
-                    <div className="preview-card ">
-                      
-                      <div className="preview-card__wrp ">
-                        <div className="preview-card__item">
-                          <div className="preview-card__img">
-                    
-                            {userData.map((user, i) =>
+    
+          <Link to="/userRequestsDeliver">
+          <button name="second" className={activeButton === "second" ? `${activeButton}` : "ss"}
+          onClick={clickedButtonHandler}> 
+         Deliver
+          </button>
+         </Link>
+        </ul>
+      </div>
+      {requestData && requestData.map((request, ind) => {
+        return(
+      <div key={ind}  className="row gy-4 portfolio-container">
+      
+        <div className="col-xl-3 col-md-6 portfolio-item filter-app">
+        {shipment.buyOrdeliver === "buy" ? (
+        <div>
+            <div className="portfolio-wrap">
+            {userData.map((user, i) =>
                               user.id === request.trip.Traveler.userId.id ? (
                                 <img
                                   key={i}
@@ -100,56 +102,41 @@ export default function UserRequests() {
                                   alt="person"
                                 />
                               ) : null
-                            )}
-                          </div>
+              )}
+            
+                <div className="portfolio-info">
+                <h4> {userData.map((user,indexx) =>
+                                <span key={indexx}> {user.id ==request.trip.Traveler.userId.id ? user.name : ""}</span>
+                                )}{" "}</h4>
 
-                          <div className="preview-card__content">
+                
+                 <p> From : {request.trip.from} - To : {request.trip.to}  -  Date : { request.trip.TripDate ?  request.trip.TripDate.split('T')[0] : "" } - Time : {request.trip.TripTime} - Price : {request.price}</p>
+            
 
+                <p >Your Shipment</p>
+                <h3>{shipment.item}</h3>
+            <p><DirectionsTransitIcon/> From - {shipment.from}</p>
+                <p><WhereToVoteIcon/>To - {shipment.to}</p>
+                <p><PaidIcon/> Reward - {shipment.reward}</p>
+                <Link to={`/acceptOrDeclineTrip/${request.trip._id}`}>   <button className=" orangeButton btn btn-success ">View Details</button></Link>
+                </div>
+            </div>
+    
+            </div>
+                      ) : (
+                        null
+                      )}
 
-                          <h2 className="previewcardh5 fw-bold ">Your Shipment Data</h2>
-                          <h5 className="previewcardh5 fw-bold"> From <span className='green'>|</span> {shipment.from}</h5>
-                          <h5 className="previewcardh5 fw-bold"> To <span className='green'>|</span> {shipment.to}</h5>
-                          <h5 className="previewcardh5 fw-bold"> Item <span className='green'>|</span> {shipment.item}</h5>
-                          <h5 className="previewcardh5 fw-bold"> Location <span className='green'>|</span> {shipment.location}</h5>
-                          <h5 className="previewcardh5 fw-bold"> Weight <span className='green'>|</span> {shipment.weight}</h5>
-                          <h5 className="previewcardh5 fw-bold"> Category <span className='green'>|</span> {shipment.category}</h5>
-                 
-                    
-                          <hr className="previewcardh5 fw-bold " />
-                          <h2 className="previewcardh5 fw-bold ">Trip Data</h2>
-                                    
-
-              
-                          <h5 className="previewcardh5 fw-bold"> <i className="fa-solid fa-train-subway"></i>  From <span className='green'>|</span>  {request.trip.from}   <span className='space'>  To <span className='green'>|</span>  {request.trip.to}</span></h5>
-                          <h5 className="previewcardh5 fw-bold"> Price <span className='green'>|</span> {request.price}</h5>
-                          <h5 className="previewcardh5 fw-bold"> Trip Date <span className='green'>|</span> {  request.trip.TripDate ? request.trip.TripDate.split('T')[0] : "" }</h5>
-                          <h5 className="previewcardh5 fw-bold"> Trip Time <span className='green'>|</span> {request.trip.TripTime}</h5>
-                  </div>
-                          <br />
-
-                          <Link to={`/acceptOrDeclineTrip/${request.trip._id}`}>
-                            {" "}
-                            <button className="lin btn btn-info  ">
-                              VIEW DETAILS
-                            </button>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                       </div>
-                   
-                   
-                  
-                      ):null}
-
+        </div>     
            
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
+          
+       
+      </div>
+        );
+})}
+    </div>
+  </div>
+</section>
       <Footer />
     </>
   );

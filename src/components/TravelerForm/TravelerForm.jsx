@@ -141,27 +141,27 @@ useEffect(() => {
 
     <div className="col-md-6 pb-2 form-group ">
     <label htmlFor="name" className='p-1'>Name:</label>
-    <input onChange={handleChange} type="text" className="form-control" name="name" defaultValue={profileData.name} placeholder='Name' required />
+    <input onChange={handleChange} type="text" className="form-control" name="name" defaultValue={profileData.name} placeholder='Name'  />
     </div>
 
     <div className="col-md-6 pb-2 form-group ">
     <label htmlFor="address" className='p-1'>Address:</label>
-    <input onChange={handleChange} type="text" className="form-control"  name='address' defaultValue={profileData.address} placeholder='Address' required />
+    <input onChange={handleChange} type="text" className="form-control"  name='address' defaultValue={profileData.address} placeholder='Address'  />
     </div>
 
     <div className="col-md-6 pb-2 form-group ">
     <label htmlFor="birthDate" className='p-1'>BirthDate : </label>
-    <input onChange={handleChange} type="text" className="form-control"name="birthDate" placeholder='Year-Month-Day' defaultValue={profileData.birthDate? profileData.birthDate.split('T')[0]:''} required />
+    <input onChange={handleChange} type="text" className="form-control"name="birthDate" placeholder='Year-Month-Day' defaultValue={profileData.birthDate? profileData.birthDate.split('T')[0]:''}  />
     </div>
 
     <div className="col-md-6 pb-2 form-group ">
     <label htmlFor="city" className='p-1'> City Name : </label>
-    <input onChange={handleChange} type="text" className="form-control" placeholder='City Name' name='city' defaultValue={profileData.city} required />
+    <input onChange={handleChange} type="text" className="form-control" placeholder='City Name' name='city' defaultValue={profileData.city}  />
     </div>
 
     <div className="col-md-6 pb-2 form-group ">
     <label htmlFor="governorate" className='p-1'>Governorate: </label>
-    <input onChange={handleChange} type="text" className="form-control" placeholder='Governate Name' name='governorate' defaultValue={profileData.governorate} required />
+    <input onChange={handleChange} type="text" className="form-control" placeholder='Governate Name' name='governorate' defaultValue={profileData.governorate}  />
     </div>
 
   </div>

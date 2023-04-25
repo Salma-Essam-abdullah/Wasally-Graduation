@@ -150,7 +150,7 @@ export default function UpdateDetailsOfShipments(){
 
         <div className="col-md-6 pb-2 form-group">
             <label htmlFor="to" className='p-1'>To</label>
-            <input type="text" onChange={handleChange} className="form-control" name="to" placeholder='To'  defaultValue={request.to} readOnly />
+            <input type="text" onChange={handleChange} className="form-control" name="to" placeholder='To'  defaultValue={request.to}  />
         </div>
       
 {/* //// */}

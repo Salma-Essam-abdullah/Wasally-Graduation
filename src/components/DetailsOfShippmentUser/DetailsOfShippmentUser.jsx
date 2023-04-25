@@ -36,99 +36,50 @@ export default function DetailsOfShippmentUser  () {
 
     return (
         <>
-        <section className="shippmentDetails">
-        <div className="container">
+        
+        <section > 
+        <div className="row mt-5 justify-content-center" data-aos="fade-up">
+        <div className="col-lg-10">
+
+        <form className="dataform" action="">
         <div className="row">
-        <div className="col-md-6 col-sm-12">
-            <h3 className='text-center'>Details</h3>
-            <section className="userForm">
-     
-     
-     <form action="">
-        <div className="border">
-     <div className="row g-3 align-items-center group">
- <div className="col-lg-4">
-   <label htmlFor="from" className="col-form-label">From : </label>
- </div>
- <div className="col-lg-8">
-   <input type="text"  className="form-control " name='from' placeholder='From'  defaultValue={request.from} readOnly/>
- </div>
- 
-</div>
 
-<div className="row g-3 align-items-center group">
- <div className="col-lg-4">
-   <label htmlFor="to" className="col-form-label">To : </label>
- </div>
- <div className="col-lg-8">
-   <input type="text"  className="form-control" name="to" placeholder='To'  defaultValue={request.to} readOnly/>
- </div>
-</div>
-</div>
-
-<div className="row g-3 align-items-center group">
- <div className="col-lg-4">
-   <label htmlFor="date" className="col-form-label">Date : </label>
- </div>
- <div className="col-lg-8">
-   <input type="text"  className="form-control" placeholder='Date' name='date' defaultValue={request.TripDate ? request.TripDate.split('T')[0] : "" } readOnly/>
- </div> 
-</div>
-
-      </form>
-     
-       </section>
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="from" className='p-1'>From</label>
+            <input type="text" className="form-control" name="from" placeholder='To'  defaultValue={request.from} readOnly />
         </div>
-   
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="to" className='p-1'>To</label>
+            <input type="text" className="form-control" name="to" placeholder='To'  defaultValue={request.to} readOnly />
+        </div>
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="date" className='p-1'>Date</label>
+            <input type="text"  className="form-control" placeholder='Date' name='date' defaultValue={request.TripDate ? request.TripDate.split('T')[0] : "" } readOnly/>
+        </div>
 
-        <div className="col-md-6 col-sm-12">
-        <h3 className='text-center'>Shopping Item</h3>
-        <section className="userForm">
-     
-     
-      <form action="">
-      <div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="time" className="col-form-label">Trip Time : </label>
-  </div>
-  <div className="col-lg-8">
-    <input type="text"  className="form-control " name='time' placeholder='time'  defaultValue={request.TripTime} readOnly/>
-  </div>
-  
-</div>
+        <div className="col-md-6 pb-2 form-group ">
+          <label htmlFor="time" className='p-1'>Trip Time :</label>
+          <input type="text"  className="form-control " name='time' placeholder='time'  defaultValue={request.TripTime} readOnly/>
+        </div> 
 
-<div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="AvailableWeight" className="col-form-label">Available weight : </label>
-  </div>
-  <div className="col-lg-8">
-    <input type="text"  className="form-control" name="AvailableWeight" placeholder='Available Weight'  defaultValue={request.AvailableWeight} readOnly />
-  </div>
-</div>
+        <div className="col-md-6 pb-2 form-group  ">
+        <label htmlFor="AvailableWeight" className='p-1'>Available weight :</label>
+        <input type="text"  className="form-control" name="AvailableWeight" placeholder='Available Weight'  defaultValue={request.AvailableWeight} readOnly />
+        </div>
 
-
-
-<div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="unAcceptablaPackage" className="col-form-label">UnAcceptable package: </label>
-  </div>
-  <div className="col-lg-8">
-    <input type="text"  className="form-control" name='unAcceptablaPackage' placeholder='unAcceptabla Package'  defaultValue={request.unAcceptablaPackage} readOnly />
-  </div> 
-</div>
-
-
-
-       </form>
-        </section>
+        <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="unAcceptablaPackage" className='p-1'>UnAcceptable package:</label>
+        <input type="text"  className="form-control" name='unAcceptablaPackage' placeholder='unAcceptabla Package'  defaultValue={request.unAcceptablaPackage} readOnly />
         </div>
 
         <div className="col-lg-12 text-center">
    
-    <Link to={`/shipmentSendTrip/${tripId}`}> <button type='button'>Send Request</button> </Link>
-    
+          <Link to={`/shipmentSendTrip/${tripId}`}> <button className='formButton' type='button'>Send Request</button> </Link>
+        </div>
 
-      </div>
+        </div>
+
+        </form>
         </div>
         </div>
         </section>

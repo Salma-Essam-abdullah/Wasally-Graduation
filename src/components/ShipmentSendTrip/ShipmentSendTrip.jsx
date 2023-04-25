@@ -112,7 +112,7 @@ export default function ShipmentSendTrip() {
     )
   }
     
-        <section className="shippmentDetails">
+        {/* <section className="shippmentDetails">
         <form onSubmit={formSubmit}>
         <div className="container">
           <div className="row">
@@ -296,7 +296,7 @@ export default function ShipmentSendTrip() {
       </div>
   
       <div className="col-lg-8">
-        <input onChange={getRequest} type="tel"  className="form-control " name='anotherPhone' placeholder='Another Phone'   />
+      <input onChange={getRequest} type="tel"  className="form-control " name='anotherPhone' placeholder='Another Phone'   />
       </div>
   
   </div>
@@ -304,23 +304,148 @@ export default function ShipmentSendTrip() {
   
   
   
-  
-  
-        </section>
-        </div>
-        <div className="col-lg-12 text-center">
+          <div className="col-lg-12 text-center">
         <button type="submit">{loading ?<i className='fas fa-spinner fa-spin'></i>:'ADD REQUEST'} </button>
              
         
         </div>
+  
+        </section>
+        </div>
+
         
         </div>
         
         </div>
         
       </form>
-        </section>
-        
+        </section> */}
+              <section className="shippmentDetails">
+      <div className="container">
+        <div className="row">
+
+ 
+<div>
+<h4 className='text-center mt-5'>BUY<span className='orange'>Or</span>DELIVER </h4>
+</div>
+<section>
+
+<div className="row mt-5 justify-content-center" data-aos="fade-up">
+<div className="col-lg-10">
+<form onSubmit={formSubmit}  className="dataform">
+  <div className="row">
+
+  <div className=' col-md-6 pb-2  '>
+            <label className='p-1'> SELECT OPTION :</label>
+            <select className='selector form-select '  name="buyOrdeliver" onChange={getRequest} value={request.buyOrdeliver} >
+              <option  value="deliver" >Deliver something</option>
+              <option  value="buy" >Buy something</option>
+            </select>
+  </div>
+
+  <div className=' col-md-6 pb-2  '>
+  </div>
+  
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="from" className='p-1'>From</label>
+        <input onChange={getRequest} type="text" name="from" className="form-control" placeholder="From" required />
+    </div>
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="to" className='p-1'>To</label>
+        <input onChange={getRequest} type="text" className="form-control" name="to"  placeholder="To" required />
+    </div>
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="date" className='p-1'>Date</label>
+        <input onChange={getRequest} type="text" name="date" className="form-control"  placeholder="YEAR-MONTH-DAY" required />
+    </div>
+
+    {request.buyOrdeliver === 'buy' && (
+      <>
+          <div className="col-md-6 pb-2 form-group">
+    <label htmlFor="storeName" className='p-1'>Store Name</label>
+    <input onChange={getRequest} type="text" className="form-control" name="storeName"  placeholder="Store Name" required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group">
+    <label htmlFor="storeLocation" className='p-1'>Store Location</label>
+    <input onChange={getRequest} type="text" name="storeLocation" className="form-control"  placeholder="Store Location" required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group">
+    <label htmlFor="price" className='p-1'>Price</label>
+    <input onChange={getRequest} type="number" name="price" className="form-control"  placeholder="Price" required />
+    </div>
+
+      </>
+
+
+
+)}
+
+    <div className="col-md-6 pb-2 form-group ">
+      <label htmlFor="item" className='p-1'>Item</label>
+      <input onChange={getRequest} type="text" className="form-control" name="item"  placeholder="Item" required />
+    </div> 
+
+    <div className="col-md-6 pb-2 form-group">
+    <label htmlFor="category" className='p-1'>Category</label>
+    <input onChange={getRequest} type="text" name="category" className="form-control"  placeholder="Category" required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group  ">
+    <label htmlFor="weight" className='p-1'>Weight</label>
+    <input onChange={getRequest} type="number" className="form-control" name="weight"  placeholder="Weight" required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group ">
+    <label htmlFor="reward" className='p-1'>Reward</label>
+    <input onChange={getRequest} type="number" className="form-control" name="reward"  placeholder="Reward" required />
+    </div>
+
+    {request.buyOrdeliver === 'deliver' && (
+      <>
+      
+      <div className="col-md-6 pb-2 form-group ">
+      <label htmlFor="targetLocation" className='p-1'>Target Location</label>
+      <input onChange={getRequest} type="text" className="form-control" name="targetLocation"  placeholder="Your Location" required />
+      </div>
+
+      </>
+)}
+    <div className="col-md-6 pb-2 form-group ">
+    <label htmlFor="location" className='p-1'>Your Location</label>
+    <input onChange={getRequest} type="text" className="form-control" name="location"  placeholder="Your Location" required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group ">
+    <label htmlFor="anotherPhone" className='p-1'>Another Phone </label>
+    <input onChange={getRequest} type="tel" className="form-control" name="anotherPhone"  placeholder="Another Phone" required />
+    </div>
+
+  </div>
+
+  {/* <div className="form-group pb-2 mt-3">
+    <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" required />
+  </div> */}
+
+  <br />
+  <div className="text-center  "><div><button className='formButton' type="submit">{loading ?<i></i>:'ADD REQUEST'} </button>
+</div></div>
+</form>
+</div>
+</div>
+
+</section>
+
+
+      
+
+
+      </div>
+      
+      </div>
+      
+      </section>
         
        
         <Footer/>

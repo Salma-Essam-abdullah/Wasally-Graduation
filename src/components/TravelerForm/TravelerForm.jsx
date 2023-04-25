@@ -111,11 +111,11 @@ useEffect(() => {
     return (
       <>
     
-      <section className="userForm">
-      <div className="container">
-      <h3 className='text-center'>UPDATE <span className='green'>T</span>RAVELER INFO</h3>
+        <section>
+<div className="row mt-5 justify-content-center" data-aos="fade-up">
 
-       {
+<div className="col-lg-10">
+    {
         error &&
         <div className="alert alert-danger">
           {error}
@@ -130,66 +130,67 @@ useEffect(() => {
   }
   )
 }
-      <form onSubmit={submitForm}>
-     
-      <div className="row g-3 align-items-center group">
-  <div className="col-lg-2">
-    <label htmlFor="name" className="col-form-label">Name : </label>
+
+
+
+
+<form onSubmit={submitForm}  className="dataform">
+  <div className="row">
+
+    <h3 className='text-center'><span className='orange'>Update</span>Traveler info</h3>
+
+    <div className="col-md-6 pb-2 form-group ">
+    <label htmlFor="name" className='p-1'>Name:</label>
+    <input onChange={handleChange} type="text" className="form-control" name="name" defaultValue={profileData.name} placeholder='Name' required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group ">
+    <label htmlFor="address" className='p-1'>Address:</label>
+    <input onChange={handleChange} type="text" className="form-control"  name='address' defaultValue={profileData.address} placeholder='Address' required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group ">
+    <label htmlFor="birthDate" className='p-1'>BirthDate : </label>
+    <input onChange={handleChange} type="text" className="form-control"name="birthDate" placeholder='Year-Month-Day' defaultValue={profileData.birthDate? profileData.birthDate.split('T')[0]:''} required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group ">
+    <label htmlFor="city" className='p-1'> City Name : </label>
+    <input onChange={handleChange} type="text" className="form-control" placeholder='City Name' name='city' defaultValue={profileData.city} required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group ">
+    <label htmlFor="governorate" className='p-1'>Governorate: </label>
+    <input onChange={handleChange} type="text" className="form-control" placeholder='Governate Name' name='governorate' defaultValue={profileData.governorate} required />
+    </div>
+
   </div>
-  <div className="col-lg-10">
-    <input onChange={handleChange} type="text"  className="form-control" name="name" defaultValue={profileData.name} placeholder='Name'  />
-  </div>
+
+  {/* <div className="form-group pb-2 mt-3">
+    <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" required />
+  </div> */}
+
+  <br />
+  <div className="text-center  "><div><button type="submit" className="btn formButton">{loading ?<i className='fas fa-spinner fa-spin'></i>:'SAVE'}</button></div></div>
+</form>
 </div>
-      <div className="row g-3 align-items-center group">
-  <div className="col-lg-2">
-    <label htmlFor="address" className="col-form-label">Address: </label>
-  </div>
-  <div className="col-lg-10">
-    <input  onChange={handleChange} type="text"  className="form-control " name='address' defaultValue={profileData.address} placeholder='Address'/>
-  </div>
-  
 </div>
 
-
-<div className="row g-3 align-items-center group">
-  <div className="col-lg-2">
-    <label htmlFor="birthDate" className="col-form-label">Date Of Birth : </label>
-  </div>
-  <div className="col-lg-10">
-    <input type="text"  className="form-control" name="birthDate" placeholder='Year-Month-Day' defaultValue={profileData.birthDate? profileData.birthDate.split('T')[0]:''}  onChange={handleChange}/>
-  </div>
-</div>
+</section>
 
 
 
-<div className="row g-3 align-items-center group">
-  <div className="col-lg-2">
-    <label htmlFor="city" className="col-htmlForm-label">City : </label>
-  </div>
-  <div className="col-lg-10">
-    <input type="text"  className="form-control" placeholder='City Name' name='city' defaultValue={profileData.city} onChange={handleChange} />
-  </div> 
 
-</div>
-
-<div className="row g-3 align-items-center group">
-  <div className="col-lg-2">
-    <label htmlFor="governorate" className="col-form-label">Governorate : </label>
-  </div>
-  <div className="col-lg-10">
-    <input type="text"  className="form-control" placeholder='Governate Name' name='governorate' defaultValue={profileData.governorate} onChange={handleChange} />
-  </div> 
-
-</div>
-<div className="col-lg-12 text-center">
-<button type="submit" className="btn">{loading ?<i className='fas fa-spinner fa-spin'></i>:'SAVE'}</button>
-      </div>
-
-
-       </form>
-       </div>
-        </section>
       <Footer/>
       </>
     )
   }
+
+
+
+
+
+
+
+
+  

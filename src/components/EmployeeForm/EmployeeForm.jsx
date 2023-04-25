@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react'
 import Footer from '../Footer/Footer'
 import {useHistory } from 'react-router-dom';
@@ -85,9 +86,10 @@ function validationForm(){
 
     return (
       <>
-    <section className="userForm">
-    <div className="container">
-    <h3 className='text-center'><span className='green'>E</span>MPLOYEE</h3>
+<section>
+<div className="row mt-5 justify-content-center" data-aos="fade-up">
+
+<div className="col-lg-10">
     {
         error &&
         <div className="alert alert-danger">
@@ -103,42 +105,48 @@ function validationForm(){
   }
   )
 }
-    <form onSubmit={formSubmit}>
-    <div className="row g-3 align-items-center group">
-<div className="col-lg-2">
-  <label htmlFor="NationalId" className="col-form-label">National ID : </label>
-</div>
-<div className="col-lg-10">
-  <input onChange={handleChange} type="text"  className="form-control " name='NationalId' placeholder='National ID' />
-</div>
-
-</div>
-<div className="row g-3 align-items-center group">
-<div className="col-lg-2">
-  <label htmlFor="NationalIdCard" className="col-form-label">National ID Card : </label>
-</div>
-<div className="col-lg-10">
-  <input  onChange={handleImageChange} type="file"  className="form-control"  name='NationalIdCard' />
-</div> 
-</div>
 
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-2">
-  <label for="EmployeeCompanyId" className="col-form-label">Employee Company Id : </label>
-</div>
-<div className="col-lg-10">
-  <input onChange={handleImageChange} type="file"  className="form-control"  name='EmployeeCompanyId' />
-</div> 
-</div>
 
 
-<div className="col-lg-12 text-center">
-<button type="submit" className="btn">{loading ?<i className='fas fa-spinner fa-spin'></i>:'SAVE'}</button>
-      </div>
-     </form>
-     </div>
-      </section>
+<form onSubmit={formSubmit}  className="dataform">
+  <div className="row">
+
+    <h3 className='text-center'><span className='orange'>EMPLOYEE</span>DATA</h3>
+
+    <div className="col-md-6 pb-2 form-group ">
+    <label htmlFor="NationalId" className='p-1'>National ID :</label>
+    <input onChange={handleChange} type="text" className="form-control" name="NationalId"  placeholder="National ID" required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group ">
+    <label className='p-1'>National ID Card :</label>
+    <input onChange={handleImageChange} type="file" className="form-control" name="NationalIdCard"  placeholder="National Id Card" required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group ">
+    <label className='p-1'>Employee Company Id : </label>
+    <input onChange={handleImageChange} type="file" className="form-control" name="EmployeeCompanyId"  placeholder="Employee Company Id" required />
+    </div>
+
+  </div>
+
+  {/* <div className="form-group pb-2 mt-3">
+    <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" required />
+  </div> */}
+
+  <br />
+  <div className="text-center  "><div><button type="submit" className="btn formButton">{loading ?<i className='fas fa-spinner fa-spin'></i>:'SAVE'}</button></div></div>
+</form>
+</div>
+</div>
+
+</section>
+
+
+
+
+
     <Footer/>
       </>
     )

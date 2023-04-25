@@ -115,14 +115,12 @@ export default function UpdateDetailsOfShipments(){
 
     return (
       <>
-        <form onSubmit={submitForm}>
-      <section className="shippmentDetails">
-      <div className="container">
-      <div className="row">
-      <div className="col-md-6 col-sm-12">
-          <h3 className='text-center'>Details</h3>
-        
-<section className="userForm">
+      <section >
+      <div className="row mt-5 justify-content-center" data-aos="fade-up">
+      <div className="col-lg-10">
+
+      <form onSubmit={submitForm}  className="dataform">
+        <div className="row">
 
           {
         error &&
@@ -140,181 +138,104 @@ export default function UpdateDetailsOfShipments(){
   )
 }
 
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="buyOrdeliver" className='p-1'>Buy or deliver :  </label>
+            <input type="text" onChange={handleChange} className="form-control " name='buyOrdeliver' placeholder='Buy or deliver'  defaultValue={request.buyOrdeliver}   readOnly/>
+        </div>
+
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="from" className='p-1'>From</label>
+            <input type="text" onChange={handleChange} className="form-control" name="from" placeholder='To'  defaultValue={request.from}  />
+        </div>
+
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="to" className='p-1'>To</label>
+            <input type="text" onChange={handleChange} className="form-control" name="to" placeholder='To'  defaultValue={request.to} readOnly />
+        </div>
+      
+{/* //// */}
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="reward" className='p-1'>Reward :</label>
+            <input onChange={handleChange} type="text"  className="form-control" placeholder='Reward' name='reward' defaultValue={request.reward }/>
+        </div>
+
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="anotherPhone" className='p-1'>Another Phone : </label>
+            <input onChange={handleChange} type="text"  className="form-control" placeholder='anotherPhone' name='anotherPhone' defaultValue={request.anotherPhone }/>
+        </div>
+
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="item" className='p-1'>Item : </label>
+            <input onChange={handleChange} type="text"  className="form-control" placeholder='Item' name='item' defaultValue={request.item }/>
+        </div>
+
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="weight" className='p-1'>Weight : </label>
+            <input onChange={handleChange} type="text"  className="form-control" placeholder='weight' name='weight' defaultValue={request.weight }/>
+        </div>
+
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="location" className='p-1'>Location : </label>
+            <input onChange={handleChange} type="text"  className="form-control" placeholder='location' name='location' defaultValue={request.location }/>
+        </div>
+
+        <div className="col-md-6 pb-2 form-group">
+            <label htmlFor="category" className='p-1'>Category : </label>
+            <input onChange={handleChange} type="text"  className="form-control" placeholder='category' name='location' defaultValue={request.category }/>
+        </div>
 
 
-   
-      <div className="border">
-   <div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="from" className="col-form-label">From : </label>
-</div>
-<div className="col-lg-8">
- <input type="text"  onChange={handleChange} className="form-control " name='from' placeholder='From'  defaultValue={request.from}  />
-</div>
-
-</div>
-
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="to" onChange={handleChange} className="col-form-label">To : </label>
-</div>
-<div className="col-lg-8">
- <input type="text" onChange={handleChange} className="form-control" name="to" placeholder='To' defaultValue={request.to} />
-</div>
-</div>
-</div>
-
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="reward" className="col-form-label">Reward : </label>
-</div>
-<div className="col-lg-8">
- <input type="text"  onChange={handleChange} className="form-control " name='reward' placeholder='Reward'  defaultValue={request.reward} />
-</div>
-
-</div>
-
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
- <label htmlFor="anotherPhone" className="col-form-label">Another Phone : </label>
-</div>
-<div className="col-lg-8">
- <input type="text" onChange={handleChange} className="form-control " name='anotherPhone' placeholder='Another Phone'  defaultValue={request.anotherPhone}  />
-</div>
-
-</div>
 
 
-   
-</section>
-
-      </div>
- 
-
-   
-
-      <div className="col-md-6 col-sm-12">
-      <h3 className='text-center'>Shopping Item</h3>
-    
-
-      <section className="userForm">
-    <div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="buyOrdeliver" className="col-form-label">Buy or deliver : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text" onChange={handleChange} className="form-control " name='buyOrdeliver' placeholder='Buy or deliver'  defaultValue={request.buyOrdeliver}   readOnly/>
-</div>
-
-</div>
-    <div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="item" className="col-form-label">Item : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text" onChange={handleChange} className="form-control " name='item' placeholder='Item'  defaultValue={request.item} />
-</div>
-
-</div>
- <div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="weight" className="col-form-label">Weight : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text" onChange={handleChange}  className="form-control " name='weight' placeholder='Weight'  defaultValue={request.weight}  />
-</div>
-
-</div>
 
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="location" className="col-form-label">Location : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text" onChange={handleChange} className="form-control " name='location' placeholder='Location'  defaultValue={request.location}  />
-</div>
 
-</div>
+        {request.buyOrdeliver === 'deliver' ? 
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="category" className="col-form-label">Category : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text" onChange={handleChange} className="form-control " name='category' placeholder='Category'  defaultValue={request.category}  />
-</div>
-
-</div>
-
-
-{request.buyOrdeliver === 'deliver' ? 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="targetLocation" className="col-form-label">Target Location : </label>
-</div>
-<div className="col-lg-8">
-  <input type="text" onChange={handleChange}  className="form-control " name='targetLocation' placeholder='Target Location'  defaultValue={request.targetLocation}   />
-</div>
-
+<div className="col-md-6 pb-2 form-group">
+<label htmlFor="targetLocation" className='p-1'>Target Location :  </label>
+<input onChange={handleChange} type="text"  className="form-control" placeholder='category' name='targetLocation' defaultValue={request.targetLocation }/>
 </div>
 
 : 
 <>
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="storeName" className="col-form-label">Store Name: </label>
-</div>
-<div className="col-lg-8">
-  <input type="text" onChange={handleChange} className="form-control" placeholder='Store Name' name='storeName' defaultValue={request.storeName}  />
-</div> 
+
+<div className="col-md-6 pb-2 form-group">
+<label htmlFor="storeName" className='p-1'>Store Name:   </label>
+<input onChange={handleChange} type="text"  className="form-control" placeholder='store Name' name='storeName' defaultValue={request.storeName }/>
 </div>
 
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="storeLocation" className="col-form-label">Store Location: </label>
-</div>
-<div className="col-lg-8">
-  <input type="text" onChange={handleChange}  className="form-control" placeholder='Store Location' name='storeLocation' defaultValue={request.storeLocation}   />
-</div> 
+<div className="col-md-6 pb-2 form-group">
+<label htmlFor="storeLocation" className='p-1'>Store Location: </label>
+<input onChange={handleChange} type="text"  className="form-control" placeholder='storeLocation' name='storeLocation' defaultValue={request.storeLocation }/>
 </div>
 
-
-<div className="row g-3 align-items-center group">
-<div className="col-lg-4">
-  <label htmlFor="price" className="col-form-label">Price : </label>
-</div>
-<div className="col-lg-8">
-  <input type="number" onChange={handleChange} className="form-control" placeholder='Price' name='price'  defaultValue={request.price}  />
-</div> 
+<div className="col-md-6 pb-2 form-group">
+<label htmlFor="price" className='p-1'>Price : </label>
+<input onChange={handleChange} type="text"  className="form-control" placeholder='price' name='price' defaultValue={request.price }/>
 </div>
 
 </>
 }
-
-   
-  
-      </section>
-    
-      </div> 
-      </div>
       <div className="col-lg-12 text-center">
-     <button  type='submit' >{loading ?<i className='fas fa-spinner fa-spin'></i>:'UPDATE'}</button>
-  </div>
-      <div className="col-lg-12 text-center">
-    <Link to="/userShipment"><button type='button' >BACK</button></Link>  
-  
+        <button className='formButton'  type='submit' >{loading ?<i className='fas fa-spinner fa-spin'></i>:'UPDATE'}</button>
+        <br />
+        <br />
+        <Link to="/userShipment"><button className='formButton' type='button' >BACK</button></Link>  
 
       </div>
-      
-      </div>
-      
-     
-      
-    
-      </section>
-     
+
+</div>
       </form>
+
+
+
+</div>
+
+      
+      </div>
+      
+      </section>
       <Footer/>
       </>
     )

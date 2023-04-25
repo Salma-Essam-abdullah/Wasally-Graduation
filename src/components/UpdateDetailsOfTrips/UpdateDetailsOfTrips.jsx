@@ -103,7 +103,7 @@ function validationRequestForm(){
  
     return (
         <>
-          <form onSubmit={submitForm}>
+          {/* <form onSubmit={submitForm}>
         <section className="shippmentDetails">
             
         <div className="container">
@@ -206,7 +206,95 @@ function validationRequestForm(){
         </div>
         </div>
         </section>
-        </form>
+        </form> */}
+
+                <section >
+
+        <div className="container">
+        <div className="row mt-5 justify-content-center">
+        <div className="col-lg-10">
+        <h3 className='text-center fw-bold'><span style={{color:"#fd7402"}}>Trip</span>Update</h3>
+        
+       {
+        error &&
+        <div className="alert alert-danger">
+          {error}
+        </div>
+        }
+
+{
+  errorList.map((err,i)=>{
+    return <div key={i} className="alert alert-danger">
+    {err.message}
+  </div>
+  }
+  )
+}
+
+
+
+    <section>
+
+<div className="row mt-5 justify-content-center" data-aos="fade-up">
+<div className="col-lg-10">
+<form  className="dataform" onSubmit={submitForm}>
+  <div className="row">
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="from" className='p-1'>From</label>
+        <input type="text" onChange={handleChange} className="form-control " name='from' placeholder='From'  defaultValue={trip.from} required />
+    </div>
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="to" className='p-1'>To</label>
+        <input type="text"   onChange={handleChange} className="form-control" name="to" placeholder='To'  defaultValue={trip.to} required />
+    </div>
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="TripDate" className='p-1'>Trip Date</label>
+        <input type="text" onChange={handleChange}  className="form-control" placeholder='Date' name='TripDate' defaultValue={trip.TripDate ? trip.TripDate.split('T')[0] : "" } required/>
+    </div>
+
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="TripTime" className='p-1'>Trip Time</label>
+        <input onChange={handleChange}  type="text" name="TripTime" className="form-control" placeholder="Trip Time" defaultValue={trip.TripTime} required />
+    </div>
+
+    <div className="col-md-6 pb-2 form-group ">
+      <label htmlFor="AvailableWeight"  className='p-1'>Available Weight</label>
+      <input onChange={handleChange}  type="number" className="form-control" name="AvailableWeight"  placeholder="Available Weight" defaultValue={trip.AvailableWeight} required />
+    </div> 
+
+    <div className="col-md-6 pb-2 form-group">
+    <label htmlFor="unAcceptablaPackage" className='p-1'>unAcceptabla Package</label>
+    <input onChange={handleChange}  type="text" className="form-control" name="unAcceptablaPackage" placeholder="unAcceptabla Package" defaultValue={trip.unAcceptablaPackage} required />
+    </div>
+
+
+  </div>
+
+  <br />
+  <div>
+        <div className="col-lg-12 text-center">
+          <button className='formButton'  type='submit' >{loading ?<i className='fas fa-spinner fa-spin'></i>:'UPDATE'}</button>
+    <br/>
+    <br />
+          <Link to="/travelertrips"><button className='formButton' type='button' >BACK</button></Link>  
+        </div>
+  </div>
+
+</form>
+</div>
+</div>
+
+</section>
+
+        </div>
+       
+     
+        </div>
+        
+        </div>  
+        </section>
+
+
         <Footer/>
         </>
     )

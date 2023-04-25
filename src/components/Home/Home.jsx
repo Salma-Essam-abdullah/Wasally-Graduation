@@ -15,6 +15,8 @@ import HandshakeIcon from '@mui/icons-material/Handshake';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import HailIcon from '@mui/icons-material/Hail';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import {  motion as m } from "framer-motion"
+
 
 export default class Home extends Component {
   render() {
@@ -24,34 +26,58 @@ export default class Home extends Component {
   <div className="container">
     <div className="row">
       <div className="col-lg-4">
-        <h1>Whether you're we can help you transfer packages anywhere.</h1>
-        <p>Wasally is a social network that 
-              connects shoppers to travellers. 
-              Shoppers can buy their needs from all around the conutry & ship with a Traveller heading 
-              their way.</p>
+        <m.h1
+                    initial={{opacity:0 , x:5}}
+                    whileInView={{opacity:1, x:0 ,type:'spring'}}
+                    transition={{type:'tween',duration:1}}
+                    >Whether you're we can help you transfer packages anywhere.</m.h1>
+                    <m.p 
+                                initial={{opacity:0 , x:10}}
+                                whileInView={{opacity:1, x:0 ,type:'spring'}}
+                                transition={{type:'tween',duration:1}}
+                          >Wasally is a social network that 
+                          connects shoppers to travellers. 
+                          Shoppers can buy their needs from all around the conutry & ship with a Traveller heading 
+                          their way.</m.p>
           
               <div className="row">
                   <div className="col-sm-5 ">
-                  <Link to="/register"><button className='btn btn-success orangeButton'>Get Started</button></Link>
+                  <Link to="/register"><m.button
+                              initial={{opacity:0 , x:15}}
+                              whileInView={{opacity:1, x:0 ,type:'spring'}}
+                              transition={{type:'tween',duration:1}}
+                   className='btn btn-success orangeButton'>Get Started</m.button></Link>
                   </div>
                   <div className="col-sm-5 ">
-                  <Link to="/login"><button className='btn btn-outline-danger transparentButton'>Login</button></Link>
+                  <Link to="/login"><m.button
+                              initial={{opacity:0 , x:20}}
+                              whileInView={{opacity:1, x:0 ,type:'spring'}}
+                              transition={{type:'tween',duration:1}}
+                   className='btn btn-outline-danger transparentButton'>Login</m.button></Link>
                     </div>
              </div>
 
-             <div className="row registered">
+             <m.div
+                         initial={{opacity:0 , x:30}}
+                         whileInView={{opacity:1, x:0 ,type:'spring'}}
+                         transition={{type:'tween',duration:1}}
+              className="row registered">
               <div className="col-sm-6">
                 <h2 className='d-inline-block'>120K</h2> <p className='d-inline-block reg'>Shipments  <br/> Posted</p>
               </div>
               <div className="col-sm-6">
                 <h2 className='d-inline-block'>32K</h2> <p className='d-inline-block reg'>Trips  <br/> Posted</p>
               </div>
-             </div>
+             </m.div>
 
       </div>
     
       <div className="col-lg-6 offset-lg-2">
-      <img className='img-thumbnail p-lg-0 border-0' src={homeImg} alt="profile img" />
+      <m.img 
+                  initial={{opacity:0 , x:-20}}
+                  whileInView={{opacity:1, x:0 ,type:'spring'}}
+                  transition={{type:'tween',duration:1}}
+      className='img-thumbnail p-lg-0 border-0' src={homeImg} alt="profile img" />
         </div>
     </div>
   </div>
@@ -61,28 +87,56 @@ export default class Home extends Component {
   <div className="container">
   <div className="row">
     <div className="col-lg-4">
-      <img className='img-thumbnail p-lg-0 border-0' src={Img} alt="" />
+      <m.img
+                  initial={{opacity:0 , x:20}}
+                  whileInView={{opacity:1, x:0 ,type:'spring'}}
+                  transition={{type:'tween',duration:1}}
+       className='img-thumbnail p-lg-0 border-0' src={Img} alt="" />
     </div>
     <div className="offset-lg-1 col-lg-7">
-      <h1>Simple Step, Big Move</h1>
-      <p>Wasally aims to reduce estimated delivery time with the least amount of money with more secure way guaranteeing an express service to your customers they've never experienced before!</p>
+      <m.h1
+                  initial={{opacity:0 , x:-20}}
+                  whileInView={{opacity:1, x:0 ,type:'spring'}}
+                  transition={{type:'tween',duration:1}}
+      >Simple Step, Big Move</m.h1>
+      <m.p
+                  initial={{opacity:0 , x:20}}
+                  whileInView={{opacity:1, x:0 ,type:'spring'}}
+                  transition={{type:'tween',duration:1}}
+      >Wasally aims to reduce estimated delivery time with the least amount of money with more secure way guaranteeing an express service to your customers they've never experienced before!</m.p>
       <div className="row">
-        <div className="col-lg-3 box ">
+        <m.div
+                    initial={{opacity:0 , x:20}}
+                    whileInView={{opacity:1, x:0 ,type:'spring'}}
+                    transition={{type:'tween',duration:1}}
+         className="col-lg-3 box ">
           <TimeToLeaveIcon fontSize="large" />
           <p>Searching for Trip</p>
-        </div>
-        <div className="col-lg-3 box offset-lg-1">
+        </m.div>
+        <m.div
+                    initial={{opacity:0 , x:-20}}
+                    whileInView={{opacity:1, x:0 ,type:'spring'}}
+                    transition={{type:'tween',duration:1}}
+         className="col-lg-3 box offset-lg-1">
         <LocalShippingIcon fontSize="large" />
         <p>Adding a Shipment</p>
-          </div>
-          <div className="col-lg-3 box offset-lg-1">
+          </m.div>
+          <m.div
+                      initial={{opacity:0 , x:20}}
+                      whileInView={{opacity:1, x:0 ,type:'spring'}}
+                      transition={{type:'tween',duration:1}}
+           className="col-lg-3 box offset-lg-1">
             <PaidIcon fontSize="large"/>
           <p>Deal and Pay</p>
-          </div>
+          </m.div>
       </div>
       <div className="row">
         <div className="col-lg-3">
-          <button className='btn btn-success orangeButton'>Learn More</button>
+          <m.button
+                      initial={{opacity:0 , x:20}}
+                      whileInView={{opacity:1, x:0 ,type:'spring'}}
+                      transition={{type:'tween',duration:1}}
+           className='btn btn-success orangeButton'>Learn More</m.button>
         </div>
       </div>
     </div>
@@ -96,14 +150,22 @@ export default class Home extends Component {
   <div className="container">
     <div className="row">
       <div className="col-lg-12">
-<h1 className='text-center'>Define Your Goals <br/>Using Wasally</h1>
+<m.h1
+            initial={{opacity:0 , x:20}}
+            whileInView={{opacity:1, x:0 ,type:'spring'}}
+            transition={{type:'tween',duration:1}}
+ className='text-center'>Define Your Goals <br/>Using Wasally</m.h1>
 </div>
 </div>
 <div className="row">
       <div className="col-sm-8 offset-sm-4">
-<p className='text-center'>Wasally, which lets users ship items for each other, is to 
+<m.p
+            initial={{opacity:0 , x:-20}}
+            whileInView={{opacity:1, x:0 ,type:'spring'}}
+            transition={{type:'tween',duration:1}}
+ className='text-center'>Wasally, which lets users ship items for each other, is to 
 provide a convenient and cost-effective way for people to send 
-packages and items to one another.</p>
+packages and items to one another.</m.p>
 </div>
 </div>
 
@@ -116,11 +178,24 @@ packages and items to one another.</p>
 <div className="container-xxl py-5">
   <div className="container">
     <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-      <h1 className="section-title text-center  text-uppercase">Our Services</h1>
-      <h4 className="mb-5">Explore Our Services </h4>
+      <m.h1
+                  initial={{opacity:0 , x:20}}
+                  animate={{ opacity: 1 }}
+                  whileInView={{opacity:1, x:0 ,type:'spring'}}
+                  transition={{type:'tween',duration:1}}
+       className="section-title text-center  text-uppercase">Our Services</m.h1>
+      <m.h4
+                        initial={{opacity:0 , x:-20}}
+                        animate={{ opacity: 1 }}
+                        whileInView={{opacity:1, x:0 ,type:'spring'}}
+                        transition={{type:'tween',duration:1}}
+       className="mb-5">Explore Our Services </m.h4>
     </div>
     <div className="row g-4">
-      <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+      <m.div      initial={{opacity:0 , x:5}}
+                  animate={{ opacity: 1 }}
+                  whileInView={{opacity:1, x:0 ,type:'spring'}}
+                  transition={{type:'tween',duration:1}} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
         <div className="service-item rounded" >
           <div className="service-icon bg-transparent border rounded p-1">
             <div className="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
@@ -130,8 +205,13 @@ packages and items to one another.</p>
           <h5 className="mb-3">Save Money Shopping</h5>
           <p className="text-body mb-0">Shop from anywhere around the world and don't worry about the shipping headache. Our travellers will handle it.</p>
         </div>
-      </div>
-      <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+      </m.div>
+      <m.div 
+                        initial={{opacity:0 , x:10}}
+                        animate={{ opacity: 1 }}
+                        whileInView={{opacity:1, x:0 ,type:'spring'}}
+                        transition={{type:'tween',duration:1}}
+      className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
         <div className="service-item rounded" >
           <div className="service-icon bg-transparent border rounded p-1">
             <div className="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
@@ -141,8 +221,13 @@ packages and items to one another.</p>
           <h5 className="mb-3">Make Money Traveling</h5>
           <p className="text-body mb-0">Make money while traveling and let your rewards from deliveries cover your travel expenses.</p>
         </div>
-      </div>
-      <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+      </m.div>
+      <m.div
+                        initial={{opacity:0 , x:15}}
+                        animate={{ opacity: 1 }}
+                        whileInView={{opacity:1, x:0 ,type:'spring'}}
+                        transition={{type:'tween',duration:1}}
+       className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
         <div className="service-item rounded" >
           <div className="service-icon bg-transparent border rounded p-1">
             <div className="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
@@ -152,8 +237,13 @@ packages and items to one another.</p>
           <h5 className="mb-3">Verified Shoppers &amp; Travelers</h5>
           <p className="text-body mb-0">Trust is our top priority in wasally.</p>
         </div>
-      </div>
-      <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+      </m.div>
+      <m.div 
+                        initial={{opacity:0 , x:-20}}
+                        animate={{ opacity: 1 }}
+                        whileInView={{opacity:1, x:0 ,type:'spring'}}
+                        transition={{type:'tween',duration:1}}
+      className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
         <div className="service-item rounded" >
           <div className="service-icon bg-transparent border rounded p-1">
             <div className="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
@@ -163,8 +253,13 @@ packages and items to one another.</p>
           <h5 className="mb-3">Guaranteed Delivery</h5>
           <p className="text-body mb-0">The travellers buy the items which guarantees delivery for the shopper.</p>
         </div>
-      </div>
-      <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+      </m.div>
+      <m.div
+                        initial={{opacity:0 , x:-25}}
+                        animate={{ opacity: 1 }}
+                        whileInView={{opacity:1, x:0 ,type:'spring'}}
+                        transition={{type:'tween',duration:1}}
+       className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
         <div className="service-item rounded" >
           <div className="service-icon bg-transparent border rounded p-1">
             <div className="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
@@ -174,8 +269,13 @@ packages and items to one another.</p>
           <h5 className="mb-3">Several Payment Options</h5>
           <p className="text-body mb-0">Cash Collect , Visa , MasterCard</p>
         </div>
-      </div>
-      <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+      </m.div>
+      <m.div 
+                        initial={{opacity:0 , x:-30}}
+                        animate={{ opacity: 1 }}
+                        whileInView={{opacity:1, x:0 ,type:'spring'}}
+                        transition={{type:'tween',duration:1}}
+      className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
         <div className="service-item rounded" >
           <div className="service-icon bg-transparent border rounded p-1">
             <div className="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
@@ -185,7 +285,7 @@ packages and items to one another.</p>
           <h5 className="mb-3">Safe For Travellers</h5>
           <p className="text-body mb-0">The travellers know exactly what they are buying and transporting in their luggage and their payment is guaranteed upon delivery.</p>
         </div>
-      </div>
+      </m.div>
     </div>
   </div>
 </div>
@@ -197,10 +297,20 @@ packages and items to one another.</p>
       <div className="container" data-aos="fade-up">
 
         <div className="section-title">
-          <h2>Frequently Asked Questions</h2>
+          <m.h2
+                            initial={{opacity:0 , x:20}}
+                            animate={{ opacity: 1 }}
+                            whileInView={{opacity:1, x:0 ,type:'spring'}}
+                            transition={{type:'tween',duration:1}}
+          >Frequently Asked Questions</m.h2>
         </div>
 
-        <ul className="faq-list accordion" data-aos="fade-up">
+        <m.ul
+                          initial={{opacity:0 , x:-20}}
+                          animate={{ opacity: 1 }}
+                          whileInView={{opacity:1, x:0 ,type:'spring'}}
+                          transition={{type:'tween',duration:1}}
+         className="faq-list accordion" data-aos="fade-up">
 
           <li>
             <a data-bs-toggle="collapse" className="collapsed" data-bs-target="#faq1">Non consectetur a erat nam at lectus urna duis? <KeyboardArrowDownIcon className='arr'/> </a>
@@ -256,7 +366,7 @@ packages and items to one another.</p>
             </div>
           </li>
 
-        </ul>
+        </m.ul>
 
       </div>
     </section>
@@ -265,32 +375,57 @@ packages and items to one another.</p>
 <section id="contact" className="contact">
   <div className="container">
     <div className="section-title">
-      <h2>Contact Us</h2>
+      <m.h2
+                        initial={{opacity:0 , x:20}}
+                        animate={{ opacity: 1 }}
+                        whileInView={{opacity:1, x:0 ,type:'spring'}}
+                        transition={{type:'tween',duration:1}}
+      >Contact Us</m.h2>
   </div>
   </div> 
   <div className="container">
     <div className="row mt-5">
       <div className="col-lg-4">
       <div className="info">
-          <div className="address">
-           
+          <m.div
+                            initial={{opacity:0 , x:20}}
+                            animate={{ opacity: 1 }}
+                            whileInView={{opacity:1, x:0 ,type:'spring'}}
+                            transition={{type:'tween',duration:1}}
+           className="address">
             <h4><LocationOnIcon/> Location</h4>
             <p>Cleopatra, Alexandria Egypt</p>
-          </div>
-          <div className="email">
+          </m.div>
+
+          <m.div
+                            initial={{opacity:0 , x:-20}}
+                            animate={{ opacity: 1 }}
+                            whileInView={{opacity:1, x:0 ,type:'spring'}}
+                            transition={{type:'tween',duration:1}}
+           className="email">
          
             <h4><EmailIcon/> Email</h4>
             <p>Wassally.inc@gmail.com</p>
-          </div>
-          <div className="phone">
+          </m.div>
+          <m.div
+                            initial={{opacity:0 , x:20}}
+                            animate={{ opacity: 1 }}
+                            whileInView={{opacity:1, x:0 ,type:'spring'}}
+                            transition={{type:'tween',duration:1}}
+           className="phone">
             
             <h4> <LocalPhoneIcon /> Call</h4>
             <p>01210357541</p>
-          </div>
+          </m.div>
         </div>
       </div>
       <div className="col-lg-8 mt-5 mt-lg-0">
-        <form className="php-email-form">
+        <m.form
+                          initial={{opacity:0 , x:-20}}
+                          animate={{ opacity: 1 }}
+                          whileInView={{opacity:1, x:0 ,type:'spring'}}
+                          transition={{type:'tween',duration:1}}
+         className="php-email-form">
           <div className="row">
             <div className="col-md-6 form-group">
               <input type="text" name="name" className="form-control" id="name" placeholder="Your Name" required />
@@ -311,7 +446,7 @@ packages and items to one another.</p>
             <div className="sent-message">Your message has been sent. Thank you!</div>
           </div>
           <div className="text-center"><button type="submit">Send Message</button></div>
-        </form>
+        </m.form>
       </div>
     </div>
   </div>

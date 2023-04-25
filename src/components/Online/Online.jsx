@@ -6,7 +6,7 @@ export default function Online() {
   return (
     <>
     <div className='chatOnline'>
-    <h6>ONLINE USERS</h6>
+    <h5>ONLINE USERS</h5>
 
         <div className="chatOnlineFriend">
 

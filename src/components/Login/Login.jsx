@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import style from "./Login.module.css"
 import {  motion as m } from "framer-motion"
-import logimg from '../../assets/images/undraw_Delivery.png'
+import logimg from '../../assets/images/truck.png'
 
 
 

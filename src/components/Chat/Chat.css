@@ -5,9 +5,9 @@
 }
 .chatMenuWrapper input{
     margin-bottom: 10px;
-    background-color: #042931;
-    color: #fff;
-    border-color: #A6C903;
+    background-color: #fff;
+    color: #000000;
+    border-color: #ff9416;
 }
 
 
@@ -37,7 +37,7 @@
     }
 
 .chatBoxTop::-webkit-scrollbar-thumb{
-  background:#A6C903;
+  background:#ff9416;
   border-radius:5px;
 }
 .chatBoxTop{
@@ -56,8 +56,8 @@
     width: 80%;
     height: 90px;
     padding: 10px;
-    background-color:rgb(4, 41, 49);
-    border-color:#A6C903 ;
+    background-color:rgb(255, 255, 255);
+    border-color:#ff9416 ;
 }
 
 .chatSubmitButton{
@@ -67,7 +67,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #A6C903;
+    background-color: #ff9416;
     color: black;
 }
 

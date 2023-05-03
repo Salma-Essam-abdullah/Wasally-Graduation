@@ -20,8 +20,35 @@ export default function QrCode() {
             }
         )
     }
+let history = useHistory();
+
+
+    async function getRequest(){
+
+        axios.get(`http://localhost:3000/v1/users/redirectAfterDelivery` ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+            (response)=>{
+                console.log(response.data)
+               if(response.data.state === 'delivered'){
+                let traveler = response.data.trip.Traveler;
+                history.push(`/rating/${traveler}`)
+               }
+               else{
+                history.push('/qrcode')
+               }
+            }
+        ).catch(
+            (error)=>{
+                console.log(error)
+    
+            }
+        )
+    }
+
+
+
     useEffect(()=>{
         getUser();
+        getRequest();
         
         },[]);
 

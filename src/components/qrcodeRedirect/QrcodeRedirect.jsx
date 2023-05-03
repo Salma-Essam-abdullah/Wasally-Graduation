@@ -3,14 +3,21 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
+import { Link, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function QrcodeRedirect() {
 
     let encodedToken = localStorage.getItem('userToken');
-    let userDataa =  jwtDecode(encodedToken);
+    let [error,setError] = useState('');
+//     let userDataa =  jwtDecode(encodedToken);
 
-let userId = userDataa.id;
-console.log(userId)
+// let userId = userDataa.id;
+// console.log(userId)
+ let userId = useParams().userId;
+
+
+
+
     const [userData,setUserData] =useState([])
 const history = useHistory();
 
@@ -20,15 +27,14 @@ const history = useHistory();
             (response)=>{
                 console.log(response.data)
                 setUserData(response.data)
-                history.push('/home')
-               
-    
-          
+                setError('')
+                history.push('/home')      
             }
         ).catch(
             (error)=>{
                 console.log(error)
-    
+                setError(error.response.data)
+                history.push('/home')
             }
         )
     }
@@ -38,9 +44,16 @@ const history = useHistory();
         },[]);
 
   return (
+    <section className="rate">
     <div className='text-center'>
-        <h1>QR code</h1>
+    {
+        error &&
+        <div className="alert alert-danger">
+          {error}
+        </div>
+        }
     
     </div>
+    </section>
   )
 }

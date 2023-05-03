@@ -51,7 +51,6 @@ export default function Navbar(props) {
   {
             props.loginUser?
             <>
-            
            <button onClick={props.logOut} className="btn btn-outline-success " type="submit">Log out</button>  
             </>:<Link to="/register"><button className="btn btn-outline-success " type="submit">Create Account</button></Link>
           }

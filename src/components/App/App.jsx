@@ -41,6 +41,11 @@ import AcceptedRequests from '../AcceptedRequests/AcceptedRequests';
 import AcceptedrequestsDeliver from '../AcceptedRequestsDeliver/AcceptedRequestsDeliver';
 import ViewRequestAfterAcceptance from '../ViewRequestAfterAcceptance/ViewRequestAfterAcceptance';
 import ViewRequestAfterAcceptanceBuy from '../ViewRequestAfterAcceptanceBuy/ViewRequestAfterAcceptanceBuy.jsx';
+import Rating from '../Rating/Rating';
+import Qr from '../qr/Qr';
+import TravelerAcceptedRequests from '../TravelerAcceptedRequests/TravelerAcceptedRequests';
+import DetailsOfaccepted from '../DetailsOfaccepted/DetailsOfaccepted';
+import Tracking from '../Tracking/Tracking';
 
 
 const App = () => {
@@ -107,13 +112,18 @@ function logOut(){
               <PrivateRoute path='/request' component={Request} allowedRoles={['user', 'traveler']}/> 
               <PrivateRoute path='/request2' component={Request2} allowedRoles={['user', 'traveler']}/> 
        
-             
+              <PrivateRoute path='/rating/:travelerId' component={Rating} allowedRoles={['user', 'traveler']}/>
               <PrivateRoute path='/work' component={Work} allowedRoles={['user', 'traveler']}/> 
              
               <PrivateRoute path='/trip' component={Trip} allowedRoles={['user', 'traveler']}/> 
-           
-              <PrivateRoute path='/qrcode' component={QrCode} allowedRoles={['user', 'traveler']}/> 
-              <PrivateRoute path='/qrcodeRedirect' component={QrcodeRedirect} allowedRoles={['user', 'traveler']}/> 
+              <PrivateRoute path='/traveleracceptedrequests' component={TravelerAcceptedRequests} allowedRoles={['traveler']}/> 
+              <PrivateRoute path='/detailsofacceptedrequest/:requestId' component={DetailsOfaccepted} allowedRoles={['traveler']}/> 
+
+              <PrivateRoute path='/qrcode' component={QrCode} allowedRoles={['user']}/> 
+              <PrivateRoute path='/tracking/:requestId' component={Tracking} allowedRoles={['user']}/> 
+              
+              <PrivateRoute path='/qrcodeRedirect/:userId' component={QrcodeRedirect} allowedRoles={['user', 'traveler']}/> 
+              <PrivateRoute path='/qr/:userId' component={Qr} allowedRoles={['user', 'traveler']}/> 
               <PrivateRoute path='/userShipment' component={userShipment} allowedRoles={['user', 'traveler']}/> 
               <PrivateRoute path='/userShipment2' component={userShipment2} allowedRoles={['user', 'traveler']}/>
               <PrivateRoute path='/employeeform' component={EmployeeForm} allowedRoles={['user', 'traveler']}/>  
@@ -128,10 +138,13 @@ function logOut(){
               <PrivateRoute path='/viewRequestAfterAcceptance/:requestId' component={ViewRequestAfterAcceptance} allowedRoles={['user', 'traveler']}/>
               <PrivateRoute path='/ViewRequestAfterAcceptanceBuy/:requestId' component={ViewRequestAfterAcceptanceBuy} allowedRoles={['user', 'traveler']}/>
 
+
         <Route path="/passwordReset" component={PasswordReset} />
         <Route path="/Register" render={(props)=> <Register{...props}/>}  /> 
-        <Route path="/login"  render={(props)=><Login{...props} getUserInfo={getUserInfo}/>}/> 
+        <Route path="/login"  render={(props)=><Login{...props} getUserInfo={getUserInfo}/>}/>
+        <Route path="/home" component={Home} /> 
         <Route path="/" component={Home} />
+
 
 
       </Switch>

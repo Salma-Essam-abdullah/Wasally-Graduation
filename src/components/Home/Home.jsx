@@ -18,6 +18,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {  motion as m } from "framer-motion"
 
 
+
 export default class Home extends Component {
   render() {
     return (
@@ -131,13 +132,13 @@ export default class Home extends Component {
           </m.div>
       </div>
       <div className="row">
-        <div className="col-lg-3">
+        {/* <div className="col-lg-3">
           <m.button
                       initial={{opacity:0 , x:20}}
                       whileInView={{opacity:1, x:0 ,type:'spring'}}
                       transition={{type:'tween',duration:1}}
            className='btn btn-success orangeButton'>Learn More</m.button>
-        </div>
+        </div> */}
       </div>
     </div>
   </div>
@@ -158,13 +159,13 @@ export default class Home extends Component {
 </div>
 </div>
 <div className="row">
-      <div className="col-sm-8 offset-sm-4">
+      <div className="col-sm-12 text-center">
 <m.p
             initial={{opacity:0 , x:-20}}
             whileInView={{opacity:1, x:0 ,type:'spring'}}
             transition={{type:'tween',duration:1}}
- className='text-center'>Wasally, which lets users ship items for each other, is to 
-provide a convenient and cost-effective way for people to send 
+ className='text-center'>Wasally, which lets users ship items for each other, is to <br/>
+provide a convenient and cost-effective way for people to send <br/>
 packages and items to one another.</m.p>
 </div>
 </div>

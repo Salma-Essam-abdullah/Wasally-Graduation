@@ -7,9 +7,14 @@ import { Link } from 'react-router-dom'
 import PaidIcon from '@mui/icons-material/Paid';
 
 export default function Request2() {
+
+  const [nameList] = useState([])
+  const [search, setSearch] = useState("")
+
   const [requestData,setRequestData]=useState([]);
   const [activeButton, setActiveButton] = useState('first')
   let [userData , setUserData] = useState([])
+    let [filteredRequest , setFilteredRequests] = useState([])
   let encodedToken = localStorage.getItem('userToken');
   async function getRequest(){
     axios.get(`http://localhost:3000/v1/requests/viewAllRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
@@ -55,82 +60,53 @@ useEffect(()=>{
     setActiveButton(name);
     console.log(activeButton);
   };
+
+    function filter(searchTerm) {
+    setRequestData(prev=>prev.filter(prev.includes(searchTerm)))
+  }
+
+  useEffect(()=>{
+    const matched = searchCities(search,requestData)
+    setFilteredRequests(matched)
+  },[requestData, search])
+
+  function searchCities(search, trips) {
+    const matching = [];
+    
+    trips.forEach(trip => {
+      if (trip.to.toLowerCase().includes(search.toLowerCase())) {
+        matching.push(trip);
+      }
+    });
+    
+    return matching;
+  }
+  
+
+
+
+
   
   return (
  
     <>
-  {/* <section className="request">
-
- <div className="container">
-  <div className="row">
-    <div className="col-md-12">
-      
-  <div className="navL">
-    <Link to="/request">
- <button name="second"  className={ activeButton === "second" ? `${activeButton}` : "ss"}
-          onClick={clickedButtonHandler}>
-          Buy Something
-          </button>
-    </Link>
-<Link to="/request2">
-    <button name="first"
-          className={activeButton === "first" ? `${activeButton}` : ""}
-          onClick={clickedButtonHandler}>
-            Deliver Something
-          </button>
-          </Link>
-  </div>
-  
- </div>
-  </div>
-
-  {requestData.map((request,index)=>
-  request.buyOrdeliver ==='deliver' ? 
-  <div key={index} className="row mt-3">
-    <div className="preview-card ">
-      <div className="preview-card__wrp ">
-        <div className="preview-card__item">
-          <div className="preview-card__img">
-          {
-           userData.map((user,i)=>user.id===request.userId ? 
-            <img key={i} src={user.ProfileImage}  alt="person" /> 
-            :null)
-            }
-          </div>
-
-          <div className="preview-card__content">
-         
-            <h2 className="preview-card__code">{userData.map((user)=>user.id ===request.userId ? user.name : '')} </h2>
-            <div className="preview-card__title ">Shipment | {request.item}</div>
-            <h5 className="previewcardh5 fw-bold"> <i className="fa-solid fa-train-subway"></i>  From <span className='green'>|</span>  {request.from}   <span className='space'>  To <span className='green'>|</span>  {request.to}</span></h5>
-            <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-bars"></i>Category <span className='green'>|</span> {request.category}</h5> 
-            <h5 className="previewcardh5 fw-bold"><i className="fa-solid fa-weight-hanging"></i>Weight <span className='green'>|</span>  {request.weight} KG </h5>
-            <h5 className="previewcardh5 fw-bold "><i className="fa-solid fa-sack-dollar"></i>Reward <span className='green'>|</span> {request.reward} L.E</h5>
-            <h5 className="previewcardh5 fw-bold "> <i className="fa-solid fa-location-dot"></i>Your Location <span className='green'>|</span> {request.to} : {request.location}</h5>
-            <h5  className="previewcardh5 fw-bold "><i className="fa-solid fa-location-dot"></i>Target Location <span className='green'>|</span>  {request.targetLocation}</h5> 
-            <h5  className="previewcardh5 fw-bold "><i className="fa-solid fa-phone-volume"></i>Phone Number <span className='green'>|</span>  {request.anotherPhone}</h5> 
-          </div>
-
-          
-          
-          <Link to={`/detailspfshippmentuser1/${request.id}`}> <button  className="lin btn btn-info  ">VIEW DETAILS</button></Link>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-  : null
-  )}
-</div>
-
-</section>
- */}
-
 
 <section id="portfolio" className="portfolio sections-bg">
   <div className="container" data-aos="fade-up">
     <div className="section-header">
       <h2>Shipments</h2>
+            {nameList.filter((item)=>{
+        if (search===""){
+          return item
+        }
+        else if(item.name.tolowercase().includes(search.tolowercase())){
+          return item
+        }
+      })
+      .map((item)=>{
+        return <h4> {item.name} </h4>
+      })
+      }
       </div>
     <div className="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay={100}>
       <div>
@@ -152,9 +128,14 @@ useEffect(()=>{
          </Link>
         </ul>
       </div>
+      <div className='searchbox'>
+      <input className='search-box'  id='search' type='search' placeholder='ENTER THE NAME OF CITY' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+      </div>
+
+      <br />
       
       <div  className="row gy-4 portfolio-container">
-      {requestData.map((request,index)=>
+      {filteredRequest.map((request,index)=>
 
 request.buyOrdeliver ==='deliver' ? 
         <div key={index} className="col-xl-3 col-md-6 portfolio-item filter-app">

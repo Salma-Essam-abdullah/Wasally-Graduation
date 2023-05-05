@@ -75,6 +75,7 @@ useEffect(()=>{
               <p><WhereToVoteIcon/>To - {request.to}</p>
               <p><PaidIcon/> Reward - {request.reward}</p>
               <Link to={`/detailsofacceptedrequest/${request.id}`}>   <button className=" orangeButton btn btn-success ">View Details</button></Link>
+              <Link to={`/chat/${request.id}`}>   <button className=" orangeButton btn btn-success ">Chat</button></Link>
             </div>
           </div>
           

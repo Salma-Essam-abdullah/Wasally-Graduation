@@ -48,6 +48,7 @@ import DetailsOfaccepted from '../DetailsOfaccepted/DetailsOfaccepted';
 import Tracking from '../Tracking/Tracking';
 
 
+
 const App = () => {
 
   let history = useHistory();
@@ -107,7 +108,7 @@ function logOut(){
            
               <PrivateRoute path='/userdetails2' component={UserDetails2} allowedRoles={['user', 'traveler']}/>  
               <PrivateRoute path='/shipmentSendTrip/:tripId' component={ShipmentSendTrip} allowedRoles={['user', 'traveler']}/> 
-              <PrivateRoute path='/chat' component={Chat} allowedRoles={['user', 'traveler']}/> 
+              <PrivateRoute path='/chat/:requestId' component={Chat} allowedRoles={['user', 'traveler']}/> 
               
               <PrivateRoute path='/request' component={Request} allowedRoles={['user', 'traveler']}/> 
               <PrivateRoute path='/request2' component={Request2} allowedRoles={['user', 'traveler']}/> 
@@ -120,7 +121,9 @@ function logOut(){
               <PrivateRoute path='/detailsofacceptedrequest/:requestId' component={DetailsOfaccepted} allowedRoles={['traveler']}/> 
 
               <PrivateRoute path='/qrcode' component={QrCode} allowedRoles={['user']}/> 
-              <PrivateRoute path='/tracking/:requestId' component={Tracking} allowedRoles={['user']}/> 
+             
+
+              <PrivateRoute path='/tracking/:requestId' component={Tracking} allowedRoles={['user','traveler']}/> 
               
               <PrivateRoute path='/qrcodeRedirect/:userId' component={QrcodeRedirect} allowedRoles={['user', 'traveler']}/> 
               <PrivateRoute path='/qr/:userId' component={Qr} allowedRoles={['user', 'traveler']}/> 

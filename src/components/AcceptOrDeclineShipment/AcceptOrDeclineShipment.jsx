@@ -40,7 +40,7 @@ export default function AcceptOrDeclineShipment(){
       axios.post(`http://localhost:3000/v1/requests/acceptrequest/${requestId}`,{isAccepted: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
           console.log(response.message);
           setIsAccepted(true)
-          history.push('/chat')
+          history.push(`/chat/${requestId}`)
         })
         .catch((error) => {
           console.log(error);

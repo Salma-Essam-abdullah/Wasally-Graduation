@@ -9,19 +9,25 @@ import ScheduleIcon from '@mui/icons-material/Schedule';
 const BASE_URL = process.env.REACT_APP_API_URI;
 
 export default function Trip() {
+  const [nameList] = useState([])
+  const [search, setSearch] = useState("")
  
     const [requestData,setRequestData]=useState([]);
     let [userData , setUserData] = useState([])
+    let [filteredTrips , setFilteredTrips] = useState([])
     let encodedToken = localStorage.getItem('userToken');
 
   async function getRequest(){
-    axios.get(`${BASE_URL}/v1/trips/view`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`${BASE_URL}/v1/trips/view`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
+    .then(
         (response)=>{
             console.log("ay 7aga",response.data.trips)
             setRequestData(response.data.trips)
 
-        }
-    ).catch(
+  }
+        
+    )
+    .catch(
         (error)=>{
             console.log(error)
 
@@ -51,9 +57,33 @@ async function getUserData(){
 useEffect(()=>{
   getRequest();
   getUserData();
-    
     },[]);
 
+    function filter(searchTerm) {
+      setRequestData(prev=>prev.filter(prev.includes(searchTerm)))
+    }
+
+    useEffect(()=>{
+      const matched = searchCities(search,requestData)
+      setFilteredTrips(matched)
+    },[requestData, search])
+
+    function searchCities(search, trips) {
+      const matching = [];
+      
+      trips.forEach(trip => {
+        if (trip.to.toLowerCase().includes(search.toLowerCase())) {
+          matching.push(trip);
+        }
+      });
+      
+      return matching;
+    }
+    
+    
+  
+
+  
 
   return (
     <>
@@ -61,11 +91,28 @@ useEffect(()=>{
   <div className="container" data-aos="fade-up">
     <div className="section-header">
       <h2>Trips</h2>
+
+      <div className='searchbox'>
+      <input className='search-box'  id='search' type='search' placeholder='ENTER THE NAME OF CITY' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+      </div>
+      <br/>
+      {nameList.filter((item)=>{
+        if (search===""){
+          return item
+        }
+        else if(item.name.tolowercase().includes(search.tolowercase())){
+          return item
+        }
+      })
+      .map((item)=>{
+        return <h4> {item.name} </h4>
+      })
+      }
+
       </div>
     <div className="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay={100}>
       <div  className="row gy-4 portfolio-container">
-      {requestData && requestData.map((request,index)=>
-
+      {filteredTrips && filteredTrips.map((request,index)=>
         <div key={index} className="col-xl-3 col-md-6 portfolio-item filter-app">
           <div  className="portfolio-wrap">
           
@@ -75,7 +122,6 @@ useEffect(()=>{
             :null)
             }
             <div className="portfolio-info">
-            
             <h4>{userData.map((traveler)=>traveler._id === request.Traveler ? traveler.userId.name : '')}</h4>
            
               <p><DirectionsTransitIcon/> From - {request.from}</p>

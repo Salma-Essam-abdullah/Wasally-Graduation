@@ -34,7 +34,7 @@ const history = useHistory();
             (error)=>{
                 console.log(error)
                 setError(error.response.data)
-                history.push('/home')
+               
             }
         )
     }

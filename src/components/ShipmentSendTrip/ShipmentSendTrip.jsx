@@ -10,7 +10,6 @@ export default function ShipmentSendTrip() {
     let [error,setError] = useState('');
     let [loading,setLoading] = useState(false)
     let [request, setRequest] = useState({
-      reward:'',
       to:'',
       from:'',
       item:'',
@@ -23,8 +22,8 @@ export default function ShipmentSendTrip() {
       storeLocation:'',
       storeName:'',
       price:'' ,
-      buyOrdeliver:'deliver'
-      
+      buyOrdeliver:'deliver',
+      tripPrice:''
   
     });
    
@@ -69,9 +68,7 @@ export default function ShipmentSendTrip() {
   
   function RequestValidation(){
     let scheme = Joi.object({
-     
-   
-      reward: Joi.number(),
+      tripPrice: Joi.number(),
       to: Joi.string().required(),
       from: Joi.string().required(),
       item: Joi.string().required(),
@@ -112,214 +109,7 @@ export default function ShipmentSendTrip() {
     )
   }
     
-        {/* <section className="shippmentDetails">
-        <form onSubmit={formSubmit}>
-        <div className="container">
-          <div className="row">
-        <div  className="col-md-6 col-sm-12">
-            <h3 className='text-center'>Details</h3>
-            <section className="userForm">
-  
-            <div>
-              
-        <h3><span className='green'>S</span>elect option :</h3>
-        <br />
-        <select  name="buyOrdeliver" onChange={getRequest} value={request.buyOrdeliver} >
-          <option  value="deliver" >Deliver something</option>
-          <option  value="buy" >Buy something</option>
-        </select>
-      </div>
-     
-     <br />
-   
-        <div className="border">
-   
-     <div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-   <label htmlFor="from" className="col-form-label">From : </label>
-  </div>
-  <div className="col-lg-8">
-   <input onChange={getRequest} type="text"  className="form-control " name='from' placeholder='From' />
-  </div>
-  
-  </div>
-  
-  <div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-   <label htmlFor="to" className="col-form-label">To : </label>
-  </div>
-  <div className="col-lg-8">
-   <input onChange={getRequest} type="text"  className="form-control" name="to" placeholder='To' />
-  </div>
-  </div>
-  </div>
-  
-  <div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-   <label htmlFor="date" className="col-form-label">Date : </label>
-  </div>
-  <div className="col-lg-8">
-   <input  onChange={getRequest} type="text"  className="form-control" placeholder='YEAR-MONTH-DAY' name='date' />
-  </div> 
-  </div>
-  
-  
-  
-       </section>
-        </div>
-   
-  
-        <div className="col-md-6 col-sm-12">
-        <h3 className='text-center'>Shopping Item</h3>
-        <section className="userForm">
-     
-     
-     
-  <div className="row g-3 align-items-center group">
-  
-      <div className="col-lg-4">
-        <label htmlFor="item" className="col-form-label">Item : </label>
-      </div>
-      <div className="col-lg-8">
-        <input type="text"  onChange={getRequest} className="form-control " name='item' placeholder='Item'   />
-      </div>
-  
-  </div>
-  
-  <div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="category" className="col-form-label">Category : </label>
-  </div>
-  <div className="col-lg-8">
-    <input onChange={getRequest} type="text"  className="form-control" placeholder='Category' name='category'  />
-  </div> 
-  </div>
-  
-  
-  {request.buyOrdeliver === 'buy' && (
-  
-  
-  <div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="storeName" className="col-form-label">Store Name: </label>
-  </div>
-  <div className="col-lg-8">
-    <input onChange={getRequest} type="text"  className="form-control" placeholder='Store Name' name='storeName'  />
-  </div> 
-  </div>
-  
-  )}
-  
-  {request.buyOrdeliver === 'buy' && (
-  
-  
-  <div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="storeLocation" className="col-form-label">Store Location: </label>
-  </div>
-  <div className="col-lg-8">
-    <input onChange={getRequest} type="text"  className="form-control" placeholder='Store Location' name='storeLocation'  />
-  </div> 
-  </div>
-  
-  )}
-  
-  
-  <div className="row g-3 align-items-center group">
-      <div className="col-lg-4">
-        <label htmlFor="Weight" className="col-form-label">Weight : </label>
-      </div>
-  
-      <div className="col-lg-8">
-        <input  onChange={getRequest} type="number"  className="form-control " name='weight' placeholder='Weight'   />
-      </div>
-  
-  </div>
-  
-  {request.buyOrdeliver === 'buy' && (
-  <div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="price" className="col-form-label">Price : </label>
-  </div>
-  <div className="col-lg-8">
-    <input onChange={getRequest} type="number"  className="form-control" placeholder='Price' name='price'  />
-  </div> 
-  </div>
-  
-  )}
-     
-  
-  
-  
-  <div className="row g-3 align-items-center group">
-  
-      <div className="col-lg-4">
-        <label htmlFor="reward" className="col-form-label">Reward : </label>
-      </div>
-  
-      <div className="col-lg-8">
-        <input  onChange={getRequest} type="number"  className="form-control " name='reward' placeholder='Reward'   />
-      </div>
-  
-  </div>
-  
-   
-  
-  <div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="yourLocation" className="col-form-label">Your Location : </label>
-  </div>
-  <div className="col-lg-8">
-    <input onChange={getRequest} type="text"  className="form-control" name="location" placeholder='Your Location'  />
-  </div>
-  </div>
-  
-  {request.buyOrdeliver === 'deliver' && (
-  
-  <div className="row g-3 align-items-center group">
-  <div className="col-lg-4">
-    <label htmlFor="Target Location" className="col-form-label">Target Location : </label>
-  </div>
-  <div className="col-lg-8">
-    <input onChange={getRequest} type="text"  className="form-control" name='targetLocation'  placeholder='Target Location'   />
-  </div> 
-  </div>
-  
-  
-  )}
-  
-  
-  
-    <div className="row g-3 align-items-center group">
-      <div className="col-lg-4">
-        <label htmlFor="Another Phone" className="col-form-label">Another Phone : </label>
-      </div>
-  
-      <div className="col-lg-8">
-      <input onChange={getRequest} type="tel"  className="form-control " name='anotherPhone' placeholder='Another Phone'   />
-      </div>
-  
-  </div>
-  
-  
-  
-  
-          <div className="col-lg-12 text-center">
-        <button type="submit">{loading ?<i className='fas fa-spinner fa-spin'></i>:'ADD REQUEST'} </button>
-             
-        
-        </div>
-  
-        </section>
-        </div>
-
-        
-        </div>
-        
-        </div>
-        
-      </form>
-        </section> */}
+       
               <section className="shippmentDetails">
       <div className="container">
         <div className="row">
@@ -397,9 +187,10 @@ export default function ShipmentSendTrip() {
     <input onChange={getRequest} type="number" className="form-control" name="weight"  placeholder="Weight" required />
     </div>
 
+   
     <div className="col-md-6 pb-2 form-group ">
-    <label htmlFor="reward" className='p-1'>Reward</label>
-    <input onChange={getRequest} type="number" className="form-control" name="reward"  placeholder="Reward" required />
+    <label htmlFor="tripPrice" className='p-1'>Trip Price</label>
+    <input onChange={getRequest} type="number" className="form-control" name="tripPrice"  placeholder="tripPrice" required />
     </div>
 
     {request.buyOrdeliver === 'deliver' && (

@@ -43,11 +43,29 @@ async function getUserData(){
 
       }
   )
+  
 }
+
+const [Pay,setPay] = useState(false);
+const [linkk,setLinkk] = useState('')
+
+async function pay() {
+  await   axios.post(`http://localhost:3000/v1/requests/createCheckoutSession`,{Pay:true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+      
+     console.log(response.data)
+     setPay(true);
+     setLinkk(response.data.session)
+       
+       })
+       .catch((error) => {
+         console.log(error);
+       });
+   }
+
 useEffect(()=>{
   getRequest();
   getUserData();
-    
+  pay();
     },[]);
   
 
@@ -67,7 +85,9 @@ useEffect(()=>{
 <section id="portfolio" className="portfolio sections-bg">
   <div className="container" data-aos="fade-up">
     <div className="section-header">
-      <h2>Accepted Requests <Link to="/qrcode">   <button className="   btn btn-success ">Qr code</button></Link></h2>
+      <h2>Accepted Requests <Link to="/qrcode">   <button className="   btn btn-success ">Qr code</button></Link>
+      
+      </h2>
       </div>
     <div className="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay={100}>
       <div>
@@ -110,7 +130,14 @@ request.buyOrdeliver ==='deliver' ?
               <p><PaidIcon/>Reward - {request.reward}</p>
               <Link to={`/viewRequestAfterAcceptance/${request.id}`}>   <button className=" orangeButton btn btn-success ">View Details</button></Link>
               <Link to={`/tracking/${request.id}`}>   <button className=" orangeButton btn btn-success ">Tracking Request</button></Link>
-             
+              <Link to={`/chat/${request.id}`}>   <button className=" orangeButton btn btn-success ">Chat</button></Link>
+            {
+            request.state === 'delivered'?'':
+            <a  href={`${linkk}`} target="_blank" rel="noopener noreferrer">
+            <button className=' orangeButton btn btn-success' onClick={pay}>Pay</button>
+            
+          </a>
+          }
             </div>
           </div>
          

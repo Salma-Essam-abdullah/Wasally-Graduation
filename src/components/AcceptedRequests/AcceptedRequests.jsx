@@ -44,9 +44,33 @@ async function getUserData(){
       }
   )
 }
+
+
+
+const [Pay,setPay] = useState(false);
+
+const [linkkBuy,setLinkkbuy] = useState('')
+
+
+   async function paybuy() {
+       axios.post(`http://localhost:3000/v1/requests/createCheckoutSessionWithPrice`,{Pay:true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+         
+        console.log(response.data)
+        setPay(true);
+        setLinkkbuy(response.data.session)
+          
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+
+
 useEffect(()=>{
   getRequest();
   getUserData();
+  paybuy();
     
     },[]);
   
@@ -64,7 +88,9 @@ useEffect(()=>{
 <section id="portfolio" className="portfolio sections-bg">
   <div className="container" data-aos="fade-up">
     <div className="section-header">
-      <h2>Accepted Requests   <Link to="/qrcode">   <button className="   btn btn-success ">Qr code</button></Link>
+      <h2>Accepted Requests   <Link to="/qrcode">   <button className="   btn btn-success ">Qr code</button></Link> 
+      
+     
       </h2>
      
       </div>
@@ -112,7 +138,16 @@ useEffect(()=>{
                             <Link to={`/viewRequestAfterAcceptance/${request.id}`}>   <button className=" orangeButton btn btn-success ">View Details</button></Link>
               }  
 
-           
+            <Link to={`/tracking/${request.id}`}>   <button className=" orangeButton btn btn-success ">Tracking Request</button></Link>
+            <Link to={`/chat/${request.id}`}>   <button className=" orangeButton btn btn-success ">Chat</button></Link>
+
+{
+  request.state === 'delivered'?'':
+  <a  href={`${linkkBuy}`} target="_blank" rel="noopener noreferrer">
+  <button className=' orangeButton btn btn-success' onClick={paybuy}>Pay</button>
+ </a>
+}
+
            
             </div>
           </div>

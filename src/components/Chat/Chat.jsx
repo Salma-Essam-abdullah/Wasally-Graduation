@@ -15,7 +15,7 @@ export default function Chat() {
   let requestId = useParams().requestId;
   const [conversationId , setConversationId] = useState([]);
   const [messageBody , setMessageBody] = useState([])
-  const [socket , setSocket] = useState(null)
+
   
 
   async function getconv() {

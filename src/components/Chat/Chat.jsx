@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode'
-import {io}  from 'socket.io-client'
+
 const BASE_URL = process.env.REACT_APP_API_URI;
 export default function Chat() {
     let encodedToken = localStorage.getItem('userToken');
@@ -98,15 +98,11 @@ export default function Chat() {
     getProfile();
     }
 
-    setSocket(io("ws://localhost:8900"))
+    
       },[]);
 
 
-useEffect(()=>{ 
-    socket?.on("welcome",message=>{
-      console.log(message)
-    })
-},[socket])
+
 
   return (
     <>

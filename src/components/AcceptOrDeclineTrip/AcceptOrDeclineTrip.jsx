@@ -2,8 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
-// import Navbar from '../Navbar/Navbar'
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function AcceptOrDeclineTrip  () {
 
   let encodedToken = localStorage.getItem('userToken');
@@ -15,7 +14,7 @@ export default function AcceptOrDeclineTrip  () {
   const [request, SetRequest] = useState({});
   useEffect(() => {
     const fetch = async () => {
-      axios.get(`http://localhost:3000/v1/trips/viewtrip/`+tripId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+      axios.get(`${BASE_URL}/v1/trips/viewtrip/`+tripId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
       (response)=>{
           console.log("sss",response.data)
           SetRequest(response.data.trip)
@@ -35,7 +34,7 @@ export default function AcceptOrDeclineTrip  () {
 
 
   async function AcceptRequest() {
-    axios.post(`http://localhost:3000/v1/requests/userAcceptTravelerRequest/${tripId}`,{isAccepted: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    axios.post(`${BASE_URL}/v1/requests/userAcceptTravelerRequest/${tripId}`,{isAccepted: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
         console.log(response.message);
         setIsAccepted(true)
         history.push('/chat')

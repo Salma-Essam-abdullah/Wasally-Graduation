@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import Joi from 'joi';
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function UpdateDetailsOfTrips  () {
 
   let encodedToken = localStorage.getItem('userToken');
@@ -41,7 +42,7 @@ async function submitForm(e){
     
     
     setLoading(true);
-    axios.put(`http://localhost:3000/v1/trips/update/`+tripId ,trips,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
+    axios.put(`${BASE_URL}/v1/trips/update/`+tripId ,trips,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
     .then(
       res => {
        
@@ -82,7 +83,7 @@ function validationRequestForm(){
 
   useEffect(() => {
     const fetch = async () => {
-      axios.get(`http://localhost:3000/v1/trips/viewtrip/`+tripId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+      axios.get(`${BASE_URL}/v1/trips/viewtrip/`+tripId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
       (response)=>{
           console.log("sss",response.data)
           SetTrip(response.data.trip)

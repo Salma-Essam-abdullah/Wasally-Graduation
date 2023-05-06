@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer'
 import {useHistory } from 'react-router-dom';
 import Joi from 'joi';
 import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function EmployeeForm() {
 
    let encodedToken = localStorage.getItem('userToken');
@@ -53,7 +54,7 @@ export default function EmployeeForm() {
     
 
     setLoading(true);
-     await axios.patch(`http://localhost:3000/v1/travelers/create`,employee,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
+     await axios.patch(`${BASE_URL}/v1/travelers/create`,employee,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
       res => {
        
         setLoading(false);

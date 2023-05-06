@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
 import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 import PaidIcon from '@mui/icons-material/Paid';
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function AcceptedRequests() {
 
   const [requestData,setRequestData]=useState([]);
@@ -14,7 +15,7 @@ export default function AcceptedRequests() {
 
 
   async function getRequest(){
-    axios.get(`http://localhost:3000/v1/requests/ViewAllAcceptedRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`${BASE_URL}/v1/requests/ViewAllAcceptedRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log(response.data)
             setRequestData(response.data.requests)
@@ -32,7 +33,7 @@ export default function AcceptedRequests() {
 async function getUserData(){
 
 
-  axios.get(`http://localhost:3000/v1/users/allusers`).then(
+  axios.get(`${BASE_URL}/v1/users/allusers`).then(
       (response)=>{
           console.log('use',response.data)
           setUserData(response.data)
@@ -50,7 +51,7 @@ const [Pay,setPay] = useState(false);
 const [linkk,setLinkk] = useState('')
 
 async function pay() {
-  await   axios.post(`http://localhost:3000/v1/requests/createCheckoutSession`,{Pay:true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+  await   axios.post(`${BASE_URL}/v1/requests/createCheckoutSession`,{Pay:true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
       
      console.log(response.data)
      setPay(true);

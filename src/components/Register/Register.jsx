@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import style from "./Register.module.css"
 import {  motion as m } from "framer-motion"
 import registimg from '../../assets/images/takeout_boxes.png'
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 // import Footer from '../Footer/Footer'
 
 export default function Register(props) {
@@ -41,7 +41,7 @@ export default function Register(props) {
     try{
 
   
-     await axios.post(`http://localhost:3000/v1/auth/register`,user).then(
+     await axios.post(`${BASE_URL}/v1/auth/register`,user).then(
       res => {
        
         setLoading(false);

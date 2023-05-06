@@ -3,7 +3,7 @@ import Joi from 'joi';
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 
 export default function UpdateDetailsOfShipments(){
     let encodedToken = localStorage.getItem('userToken');
@@ -44,7 +44,7 @@ export default function UpdateDetailsOfShipments(){
         
         
         setLoading(true);
-        axios.patch(`http://localhost:3000/v1/requests/`+requestId ,requests,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
+        axios.patch(`${BASE_URL}/v1/requests/`+requestId ,requests,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
         .then(
           res => {
            
@@ -91,7 +91,7 @@ export default function UpdateDetailsOfShipments(){
   
     useEffect(() => {
       const fetch = async () => {
-        axios.get(`http://localhost:3000/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+        axios.get(`${BASE_URL}/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log("sss",response.data)
             setRequest(response.data)

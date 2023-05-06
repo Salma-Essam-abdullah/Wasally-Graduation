@@ -9,8 +9,11 @@ import ScheduleIcon from '@mui/icons-material/Schedule';
 const BASE_URL = process.env.REACT_APP_API_URI;
 
 export default function Trip() {
+  
   const [nameList] = useState([])
   const [search, setSearch] = useState("")
+  
+
  
     const [requestData,setRequestData]=useState([]);
     let [userData , setUserData] = useState([])
@@ -72,13 +75,16 @@ useEffect(()=>{
       const matching = [];
       
       trips.forEach(trip => {
-        if (trip.to.toLowerCase().includes(search.toLowerCase())) {
+        if (trip.to.toLowerCase().includes(search.toLowerCase())||trip.from.toLowerCase().includes(search.toLowerCase())) {
           matching.push(trip);
         }
       });
       
       return matching;
     }
+
+
+
     
     
   
@@ -93,21 +99,11 @@ useEffect(()=>{
       <h2>Trips</h2>
 
       <div className='searchbox'>
-      <input className='search-box'  id='search' type='search' placeholder='ENTER THE NAME OF CITY' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+      <input className='search-box'  id='search' type='search' placeholder='TO' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+      <input className='search-box ms-3'  id='search' type='search' placeholder='FROM' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+
       </div>
       <br/>
-      {nameList.filter((item)=>{
-        if (search===""){
-          return item
-        }
-        else if(item.name.tolowercase().includes(search.tolowercase())){
-          return item
-        }
-      })
-      .map((item)=>{
-        return <h4> {item.name} </h4>
-      })
-      }
 
       </div>
     <div className="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay={100}>

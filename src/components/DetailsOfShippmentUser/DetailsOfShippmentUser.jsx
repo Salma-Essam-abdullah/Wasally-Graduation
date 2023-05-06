@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 // import Navbar from '../Navbar/Navbar'
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function DetailsOfShippmentUser  () {
 
   let encodedToken = localStorage.getItem('userToken');
@@ -15,7 +15,7 @@ export default function DetailsOfShippmentUser  () {
   const [request, SetRequest] = useState({});
   useEffect(() => {
     const fetch = async () => {
-      axios.get(`http://localhost:3000/v1/trips/viewtrip/`+tripId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+      axios.get(`${BASE_URL}/v1/trips/viewtrip/`+tripId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
       (response)=>{
           console.log("sss",response.data)
           SetRequest(response.data.trip)

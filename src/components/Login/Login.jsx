@@ -5,14 +5,14 @@ import { Link, useHistory } from 'react-router-dom';
 import style from "./Login.module.css"
 import {  motion as m } from "framer-motion"
 import logimg from '../../assets/images/truck.png'
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 
 
 export default function Login  (props)  {
 
     // const googleAuth =()=>{
     //   window.open(
-    //      axios.get(`http://localhost:3000/v1/auth/callback`)
+    //      axios.get(`${BASE_URL}/v1/auth/callback`)
     //   )
     // };
     // console.log(googleAuth)
@@ -43,7 +43,7 @@ export default function Login  (props)  {
       }
   
       setLoading(true);
-      await axios.post(`http://localhost:3000/v1/auth/login`,user).then(
+      await axios.post(`${BASE_URL}/v1/auth/login`,user).then(
         res => {
          
           setLoading(false);

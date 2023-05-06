@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 
 
 export default function DetailsOfaccepted(){
@@ -21,7 +21,7 @@ const { requestId } = useParams();
     const [request, SetRequest] = useState({});
     useEffect(() => {
       const fetch = async () => {
-        axios.get(`http://localhost:3000/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+        axios.get(`${BASE_URL}/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log("sss",response.data)
             SetRequest(response.data)
@@ -40,7 +40,7 @@ const { requestId } = useParams();
     }, []);
     const history = useHistory();
     const handleClick = () => {
-        axios.post(`http://localhost:3000/v1/travelers/TravelerOnHisWay/`+requestId ,{isUpdated:true} , { headers: {"Authorization" : `Bearer ${encodedToken}`} })
+        axios.post(`${BASE_URL}/v1/travelers/TravelerOnHisWay/`+requestId ,{isUpdated:true} , { headers: {"Authorization" : `Bearer ${encodedToken}`} })
           .then(response => {
             setIsUpdated(true);
             history.push('/home')

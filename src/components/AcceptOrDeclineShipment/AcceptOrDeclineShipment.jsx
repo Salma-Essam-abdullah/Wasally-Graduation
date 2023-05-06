@@ -2,8 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import {  useHistory, useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
-// import Navbar from '../Navbar/Navbar'
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function AcceptOrDeclineShipment(){
   const history = useHistory();
   let encodedToken = localStorage.getItem('userToken');
@@ -14,7 +13,7 @@ export default function AcceptOrDeclineShipment(){
     const [request, SetRequest] = useState({});
     useEffect(() => {
       const fetch = async () => {
-        axios.get(`http://localhost:3000/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+        axios.get(`${BASE_URL}/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log("sss",response.data)
             SetRequest(response.data)
@@ -37,7 +36,7 @@ export default function AcceptOrDeclineShipment(){
 
 
     async function AcceptRequest() {
-      axios.post(`http://localhost:3000/v1/requests/acceptrequest/${requestId}`,{isAccepted: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+      axios.post(`${BASE_URL}/v1/requests/acceptrequest/${requestId}`,{isAccepted: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
           console.log(response.message);
           setIsAccepted(true)
           history.push(`/chat/${requestId}`)
@@ -49,7 +48,7 @@ export default function AcceptOrDeclineShipment(){
 
 
     async function DeclineRequest() {
-      axios.post(`http://localhost:3000/v1/requests/declinerequest/${requestId}`,{isDeclined: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+      axios.post(`${BASE_URL}/v1/requests/declinerequest/${requestId}`,{isDeclined: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
           console.log(response.message);
           setIsDeclined(true)
         })

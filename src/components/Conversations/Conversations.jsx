@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 
 
 
@@ -18,7 +18,7 @@ export default function Conversations() {
   const [textMessage , setTextMessage] = useState([])
 
   async function getconv() {
-    axios.get(`http://localhost:3000/v1/requests/${requestId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    axios.get(`${BASE_URL}/v1/requests/${requestId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
      
     console.log(response.data)
       setConversationId(response.data.conversation)
@@ -35,7 +35,7 @@ export default function Conversations() {
 
   
   async function getMessages(convId){
-    axios.get(`http://localhost:3000/v1/messages/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    axios.get(`${BASE_URL}/v1/messages/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
       console.log(response.data)
       setTextMessage(response.data)
     })
@@ -46,7 +46,7 @@ export default function Conversations() {
 const [conversation , setconversation] = useState('')
 
   async function getConversationById(convId){
-    axios.get(`http://localhost:3000/v1/conversations/getConversationById/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    axios.get(`${BASE_URL}/v1/conversations/getConversationById/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
       console.log(response.data)
       setconversation(response.data.members)
     })

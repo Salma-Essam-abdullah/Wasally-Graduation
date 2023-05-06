@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import Joi from 'joi';
 import axios from 'axios';
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 
 
 export default function TripDetails() {
@@ -48,7 +48,7 @@ export default function TripDetails() {
     
     
     setLoading(true);
-    axios.post(`http://localhost:3000/v1/trips/add` ,trip,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
+    axios.post(`${BASE_URL}/v1/trips/add` ,trip,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
     .then(
       res => {
        

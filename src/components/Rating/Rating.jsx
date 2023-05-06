@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaStar } from 'react-icons/fa';
 import {  useHistory , useParams } from 'react-router-dom'
+const BASE_URL = process.env.REACT_APP_API_URI;
 function Rating({ user }) {
   const [ratings, setRatings] = useState([]);
   const [hover, setHover] = useState(null);
@@ -11,7 +12,7 @@ function Rating({ user }) {
 
  let history = useHistory();
   useEffect(() => {
-    axios.get(`http://localhost:3000/v1/travelers/ViewRating/${travelerId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
+    axios.get(`${BASE_URL}/v1/travelers/ViewRating/${travelerId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
       .then((res) => setRatings(res.data)
       
       )
@@ -21,7 +22,7 @@ function Rating({ user }) {
   const handleRating = async (value) => {
     setRating(value);
 
-    await axios.post(`http://localhost:3000/v1/travelers/AddRating/${travelerId}`, { rating: value },{ headers: {"Authorization" : `Bearer ${encodedToken}`} });
+    await axios.post(`${BASE_URL}/v1/travelers/AddRating/${travelerId}`, { rating: value },{ headers: {"Authorization" : `Bearer ${encodedToken}`} });
     setRatings([...ratings, { rating: value }]);
     history.push('/home')
   };

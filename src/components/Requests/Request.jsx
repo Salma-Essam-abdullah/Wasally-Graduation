@@ -1,3 +1,5 @@
+
+
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Footer from '../Footer/Footer'
@@ -5,6 +7,8 @@ import { Link } from 'react-router-dom'
 import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
 import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 import PaidIcon from '@mui/icons-material/Paid';
+
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function Request() {
 
   const [nameList] = useState([])
@@ -18,7 +22,7 @@ export default function Request() {
 
 
   async function getRequest(){
-    axios.get(`http://localhost:3000/v1/requests/viewAllRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`${BASE_URL}/v1/requests/viewAllRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log(response.data)
             setRequestData(response.data.requests)
@@ -36,7 +40,7 @@ export default function Request() {
 async function getUserData(){
 
 
-  axios.get(`http://localhost:3000/v1/users/allusers`).then(
+  axios.get(`${BASE_URL}/v1/users/allusers`).then(
       (response)=>{
           console.log('use',response.data)
           setUserData(response.data)
@@ -76,7 +80,7 @@ useEffect(()=>{
     const matching = [];
     
     trips.forEach(trip => {
-      if (trip.to.toLowerCase().includes(search.toLowerCase())) {
+      if (trip.to.toLowerCase().includes(search.toLowerCase())||trip.from.toLowerCase().includes(search.toLowerCase())) {
         matching.push(trip);
       }
     });
@@ -124,7 +128,6 @@ useEffect(()=>{
           <Link to="/request2">
           <button name="second" className={activeButton === "second" ? `${activeButton}` : "ss"}
           onClick={clickedButtonHandler}> 
-          {/* <li data-filter=".filter-app">Deliver</li> */}
           Deliver
           </button>
          </Link>
@@ -132,7 +135,9 @@ useEffect(()=>{
       </div>
 
       <div className='searchbox'>
-      <input className='search-box'  id='search' type='search' placeholder='ENTER THE NAME OF CITY' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+      <input className='search-box'  id='search' type='search' placeholder='TO' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+      <input className='search-box ms-3'  id='search' type='search' placeholder='FROM' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+
       </div>
       <br />
       

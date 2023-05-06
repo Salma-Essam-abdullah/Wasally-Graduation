@@ -4,6 +4,7 @@ import jwtDecode from 'jwt-decode';
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import Footer from '../Footer/Footer'
+const BASE_URL = process.env.REACT_APP_API_URI;
 
 export default function DetailsOfShipmentOfUser1(){
   let encodedToken = localStorage.getItem('userToken');
@@ -16,7 +17,7 @@ console.log(role)
     const [request, SetRequest] = useState({});
     useEffect(() => {
       const fetch = async () => {
-        axios.get(`http://localhost:3000/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+        axios.get(`${BASE_URL}/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log("sss",response.data)
             SetRequest(response.data)
@@ -64,7 +65,7 @@ console.log(role)
       setErrorList(validationResponse.error.details)
       return;
     }
-    axios.post(`http://localhost:3000/v1/requests/TravelerAcceptRequest/${requestId}`,price,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    axios.post(`${BASE_URL}/v1/requests/TravelerAcceptRequest/${requestId}`,price,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
       console.log(response.message);
       // setIsAccepted(true)
       setError('');

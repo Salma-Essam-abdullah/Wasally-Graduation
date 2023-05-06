@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
 import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 import PaidIcon from '@mui/icons-material/Paid';
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 
 export default function UserShipments() {
 
@@ -15,7 +15,7 @@ export default function UserShipments() {
 
 
   async function getRequest(){
-    axios.get(`http://localhost:3000/v1/requests/userviewrequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`${BASE_URL}/v1/requests/userviewrequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log(response.data)
             setRequestData(response.data.requests)
@@ -34,7 +34,7 @@ let [userData , setUserData] = useState([])
 
 
   async function getUserData(){
-    axios.get(`http://localhost:3000/v1/users/allusers`).then(
+    axios.get(`${BASE_URL}/v1/users/allusers`).then(
         (response)=>{
             console.log('use',response.data)
             setUserData(response.data)
@@ -54,7 +54,7 @@ useEffect(()=>{
   
 
     const deleteRequest = (id) => {
-      axios.delete(`http://localhost:3000/v1/requests/${id}`  , {headers: { Authorization: `Bearer ${encodedToken}` }})
+      axios.delete(`${BASE_URL}/v1/requests/${id}`  , {headers: { Authorization: `Bearer ${encodedToken}` }})
         .then(response => {
           console.log(response.date)
           getRequest();

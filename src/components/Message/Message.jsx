@@ -5,6 +5,8 @@ import axios from 'axios';
 import formatDistance from 'date-fns/formatDistance'
 
 import jwtDecode from 'jwt-decode'
+const BASE_URL = process.env.REACT_APP_API_URI;
+
 export default function Message() {
   let encodedToken = localStorage.getItem('userToken');
   let [error,setError] = useState('');
@@ -13,7 +15,7 @@ export default function Message() {
   const [textMessage , setTextMessage] = useState([])
   const [profileData , setProfileDate] = useState([]);
   async function getconv() {
-    axios.get(`http://localhost:3000/v1/requests/${requestId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    axios.get(`${BASE_URL}/v1/requests/${requestId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
      
     console.log(response.data)
       setConversationId(response.data.conversation)
@@ -28,7 +30,7 @@ export default function Message() {
 
   
   async function getMessages(convId){
-    axios.get(`http://localhost:3000/v1/messages/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    axios.get(`${BASE_URL}/v1/messages/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
       console.log(response.data)
       setTextMessage(response.data)
     })
@@ -50,7 +52,7 @@ export default function Message() {
 
       async function getProfile(){
 
-        axios.get(`http://localhost:3000/v1/travelers/get` ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+        axios.get(`${BASE_URL}/v1/travelers/get` ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
             (response)=>{
                 console.log("a",response.data)
                 setProfileDate(response.data.traveler)

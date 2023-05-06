@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function Tracking() {
     let encodedToken = localStorage.getItem('userToken');
 const { requestId } = useParams();
@@ -9,7 +9,7 @@ const { requestId } = useParams();
     const [request, SetRequest] = useState({});
     useEffect(() => {
       const fetch = async () => {
-        axios.get(`http://localhost:3000/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+        axios.get(`${BASE_URL}/v1/requests/`+requestId,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log("sss",response.data)
             SetRequest(response.data)

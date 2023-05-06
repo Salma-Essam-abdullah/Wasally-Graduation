@@ -4,7 +4,7 @@ import jwtDecode from 'jwt-decode';
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import { Link, useParams } from 'react-router-dom/cjs/react-router-dom.min';
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function QrcodeRedirect() {
 
     let encodedToken = localStorage.getItem('userToken');
@@ -23,7 +23,7 @@ const history = useHistory();
 
     async function getUser(){
 
-        axios.get(`http://localhost:3000/v1/users/qrCodeScan/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+        axios.get(`${BASE_URL}/v1/users/qrCodeScan/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
             (response)=>{
                 console.log(response.data)
                 setUserData(response.data)

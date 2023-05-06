@@ -8,17 +8,18 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode'
-
-
+import {io}  from 'socket.io-client'
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function Chat() {
     let encodedToken = localStorage.getItem('userToken');
   let requestId = useParams().requestId;
   const [conversationId , setConversationId] = useState([]);
   const [messageBody , setMessageBody] = useState([])
-
+  const [socket , setSocket] = useState(null)
+  
 
   async function getconv() {
-    axios.get(`http://localhost:3000/v1/requests/${requestId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    axios.get(`${BASE_URL}/v1/requests/${requestId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
      
     console.log(response.data)
       setConversationId(response.data.conversation)
@@ -31,7 +32,7 @@ export default function Chat() {
   }
  
   async function getMessages(convId){
-    axios.get(`http://localhost:3000/v1/messages/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    axios.get(`${BASE_URL}/v1/messages/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
       console.log(response.data)
      
     })
@@ -48,7 +49,7 @@ export default function Chat() {
 
   async function getProfile(){
   
-      axios.get(`http://localhost:3000/v1/travelers/get` ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+      axios.get(`${BASE_URL}/v1/travelers/get` ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
           (response)=>{
               console.log("a",response.data)
               setProfileDate(response.data.traveler)
@@ -72,7 +73,7 @@ export default function Chat() {
 
 
 
-     await axios.post(`http://localhost:3000/v1/messages`,{
+     await axios.post(`${BASE_URL}/v1/messages`,{
       conversationId:conversationId[0],
       text:messageBody,
       sender : send
@@ -96,7 +97,16 @@ export default function Chat() {
     if(decodedToken.role === 'traveler'){
     getProfile();
     }
+
+    setSocket(io("ws://localhost:8900"))
       },[]);
+
+
+useEffect(()=>{ 
+    socket?.on("welcome",message=>{
+      console.log(message)
+    })
+},[socket])
 
   return (
     <>

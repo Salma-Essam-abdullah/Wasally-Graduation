@@ -7,6 +7,7 @@ import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import jwtDecode from 'jwt-decode';
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function TravelerTrip() {
 
   let encodedToken = localStorage.getItem('userToken');
@@ -17,7 +18,7 @@ export default function TravelerTrip() {
 
 
   async function getTrip(){
-    axios.get(`http://localhost:3000/v1/trips/viewtravelertrips`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`${BASE_URL}/v1/trips/viewtravelertrips`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log(response.data.trips)
             setTrips(response.data.trips)
@@ -34,7 +35,7 @@ let [userData , setUserData] = useState([])
 async function getUserData(){
 
 
-  axios.get(`http://localhost:3000/v1/users/allusers`).then(
+  axios.get(`${BASE_URL}/v1/users/allusers`).then(
       (response)=>{
           console.log('use',response.data)
           setUserData(response.data)
@@ -53,7 +54,7 @@ useEffect(()=>{
   
     const [error,setError] = useState("")
     const deleteTrip = (id) => {
-      axios.delete(`http://localhost:3000/v1/trips/delete/${id}`  , {headers: { Authorization: `Bearer ${encodedToken}` }})
+      axios.delete(`${BASE_URL}/v1/trips/delete/${id}`  , {headers: { Authorization: `Bearer ${encodedToken}` }})
         .then(response => {
           console.log(response.date)
           getTrip();

@@ -5,7 +5,7 @@ import axios from 'axios'
 import noImage from '../../assets/images/noImage.jpg'
 import Joi from 'joi';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 // import jwtDecode from 'jwt-decode'
 
 export default function Profile2() {
@@ -38,7 +38,7 @@ export default function Profile2() {
     }
 
     setLoading(true);
-     await axios.patch(`http://localhost:3000/v1/users/profileImage`,image,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
+     await axios.patch(`${BASE_URL}/v1/users/profileImage`,image,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
       res => {
        
         setLoading(false);
@@ -67,12 +67,12 @@ function validationForm(){
 
 async function getProfile(){
 
-    axios.get(`http://localhost:3000/v1/travelers/get` ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`${BASE_URL}/v1/travelers/get` ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log("a",response.data)
             setProfileDate(response.data.traveler)
             setUserDataa(response.data.user)
-            axios.get(`http://localhost:3000/v1/travelers/ViewRating/${response.data.traveler._id}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
+            axios.get(`${BASE_URL}/v1/travelers/ViewRating/${response.data.traveler._id}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
             .then((res) => setRatings(res.data)
             
             )

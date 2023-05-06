@@ -7,6 +7,7 @@ import noImage from '../../assets/images/noImage.jpg'
 import Joi from 'joi';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import WorkIcon from '@mui/icons-material/Work';
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function Profile() {
     const [profileData , setProfileDate] = useState([]);
     let encodedToken = localStorage.getItem('userToken');
@@ -37,7 +38,7 @@ let userId = userData.id;
     }
 
     setLoading(true);
-     await axios.patch(`http://localhost:3000/v1/users/profileImage`,image,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
+     await axios.patch(`${BASE_URL}/v1/users/profileImage`,image,{ headers: {"Authorization" : `Bearer ${encodedToken}` ,'Content-Type': 'multipart/form-data'} }).then(
       res => {
        
         setLoading(false);
@@ -66,7 +67,7 @@ function validationForm(){
 
 async function getProfile(){
 
-    axios.get(`http://localhost:3000/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`${BASE_URL}/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log(response.data)
             setProfileDate(response.data)

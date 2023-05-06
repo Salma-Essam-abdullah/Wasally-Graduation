@@ -5,9 +5,7 @@ import axios from 'axios';
 import student from '../../assets/images/student.png'
 import employee from '../../assets/images/employee.png'
 
-
-
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 
 export default function Work() {
     const [isUpdated, setIsUpdated] = useState(false);
@@ -18,7 +16,7 @@ export default function Work() {
         const config = {
             headers: { Authorization: `Bearer ${encodedToken}` }
         };
-      axios.patch(`http://localhost:3000/v1/travelers/employee`,{isUpdated: true} ,config )
+      axios.patch(`${BASE_URL}/v1/travelers/employee`,{isUpdated: true} ,config )
         .then(response => {
           setIsUpdated(true); 
         })
@@ -28,7 +26,7 @@ export default function Work() {
     }
 
     const handleUpdateStudent = () => {
-        axios.put(`http://localhost:3000/v1/travelers/student` ,{isStudentUpdated:true} , { headers: {"Authorization" : `Bearer ${encodedToken}`} })
+        axios.put(`${BASE_URL}/v1/travelers/student` ,{isStudentUpdated:true} , { headers: {"Authorization" : `Bearer ${encodedToken}`} })
           .then(response => {
             setIsStudentUpdated(true);
             

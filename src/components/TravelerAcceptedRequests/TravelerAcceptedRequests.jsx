@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
 import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 import PaidIcon from '@mui/icons-material/Paid';
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function TravelerAcceptedRequests() {
 
   const [requestData,setRequestData]=useState([]);
@@ -14,7 +15,7 @@ export default function TravelerAcceptedRequests() {
 
 
   async function getRequest(){
-    axios.get(`http://localhost:3000/v1/requests/getAceeptedRequest`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`${BASE_URL}/v1/requests/getAceeptedRequest`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log(response.data)
             setRequestData(response.data.requests)
@@ -28,7 +29,7 @@ export default function TravelerAcceptedRequests() {
            )
 }
 async function getUserData(){
-  axios.get(`http://localhost:3000/v1/users/allusers`).then(
+  axios.get(`${BASE_URL}/v1/users/allusers`).then(
       (response)=>{
           console.log('use',response.data)
           setUserData(response.data)

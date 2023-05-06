@@ -3,7 +3,7 @@ import Joi from 'joi';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Footer from '../Footer/Footer'
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function UserDetails2  () {
 
  
@@ -50,7 +50,7 @@ export default function UserDetails2  () {
     setLoading(true);
   
    
-    await axios.post(`http://localhost:3000/v1/requests/`,request,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    await axios.post(`${BASE_URL}/v1/requests/`,request,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
       res => { 
         setLoading(false);
         setError('');

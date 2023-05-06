@@ -4,7 +4,7 @@ import React, {useEffect, useState } from 'react'
 import Footer from '../../components/Footer/Footer'
 import { useHistory } from 'react-router-dom';
 import Joi from 'joi';
-
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function TravelerForm()  {
  
   let history = useHistory();
@@ -48,7 +48,7 @@ let userId = userData.id;
     
     
     setLoading(true);
-    axios.patch(`http://localhost:3000/v1/users/`+userId ,user,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
+    axios.patch(`${BASE_URL}/v1/users/`+userId ,user,{ headers: {"Authorization" : `Bearer ${encodedToken}`} })
     .then(
       res => {
        
@@ -91,7 +91,7 @@ function validationUserForm(){
 
 
   async function getProfile(){
-    axios.get(`http://localhost:3000/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}` } }).then(
+    axios.get(`${BASE_URL}/v1/users/`+userId ,{ headers: {"Authorization" : `Bearer ${encodedToken}` } }).then(
         (response)=>{
             console.log(response.data)
             setProfileDate(response.data)

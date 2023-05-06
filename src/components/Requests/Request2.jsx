@@ -6,6 +6,7 @@ import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 import { Link } from 'react-router-dom'
 import PaidIcon from '@mui/icons-material/Paid';
 
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function Request2() {
 
   const [nameList] = useState([])
@@ -17,7 +18,7 @@ export default function Request2() {
     let [filteredRequest , setFilteredRequests] = useState([])
   let encodedToken = localStorage.getItem('userToken');
   async function getRequest(){
-    axios.get(`http://localhost:3000/v1/requests/viewAllRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
+    axios.get(`${BASE_URL}/v1/requests/viewAllRequests`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then(
         (response)=>{
             console.log(response.data)
             setRequestData(response.data.requests)
@@ -33,7 +34,7 @@ export default function Request2() {
 async function getUserData(){
 
 
-  axios.get(`http://localhost:3000/v1/users/allusers`).then(
+  axios.get(`${BASE_URL}/v1/users/allusers`).then(
       (response)=>{
           console.log('use',response.data)
           setUserData(response.data)
@@ -74,7 +75,7 @@ useEffect(()=>{
     const matching = [];
     
     trips.forEach(trip => {
-      if (trip.to.toLowerCase().includes(search.toLowerCase())) {
+      if (trip.to.toLowerCase().includes(search.toLowerCase())||trip.from.toLowerCase().includes(search.toLowerCase())) {
         matching.push(trip);
       }
     });
@@ -129,7 +130,9 @@ useEffect(()=>{
         </ul>
       </div>
       <div className='searchbox'>
-      <input className='search-box'  id='search' type='search' placeholder='ENTER THE NAME OF CITY' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+      <input className='search-box'  id='search' type='search' placeholder='TO' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+      <input className='search-box ms-3'  id='search' type='search' placeholder='FROM' onChange={(e)=>setSearch(e.target.value)} pattern=".*\S.*" required/>
+
       </div>
 
       <br />

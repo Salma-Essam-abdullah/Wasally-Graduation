@@ -5,6 +5,7 @@ import { Link,useHistory, useParams } from "react-router-dom";
 import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
 import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 import PaidIcon from '@mui/icons-material/Paid';
+const BASE_URL = process.env.REACT_APP_API_URI;
 export default function ViewRequestAfterAcceptanceBuy() {
   const [requestData, setRequestData] = useState([]);
   const [shipment , setShipment] = useState([]);
@@ -17,7 +18,7 @@ export default function ViewRequestAfterAcceptanceBuy() {
 let {requestId}= useParams();
   async function getRequest() {
     axios
-      .get(`http://localhost:3000/v1/requests/viewRequestAfterAcceptance/`+requestId, {
+      .get(`${BASE_URL}/v1/requests/viewRequestAfterAcceptance/`+requestId, {
        
         headers: { Authorization: `Bearer ${encodedToken}` },
       })
@@ -34,7 +35,7 @@ let {requestId}= useParams();
   }
 
   async function DeclineRequest() {
-    axios.post(`http://localhost:3000/v1/requests/declinetrip/${requestId}`,{isDeclined: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+    axios.post(`${BASE_URL}/v1/requests/declinetrip/${requestId}`,{isDeclined: true},{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
         console.log(response.message);
         setIsDeclined(true)
         history.push('/acceptedrequestsDeliver')
@@ -52,7 +53,7 @@ let {requestId}= useParams();
 
   async function getUserData() {
     axios
-      .get(`http://localhost:3000/v1/users/allusers`)
+      .get(`${BASE_URL}/v1/users/allusers`)
       .then((response) => {
         console.log("user", response.data);
         setUserData(response.data);

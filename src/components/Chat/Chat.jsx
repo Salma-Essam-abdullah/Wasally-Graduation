@@ -1,22 +1,49 @@
 // import { auto } from '@popperjs/core'
-import React from 'react'
+import React, { useRef } from 'react'
 import Conversations from '../Conversations/Conversations'
 import Message from '../Message/Message'
+import formatDistance from 'date-fns/formatDistance'
 import Online from '../Online/Online'
 import  './Chat.css'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode'
-
+import {io} from 'socket.io-client'
 const BASE_URL = process.env.REACT_APP_API_URI;
 export default function Chat() {
     let encodedToken = localStorage.getItem('userToken');
   let requestId = useParams().requestId;
   const [conversationId , setConversationId] = useState([]);
   const [messageBody , setMessageBody] = useState([])
+  const [arrivalMessage,setarrivalMessage]= useState(null)
+  const socket = useRef();
+  const [textMessage , setTextMessage] = useState([])
+  let decodedToken = jwtDecode(encodedToken);
+  let user = decodedToken;
 
-  
+  let userId = decodedToken.id;
+  const [profileData , setProfileDate] = useState([]);
+
+
+  useEffect(()=>{
+   socket.current =  io("ws://localhost:8900")
+   socket.current.on("getMessage",data=>{
+    setarrivalMessage({
+      sender: data.senderId,
+      text: data.text,
+      createdAt: Date.now()
+    })
+   })
+  },[])
+
+  let useId = decodedToken.role ===  'user'  ? user.id : decodedToken.role=== 'traveler' ? profileData._id: ''
+  useEffect(()=>{
+    socket.current.emit("addUser",useId)
+    socket.current.on("getUsers",users=>{
+      console.log("ccc",users)
+    })
+  },[user])
 
   async function getconv() {
     axios.get(`${BASE_URL}/v1/requests/${requestId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
@@ -25,27 +52,22 @@ export default function Chat() {
       setConversationId(response.data.conversation)
       let convId = response.data.conversation[0];
       getMessages(convId)
+      getConversationById(convId);
       })
       .catch((error) => {
         console.log(error);
       });
   }
  
-  async function getMessages(convId){
-    axios.get(`${BASE_URL}/v1/messages/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
-      console.log(response.data)
+  // async function getMessages(convId){
+  //   axios.get(`${BASE_URL}/v1/messages/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+  //     console.log(response.data)
      
-    })
-    .catch((error) => {
-      console.log("ssw",error);
-    }); 
-  }
-  let decodedToken = jwtDecode(encodedToken);
-  let userId = decodedToken.id;
-  const [profileData , setProfileDate] = useState([]);
-
-
-
+  //   })
+  //   .catch((error) => {
+  //     console.log("ssw",error);
+  //   }); 
+  // }
 
   async function getProfile(){
   
@@ -63,6 +85,23 @@ export default function Chat() {
       )
   }
   
+const [conversation , setconversation] = useState('')
+
+  async function getConversationById(convId){
+    axios.get(`${BASE_URL}/v1/conversations/find/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+      console.log("yat",response.data)
+      setconversation(response.data)
+    })
+    .catch((error) => {
+      console.log("ssw",error);
+    }); 
+  }
+
+  useEffect(()=>{
+    arrivalMessage && conversation?.members.includes(arrivalMessage.sender) &&
+    setTextMessage(prev=>[...prev,arrivalMessage])
+  },[arrivalMessage,conversation])
+
   let [error,setError] = useState('');
  let send =  decodedToken.role ===  'user'  ? userId : decodedToken.role=== 'traveler' ? profileData._id: ''
   const handleChange = (e) => {
@@ -70,9 +109,13 @@ export default function Chat() {
   };
   async function formSubmit(e){
     e.preventDefault();
-
-
-
+ 
+    const receiverId = conversation.members.find(member=>member !==useId);
+    socket.current.emit("sendMessage",{
+      senderId : useId,
+      receiverId:receiverId,
+      text : messageBody
+    })
      await axios.post(`${BASE_URL}/v1/messages`,{
       conversationId:conversationId[0],
       text:messageBody,
@@ -92,14 +135,27 @@ export default function Chat() {
   }
   );
 }
+
   useEffect(()=>{
     getconv();
     if(decodedToken.role === 'traveler'){
     getProfile();
     }
-
+   
     
       },[]);
+
+
+      async function getMessages(convId){
+        axios.get(`${BASE_URL}/v1/messages/${convId}`,{ headers: {"Authorization" : `Bearer ${encodedToken}`} }).then((response) => {
+          console.log(response.data)
+          setTextMessage(response.data)
+        })
+        .catch((error) => {
+          console.log("ssw",error);
+          setError(error.response.data)
+        }); 
+      }
 
   return (
     <>
@@ -122,7 +178,36 @@ export default function Chat() {
             <div className="chatBox">
                 <div  className="chatBoxWrapper">
                     <div style={{overflowY:'scroll'}} className="chatBoxTop">
-                        <Message/>
+                        {/* <Message/> */}
+                        {
+        error &&
+        <div className="alert alert-danger">
+          {error}
+        </div>
+        }
+        
+        { textMessage && textMessage.map((t,index)=>      
+       
+    <div key={index} className={t.sender ===  userId  ? 'message own' : t.sender ===  profileData._id ? 'message own' : 'message'}>
+    
+    <div className= "messageTop">
+        
+    
+  <>
+  <p className="messageText">{t.text}</p>
+ 
+  <div className="messageBottom">{ formatDistance(
+       new Date(t.createdAt),
+       new Date()
+   )}
+   </div>
+  </>
+ 
+       
+    </div>
+    
+    </div>
+    )}
                     </div>
                 </div>
                 <div className="chatBoxBottom">

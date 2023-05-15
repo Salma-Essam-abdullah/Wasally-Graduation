@@ -287,6 +287,10 @@ color: #fff !important;
     .about p{
       width: 100%;
     }
+    .about img{
+      height: 400px;
+      width: 400px;
+    }
   }
 /* ////////////////////why wasally////////////////////////// */
   .whywasally{

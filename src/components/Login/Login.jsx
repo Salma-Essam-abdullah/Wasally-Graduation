@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import style from "./Login.module.css"
 import {  motion as m } from "framer-motion"
-import logimg from '../../assets/images/truck.png'
+import loginimg from '../../assets/images/truck.png'
 const BASE_URL = process.env.REACT_APP_API_URI;
 
 
@@ -87,7 +87,9 @@ export default function Login  (props)  {
         <>
 
     <div className=' container'> 
-      <div className="row d-flex justify-content-center">      
+      <div className="row d-flex justify-content-center">  
+      <img style={{display:'none'}} className='loginimg-media img-thumbnail p-lg-0 border-0 image' src={ loginimg } alt="profile img" />
+    
           <div className='col-md-5 offset-m-1  py-4'>
           <m.h1
             initial={{opacity:0 , x:20}}
@@ -153,8 +155,8 @@ export default function Login  (props)  {
                     initial={{opacity:0 }}
                     whileInView={{opacity:1, x:0 ,type:'spring'}}
                     transition={{type:'tween',duration:1}}
-                  > Don't have an account yet ?</m.p>
-                  <Link style={{color:"#fd7402"}} className={style.Link} to="Register"title="register" id="link-reset">CREATE AN ACCOUNT   </Link>
+                  > Don't Have An Account Yet .</m.p>
+                  <Link  style={{color:"#fd7402"}} className={style.Link} to="Register"title="register" id="link-reset"> <p style={{textAlign:"center"}}>Create An Account ?</p>    </Link>
               </span>
 
               {/* <button   type="button" className="btn btn-light "><i i className=" fab fa-google"></i> Login with google</button> */}
@@ -168,7 +170,7 @@ export default function Login  (props)  {
         whileInView={{opacity:1, x:0 ,type:'spring'}}
         transition={{type:'tween',duration:1}}
           className='col-lg-6 d-flex justify-content-center align-items-center '>
-          <img className='img-thumbnail p-lg-0 border-0 image' src={ logimg } alt="profile img" />
+          <img className='loginimg img-thumbnail p-lg-0 border-0 image' src={ loginimg } alt="profile img" />
          </m.div>
           </div>   
         </div>      

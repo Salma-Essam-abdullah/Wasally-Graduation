@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import noImage from '../../assets/images/noImage.jpg'
+import noImage from '../../assets/images/noImage.png'
 import Joi from 'joi';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 const BASE_URL = process.env.REACT_APP_API_URI;
@@ -147,6 +147,11 @@ useEffect(()=>{
         <p>Average rating: {ratings.length ? (ratings.reduce((acc, curr) => acc + curr.rating, 0) / ratings.length).toFixed(1) : 'N/A'}</p>
        
         <div className="menu">
+        <Link className="link" to="/userForm">    <li className='mediabutton' style={{display:"none"}}>    
+                      Edit your Details
+                     
+            </li> 
+            </Link>
         <Link  className="link" to="/travelertrips"> <li>
                       Your Trips     
             </li>
@@ -189,7 +194,7 @@ useEffect(()=>{
         </div>
         </div>
         
-        <div className="col-md-8">
+        <div className="col-md-8 editsection">
             
           <div className="row rooo">
             <div className="offset-md-8 col-md-4">    <Link to='/travelerForm' className="edit2"> <EditIcon/> Edit</Link></div>

@@ -31,6 +31,7 @@ export default class Home extends Component {
                     initial={{opacity:0 , x:5}}
                     whileInView={{opacity:1, x:0 ,type:'spring'}}
                     transition={{type:'tween',duration:1}}
+                    className=''
                     >Whether you're we can help you transfer packages anywhere.</m.h1>
                     <m.p 
                                 initial={{opacity:0 , x:10}}
@@ -42,14 +43,14 @@ export default class Home extends Component {
                           their way.</m.p>
           
               <div className="row">
-                  <div className="col-sm-5 ">
+                  <div className=" col-sm-5 introo">
                   <Link to="/register"><m.button
                               initial={{opacity:0 , x:15}}
                               whileInView={{opacity:1, x:0 ,type:'spring'}}
                               transition={{type:'tween',duration:1}}
                    className='btn btn-success orangeButton'>Get Started</m.button></Link>
                   </div>
-                  <div className="col-sm-5 ">
+                  <div className="col-sm-5 introo ">
                   <Link to="/login"><m.button
                               initial={{opacity:0 , x:20}}
                               whileInView={{opacity:1, x:0 ,type:'spring'}}
@@ -63,17 +64,17 @@ export default class Home extends Component {
                          whileInView={{opacity:1, x:0 ,type:'spring'}}
                          transition={{type:'tween',duration:1}}
               className="row registered">
-              <div className="col-sm-6">
+              <div className="col-sm-6 introo">
                 <h2 className='d-inline-block'>120K</h2> <p className='d-inline-block reg'>Shipments  <br/> Posted</p>
               </div>
-              <div className="col-sm-6">
+              <div className="col-sm-6 introo">
                 <h2 className='d-inline-block'>32K</h2> <p className='d-inline-block reg'>Trips  <br/> Posted</p>
               </div>
              </m.div>
 
       </div>
     
-      <div className="col-lg-6 offset-lg-2">
+      <div className="col-lg-6 offset-lg-2 introimg">
       <m.img 
                   initial={{opacity:0 , x:-20}}
                   whileInView={{opacity:1, x:0 ,type:'spring'}}

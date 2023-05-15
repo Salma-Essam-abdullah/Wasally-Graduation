@@ -8,7 +8,7 @@ export default class Footer extends Component {
     return (
       <>
 <footer>
-  <div className="container">
+  <div className="container footer">
     <div className="row upp">
       <div className="col-lg-6">
       <h4> <div id="circle" className='d-inline-block'></div> Wasally</h4>

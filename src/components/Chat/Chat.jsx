@@ -109,6 +109,12 @@ const [conversation , setconversation] = useState('')
   };
   async function formSubmit(e){
     e.preventDefault();
+    const messageToBeSend ={
+      conversationId:conversationId[0],
+      text:messageBody,
+      sender : send
+
+     }
  
     const receiverId = conversation.members.find(member=>member !==useId);
     socket.current.emit("sendMessage",{
@@ -116,18 +122,11 @@ const [conversation , setconversation] = useState('')
       receiverId:receiverId,
       text : messageBody
     })
-     await axios.post(`${BASE_URL}/v1/messages`,{
-      conversationId:conversationId[0],
-      text:messageBody,
-      sender : send
-
-     },{ headers: {"Authorization" : `Bearer ${encodedToken}` }})
-     .then(
-      res => {
-        setError('');
-        // console.log("el yaa",res.data)
-
-      })
+     await axios.post(`${BASE_URL}/v1/messages`,messageToBeSend,{ headers: {"Authorization" : `Bearer ${encodedToken}` }})
+     .then(res => {
+        getMessages(conversationId[0])
+        setMessageBody()
+     })
     .catch(err => {
      
       setError(err.response.data.message);
@@ -170,8 +169,7 @@ const [conversation , setconversation] = useState('')
 
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
-                    <input placeholder="Search for friends"className="chatMenuInput" />
-                    <Conversations/>
+                  
                 </div>
             </div>
 
@@ -189,10 +187,7 @@ const [conversation , setconversation] = useState('')
         { textMessage && textMessage.map((t,index)=>      
        
     <div key={index} className={t.sender ===  userId  ? 'message own' : t.sender ===  profileData._id ? 'message own' : 'message'}>
-    
     <div className= "messageTop">
-        
-    
   <>
   <p className="messageText">{t.text}</p>
  
@@ -201,11 +196,8 @@ const [conversation , setconversation] = useState('')
        new Date()
    )}
    </div>
-  </>
- 
-       
+  </> 
     </div>
-    
     </div>
     )}
                     </div>
@@ -221,7 +213,7 @@ const [conversation , setconversation] = useState('')
             </div>
             <div className="chatOnline">
                 <div className="chatOnlineWrapper">
-                    <Online/>
+                    
                 </div>
             </div>
         </div>

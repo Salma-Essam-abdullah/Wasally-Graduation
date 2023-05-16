@@ -64,7 +64,7 @@ export default function Chat() {
   //     console.log(response.data)
      
   //   })
-  //   .catch((error) => {
+//   .catch((error) => {
   //     console.log("ssw",error);
   //   }); 
   // }

@@ -89,7 +89,7 @@ useEffect(()=>{
 <section id="portfolio" className="portfolio sections-bg">
   <div className="container" data-aos="fade-up">
     <div className="section-header">
-      <h2>Accepted Requests   <Link to="/qrcode">   <button className="   btn btn-success ">Qr code</button></Link> 
+      <h2>Accepted Requests   <Link to="/qrcode">   <button className="  qrButton  btn btn-success ">Qr code</button></Link> 
       
      
       </h2>

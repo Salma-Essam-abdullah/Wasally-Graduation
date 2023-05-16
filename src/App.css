@@ -75,6 +75,8 @@ font-family: 'Aboreto', 'cursive';
 
 }
 
+
+
 .navbar .btn-outline-success:active{
   background-color: #ff9416;
   border-color: #ff9416;
@@ -799,7 +801,15 @@ color: #fff !important;
 
 }
 
+.portfolio .qrButton{
+  color: #fff;
+  background-color: #ff9416;
+  border-color: #ff9416;
 
+  font-size: 15px;
+margin-top: 10px;
+ width: 10%;
+}
 .portfolio .portfolio-flters {
   padding: 0 0 20px 0;
   margin: 0 auto;

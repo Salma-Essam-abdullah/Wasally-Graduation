@@ -19,7 +19,8 @@ export default function AcceptedRequests() {
         (response)=>{
             console.log(response.data)
             setRequestData(response.data.requests)
-
+            if(response.data.requests.length !==  0)
+            pay();
         }
     ).catch(
         (error)=>{
@@ -66,7 +67,10 @@ async function pay() {
 useEffect(()=>{
   getRequest();
   getUserData();
-  pay();
+  
+  
+  
+
     },[]);
   
 

@@ -73,13 +73,15 @@ useEffect(()=>{
 
     function searchCities(search, trips) {
       const matching = [];
-      
-      trips.forEach(trip => {
+      if(trips)
+   {   trips.forEach(trip => {
         if (trip.to.toLowerCase().includes(search.toLowerCase())||trip.from.toLowerCase().includes(search.toLowerCase())) {
           matching.push(trip);
         }
       });
-      
+    }else{
+      console.log('no trips')
+    }
       return matching;
     }
 

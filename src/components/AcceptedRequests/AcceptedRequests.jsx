@@ -19,6 +19,9 @@ export default function AcceptedRequests() {
         (response)=>{
             console.log(response.data)
             setRequestData(response.data.requests)
+            if(response.data.requests.length !== 0)
+            paybuy();
+
 
         }
     ).catch(
@@ -71,7 +74,8 @@ const [linkkBuy,setLinkkbuy] = useState('')
 useEffect(()=>{
   getRequest();
   getUserData();
-  paybuy();
+    
+  
     
     },[]);
   

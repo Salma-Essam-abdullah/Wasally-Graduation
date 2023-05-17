@@ -23,6 +23,7 @@ import TravelerForm from '../TravelerForm/TravelerForm';
 import Trip from '../Trip/Trip';
 import TravelerTrip from '../TravelerTrip/TravelerTrip';
 
+
 import userShipment from '../UserShipments/UserShipments'
 import userShipment2 from '../UserShipments2/UserShipments2'
 import UpdateDetailsOfShipments from '../UpdateDetailsOfShipments/UpdateDetailsOfShipments';
@@ -46,6 +47,7 @@ import Qr from '../qr/Qr';
 import TravelerAcceptedRequests from '../TravelerAcceptedRequests/TravelerAcceptedRequests';
 import DetailsOfaccepted from '../DetailsOfaccepted/DetailsOfaccepted';
 import Tracking from '../Tracking/Tracking';
+import PasswordReset2 from '../PasswordReset2/PasswordReset2';
 
 
 
@@ -143,6 +145,7 @@ function logOut(){
 
 
         <Route path="/passwordReset" component={PasswordReset} />
+        <Route path="/resetPassword/:token" component={PasswordReset2} />
         <Route path="/Register" render={(props)=> <Register{...props}/>}  /> 
         <Route path="/login"  render={(props)=><Login{...props} getUserInfo={getUserInfo}/>}/>
         <Route path="/home" component={Home} /> 

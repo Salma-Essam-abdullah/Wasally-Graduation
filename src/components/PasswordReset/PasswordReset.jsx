@@ -8,6 +8,7 @@ import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_API_URI;
 export default function PasswordReset() {
     let history = useHistory();
+    let [successMessage, setsuccessMessage] = useState('')
     let [errorList , setErrorList] = useState([])
     let [error,setError] = useState('');
     let [loading,setLoading] = useState(false);
@@ -38,7 +39,7 @@ export default function PasswordReset() {
       setLoading(true);
        await axios.post(`${BASE_URL}/v1/auth/forgot-password`,email).then(
         res => {
-         
+            setsuccessMessage(res.data.message)
           setLoading(false);
           setError('');
           setErrorList([]);
@@ -65,10 +66,18 @@ export default function PasswordReset() {
         <div className="pt-5 row d-flex align-items-center justify-content-center">
             <div className="card text-center" style={{width: 300}}>
                 <div className="card-header h5 orangeButton">Password Reset</div>
+               
                 {
         error &&
         <div className="alert alert-danger">
           {error}
+        </div>
+        }
+        
+                {
+        successMessage &&
+        <div className="alert alert-success">
+          {successMessage}
         </div>
         }
 

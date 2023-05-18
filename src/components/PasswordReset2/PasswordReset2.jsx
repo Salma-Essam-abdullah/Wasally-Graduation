@@ -30,12 +30,11 @@ export default function PasswordReset2() {
         setErrorList(validationResponse.error.details)
         return;
       }
-
-      
       setLoading(true);
-       await axios.get(`${BASE_URL}/v1/auth/reset-password/${token}`,password).then(
+   
+       await axios.get(`${BASE_URL}/v1/auth/reset-password/${token}`,{password}).then(
         res => {
-        
+        console.log(res)
           setLoading(false);
           setError('');
           setErrorList([]);
@@ -95,7 +94,7 @@ export default function PasswordReset2() {
                         <div className="form-outline">
                           
                             <input onChange={handleChange} type="password" id="password" name='password' className="form-control my-3" />
-                            <label className="form-label" htmlFor="typeEmail">New Password</label>
+                            <label className="form-label" htmlFor="password">New Password</label>
 
                         </div>
                         <button type="submit" className="btn btn-light orangeButton w-100">{loading ?<i className='fas fa-spinner fa-spin'></i>:'Reset password'}</button>

@@ -1,9 +1,8 @@
 // import { auto } from '@popperjs/core'
 import React, { useRef } from 'react'
-import Conversations from '../Conversations/Conversations'
-import Message from '../Message/Message'
+
 import formatDistance from 'date-fns/formatDistance'
-import Online from '../Online/Online'
+
 import  './Chat.css'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect, useState } from 'react';

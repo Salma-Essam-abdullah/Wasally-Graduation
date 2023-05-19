@@ -1071,6 +1071,14 @@ margin-top: 10px;
  width: 100%;
  
 }
+.email .orangeButton{
+  color: #fff;
+  background-color: #ff9416;
+  border-color: #ff9416;
+
+margin-top: 10px;
+ 
+}
 
 .portfolio .orangeButton:active{
   color: #fff;

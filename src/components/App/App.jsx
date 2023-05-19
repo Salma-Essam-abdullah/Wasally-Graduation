@@ -48,6 +48,7 @@ import TravelerAcceptedRequests from '../TravelerAcceptedRequests/TravelerAccept
 import DetailsOfaccepted from '../DetailsOfaccepted/DetailsOfaccepted';
 import Tracking from '../Tracking/Tracking';
 import PasswordReset2 from '../PasswordReset2/PasswordReset2';
+import ConfirmEmail from '../ConfirmEmail/ConfirmEmail';
 
 
 
@@ -146,6 +147,7 @@ function logOut(){
 
         <Route path="/passwordReset" component={PasswordReset} />
         <Route path="/resetPassword/:token" component={PasswordReset2} />
+        <Route path="/confirmEmail/:token" component={ConfirmEmail} />
         <Route path="/Register" render={(props)=> <Register{...props}/>}  /> 
         <Route path="/login"  render={(props)=><Login{...props} getUserInfo={getUserInfo}/>}/>
         <Route path="/home" component={Home} /> 

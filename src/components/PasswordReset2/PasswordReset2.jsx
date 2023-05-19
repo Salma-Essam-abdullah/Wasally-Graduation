@@ -1,12 +1,13 @@
 
 import { Link } from 'react-router-dom'
-import {useParams } from 'react-router-dom';
+import {useParams,useHistory } from 'react-router-dom';
 import React, {useState} from 'react'
 import Joi from 'joi';
 import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_API_URI;
 export default function PasswordReset2() {
+    const history = useHistory();
     let [errorList , setErrorList] = useState([])
     let [error,setError] = useState('');
     let [loading,setLoading] = useState(false);
@@ -32,13 +33,14 @@ export default function PasswordReset2() {
       }
       setLoading(true);
    
-       await axios.get(`${BASE_URL}/v1/auth/reset-password/${token}`,{password}).then(
+       await axios.post(`${BASE_URL}/v1/auth/reset-password/${token}`,password).then(
         res => {
         console.log(res)
           setLoading(false);
           setError('');
           setErrorList([]);
-         
+          console.log('done')
+          history.push('/login')
           
         })
       .catch(err => {

@@ -9,13 +9,21 @@ const BASE_URL = process.env.REACT_APP_API_URI;
 
 
 export default function Login  (props)  {
+  const [isConfirm, setIsConfirm] = useState(false);
 
-    // const googleAuth =()=>{
-    //   window.open(
-    //      axios.get(`${BASE_URL}/v1/auth/callback`)
-    //   )
-    // };
-    // console.log(googleAuth)
+
+    const SignUp = () => {
+      
+    axios.get(`${BASE_URL}/v1/auth/signUp`
+       )
+        .then(response => {
+            setIsConfirm(true); 
+           
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
 
  
     let history = useHistory();
@@ -98,7 +106,7 @@ export default function Login  (props)  {
           className={style.title}><span style={{ color: "#fd7402" }}>LOGIN</span>  NOW</m.h1>
           <br />
           <div className='d-flex align-items-center flex-column'>
-          <button type="button" className={style.withgoogle} > Sign in with Google</button>
+          <button onClick={SignUp} type="button" className={style.withgoogle} > Sign in with Google</button>
           </div>
           <br />
           <h6 className={style.h6}><span className={style.span}>OR SIGN IN WITH EMAIL</span></h6>

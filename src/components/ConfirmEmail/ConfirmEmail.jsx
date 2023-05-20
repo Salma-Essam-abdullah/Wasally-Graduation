@@ -30,7 +30,6 @@ export default function ConfirmEmail() {
   return (
     <>
 
-
   <div className="email text-center">
     <button  onClick={handleCofirm} className='btn btn-success orangeButton'>
         Confirm Email

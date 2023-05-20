@@ -12,7 +12,7 @@ export default function Login  (props)  {
   const [isConfirm, setIsConfirm] = useState(false);
 
 
-    const SignUp = () => {
+    const SignUpGoogle = () => {
       
     axios.get(`${BASE_URL}/v1/auth/signUp`
        )
@@ -106,7 +106,7 @@ export default function Login  (props)  {
           className={style.title}><span style={{ color: "#fd7402" }}>LOGIN</span>  NOW</m.h1>
           <br />
           <div className='d-flex align-items-center flex-column'>
-          <button onClick={SignUp} type="button" className={style.withgoogle} > Sign in with Google</button>
+          <button onClick={SignUpGoogle} type="button" className={style.withgoogle} > Sign in with Google</button>
           </div>
           <br />
           <h6 className={style.h6}><span className={style.span}>OR SIGN IN WITH EMAIL</span></h6>

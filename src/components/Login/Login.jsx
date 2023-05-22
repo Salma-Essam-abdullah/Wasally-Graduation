@@ -9,21 +9,22 @@ const BASE_URL = process.env.REACT_APP_API_URI;
 
 
 export default function Login  (props)  {
-  const [isConfirm, setIsConfirm] = useState(false);
+  // const [isConfirm, setIsConfirm] = useState(false);
 
 
-    const SignUpGoogle = () => {
+  //   const SignUpGoogle = () => {
       
-    axios.get(`${BASE_URL}/v1/auth/signUp`
-       )
-        .then(response => {
-            setIsConfirm(true); 
+  //   axios.get(`${BASE_URL}/v1/auth/google`
+  //      )
+  //       .then(response => {
+  //           setIsConfirm(true); 
+  //           console.log(response)
            
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
+  //       })
+  //       .catch(error => {
+  //         console.log(error);
+  //       });
+  //   }
 
  
     let history = useHistory();
@@ -105,11 +106,11 @@ export default function Login  (props)  {
             transition={{type:'tween',duration:1}}
           className={style.title}><span style={{ color: "#fd7402" }}>LOGIN</span>  NOW</m.h1>
           <br />
-          <div className='d-flex align-items-center flex-column'>
-          <button onClick={SignUpGoogle} type="button" className={style.withgoogle} > Sign in with Google</button>
-          </div>
+          {/* <div className='d-flex align-items-center flex-column'>
+          <a href='http://localhost:3000/v1/auth/google' type="button" className={style.withgoogle} > Sign in with Google</a>
+          </div> */}
           <br />
-          <h6 className={style.h6}><span className={style.span}>OR SIGN IN WITH EMAIL</span></h6>
+          <h6 className={style.h6}><span className={style.span}> SIGN IN WITH EMAIL</span></h6>
 
           {
         error &&

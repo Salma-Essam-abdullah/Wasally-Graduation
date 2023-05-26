@@ -197,11 +197,7 @@ export default function UpdateDetailsOfShipments(){
             {request.category === 'Office Supplies' ? <option  value="Office Supplies" selected >Office Supplies</option>  : <option  value="Office Supplies"  >Office Supplies</option> }
             {request.category === 'Sports and Fitness' ? <option  value="Sports and Fitness" selected >Sports and Fitness</option>  : <option  value="Sports and Fitness"  >Sports and Fitness</option> }
             
-              <option  value="Food" >Food</option>
-              <option  value="Toys and Games" >Toys and Games</option>
-              <option  value="Automotive and Tools" >Automotive and Tools</option>
-              <option  value="Office Supplies" >Office Supplies</option>
-              <option  value="Sports and Fitness" >Sports and Fitness</option>
+        
     </select>
         </div>
 

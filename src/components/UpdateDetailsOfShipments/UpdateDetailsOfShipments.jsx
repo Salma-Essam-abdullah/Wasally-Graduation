@@ -181,7 +181,7 @@ export default function UpdateDetailsOfShipments(){
 
         <div className="col-md-6 pb-2 form-group">
             <label htmlFor="category" className='p-1'>Category : </label>
-            <input onChange={handleChange} type="text"  className="form-control" placeholder='category' name='location' defaultValue={request.category }/>
+            <input onChange={handleChange} type="text"  className="form-control" placeholder='category' name='category' defaultValue={request.category }/>
         </div>
 
 

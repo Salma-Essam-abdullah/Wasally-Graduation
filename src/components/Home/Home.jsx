@@ -20,7 +20,9 @@ import {  motion as m } from "framer-motion"
 
 
 export default class Home extends Component {
+  
   render() {
+    let encodedToken = localStorage.getItem('userToken');
     return (
       <>
 <section className="intro">
@@ -41,8 +43,9 @@ export default class Home extends Component {
                           connects shoppers to travellers. 
                           Shoppers can buy their needs from all around the conutry & ship with a Traveller heading 
                           their way.</m.p>
-          
-              <div className="row">
+          {!encodedToken ?
+
+             ( <div className="row">
                   <div className=" col-sm-5 introo">
                   <Link to="/register"><m.button
                               initial={{opacity:0 , x:15}}
@@ -57,8 +60,8 @@ export default class Home extends Component {
                               transition={{type:'tween',duration:1}}
                    className='btn btn-outline-danger transparentButton'>Login</m.button></Link>
                     </div>
-             </div>
-
+             </div>)
+:''}
              <m.div
                          initial={{opacity:0 , x:30}}
                          whileInView={{opacity:1, x:0 ,type:'spring'}}

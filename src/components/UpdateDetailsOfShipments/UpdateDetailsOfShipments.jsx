@@ -184,7 +184,9 @@ export default function UpdateDetailsOfShipments(){
             {/* <input onChange={handleChange} type="text"  className="form-control" placeholder='category' name='category' defaultValue={request.category }/> */}
             <select className='selector form-select '  name="category" onChange={handleChange} defaultValue={request.category} >
            
-            <option  >Electronics</option>
+      
+            {request.category === 'Electronics' ? <option  value="Electronics" selected >Electronics</option>  : <option  value="Electronics"  >Electronics</option> }
+           
             {request.category === 'Books and Media' ? <option  value="Books and Media" selected >Books and Media</option>  : <option  value="Books and Media"  >Books and Media</option> }
             {request.category === 'Clothing and Accessories' ? <option  value="Clothing and Accessories" selected >Clothing and Accessories</option>  : <option  value="Clothing and Accessories"  >Clothing and Accessories</option> }
             {request.category === 'Papers' ? <option  value="Papers" selected >Papers</option>  : <option  value="Papers"  >Papers</option> }

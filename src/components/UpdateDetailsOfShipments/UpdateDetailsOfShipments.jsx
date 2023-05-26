@@ -182,7 +182,7 @@ export default function UpdateDetailsOfShipments(){
         <div className="col-md-6 pb-2 form-group">
             <label htmlFor="category" className='p-1'>Category : </label>
             {/* <input onChange={handleChange} type="text"  className="form-control" placeholder='category' name='category' defaultValue={request.category }/> */}
-            <select className='selector form-select '  name="category" onChange={handleChange} value={request.category} >
+            <select className='selector form-select '  name="category" onChange={handleChange} defaultValue={request.category} >
           <option  value="Electronics" >Electronics</option>
               <option  value="Books and Media" >Books and Media</option> 
               <option  value="Clothing and Accessories" >Clothing and Accessories</option>

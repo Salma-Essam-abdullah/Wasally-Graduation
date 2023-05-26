@@ -180,7 +180,7 @@ export default function ShipmentSendTrip() {
     <div className="col-md-6 pb-2 form-group">
     <label htmlFor="category" className='p-1'>Category</label>
     {/* <input onChange={getRequest} type="text" name="category" className="form-control"  placeholder="Category" required /> */}
-    <select className='selector form-select '  name="category" onChange={getRequest} value={request.category} >
+    <select className='selector form-select '  name="category" onChange={getRequest} >
           <option  value="Electronics" >Electronics</option>
               <option  value="Books and Media" >Books and Media</option> 
               <option  value="Clothing and Accessories" >Clothing and Accessories</option>

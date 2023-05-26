@@ -183,13 +183,20 @@ export default function UpdateDetailsOfShipments(){
             <label htmlFor="category" className='p-1'>Category : </label>
             {/* <input onChange={handleChange} type="text"  className="form-control" placeholder='category' name='category' defaultValue={request.category }/> */}
             <select className='selector form-select '  name="category" onChange={handleChange} defaultValue={request.category} >
-          <option  value="Electronics" >Electronics</option>
-              <option  value="Books and Media" >Books and Media</option> 
-              <option  value="Clothing and Accessories" >Clothing and Accessories</option>
-              <option  value="Papers" >Papers</option>
-              <option  value="Home and Garden" >Home and Garden</option>
-              <option  value="Beauty and Personal Care" >Beauty and Personal Care</option>
-              <option  value="Health and Wellness" >Health and Wellness</option>
+            <option value="-----">Choose Category</option>
+            <option  >Electronics</option>
+            {request.category === 'Books and Media' ? <option  value="Books and Media" selected >Books and Media</option>  : <option  value="Books and Media"  >Books and Media</option> }
+            {request.category === 'Clothing and Accessories' ? <option  value="Clothing and Accessories" selected >Clothing and Accessories</option>  : <option  value="Clothing and Accessories"  >Clothing and Accessories</option> }
+            {request.category === 'Papers' ? <option  value="Papers" selected >Papers</option>  : <option  value="Papers"  >Papers</option> }
+            {request.category === 'Home and Garden' ? <option  value="Home and Garden" selected >Home and Garden</option>  : <option  value="Home and Garden"  >Home and Garden</option> }
+            {request.category === 'Beauty and Personal Care' ? <option  value="Beauty and Personal Care" selected >Beauty and Personal Care</option>  : <option  value="Beauty and Personal Care"  >Beauty and Personal Care</option> }
+            {request.category === 'Health and Wellness' ? <option  value="Health and Wellness" selected >Health and Wellness</option>  : <option  value="Health and Wellness"  >Health and Wellness</option> }
+            {request.category === 'Food' ? <option  value="Food" selected >Food</option>  : <option  value="Food"  >Food</option> }
+            {request.category === 'Toys and Games' ? <option  value="Toys and Games" selected >Toys and Games</option>  : <option  value="Toys and Games"  >Toys and Games</option> }
+            {request.category === 'Automotive and Tools' ? <option  value="Automotive and Tools" selected >Automotive and Tools</option>  : <option  value="Automotive and Tools"  >Automotive and Tools</option> }
+            {request.category === 'Office Supplies' ? <option  value="Office Supplies" selected >Office Supplies</option>  : <option  value="Office Supplies"  >Office Supplies</option> }
+            {request.category === 'Sports and Fitness' ? <option  value="Sports and Fitness" selected >Sports and Fitness</option>  : <option  value="Sports and Fitness"  >Sports and Fitness</option> }
+            
               <option  value="Food" >Food</option>
               <option  value="Toys and Games" >Toys and Games</option>
               <option  value="Automotive and Tools" >Automotive and Tools</option>

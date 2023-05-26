@@ -183,7 +183,7 @@ export default function UpdateDetailsOfShipments(){
             <label htmlFor="category" className='p-1'>Category : </label>
             {/* <input onChange={handleChange} type="text"  className="form-control" placeholder='category' name='category' defaultValue={request.category }/> */}
             <select className='selector form-select '  name="category" onChange={handleChange} defaultValue={request.category} >
-            <option value="-----">Choose Category</option>
+           
             <option  >Electronics</option>
             {request.category === 'Books and Media' ? <option  value="Books and Media" selected >Books and Media</option>  : <option  value="Books and Media"  >Books and Media</option> }
             {request.category === 'Clothing and Accessories' ? <option  value="Clothing and Accessories" selected >Clothing and Accessories</option>  : <option  value="Clothing and Accessories"  >Clothing and Accessories</option> }

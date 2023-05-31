@@ -26,7 +26,7 @@ export default function Chat() {
 
 
   useEffect(()=>{
-   socket.current =  io("ws://localhost:8900")
+   socket.current =  io(BASE_URL)
    socket.current.on("getMessage",data=>{
     setarrivalMessage({
       sender: data.senderId,

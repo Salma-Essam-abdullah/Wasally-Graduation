@@ -106,7 +106,7 @@ export default function Message() {
           useEffect(()=>{
             socket.current.emit("addUser",user.id)
             socket.current.on("getUsers",users=>{
-              console.log("ccc",users)
+              
             })
           },[user])
 

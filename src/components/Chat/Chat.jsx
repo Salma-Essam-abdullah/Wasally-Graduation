@@ -40,7 +40,7 @@ export default function Chat() {
   useEffect(()=>{
     socket.current.emit("addUser",useId)
     socket.current.on("getUsers",users=>{
-      console.log("ccc",users)
+      
     })
   },[user])
 
@@ -105,6 +105,7 @@ const [conversation , setconversation] = useState('')
  let send =  decodedToken.role ===  'user'  ? userId : decodedToken.role=== 'traveler' ? profileData._id: ''
   const handleChange = (e) => {
     setMessageBody(e.target.value);
+    
   };
   async function formSubmit(e){
     e.preventDefault();
@@ -125,6 +126,7 @@ const [conversation , setconversation] = useState('')
      .then(res => {
         getMessages(conversationId[0])
         setMessageBody()
+        
      })
     .catch(err => {
      

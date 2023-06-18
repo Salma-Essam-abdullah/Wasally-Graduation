@@ -69,7 +69,7 @@ export default function DetailsOfShippmentUser  () {
 
         <div className="col-md-6 pb-2 form-group">
         <label htmlFor="unAcceptablaPackage" className='p-1'>UnAcceptable package:</label>
-        <input type="text"  className="form-control" name='unAcceptablaPackage' placeholder='unAcceptabla Package'  defaultValue={request.unAcceptablaPackage} readOnly />
+        <input type="text"  className="form-control" name='unAcceptablaPackage' placeholder='unAcceptable Package'  defaultValue={request.unAcceptablaPackage} readOnly />
         </div>
 
         <div className="col-lg-12 text-center">

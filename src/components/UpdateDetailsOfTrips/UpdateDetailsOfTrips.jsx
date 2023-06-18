@@ -240,14 +240,73 @@ function validationRequestForm(){
 <div className="col-lg-10">
 <form  className="dataform" onSubmit={submitForm}>
   <div className="row">
-    <div className="col-md-6 pb-2 form-group">
+  <div className="col-md-6 pb-2 form-group">
         <label htmlFor="from" className='p-1'>From</label>
-        <input type="text" onChange={handleChange} className="form-control " name='from' placeholder='From'  defaultValue={trip.from} />
+<select className='selector form-select '  name="from" onChange={handleChange} defaultValue={trip.from} >
+<option value="">Select</option>
+              <option value="Alexandria">Alexandria</option>
+              <option value="Aswan">Aswan</option>
+              <option value="Asyut">Asyut</option>
+              <option value="Beheira">Beheira</option>
+              <option value="Beni Suef">Beni Suef</option>
+              <option value="Cairo">Cairo</option>
+              <option value="Dakahlia">Dakahlia</option>
+              <option value="Damietta">Damietta</option>
+              <option value="Faiyum">Faiyum</option>
+              <option value="Gharbia">Gharbia</option>
+              <option value="Giza">Giza</option>
+              <option value="Ismailia">Ismailia</option>
+              <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+              <option value="Luxor">Luxor</option>
+              <option value="Matruh">Matruh</option>
+              <option value="Minya">Minya</option>
+              <option value="Monufia">Monufia</option>
+              <option value="New Valley">New Valley</option>
+              <option value="North Sinai">North Sinai</option>
+              <option value="Port Said">Port Said</option>
+              <option value="Qalyubia">Qalyubia</option>
+              <option value="Qena">Qena</option>
+              <option value="Red Sea">Red Sea</option>
+              <option value="Sharqia">Sharqia</option>
+              <option value="Sohag">Sohag</option>
+              <option value="South Sinai">South Sinai</option>
+              <option value="Suez">Suez</option>
+    </select>
     </div>
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="to" className='p-1'>To</label>
-        <input type="text"   onChange={handleChange} className="form-control" name="to" placeholder='To'  defaultValue={trip.to}  />
-    </div>
+    <select className='selector form-select '  name="to" onChange={handleChange}  defaultValue={trip.to}>
+    <option value="">Select</option>
+    <option value="Alexandria">Alexandria</option>
+              <option value="Aswan">Aswan</option>
+              <option value="Asyut">Asyut</option>
+              <option value="Beheira">Beheira</option>
+              <option value="Beni Suef">Beni Suef</option>
+              <option value="Cairo">Cairo</option>
+              <option value="Dakahlia">Dakahlia</option>
+              <option value="Damietta">Damietta</option>
+              <option value="Faiyum">Faiyum</option>
+              <option value="Gharbia">Gharbia</option>
+              <option value="Giza">Giza</option>
+              <option value="Ismailia">Ismailia</option>
+              <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+              <option value="Luxor">Luxor</option>
+              <option value="Matruh">Matruh</option>
+              <option value="Minya">Minya</option>
+              <option value="Monufia">Monufia</option>
+              <option value="New Valley">New Valley</option>
+              <option value="North Sinai">North Sinai</option>
+              <option value="Port Said">Port Said</option>
+              <option value="Qalyubia">Qalyubia</option>
+              <option value="Qena">Qena</option>
+              <option value="Red Sea">Red Sea</option>
+              <option value="Sharqia">Sharqia</option>
+              <option value="Sohag">Sohag</option>
+              <option value="South Sinai">South Sinai</option>
+              <option value="Suez">Suez</option>
+    </select>
+
+</div>
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="TripDate" className='p-1'>Trip Date</label>
         <input type="text" onChange={handleChange}  className="form-control" placeholder='Date' name='TripDate' defaultValue={trip.TripDate ? trip.TripDate.split('T')[0] : "" } />
@@ -264,8 +323,8 @@ function validationRequestForm(){
     </div> 
 
     <div className="col-md-6 pb-2 form-group">
-    <label htmlFor="unAcceptablaPackage" className='p-1'>unAcceptabla Package</label>
-    <input onChange={handleChange}  type="text" className="form-control" name="unAcceptablaPackage" placeholder="unAcceptabla Package" defaultValue={trip.unAcceptablaPackage}  />
+    <label htmlFor="unAcceptablaPackage" className='p-1'>unAcceptable Package</label>
+    <input onChange={handleChange}  type="text" className="form-control" name="unAcceptablaPackage" placeholder="unAcceptable Package" defaultValue={trip.unAcceptablaPackage}  />
     </div>
 
 

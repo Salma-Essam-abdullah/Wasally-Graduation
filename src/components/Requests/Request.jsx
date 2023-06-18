@@ -148,7 +148,7 @@ useEffect(()=>{
 request.buyOrdeliver ==='buy' ? 
         
         <div key={index} className="col-xl-3 col-md-6 portfolio-item filter-app">
-          <div  className="portfolio-wrap">
+          <div  className="portfolio-i">
           {
            userData.map((user,i)=>user.id===request.userId ? 
             <img key={i} src={user.ProfileImage ? user.ProfileImage : 'No'} className="img-fluid" alt="img" />

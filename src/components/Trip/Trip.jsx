@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
 import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+
+import noImage from '../../assets/images/def.jpg'
 import ScheduleIcon from '@mui/icons-material/Schedule';
 const BASE_URL = process.env.REACT_APP_API_URI;
 
@@ -112,11 +114,16 @@ useEffect(()=>{
       <div  className="row gy-4 portfolio-container">
       {filteredTrips && filteredTrips.map((request,index)=>
         <div key={index} className="col-xl-3 col-md-6 portfolio-item filter-app">
-          <div  className="portfolio-wrap">
+          <div  className="portfolio-i">
           
           {
-           userData.map((traveler,i)=>traveler._id === request.Traveler ? 
-            <img key={i} src={traveler.userId.ProfileImage}  alt="person" /> 
+            
+          userData.map((traveler,i)=>traveler._id === request.Traveler ? 
+          traveler.userId.ProfileImage ?
+            <img key={i} src={traveler.userId.ProfileImage }  alt="person" /> 
+            
+            :
+            <img key={i} src={noImage}   alt="person" /> 
             :null)
             }
             <div className="portfolio-info">

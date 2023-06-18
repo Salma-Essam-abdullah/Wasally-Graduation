@@ -895,7 +895,7 @@ margin-top: 10px;
   transition: 0.3s;
   position: relative;
   z-index: 1;
-  height:35%;
+  /* height:35%; */
   width: 100%;
 }
 .portfolio .row{
@@ -1668,4 +1668,60 @@ padding-right: 90px;
 .message.own .messageText{
     background-color: rgb(245, 241, 241);
     color: black;
+}
+
+
+
+
+.portfolio .portfolio-i .portfolio-info {
+  padding: 7px 20px;
+  background-color: #fff;
+  position: relative;
+  border-top: 1px solid #f3f3f3;
+  z-index: 2;
+  height: 50%;
+}
+
+.portfolio .portfolio-i .portfolio-info h4 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-right: 50px;
+}
+
+.portfolio .portfolio-i .portfolio-info h4  {
+  color: #6c757d;
+  transition: 0.3s;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+
+.portfolio .portfolio-i .portfolio-info p {
+  color: #6c757d;
+  font-size: 17px;
+  margin-bottom: 0;
+  padding-right: 50px;
+}
+
+.portfolio .portfolio-i:hover img {
+  transform: scale(1.1);
+}
+
+
+.portfolio .portfolio-i {
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  height: 100%;
+  overflow: hidden;
+  
+  border: #cbcbcb 1px solid;
+}
+
+.portfolio .portfolio-i img {
+  transition: 0.3s;
+  position: relative;
+  z-index: 1;
+  height: 50%;
+  width: 100%;
+ 
 }

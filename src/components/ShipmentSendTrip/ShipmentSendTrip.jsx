@@ -9,6 +9,7 @@ export default function ShipmentSendTrip() {
     let [errorList , setErrorList] = useState([])
     let [error,setError] = useState('');
     let [loading,setLoading] = useState(false)
+    
     let [request, setRequest] = useState({
       to:'',
       from:'',
@@ -135,15 +136,73 @@ export default function ShipmentSendTrip() {
 
   <div className=' col-md-6 pb-2  '>
   </div>
-  
-    <div className="col-md-6 pb-2 form-group">
+  <div className="col-md-6 pb-2 form-group">
         <label htmlFor="from" className='p-1'>From</label>
-        <input onChange={getRequest} type="text" name="from" className="form-control" placeholder="From" required />
+<select className='selector form-select '  name="from" onChange={getRequest} >
+<option value="">Select</option>
+              <option value="Alexandria">Alexandria</option>
+              <option value="Aswan">Aswan</option>
+              <option value="Asyut">Asyut</option>
+              <option value="Beheira">Beheira</option>
+              <option value="Beni Suef">Beni Suef</option>
+              <option value="Cairo">Cairo</option>
+              <option value="Dakahlia">Dakahlia</option>
+              <option value="Damietta">Damietta</option>
+              <option value="Faiyum">Faiyum</option>
+              <option value="Gharbia">Gharbia</option>
+              <option value="Giza">Giza</option>
+              <option value="Ismailia">Ismailia</option>
+              <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+              <option value="Luxor">Luxor</option>
+              <option value="Matruh">Matruh</option>
+              <option value="Minya">Minya</option>
+              <option value="Monufia">Monufia</option>
+              <option value="New Valley">New Valley</option>
+              <option value="North Sinai">North Sinai</option>
+              <option value="Port Said">Port Said</option>
+              <option value="Qalyubia">Qalyubia</option>
+              <option value="Qena">Qena</option>
+              <option value="Red Sea">Red Sea</option>
+              <option value="Sharqia">Sharqia</option>
+              <option value="Sohag">Sohag</option>
+              <option value="South Sinai">South Sinai</option>
+              <option value="Suez">Suez</option>
+    </select>
     </div>
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="to" className='p-1'>To</label>
-        <input onChange={getRequest} type="text" className="form-control" name="to"  placeholder="To" required />
-    </div>
+    <select className='selector form-select '  name="to" onChange={getRequest} >
+    <option value="">Select</option>
+    <option value="Alexandria">Alexandria</option>
+              <option value="Aswan">Aswan</option>
+              <option value="Asyut">Asyut</option>
+              <option value="Beheira">Beheira</option>
+              <option value="Beni Suef">Beni Suef</option>
+              <option value="Cairo">Cairo</option>
+              <option value="Dakahlia">Dakahlia</option>
+              <option value="Damietta">Damietta</option>
+              <option value="Faiyum">Faiyum</option>
+              <option value="Gharbia">Gharbia</option>
+              <option value="Giza">Giza</option>
+              <option value="Ismailia">Ismailia</option>
+              <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+              <option value="Luxor">Luxor</option>
+              <option value="Matruh">Matruh</option>
+              <option value="Minya">Minya</option>
+              <option value="Monufia">Monufia</option>
+              <option value="New Valley">New Valley</option>
+              <option value="North Sinai">North Sinai</option>
+              <option value="Port Said">Port Said</option>
+              <option value="Qalyubia">Qalyubia</option>
+              <option value="Qena">Qena</option>
+              <option value="Red Sea">Red Sea</option>
+              <option value="Sharqia">Sharqia</option>
+              <option value="Sohag">Sohag</option>
+              <option value="South Sinai">South Sinai</option>
+              <option value="Suez">Suez</option>
+    </select>
+
+</div>
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="date" className='p-1'>Date</label>
         <input onChange={getRequest} type="text" name="date" className="form-control"  placeholder="YEAR-MONTH-DAY" required />

@@ -54,7 +54,7 @@ export default function DetailsOfShippmentUser  () {
         </div>
         <div className="col-md-6 pb-2 form-group">
             <label htmlFor="date" className='p-1'>Date</label>
-            <input type="text"  className="form-control" placeholder='Date' name='date' defaultValue={request.TripDate ? request.TripDate.split('T')[0] : "" } readOnly/>
+            <input type="date"  className="form-control" placeholder='Date' name='date' defaultValue={request.TripDate ? request.TripDate.split('T')[0] : "" } readOnly/>
         </div>
 
         <div className="col-md-6 pb-2 form-group ">
@@ -64,7 +64,7 @@ export default function DetailsOfShippmentUser  () {
 
         <div className="col-md-6 pb-2 form-group  ">
         <label htmlFor="AvailableWeight" className='p-1'>Available weight :</label>
-        <input type="text"  className="form-control" name="AvailableWeight" placeholder='Available Weight'  defaultValue={request.AvailableWeight} readOnly />
+        <input type="number" step="0.01" className="form-control" name="AvailableWeight" placeholder='Available Weight'  defaultValue={request.AvailableWeight} readOnly />
         </div>
 
         <div className="col-md-6 pb-2 form-group">

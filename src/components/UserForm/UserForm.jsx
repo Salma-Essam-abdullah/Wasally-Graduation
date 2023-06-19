@@ -150,7 +150,7 @@ useEffect(() => {
 
     <div className="col-md-6 pb-2 form-group ">
     <label htmlFor="birthDate" className='p-1'>BirthDate : </label>
-    <input onChange={handleChange} type="text" className="form-control"name="birthDate" placeholder='Year-Month-Day' defaultValue={profileData.birthDate? profileData.birthDate.split('T')[0]:''}  />
+    <input onChange={handleChange} type="date" className="form-control"name="birthDate" placeholder='Year-Month-Day' defaultValue={profileData.birthDate? profileData.birthDate.split('T')[0]:''}  />
     </div>
 
     <div className="col-md-6 pb-2 form-group ">

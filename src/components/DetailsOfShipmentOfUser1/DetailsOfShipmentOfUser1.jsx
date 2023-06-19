@@ -122,10 +122,16 @@ console.log(role)
             <input type="text" readOnly className="form-control" name="to" placeholder='To'  defaultValue={request.to}  />
         </div>
       
-{/* //// */}
+
         <div className="col-md-6 pb-2 form-group">
             <label htmlFor="reward" className='p-1'>Reward :</label>
             <input readOnly type="text"  className="form-control" placeholder='Reward' name='reward' defaultValue={request.reward }/>
+        </div>
+        
+        <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="date" className='p-1'>Date</label>
+       
+        <input  type="date" name="date" className="form-control"  readOnly defaultValue= {request.date ? request.date.split('T')[0] : "" }/>
         </div>
 
         <div className="col-md-6 pb-2 form-group">
@@ -140,7 +146,7 @@ console.log(role)
 
         <div className="col-md-6 pb-2 form-group">
             <label htmlFor="weight" className='p-1'>Weight : </label>
-            <input readOnly type="text"  className="form-control" placeholder='weight' name='weight' defaultValue={request.weight }/>
+            <input readOnly type="number" step="0.01"  className="form-control" placeholder='weight' name='weight' defaultValue={request.weight }/>
         </div>
 
         <div className="col-md-6 pb-2 form-group">

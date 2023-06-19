@@ -123,7 +123,7 @@ useEffect(()=>{
             <img key={i} src={traveler.userId.ProfileImage }  alt="person" /> 
             
             :
-            <img key={i} src={noImage}   alt="person" /> 
+            <img key={i} src={noImage}  alt="person" /> 
             :null)
             }
             <div className="portfolio-info">

@@ -189,17 +189,23 @@ function validationUserForm(){
 </div>
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="TripDate" className='p-1'>Trip Date</label>
-        <input onChange={handleChange}  type="text" name="TripDate" className="form-control" placeholder="Trip Date" required />
+        <input
+        type="date"
+        name="TripDate"
+        onChange={handleChange}
+        required
+        className="form-control"
+      />
     </div>
 
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="TripTime" className='p-1'>Trip Time</label>
-        <input onChange={handleChange}  type="text" name="TripTime" className="form-control" placeholder="Trip Time" required />
+        <input onChange={handleChange}  type="time" name="TripTime" className="form-control" placeholder="Trip Time" required />
     </div>
 
     <div className="col-md-6 pb-2 form-group ">
       <label htmlFor="AvailableWeight"  className='p-1'>Available Weight</label>
-      <input onChange={handleChange}  type="number" className="form-control" name="AvailableWeight"  placeholder="Available Weight" required />
+      <input onChange={handleChange}  type="number" step="0.01" className="form-control" name="AvailableWeight"  placeholder="Available Weight" required />
     </div> 
 
     <div className="col-md-6 pb-2 form-group">

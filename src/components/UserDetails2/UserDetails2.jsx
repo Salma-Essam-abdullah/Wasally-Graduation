@@ -85,7 +85,7 @@ function RequestValidation(){
     buyOrdeliver: Joi.string().required().valid('buy', 'deliver').default('deliver'),
     date: Joi.date().greater(Date.now() - 24 * 60 * 60 * 1000).iso().messages({
         'date.format': `Date format is YYYY-MM-DD`,
-        'date.min': `Date should not be passed`
+        'date.min': `should not be passed`
       }).required(),
     storeLocation: Joi.string().optional().allow(''),
     storeName: Joi.string().optional().allow(''),
@@ -221,7 +221,7 @@ function RequestValidation(){
 
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="date" className='p-1'>Date</label>
-        <input onChange={getRequest} type="text" name="date" className="form-control"  placeholder="YEAR-MONTH-DAY" required />
+        <input onChange={getRequest} type="date" name="date" className="form-control"  placeholder="YEAR-MONTH-DAY" required />
     </div>
 
     {request.buyOrdeliver === 'buy' && (
@@ -256,6 +256,7 @@ function RequestValidation(){
     <label htmlFor="category" className='p-1'>Category</label>
     {/* <input onChange={getRequest} type="text" name="category" className="form-control"  placeholder="Category" required /> */}
     <select className='selector form-select '  name="category" onChange={getRequest}  >
+      <option  value="" >select</option>
           <option  value="Electronics" >Electronics</option>
               <option  value="Books and Media" >Books and Media</option> 
               <option  value="Clothing and Accessories" >Clothing and Accessories</option>
@@ -273,7 +274,7 @@ function RequestValidation(){
 
     <div className="col-md-6 pb-2 form-group  ">
     <label htmlFor="weight" className='p-1'>Weight</label>
-    <input onChange={getRequest} type="number" className="form-control" name="weight"  placeholder="Weight" required />
+    <input onChange={getRequest} type="number"  step="0.01" className="form-control" name="weight"  placeholder="Weight" required />
     </div>
 
     <div className="col-md-6 pb-2 form-group ">

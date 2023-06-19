@@ -144,14 +144,78 @@ export default function UpdateDetailsOfShipments(){
         </div>
 
         <div className="col-md-6 pb-2 form-group">
-            <label htmlFor="from" className='p-1'>From</label>
-            <input type="text" onChange={handleChange} className="form-control" name="from" placeholder='To'  defaultValue={request.from}  />
-        </div>
+        <label htmlFor="from" className='p-1'>From</label>
+<select className='selector form-select '  name="from" onChange={handleChange} >
+<option value="">Select</option>
+{request.from === 'Alexandria' ? <option  value="Alexandria" selected >Alexandria</option>  : <option  value="Alexandria"  >Alexandria</option> }
+    {request.from === 'Aswan' ? <option  value="Aswan" selected >Aswan</option>  : <option  value="Aswan"  >Aswan</option> }
+    {request.from === 'Asyut' ? <option  value="Asyut" selected >Asyut</option>  : <option  value="Asyut"  >Asyut</option> }
+    {request.from === 'Beheira' ? <option  value="Beheira" selected >Beheira</option>  : <option  value="Beheira"  >Beheira</option> }
+    {request.from === 'Beni Suef' ? <option  value="Beni Suef" selected >Beni Suef</option>  : <option  value="Beni Suef"  >Beni Suef</option> }
+    {request.from === 'Cairo' ? <option  value="Cairo" selected >Cairo</option>  : <option  value="Cairo"  >Cairo</option> }
+    {request.from === 'Dakahlia' ? <option  value="Dakahlia" selected >Dakahlia</option>  : <option  value="Dakahlia"  >Dakahlia</option> }
+    {request.from === 'Damietta' ? <option  value="Damietta" selected >Damietta</option>  : <option  value="Damietta"  >Damietta</option> }
+    {request.from === 'Faiyum' ? <option  value="Faiyum" selected >Faiyum</option>  : <option  value="Faiyum"  >Faiyum</option> }
+    {request.from === 'Gharbia' ? <option  value="Gharbia" selected >Gharbia</option>  : <option  value="Gharbia"  >Gharbia</option> }
+    {request.from === 'Giza' ? <option  value="Giza" selected >Giza</option>  : <option  value="Giza"  >Giza</option> }
+    {request.from === 'Ismailia' ? <option  value="Ismailia" selected >Ismailia</option>  : <option  value="Ismailia"  >Ismailia</option> }
+    {request.from === 'Kafr El Sheikh' ? <option  value="Kafr El Sheikh" selected >Kafr El Sheikh</option>  : <option  value="Kafr El Sheikh"  >Kafr El Sheikh</option> }
+    {request.from === 'Luxor' ? <option  value="Luxor" selected >Luxor</option>  : <option  value="Luxor"  >Luxor</option> }
+    {request.from === 'Matruh' ? <option  value="Matruh" selected >Matruh</option>  : <option  value="Matruh"  >Matruh</option> }
+    {request.from === 'Minya' ? <option  value="Minya" selected >Minya</option>  : <option  value="Minya"  >Minya</option> }
+    {request.from === 'Monufia' ? <option  value="Monufia" selected >Monufia</option>  : <option  value="Monufia"  >Monufia</option> }
+    {request.from === 'New Valley' ? <option  value="New Valley" selected >New Valley</option>  : <option  value="New Valley"  >New Valley</option> }
+    {request.from === 'North Sinai' ? <option  value="North Sinai" selected >North Sinai</option>  : <option  value="North Sinai"  >North Sinai</option> }
+    {request.from === 'Port Said' ? <option  value="Port Said" selected >Port Said</option>  : <option  value="Port Said"  >Port Said</option> }
+    {request.from === 'Qalyubia' ? <option  value="Qalyubia" selected >Qalyubia</option>  : <option  value="Qalyubia"  >Qalyubia</option> }
+    {request.from === 'Qena' ? <option  value="Qena" selected >Qena</option>  : <option  value="Qena"  >Qena</option> }
+    {request.from === 'Red Sea' ? <option  value="Red Sea" selected >Red Sea</option>  : <option  value="Red Sea"  >Red Sea</option> }
+    {request.from === 'Sharqia' ? <option  value="Sharqia" selected >Sharqia</option>  : <option  value="Sharqia"  >Sharqia</option> }
+    {request.from === 'Sohag' ? <option  value="Sohag" selected >Sohag</option>  : <option  value="Sohag"  >Sohag</option> }
+    {request.from === 'South Sinai' ? <option  value="South Sinai" selected >South Sinai</option>  : <option  value="South Sinai"  >South Sinai</option> }
+    {request.from === 'Suez' ? <option  value="Suez" selected >Suez</option>  : <option  value="Suez"  >Suez</option> }
+    
+    </select>
+    </div>
+    <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="to" className='p-1'>To</label>
+    <select className='selector form-select '  name="to" onChange={handleChange} >
+    <option value="">Select</option>
+    {request.to === 'Alexandria' ? <option  value="Alexandria" selected >Alexandria</option>  : <option  value="Alexandria"  >Alexandria</option> }
+    {request.to === 'Aswan' ? <option  value="Aswan" selected >Aswan</option>  : <option  value="Aswan"  >Aswan</option> }
+    {request.to === 'Asyut' ? <option  value="Asyut" selected >Asyut</option>  : <option  value="Asyut"  >Asyut</option> }
+    {request.to === 'Beheira' ? <option  value="Beheira" selected >Beheira</option>  : <option  value="Beheira"  >Beheira</option> }
+    {request.to === 'Beni Suef' ? <option  value="Beni Suef" selected >Beni Suef</option>  : <option  value="Beni Suef"  >Beni Suef</option> }
+    {request.to === 'Cairo' ? <option  value="Cairo" selected >Cairo</option>  : <option  value="Cairo"  >Cairo</option> }
+    {request.to === 'Dakahlia' ? <option  value="Dakahlia" selected >Dakahlia</option>  : <option  value="Dakahlia"  >Dakahlia</option> }
+    {request.to === 'Damietta' ? <option  value="Damietta" selected >Damietta</option>  : <option  value="Damietta"  >Damietta</option> }
+    {request.to === 'Faiyum' ? <option  value="Faiyum" selected >Faiyum</option>  : <option  value="Faiyum"  >Faiyum</option> }
+    {request.to === 'Gharbia' ? <option  value="Gharbia" selected >Gharbia</option>  : <option  value="Gharbia"  >Gharbia</option> }
+    {request.to === 'Giza' ? <option  value="Giza" selected >Giza</option>  : <option  value="Giza"  >Giza</option> }
+    {request.to === 'Ismailia' ? <option  value="Ismailia" selected >Ismailia</option>  : <option  value="Ismailia"  >Ismailia</option> }
+    {request.to === 'Kafr El Sheikh' ? <option  value="Kafr El Sheikh" selected >Kafr El Sheikh</option>  : <option  value="Kafr El Sheikh"  >Kafr El Sheikh</option> }
+    {request.to === 'Luxor' ? <option  value="Luxor" selected >Luxor</option>  : <option  value="Luxor"  >Luxor</option> }
+    {request.to === 'Matruh' ? <option  value="Matruh" selected >Matruh</option>  : <option  value="Matruh"  >Matruh</option> }
+    {request.to === 'Minya' ? <option  value="Minya" selected >Minya</option>  : <option  value="Minya"  >Minya</option> }
+    {request.to === 'Monufia' ? <option  value="Monufia" selected >Monufia</option>  : <option  value="Monufia"  >Monufia</option> }
+    {request.to === 'New Valley' ? <option  value="New Valley" selected >New Valley</option>  : <option  value="New Valley"  >New Valley</option> }
+    {request.to === 'North Sinai' ? <option  value="North Sinai" selected >North Sinai</option>  : <option  value="North Sinai"  >North Sinai</option> }
+    {request.to === 'Port Said' ? <option  value="Port Said" selected >Port Said</option>  : <option  value="Port Said"  >Port Said</option> }
+    {request.to === 'Qalyubia' ? <option  value="Qalyubia" selected >Qalyubia</option>  : <option  value="Qalyubia"  >Qalyubia</option> }
+    {request.to === 'Qena' ? <option  value="Qena" selected >Qena</option>  : <option  value="Qena"  >Qena</option> }
+    {request.to === 'Red Sea' ? <option  value="Red Sea" selected >Red Sea</option>  : <option  value="Red Sea"  >Red Sea</option> }
+    {request.to === 'Sharqia' ? <option  value="Sharqia" selected >Sharqia</option>  : <option  value="Sharqia"  >Sharqia</option> }
+    {request.to === 'Sohag' ? <option  value="Sohag" selected >Sohag</option>  : <option  value="Sohag"  >Sohag</option> }
+    {request.to === 'South Sinai' ? <option  value="South Sinai" selected >South Sinai</option>  : <option  value="South Sinai"  >South Sinai</option> }
+    {request.to === 'Suez' ? <option  value="Suez" selected >Suez</option>  : <option  value="Suez"  >Suez</option> }
+    
+      
+              
 
-        <div className="col-md-6 pb-2 form-group">
-            <label htmlFor="to" className='p-1'>To</label>
-            <input type="text" onChange={handleChange} className="form-control" name="to" placeholder='To'  defaultValue={request.to}  />
-        </div>
+           
+    </select>
+
+</div>
       
 {/* //// */}
         <div className="col-md-6 pb-2 form-group">
@@ -171,9 +235,13 @@ export default function UpdateDetailsOfShipments(){
 
         <div className="col-md-6 pb-2 form-group">
             <label htmlFor="weight" className='p-1'>Weight : </label>
-            <input onChange={handleChange} type="text"  className="form-control" placeholder='weight' name='weight' defaultValue={request.weight }/>
+            <input onChange={handleChange} type="number" step="0.01"  className="form-control" placeholder='weight' name='weight' defaultValue={request.weight }/>
         </div>
-
+        <div className="col-md-6 pb-2 form-group">
+        <label htmlFor="date" className='p-1'>Date</label>
+       
+        <input  onChange={handleChange} type="date" name="date" className="form-control"   defaultValue= {request.date ? request.date.split('T')[0] : "" }/>
+        </div>
         <div className="col-md-6 pb-2 form-group">
             <label htmlFor="location" className='p-1'>Location : </label>
             <input onChange={handleChange} type="text"  className="form-control" placeholder='location' name='location' defaultValue={request.location }/>

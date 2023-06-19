@@ -192,7 +192,7 @@ useEffect(()=>{
         </div>
         <div className="col-md-12 pb-2 form-group">
             <label className='p-1'>Birth Date</label>
-            <input  className="form-control" defaultValue={profileData.birthDate ? profileData.birthDate.split('T')[0] : "" } readOnly/>
+            <input  type='date' className="form-control" defaultValue={profileData.birthDate ? profileData.birthDate.split('T')[0] : "" } readOnly/>
         </div>
         <div className="col-md-12 pb-2 form-group">
             <label className='p-1'>Address</label>

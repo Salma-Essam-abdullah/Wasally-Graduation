@@ -244,72 +244,75 @@ function validationRequestForm(){
         <label htmlFor="from" className='p-1'>From</label>
 <select className='selector form-select '  name="from" onChange={handleChange} defaultValue={trip.from} >
 <option value="">Select</option>
-              <option value="Alexandria">Alexandria</option>
-              <option value="Aswan">Aswan</option>
-              <option value="Asyut">Asyut</option>
-              <option value="Beheira">Beheira</option>
-              <option value="Beni Suef">Beni Suef</option>
-              <option value="Cairo">Cairo</option>
-              <option value="Dakahlia">Dakahlia</option>
-              <option value="Damietta">Damietta</option>
-              <option value="Faiyum">Faiyum</option>
-              <option value="Gharbia">Gharbia</option>
-              <option value="Giza">Giza</option>
-              <option value="Ismailia">Ismailia</option>
-              <option value="Kafr El Sheikh">Kafr El Sheikh</option>
-              <option value="Luxor">Luxor</option>
-              <option value="Matruh">Matruh</option>
-              <option value="Minya">Minya</option>
-              <option value="Monufia">Monufia</option>
-              <option value="New Valley">New Valley</option>
-              <option value="North Sinai">North Sinai</option>
-              <option value="Port Said">Port Said</option>
-              <option value="Qalyubia">Qalyubia</option>
-              <option value="Qena">Qena</option>
-              <option value="Red Sea">Red Sea</option>
-              <option value="Sharqia">Sharqia</option>
-              <option value="Sohag">Sohag</option>
-              <option value="South Sinai">South Sinai</option>
-              <option value="Suez">Suez</option>
+{trip.from === 'Alexandria' ? <option  value="Alexandria" selected >Alexandria</option>  : <option  value="Alexandria"  >Alexandria</option> }
+    {trip.from === 'Aswan' ? <option  value="Aswan" selected >Aswan</option>  : <option  value="Aswan"  >Aswan</option> }
+    {trip.from === 'Asyut' ? <option  value="Asyut" selected >Asyut</option>  : <option  value="Asyut"  >Asyut</option> }
+    {trip.from === 'Beheira' ? <option  value="Beheira" selected >Beheira</option>  : <option  value="Beheira"  >Beheira</option> }
+    {trip.from === 'Beni Suef' ? <option  value="Beni Suef" selected >Beni Suef</option>  : <option  value="Beni Suef"  >Beni Suef</option> }
+    {trip.from === 'Cairo' ? <option  value="Cairo" selected >Cairo</option>  : <option  value="Cairo"  >Cairo</option> }
+    {trip.from === 'Dakahlia' ? <option  value="Dakahlia" selected >Dakahlia</option>  : <option  value="Dakahlia"  >Dakahlia</option> }
+    {trip.from === 'Damietta' ? <option  value="Damietta" selected >Damietta</option>  : <option  value="Damietta"  >Damietta</option> }
+    {trip.from === 'Faiyum' ? <option  value="Faiyum" selected >Faiyum</option>  : <option  value="Faiyum"  >Faiyum</option> }
+    {trip.from === 'Gharbia' ? <option  value="Gharbia" selected >Gharbia</option>  : <option  value="Gharbia"  >Gharbia</option> }
+    {trip.from === 'Giza' ? <option  value="Giza" selected >Giza</option>  : <option  value="Giza"  >Giza</option> }
+    {trip.from === 'Ismailia' ? <option  value="Ismailia" selected >Ismailia</option>  : <option  value="Ismailia"  >Ismailia</option> }
+    {trip.from === 'Kafr El Sheikh' ? <option  value="Kafr El Sheikh" selected >Kafr El Sheikh</option>  : <option  value="Kafr El Sheikh"  >Kafr El Sheikh</option> }
+    {trip.from === 'Luxor' ? <option  value="Luxor" selected >Luxor</option>  : <option  value="Luxor"  >Luxor</option> }
+    {trip.from === 'Matruh' ? <option  value="Matruh" selected >Matruh</option>  : <option  value="Matruh"  >Matruh</option> }
+    {trip.from === 'Minya' ? <option  value="Minya" selected >Minya</option>  : <option  value="Minya"  >Minya</option> }
+    {trip.from === 'Monufia' ? <option  value="Monufia" selected >Monufia</option>  : <option  value="Monufia"  >Monufia</option> }
+    {trip.from === 'New Valley' ? <option  value="New Valley" selected >New Valley</option>  : <option  value="New Valley"  >New Valley</option> }
+    {trip.from === 'North Sinai' ? <option  value="North Sinai" selected >North Sinai</option>  : <option  value="North Sinai"  >North Sinai</option> }
+    {trip.from === 'Port Said' ? <option  value="Port Said" selected >Port Said</option>  : <option  value="Port Said"  >Port Said</option> }
+    {trip.from === 'Qalyubia' ? <option  value="Qalyubia" selected >Qalyubia</option>  : <option  value="Qalyubia"  >Qalyubia</option> }
+    {trip.from === 'Qena' ? <option  value="Qena" selected >Qena</option>  : <option  value="Qena"  >Qena</option> }
+    {trip.from === 'Red Sea' ? <option  value="Red Sea" selected >Red Sea</option>  : <option  value="Red Sea"  >Red Sea</option> }
+    {trip.from === 'Sharqia' ? <option  value="Sharqia" selected >Sharqia</option>  : <option  value="Sharqia"  >Sharqia</option> }
+    {trip.from === 'Sohag' ? <option  value="Sohag" selected >Sohag</option>  : <option  value="Sohag"  >Sohag</option> }
+    {trip.from === 'South Sinai' ? <option  value="South Sinai" selected >South Sinai</option>  : <option  value="South Sinai"  >South Sinai</option> }
+    {trip.from === 'Suez' ? <option  value="Suez" selected >Suez</option>  : <option  value="Suez"  >Suez</option> }
+    
     </select>
     </div>
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="to" className='p-1'>To</label>
     <select className='selector form-select '  name="to" onChange={handleChange}  defaultValue={trip.to}>
     <option value="">Select</option>
-    <option value="Alexandria">Alexandria</option>
-              <option value="Aswan">Aswan</option>
-              <option value="Asyut">Asyut</option>
-              <option value="Beheira">Beheira</option>
-              <option value="Beni Suef">Beni Suef</option>
-              <option value="Cairo">Cairo</option>
-              <option value="Dakahlia">Dakahlia</option>
-              <option value="Damietta">Damietta</option>
-              <option value="Faiyum">Faiyum</option>
-              <option value="Gharbia">Gharbia</option>
-              <option value="Giza">Giza</option>
-              <option value="Ismailia">Ismailia</option>
-              <option value="Kafr El Sheikh">Kafr El Sheikh</option>
-              <option value="Luxor">Luxor</option>
-              <option value="Matruh">Matruh</option>
-              <option value="Minya">Minya</option>
-              <option value="Monufia">Monufia</option>
-              <option value="New Valley">New Valley</option>
-              <option value="North Sinai">North Sinai</option>
-              <option value="Port Said">Port Said</option>
-              <option value="Qalyubia">Qalyubia</option>
-              <option value="Qena">Qena</option>
-              <option value="Red Sea">Red Sea</option>
-              <option value="Sharqia">Sharqia</option>
-              <option value="Sohag">Sohag</option>
-              <option value="South Sinai">South Sinai</option>
-              <option value="Suez">Suez</option>
+    {trip.to === 'Alexandria' ? <option  value="Alexandria" selected >Alexandria</option>  : <option  value="Alexandria"  >Alexandria</option> }
+    {trip.to === 'Aswan' ? <option  value="Aswan" selected >Aswan</option>  : <option  value="Aswan"  >Aswan</option> }
+    {trip.to === 'Asyut' ? <option  value="Asyut" selected >Asyut</option>  : <option  value="Asyut"  >Asyut</option> }
+    {trip.to === 'Beheira' ? <option  value="Beheira" selected >Beheira</option>  : <option  value="Beheira"  >Beheira</option> }
+    {trip.to === 'Beni Suef' ? <option  value="Beni Suef" selected >Beni Suef</option>  : <option  value="Beni Suef"  >Beni Suef</option> }
+    {trip.to === 'Cairo' ? <option  value="Cairo" selected >Cairo</option>  : <option  value="Cairo"  >Cairo</option> }
+    {trip.to === 'Dakahlia' ? <option  value="Dakahlia" selected >Dakahlia</option>  : <option  value="Dakahlia"  >Dakahlia</option> }
+    {trip.to === 'Damietta' ? <option  value="Damietta" selected >Damietta</option>  : <option  value="Damietta"  >Damietta</option> }
+    {trip.to === 'Faiyum' ? <option  value="Faiyum" selected >Faiyum</option>  : <option  value="Faiyum"  >Faiyum</option> }
+    {trip.to === 'Gharbia' ? <option  value="Gharbia" selected >Gharbia</option>  : <option  value="Gharbia"  >Gharbia</option> }
+    {trip.to === 'Giza' ? <option  value="Giza" selected >Giza</option>  : <option  value="Giza"  >Giza</option> }
+    {trip.to === 'Ismailia' ? <option  value="Ismailia" selected >Ismailia</option>  : <option  value="Ismailia"  >Ismailia</option> }
+    {trip.to === 'Kafr El Sheikh' ? <option  value="Kafr El Sheikh" selected >Kafr El Sheikh</option>  : <option  value="Kafr El Sheikh"  >Kafr El Sheikh</option> }
+    {trip.to === 'Luxor' ? <option  value="Luxor" selected >Luxor</option>  : <option  value="Luxor"  >Luxor</option> }
+    {trip.to === 'Matruh' ? <option  value="Matruh" selected >Matruh</option>  : <option  value="Matruh"  >Matruh</option> }
+    {trip.to === 'Minya' ? <option  value="Minya" selected >Minya</option>  : <option  value="Minya"  >Minya</option> }
+    {trip.to === 'Monufia' ? <option  value="Monufia" selected >Monufia</option>  : <option  value="Monufia"  >Monufia</option> }
+    {trip.to === 'New Valley' ? <option  value="New Valley" selected >New Valley</option>  : <option  value="New Valley"  >New Valley</option> }
+    {trip.to === 'North Sinai' ? <option  value="North Sinai" selected >North Sinai</option>  : <option  value="North Sinai"  >North Sinai</option> }
+    {trip.to === 'Port Said' ? <option  value="Port Said" selected >Port Said</option>  : <option  value="Port Said"  >Port Said</option> }
+    {trip.to === 'Qalyubia' ? <option  value="Qalyubia" selected >Qalyubia</option>  : <option  value="Qalyubia"  >Qalyubia</option> }
+    {trip.to === 'Qena' ? <option  value="Qena" selected >Qena</option>  : <option  value="Qena"  >Qena</option> }
+    {trip.to === 'Red Sea' ? <option  value="Red Sea" selected >Red Sea</option>  : <option  value="Red Sea"  >Red Sea</option> }
+    {trip.to === 'Sharqia' ? <option  value="Sharqia" selected >Sharqia</option>  : <option  value="Sharqia"  >Sharqia</option> }
+    {trip.to === 'Sohag' ? <option  value="Sohag" selected >Sohag</option>  : <option  value="Sohag"  >Sohag</option> }
+    {trip.to === 'South Sinai' ? <option  value="South Sinai" selected >South Sinai</option>  : <option  value="South Sinai"  >South Sinai</option> }
+    {trip.to === 'Suez' ? <option  value="Suez" selected >Suez</option>  : <option  value="Suez"  >Suez</option> }
+    
+      
     </select>
 
 </div>
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="TripDate" className='p-1'>Trip Date</label>
-        <input type="text" onChange={handleChange}  className="form-control" placeholder='Date' name='TripDate' defaultValue={trip.TripDate ? trip.TripDate.split('T')[0] : "" } />
+        <input type="date" onChange={handleChange}  className="form-control" placeholder='Date' name='TripDate' defaultValue={trip.TripDate ? trip.TripDate.split('T')[0] : "" } />
     </div>
 
     <div className="col-md-6 pb-2 form-group">
@@ -319,7 +322,7 @@ function validationRequestForm(){
 
     <div className="col-md-6 pb-2 form-group ">
       <label htmlFor="AvailableWeight"  className='p-1'>Available Weight</label>
-      <input onChange={handleChange}  type="number" className="form-control" name="AvailableWeight"  placeholder="Available Weight" defaultValue={trip.AvailableWeight}  />
+      <input onChange={handleChange}  type="number" step="0.01" className="form-control" name="AvailableWeight"  placeholder="Available Weight" defaultValue={trip.AvailableWeight}  />
     </div> 
 
     <div className="col-md-6 pb-2 form-group">

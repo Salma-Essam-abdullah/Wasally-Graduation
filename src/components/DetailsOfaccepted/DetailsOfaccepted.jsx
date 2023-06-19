@@ -95,7 +95,7 @@ const { requestId } = useParams();
 
         <div className="col-md-6 pb-2 form-group">
             <label htmlFor="weight" className='p-1'>Weight : </label>
-            <input readOnly type="text"  className="form-control" placeholder='weight' name='weight' defaultValue={request.weight }/>
+            <input readOnly type="number" step="0.01"  className="form-control" placeholder='weight' name='weight' defaultValue={request.weight }/>
         </div>
 
         <div className="col-md-6 pb-2 form-group">

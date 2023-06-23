@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import Joi from 'joi';
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 const BASE_URL = process.env.REACT_APP_API_URI;
 
 
@@ -34,6 +35,10 @@ export default function TripDetails() {
 
 
   let encodedToken = localStorage.getItem('userToken');
+  let decodedToken = jwtDecode(encodedToken);
+  let travelerVerification = decodedToken.travelerVerification;
+  
+
 
   async function submitForm(e){
     e.preventDefault();
@@ -185,17 +190,10 @@ function validationUserForm(){
               <option value="South Sinai">South Sinai</option>
               <option value="Suez">Suez</option>
     </select>
-
 </div>
     <div className="col-md-6 pb-2 form-group">
         <label htmlFor="TripDate" className='p-1'>Trip Date</label>
-        <input
-        type="date"
-        name="TripDate"
-        onChange={handleChange}
-        required
-        className="form-control"
-      />
+        <input onChange={handleChange}  type="date" name="TripDate" className="form-control" placeholder="Trip Date" required />
     </div>
 
     <div className="col-md-6 pb-2 form-group">
@@ -212,14 +210,20 @@ function validationUserForm(){
     <label htmlFor="unAcceptablaPackage" className='p-1'>unAcceptable Package</label>
     <input onChange={handleChange}  type="text" className="form-control" name="unAcceptablaPackage" placeholder="unAcceptable Package" required />
     </div>
-
-
   </div>
 
   <br />
   <div>
   <div className="text-center  ">
-          <button className="formButton" type='submit' >{loading ?<i></i>:'ADD TRIP'}</button>
+    {travelerVerification === true?
+   <button className="formButton" type='submit' >{loading ?<i></i>:'ADD TRIP'}</button>
+   :
+   <>
+   <button className="formButton" disabled >{loading ?<i></i>:'ADD TRIP'}</button>  
+   <p style={{color:'red'}}>You are still not verified by admin</p>
+   </>
+  }
+         
   </div>
   </div>
 

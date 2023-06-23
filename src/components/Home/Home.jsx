@@ -20,9 +20,7 @@ import {  motion as m } from "framer-motion"
 
 
 export default class Home extends Component {
-  
   render() {
-    let encodedToken = localStorage.getItem('userToken');
     return (
       <>
 <section className="intro">
@@ -43,9 +41,8 @@ export default class Home extends Component {
                           connects shoppers to travellers. 
                           Shoppers can buy their needs from all around the conutry & ship with a Traveller heading 
                           their way.</m.p>
-          {!encodedToken ?
-
-             ( <div className="row">
+          
+              <div className="row">
                   <div className=" col-sm-5 introo">
                   <Link to="/register"><m.button
                               initial={{opacity:0 , x:15}}
@@ -60,8 +57,8 @@ export default class Home extends Component {
                               transition={{type:'tween',duration:1}}
                    className='btn btn-outline-danger transparentButton'>Login</m.button></Link>
                     </div>
-             </div>)
-:''}
+             </div>
+
              <m.div
                          initial={{opacity:0 , x:30}}
                          whileInView={{opacity:1, x:0 ,type:'spring'}}
@@ -307,7 +304,7 @@ packages and items to one another.</m.p>
                             animate={{ opacity: 1 }}
                             whileInView={{opacity:1, x:0 ,type:'spring'}}
                             transition={{type:'tween',duration:1}}
-          >Frequently Asked Questions</m.h2>
+          >SHOPPER<span className='orange'>AND</span>TRAVELER<span className='orange bold'> FAQ</span> </m.h2>
         </div>
 
         <m.ul
@@ -318,60 +315,81 @@ packages and items to one another.</m.p>
          className="faq-list accordion" data-aos="fade-up">
 
           <li>
-            <a data-bs-toggle="collapse" className="collapsed" data-bs-target="#faq1">Non consectetur a erat nam at lectus urna duis? <KeyboardArrowDownIcon className='arr'/> </a>
+            <a data-bs-toggle="collapse" className="collapsed" data-bs-target="#faq1">How does it work for travelers ? <KeyboardArrowDownIcon className='arr'/> </a>
             <div id="faq1" className="collapse" data-bs-parent=".faq-list">
               <p>
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+              Step #1: Click on work. 
+              <br />
+              Step #2: Choose if you are a student or an employee.
+              <br />
+              Step #3: Enter your information (national ID , a photo of your national ID card, and an enrollment statement).
               </p>
             </div>
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq2" className="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?  <KeyboardArrowDownIcon className='arr'/></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq2" className="collapsed"> How to add trip ?<KeyboardArrowDownIcon className='arr'/></a>
             <div id="faq2" className="collapse" data-bs-parent=".faq-list">
-              <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+            <p>
+              Step #1: Click on your profile. 
+              <br />
+              Step #2: Choose add trip button.
+              <br />
+              Step #3: Enter information about your trip.
               </p>
             </div>
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq3" className="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?  <KeyboardArrowDownIcon className='arr'/></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq2" className="collapsed"> How can you buy or deliver something ?<KeyboardArrowDownIcon className='arr'/></a>
+            <div id="faq2" className="collapse" data-bs-parent=".faq-list">
+            <p>
+              Step #1: Click on your profile. 
+              <br />
+              Step #2: Choose buy - deliver Button.
+              <br />
+              Step #3: Enter information about the item you want to buy or deliver and click on add request button.
+              </p>
+            </div>
+          </li>
+
+
+          <li>
+            <a data-bs-toggle="collapse" data-bs-target="#faq3" className="collapsed"> What if the traveler delays or cancels his trip ?  <KeyboardArrowDownIcon className='arr'/></a>
             <div id="faq3" className="collapse" data-bs-parent=".faq-list">
               <p>
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+              In case of traveler or user delay you can cancel the deal and ship your items with another traveler.
+              <br />
+              Step #1: Click on your profile . 
+              <br />
+              Step #2: Choose your shipments button.
+              <br />
+              Step #3: Update or delete your shipment or trip .
               </p>
             </div>
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq4" className="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?  <KeyboardArrowDownIcon className='arr'/></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq4" className="collapsed">How To track your shipment ? <KeyboardArrowDownIcon className='arr'/></a>
             <div id="faq4" className="collapse" data-bs-parent=".faq-list">
               <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+              Once the shipment is approved , the tracking of the shipment begins by Checkpoint tracker .
               </p>
             </div>
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq5" className="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat?  <KeyboardArrowDownIcon className='arr'/></a>
-            <div id="faq5" className="collapse" data-bs-parent=".faq-list">
-              <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq6" className="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor?  <KeyboardArrowDownIcon className='arr'/></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq6" className="collapsed">What if the shipment is not sent or any damages occur to it ?<KeyboardArrowDownIcon className='arr'/></a>
             <div id="faq6" className="collapse" data-bs-parent=".faq-list">
               <p>
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+              Wassali will take responsibility for compensating customers with financial compensation for any losses they have incurred due to the shipment not being sent or any damages that may have occurred.
               </p>
             </div>
           </li>
 
+          
         </m.ul>
+
 
       </div>
     </section>

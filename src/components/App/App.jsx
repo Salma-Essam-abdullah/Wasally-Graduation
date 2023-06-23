@@ -49,6 +49,7 @@ import DetailsOfaccepted from '../DetailsOfaccepted/DetailsOfaccepted';
 import Tracking from '../Tracking/Tracking';
 import PasswordReset2 from '../PasswordReset2/PasswordReset2';
 import ConfirmEmail from '../ConfirmEmail/ConfirmEmail';
+import Admin from '../Admin/Admin';
 
 
 
@@ -125,7 +126,8 @@ function logOut(){
 
               <PrivateRoute path='/qrcode' component={QrCode} allowedRoles={['user']}/> 
              
-
+           
+             
               <PrivateRoute path='/tracking/:requestId' component={Tracking} allowedRoles={['user','traveler']}/> 
               
               <PrivateRoute path='/qrcodeRedirect/:userId' component={QrcodeRedirect} allowedRoles={['user', 'traveler']}/> 
@@ -144,7 +146,7 @@ function logOut(){
               <PrivateRoute path='/viewRequestAfterAcceptance/:requestId' component={ViewRequestAfterAcceptance} allowedRoles={['user', 'traveler']}/>
               <PrivateRoute path='/ViewRequestAfterAcceptanceBuy/:requestId' component={ViewRequestAfterAcceptanceBuy} allowedRoles={['user', 'traveler']}/>
 
-
+              <PrivateRoute path='/admin' component={Admin} allowedRoles={['admin']}/> 
         <Route path="/passwordReset" component={PasswordReset} />
         <Route path="/resetPassword/:token" component={PasswordReset2} />
         <Route path="/confirmEmail/:token" component={ConfirmEmail} />

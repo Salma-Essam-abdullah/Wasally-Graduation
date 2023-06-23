@@ -5,7 +5,7 @@ import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
 import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 import { Link } from 'react-router-dom'
 import PaidIcon from '@mui/icons-material/Paid';
-
+import noImage from '../../assets/images/def.jpg'
 const BASE_URL = process.env.REACT_APP_API_URI;
 export default function Request2() {
 
@@ -143,11 +143,21 @@ useEffect(()=>{
 request.buyOrdeliver ==='deliver' ? 
         <div key={index} className="col-xl-3 col-md-6 portfolio-item filter-app">
           <div  className="portfolio-i ">
-          {
+          {/* {
            userData.map((user,i)=>user.id===request.userId ? 
             <img key={i} src={user.ProfileImage ? user.ProfileImage : 'No'} className="img-fluid" alt="img" />
             :null)
-          }
+          } */}
+           { 
+          userData.map((user,i)=>user.id === request.userId ? 
+          user.ProfileImage ?
+            <img key={i} src={user.ProfileImage }  alt="person" /> 
+            
+            :
+            <img key={i} src={noImage}  alt="person" /> 
+            :null)
+            }
+         
          
             <div className="portfolio-info">
               <h4>{userData.map((user)=>user.id ===request.userId ? user.name : '')}</h4>

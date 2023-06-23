@@ -44,6 +44,12 @@ export default function Navbar(props) {
       <li className="nav-item">
       <NavLink  to="/work" className="nav-link" >Work</NavLink>
       </li>
+      
+      {role === 'admin' ?  <li className="nav-item">
+      <NavLink  to="/admin" className="nav-link" >Admin</NavLink>
+      </li> : ''}
+     
+
       </>:''
       }
 

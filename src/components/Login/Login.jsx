@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import style from "./Login.module.css"
 import {  motion as m } from "framer-motion"
 import loginimg from '../../assets/images/truck.png'
+import jwtDecode from 'jwt-decode';
 const BASE_URL = process.env.REACT_APP_API_URI;
 
 
@@ -62,7 +63,15 @@ export default function Login  (props)  {
           props.getUserInfo();
           // navigate('/request')
           // props.history.push('/request')
-          history.push('/request')
+          const token = localStorage.getItem('userToken');
+          let role  = token ? jwtDecode(token).role : null
+          if(role === 'admin'){
+            history.push('/admin')
+          }
+          else{
+            history.push('/request')
+          }
+          
           
         })
       .catch(err => {

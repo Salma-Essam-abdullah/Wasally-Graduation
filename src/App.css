@@ -1725,3 +1725,67 @@ padding-right: 90px;
   width: 100%;
  
 }
+
+
+
+
+/* admin */
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.action-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.accept {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+}
+
+.decline {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+}
+.dis{
+ 
+    color: #fff;
+    background-color: #a1a1a1;
+  
+    padding-right: 18px;
+    padding-left: 18px;
+    padding: 12px 60px 12px;
+    font-size: 14px;
+    margin-top: 1px;
+    border-radius: 10px;
+  
+}
